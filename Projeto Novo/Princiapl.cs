@@ -32,5 +32,13 @@ namespace Projeto_Novo
             pnlPrincipal.Controls.Add(cliente);
             cliente.Show();
         }
+
+        private void tsmiFornecedor_Click(object sender, EventArgs e)
+        {
+            frmFornecedor fornecedor = new frmFornecedor();
+            fornecedor.TopLevel = false;
+            pnlPrincipal.Controls.Add(fornecedor);
+            fornecedor.Show();
+        }
     }
 }

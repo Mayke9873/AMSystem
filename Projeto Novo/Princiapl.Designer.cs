@@ -42,11 +42,11 @@
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSair = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBotoes = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -80,31 +80,32 @@
             // tsmiClientes
             // 
             this.tsmiClientes.Name = "tsmiClientes";
-            this.tsmiClientes.Size = new System.Drawing.Size(134, 22);
+            this.tsmiClientes.Size = new System.Drawing.Size(180, 22);
             this.tsmiClientes.Text = "Cliente";
             this.tsmiClientes.Click += new System.EventHandler(this.tsmiClientes_Click);
             // 
             // tsmiFornecedor
             // 
             this.tsmiFornecedor.Name = "tsmiFornecedor";
-            this.tsmiFornecedor.Size = new System.Drawing.Size(134, 22);
+            this.tsmiFornecedor.Size = new System.Drawing.Size(180, 22);
             this.tsmiFornecedor.Text = "Fornecedor";
+            this.tsmiFornecedor.Click += new System.EventHandler(this.tsmiFornecedor_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // tsmiProdutos
             // 
             this.tsmiProdutos.Name = "tsmiProdutos";
-            this.tsmiProdutos.Size = new System.Drawing.Size(134, 22);
+            this.tsmiProdutos.Size = new System.Drawing.Size(180, 22);
             this.tsmiProdutos.Text = "Produtos";
             // 
             // tsmiGrupos
             // 
             this.tsmiGrupos.Name = "tsmiGrupos";
-            this.tsmiGrupos.Size = new System.Drawing.Size(134, 22);
+            this.tsmiGrupos.Size = new System.Drawing.Size(180, 22);
             this.tsmiGrupos.Text = "Grupos";
             // 
             // tsmiMovimento
@@ -138,6 +139,7 @@
             // tsmiSair
             // 
             this.tsmiSair.Name = "tsmiSair";
+            this.tsmiSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.tsmiSair.Size = new System.Drawing.Size(38, 20);
             this.tsmiSair.Text = "Sair";
             this.tsmiSair.Click += new System.EventHandler(this.tsmiSair_Click);
@@ -145,7 +147,7 @@
             // tsBotoes
             // 
             this.tsBotoes.AutoSize = false;
-            this.tsBotoes.ImageScalingSize = new System.Drawing.Size(32, 35);
+            this.tsBotoes.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.tsBotoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripSeparator2,
@@ -156,23 +158,7 @@
             this.tsBotoes.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.tsBotoes.Size = new System.Drawing.Size(984, 54);
             this.tsBotoes.TabIndex = 1;
-            this.tsBotoes.Text = "toolStrip1";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
-            // 
-            // pnlPrincipal
-            // 
-            this.pnlPrincipal.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlPrincipal.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 78);
-            this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
-            this.pnlPrincipal.TabIndex = 2;
+            this.tsBotoes.Text = "Botoes";
             // 
             // toolStripButton1
             // 
@@ -184,6 +170,11 @@
             this.toolStripButton1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
             this.toolStripButton1.Size = new System.Drawing.Size(36, 51);
             this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
             // 
             // toolStripButton2
             // 
@@ -202,6 +193,17 @@
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(36, 51);
             this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // pnlPrincipal
+            // 
+            this.pnlPrincipal.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlPrincipal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 78);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
+            this.pnlPrincipal.TabIndex = 2;
             // 
             // fmrPrinciapl
             // 
