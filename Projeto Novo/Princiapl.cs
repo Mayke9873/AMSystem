@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_Novo
 {
-    public partial class Princiapl : Form
+    public partial class fmrPrinciapl : Form
     {
-        public Princiapl()
+        public fmrPrinciapl()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace Projeto_Novo
 
         private void tsmiClientes_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
+            fmrCliente cliente = new fmrCliente();
             cliente.TopLevel = false;
             pnlPrincipal.Controls.Add(cliente);
             cliente.Show();

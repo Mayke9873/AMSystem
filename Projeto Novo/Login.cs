@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace Projeto_Novo
 {
-    public partial class Login : Form
+    public partial class fmrLogin : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -24,7 +24,7 @@ namespace Projeto_Novo
             int nHeightEllipse // width of ellipse
         );
 
-        public Login()
+        public fmrLogin()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));

@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Novo
 {
-    partial class Princiapl
+    partial class fmrPrinciapl
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Princiapl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrPrinciapl));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmiCadastros = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiClientes = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,13 +41,14 @@
             this.tsmiFinanceiro = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tsBotoes = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -79,31 +80,31 @@
             // tsmiClientes
             // 
             this.tsmiClientes.Name = "tsmiClientes";
-            this.tsmiClientes.Size = new System.Drawing.Size(180, 22);
+            this.tsmiClientes.Size = new System.Drawing.Size(134, 22);
             this.tsmiClientes.Text = "Cliente";
             this.tsmiClientes.Click += new System.EventHandler(this.tsmiClientes_Click);
             // 
             // tsmiFornecedor
             // 
             this.tsmiFornecedor.Name = "tsmiFornecedor";
-            this.tsmiFornecedor.Size = new System.Drawing.Size(180, 22);
+            this.tsmiFornecedor.Size = new System.Drawing.Size(134, 22);
             this.tsmiFornecedor.Text = "Fornecedor";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(131, 6);
             // 
             // tsmiProdutos
             // 
             this.tsmiProdutos.Name = "tsmiProdutos";
-            this.tsmiProdutos.Size = new System.Drawing.Size(180, 22);
+            this.tsmiProdutos.Size = new System.Drawing.Size(134, 22);
             this.tsmiProdutos.Text = "Produtos";
             // 
             // tsmiGrupos
             // 
             this.tsmiGrupos.Name = "tsmiGrupos";
-            this.tsmiGrupos.Size = new System.Drawing.Size(180, 22);
+            this.tsmiGrupos.Size = new System.Drawing.Size(134, 22);
             this.tsmiGrupos.Text = "Grupos";
             // 
             // tsmiMovimento
@@ -117,7 +118,7 @@
             // vendasToolStripMenuItem
             // 
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // tsmiFinanceiro
@@ -141,19 +142,37 @@
             this.tsmiSair.Text = "Sair";
             this.tsmiSair.Click += new System.EventHandler(this.tsmiSair_Click);
             // 
-            // toolStrip1
+            // tsBotoes
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsBotoes.AutoSize = false;
+            this.tsBotoes.ImageScalingSize = new System.Drawing.Size(32, 35);
+            this.tsBotoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
             this.toolStripSeparator2,
-            this.toolStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(984, 46);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.toolStripButton2,
+            this.toolStripButton3});
+            this.tsBotoes.Location = new System.Drawing.Point(0, 24);
+            this.tsBotoes.Name = "tsBotoes";
+            this.tsBotoes.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.tsBotoes.Size = new System.Drawing.Size(984, 54);
+            this.tsBotoes.TabIndex = 1;
+            this.tsBotoes.Text = "toolStrip1";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
+            // 
+            // pnlPrincipal
+            // 
+            this.pnlPrincipal.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlPrincipal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 78);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
+            this.pnlPrincipal.TabIndex = 2;
             // 
             // toolStripButton1
             // 
@@ -163,13 +182,8 @@
             this.toolStripButton1.MergeIndex = 0;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 43);
+            this.toolStripButton1.Size = new System.Drawing.Size(36, 51);
             this.toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 46);
             // 
             // toolStripButton2
             // 
@@ -177,34 +191,34 @@
             this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 43);
+            this.toolStripButton2.Size = new System.Drawing.Size(36, 51);
             this.toolStripButton2.Text = "toolStripButton2";
             // 
-            // pnlPrincipal
+            // toolStripButton3
             // 
-            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 70);
-            this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(984, 591);
-            this.pnlPrincipal.TabIndex = 2;
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(36, 51);
+            this.toolStripButton3.Text = "toolStripButton3";
             // 
-            // Princiapl
+            // fmrPrinciapl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.pnlPrincipal);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsBotoes);
             this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Princiapl";
+            this.Name = "fmrPrinciapl";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "AmSystem";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsBotoes.ResumeLayout(false);
+            this.tsBotoes.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,12 +237,13 @@
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiFinanceiro;
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsBotoes;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.ToolStripMenuItem tsmiSair;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
     }
 }
 
