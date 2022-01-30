@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Novo
 {
-    partial class fmrCliente
+    partial class FrmCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmrCliente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.tpClientes = new System.Windows.Forms.TabControl();
             this.tpCliente = new System.Windows.Forms.TabPage();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.txtIdCli = new System.Windows.Forms.TextBox();
+            this.lblIdCli = new System.Windows.Forms.Label();
+            this.txtBairroCli = new System.Windows.Forms.TextBox();
+            this.txtNumEndCli = new System.Windows.Forms.TextBox();
+            this.txtEnderecoCli = new System.Windows.Forms.TextBox();
+            this.mtxDtNasc = new System.Windows.Forms.MaskedTextBox();
+            this.txtNomeCli = new System.Windows.Forms.TextBox();
+            this.lblBairro = new System.Windows.Forms.Label();
+            this.lblEndereco = new System.Windows.Forms.Label();
+            this.lblDtNasc = new System.Windows.Forms.Label();
+            this.lblNomeCli = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.novoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.abrirToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -45,15 +56,6 @@
             this.colarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.ajudaToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tpClientes.SuspendLayout();
             this.tpCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
@@ -83,7 +85,7 @@
             this.tpCliente.Location = new System.Drawing.Point(4, 22);
             this.tpCliente.Name = "tpCliente";
             this.tpCliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCliente.Size = new System.Drawing.Size(976, 536);
+            this.tpCliente.Size = new System.Drawing.Size(976, 532);
             this.tpCliente.TabIndex = 0;
             this.tpCliente.Text = "Cliente";
             this.tpCliente.UseVisualStyleBackColor = true;
@@ -95,7 +97,7 @@
             this.dgvCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCliente.Location = new System.Drawing.Point(3, 3);
             this.dgvCliente.Name = "dgvCliente";
-            this.dgvCliente.Size = new System.Drawing.Size(970, 530);
+            this.dgvCliente.Size = new System.Drawing.Size(970, 526);
             this.dgvCliente.TabIndex = 2;
             // 
             // dgvClientes
@@ -108,20 +110,22 @@
             this.dgvClientes.Location = new System.Drawing.Point(3, 3);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 530);
+            this.dgvClientes.Size = new System.Drawing.Size(970, 526);
             this.dgvClientes.TabIndex = 0;
             // 
             // tpDados
             // 
-            this.tpDados.Controls.Add(this.textBox4);
-            this.tpDados.Controls.Add(this.textBox3);
-            this.tpDados.Controls.Add(this.textBox2);
-            this.tpDados.Controls.Add(this.maskedTextBox1);
-            this.tpDados.Controls.Add(this.textBox1);
-            this.tpDados.Controls.Add(this.label4);
-            this.tpDados.Controls.Add(this.label3);
-            this.tpDados.Controls.Add(this.label2);
-            this.tpDados.Controls.Add(this.label1);
+            this.tpDados.Controls.Add(this.txtIdCli);
+            this.tpDados.Controls.Add(this.lblIdCli);
+            this.tpDados.Controls.Add(this.txtBairroCli);
+            this.tpDados.Controls.Add(this.txtNumEndCli);
+            this.tpDados.Controls.Add(this.txtEnderecoCli);
+            this.tpDados.Controls.Add(this.mtxDtNasc);
+            this.tpDados.Controls.Add(this.txtNomeCli);
+            this.tpDados.Controls.Add(this.lblBairro);
+            this.tpDados.Controls.Add(this.lblEndereco);
+            this.tpDados.Controls.Add(this.lblDtNasc);
+            this.tpDados.Controls.Add(this.lblNomeCli);
             this.tpDados.Location = new System.Drawing.Point(4, 22);
             this.tpDados.Name = "tpDados";
             this.tpDados.Padding = new System.Windows.Forms.Padding(3);
@@ -129,6 +133,108 @@
             this.tpDados.TabIndex = 1;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // txtIdCli
+            // 
+            this.txtIdCli.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtIdCli.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtIdCli.Location = new System.Drawing.Point(11, 34);
+            this.txtIdCli.Name = "txtIdCli";
+            this.txtIdCli.ReadOnly = true;
+            this.txtIdCli.Size = new System.Drawing.Size(77, 26);
+            this.txtIdCli.TabIndex = 6;
+            // 
+            // lblIdCli
+            // 
+            this.lblIdCli.AutoSize = true;
+            this.lblIdCli.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblIdCli.Location = new System.Drawing.Point(8, 13);
+            this.lblIdCli.Name = "lblIdCli";
+            this.lblIdCli.Size = new System.Drawing.Size(64, 18);
+            this.lblIdCli.TabIndex = 6;
+            this.lblIdCli.Text = "Código:";
+            // 
+            // txtBairroCli
+            // 
+            this.txtBairroCli.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtBairroCli.Location = new System.Drawing.Point(362, 150);
+            this.txtBairroCli.Name = "txtBairroCli";
+            this.txtBairroCli.Size = new System.Drawing.Size(285, 26);
+            this.txtBairroCli.TabIndex = 5;
+            // 
+            // txtNumEndCli
+            // 
+            this.txtNumEndCli.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtNumEndCli.Location = new System.Drawing.Point(298, 150);
+            this.txtNumEndCli.Name = "txtNumEndCli";
+            this.txtNumEndCli.Size = new System.Drawing.Size(52, 26);
+            this.txtNumEndCli.TabIndex = 4;
+            // 
+            // txtEnderecoCli
+            // 
+            this.txtEnderecoCli.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtEnderecoCli.Location = new System.Drawing.Point(11, 150);
+            this.txtEnderecoCli.Name = "txtEnderecoCli";
+            this.txtEnderecoCli.Size = new System.Drawing.Size(285, 26);
+            this.txtEnderecoCli.TabIndex = 3;
+            // 
+            // mtxDtNasc
+            // 
+            this.mtxDtNasc.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxDtNasc.Location = new System.Drawing.Point(362, 91);
+            this.mtxDtNasc.Mask = "00/00/0000";
+            this.mtxDtNasc.Name = "mtxDtNasc";
+            this.mtxDtNasc.Size = new System.Drawing.Size(100, 26);
+            this.mtxDtNasc.TabIndex = 2;
+            this.mtxDtNasc.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtNomeCli
+            // 
+            this.txtNomeCli.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtNomeCli.Location = new System.Drawing.Point(11, 91);
+            this.txtNomeCli.Name = "txtNomeCli";
+            this.txtNomeCli.Size = new System.Drawing.Size(285, 26);
+            this.txtNomeCli.TabIndex = 1;
+            // 
+            // lblBairro
+            // 
+            this.lblBairro.AutoSize = true;
+            this.lblBairro.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblBairro.Location = new System.Drawing.Point(359, 129);
+            this.lblBairro.Name = "lblBairro";
+            this.lblBairro.Size = new System.Drawing.Size(55, 18);
+            this.lblBairro.TabIndex = 3;
+            this.lblBairro.Text = "Bairro:";
+            // 
+            // lblEndereco
+            // 
+            this.lblEndereco.AutoSize = true;
+            this.lblEndereco.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblEndereco.Location = new System.Drawing.Point(8, 129);
+            this.lblEndereco.Name = "lblEndereco";
+            this.lblEndereco.Size = new System.Drawing.Size(80, 18);
+            this.lblEndereco.TabIndex = 2;
+            this.lblEndereco.Text = "Endereço:";
+            // 
+            // lblDtNasc
+            // 
+            this.lblDtNasc.AutoSize = true;
+            this.lblDtNasc.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblDtNasc.Location = new System.Drawing.Point(359, 70);
+            this.lblDtNasc.Name = "lblDtNasc";
+            this.lblDtNasc.Size = new System.Drawing.Size(68, 18);
+            this.lblDtNasc.TabIndex = 1;
+            this.lblDtNasc.Text = "Dt Nasc:";
+            // 
+            // lblNomeCli
+            // 
+            this.lblNomeCli.AutoSize = true;
+            this.lblNomeCli.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblNomeCli.Location = new System.Drawing.Point(8, 70);
+            this.lblNomeCli.Name = "lblNomeCli";
+            this.lblNomeCli.Size = new System.Drawing.Size(54, 18);
+            this.lblNomeCli.TabIndex = 0;
+            this.lblNomeCli.Text = "Nome:";
             // 
             // toolStrip1
             // 
@@ -167,7 +273,7 @@
             this.abrirToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("abrirToolStripButton.Image")));
             this.abrirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.abrirToolStripButton.Name = "abrirToolStripButton";
-            this.abrirToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.abrirToolStripButton.Size = new System.Drawing.Size(26, 26);
             this.abrirToolStripButton.Text = "&Abrir";
             // 
             // salvarToolStripButton
@@ -176,7 +282,7 @@
             this.salvarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("salvarToolStripButton.Image")));
             this.salvarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.salvarToolStripButton.Name = "salvarToolStripButton";
-            this.salvarToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.salvarToolStripButton.Size = new System.Drawing.Size(26, 26);
             this.salvarToolStripButton.Text = "&Salvar";
             // 
             // imprimirToolStripButton
@@ -185,13 +291,13 @@
             this.imprimirToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("imprimirToolStripButton.Image")));
             this.imprimirToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.imprimirToolStripButton.Name = "imprimirToolStripButton";
-            this.imprimirToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.imprimirToolStripButton.Size = new System.Drawing.Size(26, 26);
             this.imprimirToolStripButton.Text = "&Imprimir";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
             // 
             // recortarToolStripButton
             // 
@@ -199,7 +305,7 @@
             this.recortarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("recortarToolStripButton.Image")));
             this.recortarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.recortarToolStripButton.Name = "recortarToolStripButton";
-            this.recortarToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.recortarToolStripButton.Size = new System.Drawing.Size(26, 26);
             this.recortarToolStripButton.Text = "Recor&tar";
             // 
             // copiarToolStripButton
@@ -208,7 +314,7 @@
             this.copiarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripButton.Image")));
             this.copiarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.copiarToolStripButton.Name = "copiarToolStripButton";
-            this.copiarToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.copiarToolStripButton.Size = new System.Drawing.Size(26, 26);
             this.copiarToolStripButton.Text = "&Copiar";
             // 
             // colarToolStripButton
@@ -217,13 +323,13 @@
             this.colarToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("colarToolStripButton.Image")));
             this.colarToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.colarToolStripButton.Name = "colarToolStripButton";
-            this.colarToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.colarToolStripButton.Size = new System.Drawing.Size(26, 26);
             this.colarToolStripButton.Text = "C&olar";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
             // 
             // ajudaToolStripButton
             // 
@@ -231,92 +337,10 @@
             this.ajudaToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("ajudaToolStripButton.Image")));
             this.ajudaToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ajudaToolStripButton.Name = "ajudaToolStripButton";
-            this.ajudaToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.ajudaToolStripButton.Size = new System.Drawing.Size(26, 26);
             this.ajudaToolStripButton.Text = "&Ajuda";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F);
-            this.label1.Location = new System.Drawing.Point(8, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nome:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F);
-            this.label2.Location = new System.Drawing.Point(359, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Dt Nasc:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F);
-            this.label3.Location = new System.Drawing.Point(8, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Endereço:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F);
-            this.label4.Location = new System.Drawing.Point(359, 93);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 18);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Bairro:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox1.Location = new System.Drawing.Point(11, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(285, 26);
-            this.textBox1.TabIndex = 4;
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Arial", 12F);
-            this.maskedTextBox1.Location = new System.Drawing.Point(362, 44);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 26);
-            this.maskedTextBox1.TabIndex = 5;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox2.Location = new System.Drawing.Point(11, 114);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(285, 26);
-            this.textBox2.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox3.Location = new System.Drawing.Point(298, 114);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(52, 26);
-            this.textBox3.TabIndex = 7;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox4.Location = new System.Drawing.Point(362, 114);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(285, 26);
-            this.textBox4.TabIndex = 8;
-            // 
-            // fmrCliente
+            // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -324,7 +348,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.tpClientes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "fmrCliente";
+            this.Name = "FrmCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -359,14 +383,16 @@
         private System.Windows.Forms.ToolStripButton colarToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton ajudaToolStripButton;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtBairroCli;
+        private System.Windows.Forms.TextBox txtNumEndCli;
+        private System.Windows.Forms.TextBox txtEnderecoCli;
+        private System.Windows.Forms.MaskedTextBox mtxDtNasc;
+        private System.Windows.Forms.TextBox txtNomeCli;
+        private System.Windows.Forms.Label lblBairro;
+        private System.Windows.Forms.Label lblEndereco;
+        private System.Windows.Forms.Label lblDtNasc;
+        private System.Windows.Forms.Label lblNomeCli;
+        private System.Windows.Forms.Label lblIdCli;
+        private System.Windows.Forms.TextBox txtIdCli;
     }
 }

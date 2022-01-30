@@ -16,11 +16,11 @@ namespace Projeto_Novo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            fmrLogin login = new fmrLogin();
+            FrmLogin login = new FrmLogin();
 
             if (login.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new fmrPrinciapl());
+                Application.Run(new FrmPrinciapl());
             }
         }
     }

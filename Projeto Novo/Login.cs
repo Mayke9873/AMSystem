@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace Projeto_Novo
 {
-    public partial class fmrLogin : Form
+    public partial class FrmLogin : Form
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -24,7 +24,7 @@ namespace Projeto_Novo
             int nHeightEllipse // width of ellipse
         );
 
-        public fmrLogin()
+        public FrmLogin()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
@@ -32,6 +32,21 @@ namespace Projeto_Novo
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            // Login
+            if (txtUsuario.Text == "")
+            {
+                MessageBox.Show("Usuário não informado, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtUsuario.Focus();
+                return;
+            }
+            else if (txtSenha.Text == "")
+            {
+                MessageBox.Show("Senha não informada, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtSenha.Focus();
+                return;
+            }
+
+            // Aqui vai o Login
             DialogResult = DialogResult.OK;
         }
 

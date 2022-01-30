@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_Novo
 {
-    public partial class fmrCliente : Form
+    public partial class FrmCliente : Form
     {
-        public fmrCliente()
+        public FrmCliente()
         {
             InitializeComponent();
         }

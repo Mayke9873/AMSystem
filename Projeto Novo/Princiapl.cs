@@ -10,11 +10,24 @@ using System.Windows.Forms;
 
 namespace Projeto_Novo
 {
-    public partial class fmrPrinciapl : Form
+    public partial class FrmPrinciapl : Form
     {
-        public fmrPrinciapl()
+        public FrmPrinciapl()
         {
             InitializeComponent();
+        }
+        private void fmrPrinciapl_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.F1:
+                    tsbtnPedido_Click(sender, e);
+                    break;
+
+                case Keys.Escape:
+                    tsmiSair_Click(sender, e);
+                    break;
+            }
         }
 
         private void tsmiSair_Click(object sender, EventArgs e)
@@ -24,10 +37,14 @@ namespace Projeto_Novo
                 Application.Exit();
             }
         }
+        private void tsbtnSair_Click(object sender, EventArgs e)
+        {
+            tsmiSair_Click((object)sender, e);
+        }
 
         private void tsmiClientes_Click(object sender, EventArgs e)
         {
-            fmrCliente cliente = new fmrCliente();
+            FrmCliente cliente = new FrmCliente();
             cliente.TopLevel = false;
             pnlPrincipal.Controls.Add(cliente);
             cliente.Show();
@@ -35,10 +52,18 @@ namespace Projeto_Novo
 
         private void tsmiFornecedor_Click(object sender, EventArgs e)
         {
-            frmFornecedor fornecedor = new frmFornecedor();
+            FrmFornecedor fornecedor = new FrmFornecedor();
             fornecedor.TopLevel = false;
             pnlPrincipal.Controls.Add(fornecedor);
             fornecedor.Show();
+        }
+
+        private void tsbtnPedido_Click(object sender, EventArgs e)
+        {
+            FrmVendas vendas= new FrmVendas();
+            vendas.TopLevel = false;
+            pnlPrincipal.Controls.Add(vendas);
+            vendas.Show();
         }
     }
 }
