@@ -24,7 +24,7 @@ namespace Projeto_Novo
                     tsbtnPedido_Click(sender, e);
                     break;
 
-                case Keys.Escape:
+                case Keys.Alt | Keys.F4:
                     tsmiSair_Click(sender, e);
                     break;
             }
@@ -63,7 +63,16 @@ namespace Projeto_Novo
             FrmVendas vendas= new FrmVendas();
             vendas.TopLevel = false;
             pnlPrincipal.Controls.Add(vendas);
-            vendas.Show();
+
+            if (Application.OpenForms.OfType <FrmVendas>().Count()>0)
+            {
+                MessageBox.Show("Tela de Vendas já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                vendas.Show();
+            }
         }
     }
 }
