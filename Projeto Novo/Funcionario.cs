@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_Novo
 {
-    public partial class frmFuncionario : Form
+    public partial class FrmFuncionario : Form
     {
-        public frmFuncionario()
+        public FrmFuncionario()
         {
             InitializeComponent();
         }

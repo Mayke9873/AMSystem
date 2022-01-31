@@ -55,6 +55,7 @@
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiFuncionario = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -83,6 +84,7 @@
             this.tsmiProdutos,
             this.tsmiGrupoProd,
             this.toolStripSeparator3,
+            this.tsmiFuncionario,
             this.tsmiUsuario,
             this.tsmiGrupoUsu});
             this.tsmiCadastros.Image = ((System.Drawing.Image)(resources.GetObject("tsmiCadastros.Image")));
@@ -164,7 +166,7 @@
             // consultaDeVendasToolStripMenuItem
             // 
             this.consultaDeVendasToolStripMenuItem.Name = "consultaDeVendasToolStripMenuItem";
-            this.consultaDeVendasToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.consultaDeVendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.consultaDeVendasToolStripMenuItem.Text = "Consulta de Vendas";
             // 
             // tsmiFinanceiro
@@ -241,7 +243,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 54);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 50);
             // 
             // tsbtnCReceber
             // 
@@ -249,7 +251,7 @@
             this.tsbtnCReceber.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCReceber.Image")));
             this.tsbtnCReceber.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnCReceber.Name = "tsbtnCReceber";
-            this.tsbtnCReceber.Size = new System.Drawing.Size(36, 41);
+            this.tsbtnCReceber.Size = new System.Drawing.Size(36, 47);
             this.tsbtnCReceber.Text = "A Receber";
             // 
             // tsbtnSair
@@ -284,6 +286,13 @@
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
             this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
+            // 
+            // tsmiFuncionario
+            // 
+            this.tsmiFuncionario.Name = "tsmiFuncionario";
+            this.tsmiFuncionario.Size = new System.Drawing.Size(180, 22);
+            this.tsmiFuncionario.Text = "Funcionário";
+            this.tsmiFuncionario.Click += new System.EventHandler(this.tsmiFuncionario_Click);
             // 
             // FrmPrinciapl
             // 
@@ -337,6 +346,7 @@
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiFuncionario;
     }
 }
 

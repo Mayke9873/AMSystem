@@ -118,5 +118,22 @@ namespace Projeto_Novo
                 return;
             }
         }
+
+        private void tsmiFuncionario_Click(object sender, EventArgs e)
+        {
+            FrmFuncionario funcionario = new FrmFuncionario();
+            funcionario.TopLevel = false;
+            pnlPrincipal.Controls.Add(funcionario);
+            if (Application.OpenForms.OfType<FrmFuncionario>().Count() > 0)
+            {
+                MessageBox.Show("Tela de Produtos já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                funcionario.Show();
+                return;
+            }
+        }
     }
 }
