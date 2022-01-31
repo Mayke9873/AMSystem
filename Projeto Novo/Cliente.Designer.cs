@@ -135,10 +135,10 @@
             // txtIdCli
             // 
             this.txtIdCli.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtIdCli.Enabled = false;
             this.txtIdCli.Font = new System.Drawing.Font("Arial", 12F);
             this.txtIdCli.Location = new System.Drawing.Point(11, 34);
             this.txtIdCli.Name = "txtIdCli";
-            this.txtIdCli.ReadOnly = true;
             this.txtIdCli.Size = new System.Drawing.Size(77, 26);
             this.txtIdCli.TabIndex = 6;
             // 
