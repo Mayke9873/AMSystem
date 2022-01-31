@@ -52,7 +52,7 @@ namespace Projeto_Novo
 
             if (Application.OpenForms.OfType<FrmCliente>().Count() > 0)
             {
-                MessageBox.Show("Tela de Produtos já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -70,7 +70,7 @@ namespace Projeto_Novo
 
             if (Application.OpenForms.OfType<FrmFornecedor>().Count() > 0)
             {
-                MessageBox.Show("Tela de Produtos já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -88,7 +88,7 @@ namespace Projeto_Novo
 
             if (Application.OpenForms.OfType <FrmVenda>().Count()>0)
             {
-                MessageBox.Show("Tela de Vendas já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -109,7 +109,7 @@ namespace Projeto_Novo
             pnlPrincipal.Controls.Add(produtos);
             if (Application.OpenForms.OfType<FrmProduto>().Count() > 0)
             {
-                MessageBox.Show("Tela de Produtos já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -126,7 +126,7 @@ namespace Projeto_Novo
             pnlPrincipal.Controls.Add(funcionario);
             if (Application.OpenForms.OfType<FrmFuncionario>().Count() > 0)
             {
-                MessageBox.Show("Tela de Produtos já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else

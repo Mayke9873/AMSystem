@@ -19,6 +19,11 @@ namespace Projeto_Novo
         private void FrmFuncionario_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    tsbtnSair_Click(sender, e);
+                    break;
+            }
 
         }
 
