@@ -16,5 +16,15 @@ namespace Projeto_Novo
         {
             InitializeComponent();
         }
+        private void FrmFuncionario_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+
+        }
+
+        private void tsbtnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

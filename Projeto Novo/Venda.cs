@@ -41,7 +41,7 @@ namespace Projeto_Novo
                     return;
                 }
             }
-            else if (MessageBox.Show("Sair sair da venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            else if (MessageBox.Show("Deseja sair da venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
                 return;

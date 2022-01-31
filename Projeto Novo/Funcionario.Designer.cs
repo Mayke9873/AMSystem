@@ -375,6 +375,7 @@
             this.tsbtnSair.Name = "tsbtnSair";
             this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSair.Text = "Sair";
+            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
             // FrmFuncionario
             // 
@@ -384,9 +385,11 @@
             this.Controls.Add(this.tpFornecedores);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Name = "FrmFuncionario";
             this.Text = "Funcionario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmFuncionario_KeyDown);
             this.tpFornecedores.ResumeLayout(false);
             this.tpFuncionario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
