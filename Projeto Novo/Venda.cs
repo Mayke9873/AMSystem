@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Projeto_Novo
 {
-    public partial class FrmVendas : Form
+    public partial class FrmVenda : Form
     {
-        public FrmVendas()
+        public FrmVenda()
         {
             InitializeComponent();
         }
@@ -38,27 +38,34 @@ namespace Projeto_Novo
                 if (MessageBox.Show("Deseja cancelar venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
                     this.Close();
+                    return;
                 }
             }
             else if (MessageBox.Show("Sair sair da venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
+                return;
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja cancelar venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (txtIdCliente.Text.Length != 0 || txtCliente.Text.Length != 0 || txtIdProduto.Text.Length != 0 && txtProduto.Text.Length != 0)
             {
-                txtIdVenda.Clear();
-                txtCliente.Clear();
-                txtIdCliente.Clear();
-                txtIdProduto.Clear();
-                txtProduto.Clear();
-                txtQtd.Clear();
-                txtValorUnit.Clear();
-                txtValorTotal.Clear();
-                txtDesconto.Clear();
+                if (MessageBox.Show("Deseja cancelar venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    txtIdVenda.Clear();
+                    txtCliente.Clear();
+                    txtIdCliente.Clear();
+                    txtIdProduto.Clear();
+                    txtProduto.Clear();
+                    txtQtd.Clear();
+                    txtValorUnit.Clear();
+                    txtValorTotal.Clear();
+                    txtDesconto.Clear();
+                    return;
+                }
+                return;
             }
         }
     }

@@ -30,6 +30,20 @@ namespace Projeto_Novo
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
         }
 
+        private void FrmLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    btnLogin_Click(sender, e);
+                    break;
+
+                case Keys.Escape:
+                    this.Close();
+                    break;
+            }
+        }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // Login

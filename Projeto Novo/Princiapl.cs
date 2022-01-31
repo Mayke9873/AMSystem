@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Drawing2D;
 
 namespace Projeto_Novo
 {
@@ -15,6 +16,7 @@ namespace Projeto_Novo
         public FrmPrinciapl()
         {
             InitializeComponent();
+
         }
         private void fmrPrinciapl_KeyDown(object sender, KeyEventArgs e)
         {
@@ -47,7 +49,17 @@ namespace Projeto_Novo
             FrmCliente cliente = new FrmCliente();
             cliente.TopLevel = false;
             pnlPrincipal.Controls.Add(cliente);
-            cliente.Show();
+
+            if (Application.OpenForms.OfType<FrmCliente>().Count() > 0)
+            {
+                MessageBox.Show("Tela de Produtos já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                cliente.Show();
+                return;
+            }
         }
 
         private void tsmiFornecedor_Click(object sender, EventArgs e)
@@ -55,23 +67,55 @@ namespace Projeto_Novo
             FrmFornecedor fornecedor = new FrmFornecedor();
             fornecedor.TopLevel = false;
             pnlPrincipal.Controls.Add(fornecedor);
-            fornecedor.Show();
+
+            if (Application.OpenForms.OfType<FrmFornecedor>().Count() > 0)
+            {
+                MessageBox.Show("Tela de Produtos já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                fornecedor.Show();
+                return;
+            }
         }
 
         private void tsbtnPedido_Click(object sender, EventArgs e)
         {
-            FrmVendas vendas= new FrmVendas();
+            FrmVenda vendas= new FrmVenda();
             vendas.TopLevel = false;
             pnlPrincipal.Controls.Add(vendas);
 
-            if (Application.OpenForms.OfType <FrmVendas>().Count()>0)
+            if (Application.OpenForms.OfType <FrmVenda>().Count()>0)
             {
-                MessageBox.Show("Tela de Vendas já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Tela de Vendas já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
             {
                 vendas.Show();
+                return;
+            }
+        }
+        private void tsmiPedido_Click(object sender, EventArgs e)
+        {
+            tsbtnPedido_Click(sender, e);
+        }
+
+        private void tsmiProdutos_Click(object sender, EventArgs e)
+        {
+            FrmProduto produtos = new FrmProduto();
+            produtos.TopLevel = false;
+            pnlPrincipal.Controls.Add(produtos);
+            if (Application.OpenForms.OfType<FrmProduto>().Count() > 0)
+            {
+                MessageBox.Show("Tela de Produtos já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                produtos.Show();
+                return;
             }
         }
     }

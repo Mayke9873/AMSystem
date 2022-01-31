@@ -35,12 +35,12 @@
             this.tsmiFornecedor = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiProdutos = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiGrupos = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGrupoProd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.funcionáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.grupoDeUsuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiGrupoUsu = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiMovimento = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiPedido = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaDeVendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFinanceiro = new System.Windows.Forms.ToolStripMenuItem();
             this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,6 +53,8 @@
             this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -67,10 +69,10 @@
             this.tsmiSair});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
-            this.msMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.msMenu.Size = new System.Drawing.Size(984, 24);
+            this.msMenu.Stretch = false;
             this.msMenu.TabIndex = 0;
-            this.msMenu.Text = "menuStrip1";
+            this.msMenu.Text = "msMenus";
             // 
             // tsmiCadastros
             // 
@@ -79,10 +81,10 @@
             this.tsmiFornecedor,
             this.toolStripSeparator1,
             this.tsmiProdutos,
-            this.tsmiGrupos,
+            this.tsmiGrupoProd,
             this.toolStripSeparator3,
-            this.funcionáriosToolStripMenuItem,
-            this.grupoDeUsuárioToolStripMenuItem});
+            this.tsmiUsuario,
+            this.tsmiGrupoUsu});
             this.tsmiCadastros.Image = ((System.Drawing.Image)(resources.GetObject("tsmiCadastros.Image")));
             this.tsmiCadastros.Name = "tsmiCadastros";
             this.tsmiCadastros.Size = new System.Drawing.Size(87, 20);
@@ -92,7 +94,7 @@
             // 
             this.tsmiClientes.Name = "tsmiClientes";
             this.tsmiClientes.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.tsmiClientes.Size = new System.Drawing.Size(166, 22);
+            this.tsmiClientes.Size = new System.Drawing.Size(180, 22);
             this.tsmiClientes.Text = "Cliente";
             this.tsmiClientes.Click += new System.EventHandler(this.tsmiClientes_Click);
             // 
@@ -100,66 +102,69 @@
             // 
             this.tsmiFornecedor.Name = "tsmiFornecedor";
             this.tsmiFornecedor.ShortcutKeys = System.Windows.Forms.Keys.F6;
-            this.tsmiFornecedor.Size = new System.Drawing.Size(166, 22);
+            this.tsmiFornecedor.Size = new System.Drawing.Size(180, 22);
             this.tsmiFornecedor.Text = "Fornecedor";
             this.tsmiFornecedor.Click += new System.EventHandler(this.tsmiFornecedor_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // tsmiProdutos
             // 
             this.tsmiProdutos.Name = "tsmiProdutos";
             this.tsmiProdutos.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.tsmiProdutos.Size = new System.Drawing.Size(166, 22);
+            this.tsmiProdutos.Size = new System.Drawing.Size(180, 22);
             this.tsmiProdutos.Text = "Produtos";
+            this.tsmiProdutos.Click += new System.EventHandler(this.tsmiProdutos_Click);
             // 
-            // tsmiGrupos
+            // tsmiGrupoProd
             // 
-            this.tsmiGrupos.Name = "tsmiGrupos";
-            this.tsmiGrupos.Size = new System.Drawing.Size(166, 22);
-            this.tsmiGrupos.Text = "Grupos";
+            this.tsmiGrupoProd.Name = "tsmiGrupoProd";
+            this.tsmiGrupoProd.Size = new System.Drawing.Size(180, 22);
+            this.tsmiGrupoProd.Text = "Grupos";
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(163, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
-            // funcionáriosToolStripMenuItem
+            // tsmiUsuario
             // 
-            this.funcionáriosToolStripMenuItem.Name = "funcionáriosToolStripMenuItem";
-            this.funcionáriosToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.funcionáriosToolStripMenuItem.Text = "Usuários";
+            this.tsmiUsuario.Name = "tsmiUsuario";
+            this.tsmiUsuario.Size = new System.Drawing.Size(180, 22);
+            this.tsmiUsuario.Text = "Usuários";
             // 
-            // grupoDeUsuárioToolStripMenuItem
+            // tsmiGrupoUsu
             // 
-            this.grupoDeUsuárioToolStripMenuItem.Name = "grupoDeUsuárioToolStripMenuItem";
-            this.grupoDeUsuárioToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.grupoDeUsuárioToolStripMenuItem.Text = "Grupo de Usuário";
+            this.tsmiGrupoUsu.Name = "tsmiGrupoUsu";
+            this.tsmiGrupoUsu.Size = new System.Drawing.Size(180, 22);
+            this.tsmiGrupoUsu.Text = "Grupo de Usuário";
             // 
             // tsmiMovimento
             // 
             this.tsmiMovimento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vendasToolStripMenuItem,
+            this.tsmiPedido,
             this.consultaDeVendasToolStripMenuItem});
             this.tsmiMovimento.Image = ((System.Drawing.Image)(resources.GetObject("tsmiMovimento.Image")));
             this.tsmiMovimento.Name = "tsmiMovimento";
             this.tsmiMovimento.Size = new System.Drawing.Size(97, 20);
             this.tsmiMovimento.Text = "Movimento";
             // 
-            // vendasToolStripMenuItem
+            // tsmiPedido
             // 
-            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.vendasToolStripMenuItem.Text = "Vendas";
+            this.tsmiPedido.Name = "tsmiPedido";
+            this.tsmiPedido.ShortcutKeyDisplayString = "F1";
+            this.tsmiPedido.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.tsmiPedido.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPedido.Text = "Venda";
+            this.tsmiPedido.Click += new System.EventHandler(this.tsmiPedido_Click);
             // 
             // consultaDeVendasToolStripMenuItem
             // 
             this.consultaDeVendasToolStripMenuItem.Name = "consultaDeVendasToolStripMenuItem";
-            this.consultaDeVendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.consultaDeVendasToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.consultaDeVendasToolStripMenuItem.Text = "Consulta de Vendas";
             // 
             // tsmiFinanceiro
@@ -186,6 +191,9 @@
             // 
             // relatóriosToolStripMenuItem
             // 
+            this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.vendasToolStripMenuItem,
+            this.estoqueToolStripMenuItem});
             this.relatóriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("relatóriosToolStripMenuItem.Image")));
             this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
             this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
@@ -202,6 +210,8 @@
             // tsBotoes
             // 
             this.tsBotoes.AutoSize = false;
+            this.tsBotoes.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tsBotoes.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsBotoes.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.tsBotoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtnPedido,
@@ -210,7 +220,8 @@
             this.tsbtnSair});
             this.tsBotoes.Location = new System.Drawing.Point(0, 24);
             this.tsBotoes.Name = "tsBotoes";
-            this.tsBotoes.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.tsBotoes.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
+            this.tsBotoes.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.tsBotoes.Size = new System.Drawing.Size(984, 54);
             this.tsBotoes.TabIndex = 1;
             this.tsBotoes.Text = "Botoes";
@@ -223,7 +234,7 @@
             this.tsbtnPedido.MergeIndex = 0;
             this.tsbtnPedido.Name = "tsbtnPedido";
             this.tsbtnPedido.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.tsbtnPedido.Size = new System.Drawing.Size(36, 51);
+            this.tsbtnPedido.Size = new System.Drawing.Size(36, 47);
             this.tsbtnPedido.Text = "Pedido";
             this.tsbtnPedido.Click += new System.EventHandler(this.tsbtnPedido_Click);
             // 
@@ -238,7 +249,7 @@
             this.tsbtnCReceber.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCReceber.Image")));
             this.tsbtnCReceber.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnCReceber.Name = "tsbtnCReceber";
-            this.tsbtnCReceber.Size = new System.Drawing.Size(36, 51);
+            this.tsbtnCReceber.Size = new System.Drawing.Size(36, 41);
             this.tsbtnCReceber.Text = "A Receber";
             // 
             // tsbtnSair
@@ -247,13 +258,13 @@
             this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
             this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnSair.Name = "tsbtnSair";
-            this.tsbtnSair.Size = new System.Drawing.Size(36, 51);
+            this.tsbtnSair.Size = new System.Drawing.Size(36, 47);
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.pnlPrincipal.BackColor = System.Drawing.Color.Transparent;
             this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pnlPrincipal.Cursor = System.Windows.Forms.Cursors.Default;
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -261,6 +272,18 @@
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
             this.pnlPrincipal.TabIndex = 2;
+            // 
+            // vendasToolStripMenuItem
+            // 
+            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vendasToolStripMenuItem.Text = "Vendas";
+            // 
+            // estoqueToolStripMenuItem
+            // 
+            this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estoqueToolStripMenuItem.Text = "Estoque";
             // 
             // FrmPrinciapl
             // 
@@ -294,9 +317,9 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiFornecedor;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem tsmiProdutos;
-        private System.Windows.Forms.ToolStripMenuItem tsmiGrupos;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGrupoProd;
         private System.Windows.Forms.ToolStripMenuItem tsmiMovimento;
-        private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiPedido;
         private System.Windows.Forms.ToolStripMenuItem tsmiFinanceiro;
         private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
         private System.Windows.Forms.ToolStrip tsBotoes;
@@ -308,10 +331,12 @@
         private System.Windows.Forms.ToolStripButton tsbtnSair;
         private System.Windows.Forms.ToolStripMenuItem movimentaçãoDeCaixaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem funcionáriosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem grupoDeUsuárioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiUsuario;
+        private System.Windows.Forms.ToolStripMenuItem tsmiGrupoUsu;
         private System.Windows.Forms.ToolStripMenuItem consultaDeVendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
     }
 }
 

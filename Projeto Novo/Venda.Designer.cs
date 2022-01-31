@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Novo
 {
-    partial class FrmVendas
+    partial class FrmVenda
     {
         /// <summary>
         /// Required designer variable.
@@ -74,7 +74,8 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 226);
@@ -120,6 +121,7 @@
             // 
             // txtProduto
             // 
+            this.txtProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProduto.Font = new System.Drawing.Font("Arial", 11F);
             this.txtProduto.Location = new System.Drawing.Point(99, 196);
             this.txtProduto.Name = "txtProduto";
@@ -128,6 +130,7 @@
             // 
             // txtIdProduto
             // 
+            this.txtIdProduto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIdProduto.Font = new System.Drawing.Font("Arial", 11F);
             this.txtIdProduto.Location = new System.Drawing.Point(12, 196);
             this.txtIdProduto.Name = "txtIdProduto";
@@ -146,6 +149,7 @@
             // 
             // txtCliente
             // 
+            this.txtCliente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCliente.Font = new System.Drawing.Font("Arial", 11F);
             this.txtCliente.Location = new System.Drawing.Point(99, 126);
             this.txtCliente.Name = "txtCliente";
@@ -172,6 +176,7 @@
             // 
             // txtVendedor
             // 
+            this.txtVendedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtVendedor.Font = new System.Drawing.Font("Arial", 11F);
             this.txtVendedor.Location = new System.Drawing.Point(99, 78);
             this.txtVendedor.Name = "txtVendedor";
@@ -198,12 +203,12 @@
             // 
             // txtIdVenda
             // 
+            this.txtIdVenda.Enabled = false;
             this.txtIdVenda.Font = new System.Drawing.Font("Arial", 11F);
             this.txtIdVenda.Location = new System.Drawing.Point(12, 30);
             this.txtIdVenda.Name = "txtIdVenda";
-            this.txtIdVenda.ReadOnly = true;
             this.txtIdVenda.Size = new System.Drawing.Size(86, 24);
-            this.txtIdVenda.TabIndex = 2;
+            this.txtIdVenda.TabIndex = 0;
             // 
             // lblIdVenda
             // 
@@ -235,20 +240,26 @@
             // 
             // btnConfirmar
             // 
+            this.btnConfirmar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnConfirmar.Location = new System.Drawing.Point(12, 543);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(95, 32);
+            this.btnConfirmar.Size = new System.Drawing.Size(96, 32);
             this.btnConfirmar.TabIndex = 20;
             this.btnConfirmar.Text = "F1 - Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnCancelar.Location = new System.Drawing.Point(113, 543);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(95, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(96, 32);
             this.btnCancelar.TabIndex = 21;
             this.btnCancelar.Text = "F2 - Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -256,19 +267,23 @@
             // 
             // btnSair
             // 
+            this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Arial", 9F);
             this.btnSair.Location = new System.Drawing.Point(214, 543);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(95, 32);
+            this.btnSair.Size = new System.Drawing.Size(96, 32);
             this.btnSair.TabIndex = 22;
             this.btnSair.Text = "Esc - Sair";
             this.btnSair.UseVisualStyleBackColor = true;
             this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
-            // FrmVendas
+            // FrmVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnCancelar);
@@ -293,12 +308,13 @@
             this.Controls.Add(this.lblVendedor);
             this.Controls.Add(this.txtIdVenda);
             this.Controls.Add(this.lblIdVenda);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Name = "FrmVendas";
+            this.Name = "FrmVenda";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Vendas";
+            this.Text = "Venda";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmVendas_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
