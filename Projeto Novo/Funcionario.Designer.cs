@@ -34,6 +34,7 @@
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.lnlNumEnd = new System.Windows.Forms.Label();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -58,7 +59,6 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.lnlNumEnd = new System.Windows.Forms.Label();
             this.tpFornecedores.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
@@ -141,6 +141,16 @@
             this.tpDados.TabIndex = 2;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // lnlNumEnd
+            // 
+            this.lnlNumEnd.AutoSize = true;
+            this.lnlNumEnd.Font = new System.Drawing.Font("Arial", 12F);
+            this.lnlNumEnd.Location = new System.Drawing.Point(345, 129);
+            this.lnlNumEnd.Name = "lnlNumEnd";
+            this.lnlNumEnd.Size = new System.Drawing.Size(28, 18);
+            this.lnlNumEnd.TabIndex = 11;
+            this.lnlNumEnd.Text = "Nº:";
             // 
             // maskedTextBox2
             // 
@@ -366,16 +376,6 @@
             this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSair.Text = "Sair";
             // 
-            // lnlNumEnd
-            // 
-            this.lnlNumEnd.AutoSize = true;
-            this.lnlNumEnd.Font = new System.Drawing.Font("Arial", 12F);
-            this.lnlNumEnd.Location = new System.Drawing.Point(345, 129);
-            this.lnlNumEnd.Name = "lnlNumEnd";
-            this.lnlNumEnd.Size = new System.Drawing.Size(28, 18);
-            this.lnlNumEnd.TabIndex = 11;
-            this.lnlNumEnd.Text = "Nº:";
-            // 
             // FrmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -386,7 +386,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmFuncionario";
             this.Text = "Funcionario";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tpFornecedores.ResumeLayout(false);
             this.tpFuncionario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
