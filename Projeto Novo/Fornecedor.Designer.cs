@@ -79,8 +79,8 @@
             this.tsbtnCancelar,
             this.toolStripSeparator,
             this.tsbtnImprimir,
-            this.tsbtnSair,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.tsbtnSair});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(983, 29);
@@ -145,6 +145,7 @@
             this.tsbtnSair.Name = "tsbtnSair";
             this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSair.Text = "Sair";
+            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
             // toolStripSeparator1
             // 
@@ -389,6 +390,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fornecedor";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmFornecedor_KeyDown);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();

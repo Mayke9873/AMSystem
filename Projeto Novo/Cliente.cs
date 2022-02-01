@@ -17,13 +17,18 @@ namespace Projeto_Novo
             InitializeComponent();
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        private void FrmCliente_KeyDown(object sender, KeyEventArgs e)
         {
-            if (keyData == Keys.Escape)
+            switch (e.KeyCode)
             {
-                this.Close();
+                case Keys.Escape:
+                    tsbtnSair_Click(sender, e);
+                    break;
             }
-            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        private void tsbtnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

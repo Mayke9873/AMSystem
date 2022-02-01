@@ -24,7 +24,6 @@ namespace Projeto_Novo
                     tsbtnSair_Click(sender, e);
                     break;
             }
-
         }
 
         private void tsbtnSair_Click(object sender, EventArgs e)
