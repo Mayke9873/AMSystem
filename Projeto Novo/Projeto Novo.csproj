@@ -85,6 +85,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario.Designer.cs">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Venda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Usuario.resx">
+      <DependentUpon>Usuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>

@@ -135,5 +135,22 @@ namespace Projeto_Novo
                 return;
             }
         }
+
+        private void tsmiUsuario_Click(object sender, EventArgs e)
+        {
+            FrmUsuario usuario = new FrmUsuario();
+            usuario.TopLevel = false;
+            pnlPrincipal.Controls.Add(usuario);
+            if (Application.OpenForms.OfType<FrmUsuario>().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+                usuario.Show();
+                return;
+            }
+        }
     }
 }
