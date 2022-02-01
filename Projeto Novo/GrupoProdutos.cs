@@ -16,5 +16,20 @@ namespace Projeto_Novo
         {
             InitializeComponent();
         }
+
+        private void FrmGrupoProdutos_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Escape:
+                    tsbtnSair_Click(sender, e);
+                    break;
+            }
+        }
+
+        private void tsbtnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

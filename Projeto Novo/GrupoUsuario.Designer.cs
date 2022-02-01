@@ -34,11 +34,10 @@
             this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditGrupoUsu = new System.Windows.Forms.ToolStripButton();
             this.tsbtnAddGrupoUSu = new System.Windows.Forms.ToolStripButton();
-            this.cmbFuncUsuario = new System.Windows.Forms.ComboBox();
             this.rdoUsuInativo = new System.Windows.Forms.RadioButton();
             this.rdoUsuAtivo = new System.Windows.Forms.RadioButton();
             this.txtIdUsuario = new System.Windows.Forms.TextBox();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsGrupoUsu = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -51,7 +50,8 @@
             this.tpGrupoUsuarios = new System.Windows.Forms.TabControl();
             this.tbPemissoes = new System.Windows.Forms.TabPage();
             this.dgvPermUsu = new System.Windows.Forms.DataGridView();
-            this.toolStrip1.SuspendLayout();
+            this.txtDescTipoUsu = new System.Windows.Forms.TextBox();
+            this.tsGrupoUsu.SuspendLayout();
             this.tpDadosUsu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -107,15 +107,6 @@
             this.tsbtnAddGrupoUSu.Size = new System.Drawing.Size(26, 26);
             this.tsbtnAddGrupoUSu.Text = "Novo";
             // 
-            // cmbFuncUsuario
-            // 
-            this.cmbFuncUsuario.Font = new System.Drawing.Font("Arial", 12F);
-            this.cmbFuncUsuario.FormattingEnabled = true;
-            this.cmbFuncUsuario.Location = new System.Drawing.Point(11, 91);
-            this.cmbFuncUsuario.Name = "cmbFuncUsuario";
-            this.cmbFuncUsuario.Size = new System.Drawing.Size(356, 26);
-            this.cmbFuncUsuario.TabIndex = 5;
-            // 
             // rdoUsuInativo
             // 
             this.rdoUsuInativo.AutoSize = true;
@@ -148,13 +139,13 @@
             this.txtIdUsuario.Size = new System.Drawing.Size(77, 26);
             this.txtIdUsuario.TabIndex = 0;
             // 
-            // toolStrip1
+            // tsGrupoUsu
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(22, 22);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsGrupoUsu.BackColor = System.Drawing.SystemColors.Control;
+            this.tsGrupoUsu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tsGrupoUsu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsGrupoUsu.ImageScalingSize = new System.Drawing.Size(22, 22);
+            this.tsGrupoUsu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtnAddGrupoUSu,
             this.tsbtnEditGrupoUsu,
             this.tsbtnSalvar,
@@ -163,11 +154,11 @@
             this.tsbtnImprimir,
             this.toolStripSeparator1,
             this.tsbtnSair});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(983, 29);
-            this.toolStrip1.TabIndex = 7;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsGrupoUsu.Location = new System.Drawing.Point(0, 0);
+            this.tsGrupoUsu.Name = "tsGrupoUsu";
+            this.tsGrupoUsu.Size = new System.Drawing.Size(983, 29);
+            this.tsGrupoUsu.TabIndex = 7;
+            this.tsGrupoUsu.Text = "Grupo Usuario";
             // 
             // toolStripSeparator
             // 
@@ -200,7 +191,7 @@
             // 
             // tpDadosUsu
             // 
-            this.tpDadosUsu.Controls.Add(this.cmbFuncUsuario);
+            this.tpDadosUsu.Controls.Add(this.txtDescTipoUsu);
             this.tpDadosUsu.Controls.Add(this.rdoUsuInativo);
             this.tpDadosUsu.Controls.Add(this.rdoUsuAtivo);
             this.tpDadosUsu.Controls.Add(this.txtIdUsuario);
@@ -220,9 +211,9 @@
             this.lblDescTipoUsu.Font = new System.Drawing.Font("Arial", 12F);
             this.lblDescTipoUsu.Location = new System.Drawing.Point(8, 70);
             this.lblDescTipoUsu.Name = "lblDescTipoUsu";
-            this.lblDescTipoUsu.Size = new System.Drawing.Size(94, 18);
+            this.lblDescTipoUsu.Size = new System.Drawing.Size(84, 18);
             this.lblDescTipoUsu.TabIndex = 0;
-            this.lblDescTipoUsu.Text = "Funcionário:";
+            this.lblDescTipoUsu.Text = "Descrição:";
             // 
             // dgvUsuarios
             // 
@@ -298,12 +289,20 @@
             this.dgvPermUsu.Size = new System.Drawing.Size(660, 530);
             this.dgvPermUsu.TabIndex = 0;
             // 
+            // txtDescTipoUsu
+            // 
+            this.txtDescTipoUsu.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtDescTipoUsu.Location = new System.Drawing.Point(11, 91);
+            this.txtDescTipoUsu.Name = "txtDescTipoUsu";
+            this.txtDescTipoUsu.Size = new System.Drawing.Size(356, 26);
+            this.txtDescTipoUsu.TabIndex = 1;
+            // 
             // FrmGrupoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 590);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsGrupoUsu);
             this.Controls.Add(this.tpGrupoUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
@@ -312,8 +311,8 @@
             this.Text = "GrupoUsuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGrupoUsuario_KeyDown);
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsGrupoUsu.ResumeLayout(false);
+            this.tsGrupoUsu.PerformLayout();
             this.tpDadosUsu.ResumeLayout(false);
             this.tpDadosUsu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
@@ -334,11 +333,10 @@
         private System.Windows.Forms.ToolStripButton tsbtnSalvar;
         private System.Windows.Forms.ToolStripButton tsbtnEditGrupoUsu;
         private System.Windows.Forms.ToolStripButton tsbtnAddGrupoUSu;
-        private System.Windows.Forms.ComboBox cmbFuncUsuario;
         private System.Windows.Forms.RadioButton rdoUsuInativo;
         private System.Windows.Forms.RadioButton rdoUsuAtivo;
         private System.Windows.Forms.TextBox txtIdUsuario;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsGrupoUsu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -351,5 +349,6 @@
         private System.Windows.Forms.TabControl tpGrupoUsuarios;
         private System.Windows.Forms.TabPage tbPemissoes;
         private System.Windows.Forms.DataGridView dgvPermUsu;
+        private System.Windows.Forms.TextBox txtDescTipoUsu;
     }
 }
