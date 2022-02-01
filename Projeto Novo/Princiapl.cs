@@ -91,11 +91,8 @@ namespace Projeto_Novo
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            else
-            {
-                vendas.Show();
-                return;
-            }
+
+            vendas.Show();
         }
         private void tsmiPedido_Click(object sender, EventArgs e)
         {
@@ -112,11 +109,8 @@ namespace Projeto_Novo
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            else
-            {
-                produtos.Show();
-                return;
-            }
+
+            produtos.Show();
         }
 
         private void tsmiFuncionario_Click(object sender, EventArgs e)
@@ -129,11 +123,8 @@ namespace Projeto_Novo
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            else
-            {
-                funcionario.Show();
-                return;
-            }
+            
+            funcionario.Show();
         }
 
         private void tsmiUsuario_Click(object sender, EventArgs e)
@@ -146,11 +137,22 @@ namespace Projeto_Novo
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            else
+
+            usuario.Show();
+        }
+
+        private void tsmiGrupoUsu_Click(object sender, EventArgs e)
+        {
+            FrmGrupoUsuario grupoUsuario = new FrmGrupoUsuario();
+            grupoUsuario.TopLevel = false;
+            pnlPrincipal.Controls.Add(grupoUsuario);
+            if (Application.OpenForms.OfType <FrmGrupoUsuario> ().Count() > 0)
             {
-                usuario.Show();
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+
+            grupoUsuario.Show();
         }
     }
 }
