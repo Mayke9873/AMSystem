@@ -30,13 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrinciapl));
             this.msMenu = new System.Windows.Forms.MenuStrip();
-            this.tsmiSair = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsBotoes = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.tsbtnPedido = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.tsmiCadastros = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFornecedor = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +49,13 @@
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiSair = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsBotoes = new System.Windows.Forms.ToolStrip();
+            this.tsbtnPedido = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -74,80 +74,6 @@
             this.msMenu.Stretch = false;
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "msMenus";
-            // 
-            // tsmiSair
-            // 
-            this.tsmiSair.Name = "tsmiSair";
-            this.tsmiSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.tsmiSair.Size = new System.Drawing.Size(38, 20);
-            this.tsmiSair.Text = "Sair";
-            this.tsmiSair.Click += new System.EventHandler(this.tsmiSair_Click);
-            // 
-            // tsBotoes
-            // 
-            this.tsBotoes.AutoSize = false;
-            this.tsBotoes.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tsBotoes.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.tsBotoes.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.tsBotoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbtnPedido,
-            this.toolStripSeparator2,
-            this.tsbtnCReceber,
-            this.tsbtnSair});
-            this.tsBotoes.Location = new System.Drawing.Point(0, 24);
-            this.tsBotoes.Name = "tsBotoes";
-            this.tsBotoes.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
-            this.tsBotoes.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsBotoes.Size = new System.Drawing.Size(984, 54);
-            this.tsBotoes.TabIndex = 1;
-            this.tsBotoes.Text = "Botoes";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 50);
-            // 
-            // pnlPrincipal
-            // 
-            this.pnlPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlPrincipal.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 78);
-            this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
-            this.pnlPrincipal.TabIndex = 2;
-            // 
-            // tsbtnPedido
-            // 
-            this.tsbtnPedido.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnPedido.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnPedido.Image")));
-            this.tsbtnPedido.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnPedido.MergeIndex = 0;
-            this.tsbtnPedido.Name = "tsbtnPedido";
-            this.tsbtnPedido.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
-            this.tsbtnPedido.Size = new System.Drawing.Size(36, 47);
-            this.tsbtnPedido.Text = "Pedido";
-            this.tsbtnPedido.Click += new System.EventHandler(this.tsbtnPedido_Click);
-            // 
-            // tsbtnCReceber
-            // 
-            this.tsbtnCReceber.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnCReceber.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCReceber.Image")));
-            this.tsbtnCReceber.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnCReceber.Name = "tsbtnCReceber";
-            this.tsbtnCReceber.Size = new System.Drawing.Size(36, 47);
-            this.tsbtnCReceber.Text = "A Receber";
-            // 
-            // tsbtnSair
-            // 
-            this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
-            this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSair.Name = "tsbtnSair";
-            this.tsbtnSair.Size = new System.Drawing.Size(36, 47);
-            this.tsbtnSair.Text = "Sair";
-            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
             // tsmiCadastros
             // 
@@ -200,6 +126,7 @@
             this.tsmiGrupoProd.Name = "tsmiGrupoProd";
             this.tsmiGrupoProd.Size = new System.Drawing.Size(180, 22);
             this.tsmiGrupoProd.Text = "Grupos";
+            this.tsmiGrupoProd.Click += new System.EventHandler(this.tsmiGrupoProd_Click);
             // 
             // toolStripSeparator3
             // 
@@ -295,6 +222,80 @@
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
             this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
+            // 
+            // tsmiSair
+            // 
+            this.tsmiSair.Name = "tsmiSair";
+            this.tsmiSair.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.tsmiSair.Size = new System.Drawing.Size(38, 20);
+            this.tsmiSair.Text = "Sair";
+            this.tsmiSair.Click += new System.EventHandler(this.tsmiSair_Click);
+            // 
+            // tsBotoes
+            // 
+            this.tsBotoes.AutoSize = false;
+            this.tsBotoes.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tsBotoes.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsBotoes.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.tsBotoes.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbtnPedido,
+            this.toolStripSeparator2,
+            this.tsbtnCReceber,
+            this.tsbtnSair});
+            this.tsBotoes.Location = new System.Drawing.Point(0, 24);
+            this.tsBotoes.Name = "tsBotoes";
+            this.tsBotoes.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
+            this.tsBotoes.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.tsBotoes.Size = new System.Drawing.Size(984, 54);
+            this.tsBotoes.TabIndex = 1;
+            this.tsBotoes.Text = "Botoes";
+            // 
+            // tsbtnPedido
+            // 
+            this.tsbtnPedido.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnPedido.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnPedido.Image")));
+            this.tsbtnPedido.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnPedido.MergeIndex = 0;
+            this.tsbtnPedido.Name = "tsbtnPedido";
+            this.tsbtnPedido.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.tsbtnPedido.Size = new System.Drawing.Size(36, 47);
+            this.tsbtnPedido.Text = "Pedido";
+            this.tsbtnPedido.Click += new System.EventHandler(this.tsbtnPedido_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 50);
+            // 
+            // tsbtnCReceber
+            // 
+            this.tsbtnCReceber.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCReceber.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCReceber.Image")));
+            this.tsbtnCReceber.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnCReceber.Name = "tsbtnCReceber";
+            this.tsbtnCReceber.Size = new System.Drawing.Size(36, 47);
+            this.tsbtnCReceber.Text = "A Receber";
+            // 
+            // tsbtnSair
+            // 
+            this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
+            this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSair.Name = "tsbtnSair";
+            this.tsbtnSair.Size = new System.Drawing.Size(36, 47);
+            this.tsbtnSair.Text = "Sair";
+            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
+            // 
+            // pnlPrincipal
+            // 
+            this.pnlPrincipal.BackColor = System.Drawing.Color.Transparent;
+            this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlPrincipal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 78);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
+            this.pnlPrincipal.TabIndex = 2;
             // 
             // FrmPrinciapl
             // 

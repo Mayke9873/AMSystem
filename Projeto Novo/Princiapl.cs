@@ -55,11 +55,8 @@ namespace Projeto_Novo
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            else
-            {
-                cliente.Show();
-                return;
-            }
+
+            cliente.Show();
         }
 
         private void tsmiFornecedor_Click(object sender, EventArgs e)
@@ -73,11 +70,8 @@ namespace Projeto_Novo
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            else
-            {
-                fornecedor.Show();
-                return;
-            }
+
+            fornecedor.Show();
         }
 
         private void tsbtnPedido_Click(object sender, EventArgs e)
@@ -153,6 +147,20 @@ namespace Projeto_Novo
             }
 
             grupoUsuario.Show();
+        }
+
+        private void tsmiGrupoProd_Click(object sender, EventArgs e)
+        {
+            FrmGrupoProdutos grupoProdutos = new FrmGrupoProdutos();
+            grupoProdutos.TopLevel = false;
+            pnlPrincipal.Controls.Add(grupoProdutos);
+            if (Application.OpenForms.OfType <FrmGrupoProdutos> ().Count () > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            grupoProdutos.Show();
         }
     }
 }
