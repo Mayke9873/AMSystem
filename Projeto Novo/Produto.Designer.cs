@@ -37,34 +37,34 @@
             this.lblUnidade = new System.Windows.Forms.Label();
             this.lblDescProd = new System.Windows.Forms.Label();
             this.tpDadosProd = new System.Windows.Forms.TabPage();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.lblEstoque = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.rdoProdInativo = new System.Windows.Forms.RadioButton();
+            this.rdoProdAtivo = new System.Windows.Forms.RadioButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpProduto = new System.Windows.Forms.TabPage();
             this.dgvProduto = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.tpProdutos = new System.Windows.Forms.TabControl();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.rdoProdAtivo = new System.Windows.Forms.RadioButton();
-            this.rdoProdInativo = new System.Windows.Forms.RadioButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tsConsVenda = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tpConsVendas = new System.Windows.Forms.TabControl();
             this.tsbtnAddProduto = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditProduto = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.lblEstoque = new System.Windows.Forms.Label();
             this.tpDadosProd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
-            this.toolStrip1.SuspendLayout();
-            this.tpProdutos.SuspendLayout();
+            this.tsConsVenda.SuspendLayout();
+            this.tpConsVendas.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtIdCli
@@ -159,6 +159,90 @@
             this.tpDadosProd.Text = "Dados";
             this.tpDadosProd.UseVisualStyleBackColor = true;
             // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("Arial", 12F);
+            this.textBox4.Location = new System.Drawing.Point(11, 157);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(90, 26);
+            this.textBox4.TabIndex = 3;
+            // 
+            // lblEstoque
+            // 
+            this.lblEstoque.AutoSize = true;
+            this.lblEstoque.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblEstoque.Location = new System.Drawing.Point(8, 136);
+            this.lblEstoque.Name = "lblEstoque";
+            this.lblEstoque.Size = new System.Drawing.Size(70, 18);
+            this.lblEstoque.TabIndex = 0;
+            this.lblEstoque.Text = "Estoque:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("Arial", 12F);
+            this.textBox3.Location = new System.Drawing.Point(331, 157);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(90, 26);
+            this.textBox3.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F);
+            this.label2.Location = new System.Drawing.Point(328, 136);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 18);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "R$ Venda:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Arial", 12F);
+            this.textBox2.Location = new System.Drawing.Point(235, 157);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(90, 26);
+            this.textBox2.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F);
+            this.label1.Location = new System.Drawing.Point(232, 136);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Lucro (%):";
+            // 
+            // rdoProdInativo
+            // 
+            this.rdoProdInativo.AutoSize = true;
+            this.rdoProdInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoProdInativo.Location = new System.Drawing.Point(354, 36);
+            this.rdoProdInativo.Name = "rdoProdInativo";
+            this.rdoProdInativo.Size = new System.Drawing.Size(67, 21);
+            this.rdoProdInativo.TabIndex = 0;
+            this.rdoProdInativo.Text = "Inativo";
+            this.rdoProdInativo.UseVisualStyleBackColor = true;
+            // 
+            // rdoProdAtivo
+            // 
+            this.rdoProdAtivo.AutoSize = true;
+            this.rdoProdAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoProdAtivo.Location = new System.Drawing.Point(291, 36);
+            this.rdoProdAtivo.Name = "rdoProdAtivo";
+            this.rdoProdAtivo.Size = new System.Drawing.Size(57, 21);
+            this.rdoProdAtivo.TabIndex = 0;
+            this.rdoProdAtivo.Text = "Ativo";
+            this.rdoProdAtivo.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Arial", 12F);
+            this.textBox1.Location = new System.Drawing.Point(356, 91);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(65, 26);
+            this.textBox1.TabIndex = 2;
+            // 
             // dgvClientes
             // 
             this.dgvClientes.AllowUserToAddRows = false;
@@ -187,20 +271,22 @@
             // dgvProduto
             // 
             this.dgvProduto.AllowUserToOrderColumns = true;
+            this.dgvProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProduto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProduto.Location = new System.Drawing.Point(3, 3);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.Size = new System.Drawing.Size(970, 526);
             this.dgvProduto.TabIndex = 2;
             // 
-            // toolStrip1
+            // tsConsVenda
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(22, 22);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsConsVenda.BackColor = System.Drawing.SystemColors.Control;
+            this.tsConsVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tsConsVenda.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsConsVenda.ImageScalingSize = new System.Drawing.Size(22, 22);
+            this.tsConsVenda.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtnAddProduto,
             this.tsbtnEditProduto,
             this.tsbtnSalvar,
@@ -209,92 +295,36 @@
             this.tsbtnImprimir,
             this.toolStripSeparator1,
             this.tsbtnSair});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(983, 29);
-            this.toolStrip1.TabIndex = 3;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsConsVenda.Location = new System.Drawing.Point(0, 0);
+            this.tsConsVenda.Name = "tsConsVenda";
+            this.tsConsVenda.Size = new System.Drawing.Size(983, 29);
+            this.tsConsVenda.TabIndex = 3;
+            this.tsConsVenda.Text = "toolStrip1";
             // 
-            // tpProdutos
+            // toolStripSeparator
             // 
-            this.tpProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
+            // 
+            // tpConsVendas
+            // 
+            this.tpConsVendas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tpProdutos.Controls.Add(this.tpProduto);
-            this.tpProdutos.Controls.Add(this.tpDadosProd);
-            this.tpProdutos.Location = new System.Drawing.Point(-1, 32);
-            this.tpProdutos.Multiline = true;
-            this.tpProdutos.Name = "tpProdutos";
-            this.tpProdutos.SelectedIndex = 0;
-            this.tpProdutos.Size = new System.Drawing.Size(984, 558);
-            this.tpProdutos.TabIndex = 0;
-            this.tpProdutos.TabStop = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox1.Location = new System.Drawing.Point(356, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(65, 26);
-            this.textBox1.TabIndex = 2;
-            // 
-            // rdoProdAtivo
-            // 
-            this.rdoProdAtivo.AutoSize = true;
-            this.rdoProdAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoProdAtivo.Location = new System.Drawing.Point(291, 36);
-            this.rdoProdAtivo.Name = "rdoProdAtivo";
-            this.rdoProdAtivo.Size = new System.Drawing.Size(57, 21);
-            this.rdoProdAtivo.TabIndex = 0;
-            this.rdoProdAtivo.Text = "Ativo";
-            this.rdoProdAtivo.UseVisualStyleBackColor = true;
-            // 
-            // rdoProdInativo
-            // 
-            this.rdoProdInativo.AutoSize = true;
-            this.rdoProdInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoProdInativo.Location = new System.Drawing.Point(354, 36);
-            this.rdoProdInativo.Name = "rdoProdInativo";
-            this.rdoProdInativo.Size = new System.Drawing.Size(67, 21);
-            this.rdoProdInativo.TabIndex = 0;
-            this.rdoProdInativo.Text = "Inativo";
-            this.rdoProdInativo.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox2.Location = new System.Drawing.Point(235, 157);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(90, 26);
-            this.textBox2.TabIndex = 5;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F);
-            this.label1.Location = new System.Drawing.Point(232, 136);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Lucro (%):";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox3.Location = new System.Drawing.Point(331, 157);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(90, 26);
-            this.textBox3.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F);
-            this.label2.Location = new System.Drawing.Point(328, 136);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 18);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "R$ Venda:";
+            this.tpConsVendas.Controls.Add(this.tpProduto);
+            this.tpConsVendas.Controls.Add(this.tpDadosProd);
+            this.tpConsVendas.Location = new System.Drawing.Point(-1, 32);
+            this.tpConsVendas.Multiline = true;
+            this.tpConsVendas.Name = "tpConsVendas";
+            this.tpConsVendas.SelectedIndex = 0;
+            this.tpConsVendas.Size = new System.Drawing.Size(984, 558);
+            this.tpConsVendas.TabIndex = 0;
+            this.tpConsVendas.TabStop = false;
             // 
             // tsbtnAddProduto
             // 
@@ -332,11 +362,6 @@
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
             // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
-            // 
             // tsbtnImprimir
             // 
             this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -345,11 +370,6 @@
             this.tsbtnImprimir.Name = "tsbtnImprimir";
             this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
             this.tsbtnImprimir.Text = "Imprimir";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
             // 
             // tsbtnSair
             // 
@@ -361,35 +381,17 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox4.Location = new System.Drawing.Point(11, 157);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(90, 26);
-            this.textBox4.TabIndex = 3;
-            // 
-            // lblEstoque
-            // 
-            this.lblEstoque.AutoSize = true;
-            this.lblEstoque.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblEstoque.Location = new System.Drawing.Point(8, 136);
-            this.lblEstoque.Name = "lblEstoque";
-            this.lblEstoque.Size = new System.Drawing.Size(70, 18);
-            this.lblEstoque.TabIndex = 0;
-            this.lblEstoque.Text = "Estoque:";
-            // 
             // FrmProduto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 590);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.tpProdutos);
+            this.Controls.Add(this.tsConsVenda);
+            this.Controls.Add(this.tpConsVendas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmProduto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produtos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmProduto_KeyDown);
@@ -398,9 +400,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpProduto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.tpProdutos.ResumeLayout(false);
+            this.tsConsVenda.ResumeLayout(false);
+            this.tsConsVenda.PerformLayout();
+            this.tpConsVendas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,8 +420,8 @@
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpProduto;
         private System.Windows.Forms.DataGridView dgvProduto;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.TabControl tpProdutos;
+        private System.Windows.Forms.ToolStrip tsConsVenda;
+        private System.Windows.Forms.TabControl tpConsVendas;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label2;

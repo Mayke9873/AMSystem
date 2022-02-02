@@ -154,13 +154,27 @@ namespace Projeto_Novo
             FrmGrupoProdutos grupoProdutos = new FrmGrupoProdutos();
             grupoProdutos.TopLevel = false;
             pnlPrincipal.Controls.Add(grupoProdutos);
-            if (Application.OpenForms.OfType <FrmGrupoProdutos> ().Count () > 0)
+            if (Application.OpenForms.OfType <FrmGrupoProdutos> ().Count() > 0)
             {
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             grupoProdutos.Show();
+        }
+
+        private void tsmiConsPedido_Click(object sender, EventArgs e)
+        {
+            FrmConsVendas consVendas = new FrmConsVendas();
+            consVendas.TopLevel = false;
+            pnlPrincipal.Controls.Add (consVendas);
+            if (Application.OpenForms.OfType <FrmConsVendas> ().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            consVendas.Show();
         }
     }
 }
