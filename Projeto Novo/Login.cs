@@ -55,7 +55,6 @@ namespace Projeto_Novo
             }
             else if (txtSenha.Text == "")
             {
-                MessageBox.Show("Senha não informada, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtSenha.Focus();
                 return;
             }
