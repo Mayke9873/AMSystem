@@ -49,7 +49,7 @@
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpProduto = new System.Windows.Forms.TabPage();
             this.dgvProduto = new System.Windows.Forms.DataGridView();
-            this.tsConsVenda = new System.Windows.Forms.ToolStrip();
+            this.tsProduto = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tpConsVendas = new System.Windows.Forms.TabControl();
@@ -63,7 +63,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
-            this.tsConsVenda.SuspendLayout();
+            this.tsProduto.SuspendLayout();
             this.tpConsVendas.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -280,13 +280,13 @@
             this.dgvProduto.Size = new System.Drawing.Size(970, 526);
             this.dgvProduto.TabIndex = 2;
             // 
-            // tsConsVenda
+            // tsProduto
             // 
-            this.tsConsVenda.BackColor = System.Drawing.SystemColors.Control;
-            this.tsConsVenda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tsConsVenda.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.tsConsVenda.ImageScalingSize = new System.Drawing.Size(22, 22);
-            this.tsConsVenda.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsProduto.BackColor = System.Drawing.SystemColors.Control;
+            this.tsProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tsProduto.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsProduto.ImageScalingSize = new System.Drawing.Size(22, 22);
+            this.tsProduto.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtnAddProduto,
             this.tsbtnEditProduto,
             this.tsbtnSalvar,
@@ -295,11 +295,11 @@
             this.tsbtnImprimir,
             this.toolStripSeparator1,
             this.tsbtnSair});
-            this.tsConsVenda.Location = new System.Drawing.Point(0, 0);
-            this.tsConsVenda.Name = "tsConsVenda";
-            this.tsConsVenda.Size = new System.Drawing.Size(983, 29);
-            this.tsConsVenda.TabIndex = 3;
-            this.tsConsVenda.Text = "toolStrip1";
+            this.tsProduto.Location = new System.Drawing.Point(0, 0);
+            this.tsProduto.Name = "tsProduto";
+            this.tsProduto.Size = new System.Drawing.Size(983, 29);
+            this.tsProduto.TabIndex = 3;
+            this.tsProduto.Text = "toolStrip1";
             // 
             // toolStripSeparator
             // 
@@ -386,12 +386,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 590);
-            this.Controls.Add(this.tsConsVenda);
+            this.Controls.Add(this.tsProduto);
             this.Controls.Add(this.tpConsVendas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmProduto";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Produtos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmProduto_KeyDown);
@@ -400,8 +400,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpProduto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
-            this.tsConsVenda.ResumeLayout(false);
-            this.tsConsVenda.PerformLayout();
+            this.tsProduto.ResumeLayout(false);
+            this.tsProduto.PerformLayout();
             this.tpConsVendas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -420,7 +420,7 @@
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpProduto;
         private System.Windows.Forms.DataGridView dgvProduto;
-        private System.Windows.Forms.ToolStrip tsConsVenda;
+        private System.Windows.Forms.ToolStrip tsProduto;
         private System.Windows.Forms.TabControl tpConsVendas;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox3;

@@ -44,7 +44,7 @@
             this.tsmiPedido = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiConsVendas = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiFinanceiro = new System.Windows.Forms.ToolStripMenuItem();
-            this.caixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiCaixa = new System.Windows.Forms.ToolStripMenuItem();
             this.movimentaçãoDeCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,6 +56,8 @@
             this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.tsmiAbreCaixa = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiFechaCaixa = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -169,32 +171,35 @@
             this.tsmiPedido.Name = "tsmiPedido";
             this.tsmiPedido.ShortcutKeyDisplayString = "F1";
             this.tsmiPedido.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.tsmiPedido.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPedido.Size = new System.Drawing.Size(177, 22);
             this.tsmiPedido.Text = "Venda";
             this.tsmiPedido.Click += new System.EventHandler(this.tsmiPedido_Click);
             // 
             // tsmiConsVendas
             // 
             this.tsmiConsVendas.Name = "tsmiConsVendas";
-            this.tsmiConsVendas.Size = new System.Drawing.Size(180, 22);
+            this.tsmiConsVendas.Size = new System.Drawing.Size(177, 22);
             this.tsmiConsVendas.Text = "Consulta de Vendas";
             this.tsmiConsVendas.Click += new System.EventHandler(this.tsmiConsPedido_Click);
             // 
             // tsmiFinanceiro
             // 
             this.tsmiFinanceiro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.caixaToolStripMenuItem,
+            this.tsmiCaixa,
             this.movimentaçãoDeCaixaToolStripMenuItem});
             this.tsmiFinanceiro.Image = ((System.Drawing.Image)(resources.GetObject("tsmiFinanceiro.Image")));
             this.tsmiFinanceiro.Name = "tsmiFinanceiro";
             this.tsmiFinanceiro.Size = new System.Drawing.Size(90, 20);
             this.tsmiFinanceiro.Text = "Financeiro";
             // 
-            // caixaToolStripMenuItem
+            // tsmiCaixa
             // 
-            this.caixaToolStripMenuItem.Name = "caixaToolStripMenuItem";
-            this.caixaToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
-            this.caixaToolStripMenuItem.Text = "Caixa";
+            this.tsmiCaixa.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiAbreCaixa,
+            this.tsmiFechaCaixa});
+            this.tsmiCaixa.Name = "tsmiCaixa";
+            this.tsmiCaixa.Size = new System.Drawing.Size(202, 22);
+            this.tsmiCaixa.Text = "Caixa";
             // 
             // movimentaçãoDeCaixaToolStripMenuItem
             // 
@@ -298,6 +303,20 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
             this.pnlPrincipal.TabIndex = 2;
             // 
+            // tsmiAbreCaixa
+            // 
+            this.tsmiAbreCaixa.Name = "tsmiAbreCaixa";
+            this.tsmiAbreCaixa.Size = new System.Drawing.Size(188, 22);
+            this.tsmiAbreCaixa.Text = "Abertura de Caixa";
+            this.tsmiAbreCaixa.Click += new System.EventHandler(this.tsmiAbreCaixa_Click);
+            // 
+            // tsmiFechaCaixa
+            // 
+            this.tsmiFechaCaixa.Name = "tsmiFechaCaixa";
+            this.tsmiFechaCaixa.Size = new System.Drawing.Size(188, 22);
+            this.tsmiFechaCaixa.Text = "Fechamento de Caixa";
+            this.tsmiFechaCaixa.Click += new System.EventHandler(this.tsmiFechaCaixa_Click);
+            // 
             // FrmPrinciapl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,7 +353,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiMovimento;
         private System.Windows.Forms.ToolStripMenuItem tsmiPedido;
         private System.Windows.Forms.ToolStripMenuItem tsmiFinanceiro;
-        private System.Windows.Forms.ToolStripMenuItem caixaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiCaixa;
         private System.Windows.Forms.ToolStrip tsBotoes;
         private System.Windows.Forms.ToolStripButton tsbtnPedido;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
@@ -351,6 +370,8 @@
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiFuncionario;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAbreCaixa;
+        private System.Windows.Forms.ToolStripMenuItem tsmiFechaCaixa;
     }
 }
 

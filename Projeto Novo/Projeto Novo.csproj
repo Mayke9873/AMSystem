@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AberturaCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AberturaCaixa.Designer.cs">
+      <DependentUpon>AberturaCaixa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +64,18 @@
     </Compile>
     <Compile Include="ConsVendas.Designer.cs">
       <DependentUpon>ConsVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContaReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContaReceber.Designer.cs">
+      <DependentUpon>ContaReceber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FechamentoCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FechamentoCaixa.Designer.cs">
+      <DependentUpon>FechamentoCaixa.cs</DependentUpon>
     </Compile>
     <Compile Include="Fornecedor.cs">
       <SubType>Form</SubType>
@@ -115,11 +133,20 @@
     <Compile Include="Venda.Designer.cs">
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AberturaCaixa.resx">
+      <DependentUpon>AberturaCaixa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsVendas.resx">
       <DependentUpon>ConsVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContaReceber.resx">
+      <DependentUpon>ContaReceber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FechamentoCaixa.resx">
+      <DependentUpon>FechamentoCaixa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Fornecedor.resx">
       <DependentUpon>Fornecedor.cs</DependentUpon>

@@ -29,16 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
-            this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnEditUsuario = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnAddUsuario = new System.Windows.Forms.ToolStripButton();
             this.tpUsuarios = new System.Windows.Forms.TabControl();
             this.tpUsuario = new System.Windows.Forms.TabPage();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosUsu = new System.Windows.Forms.TabPage();
+            this.cmbFuncUsuario = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.rdoUsuInativo = new System.Windows.Forms.RadioButton();
@@ -50,62 +46,20 @@
             this.lblDescFunc = new System.Windows.Forms.Label();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tsUsuario = new System.Windows.Forms.ToolStrip();
+            this.tsbtnAddUsuario = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnEditUsuario = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
-            this.cmbFuncUsuario = new System.Windows.Forms.ComboBox();
+            this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.tpUsuarios.SuspendLayout();
             this.tpUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosUsu.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
+            this.tsUsuario.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tsbtnSair
-            // 
-            this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
-            this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSair.Name = "tsbtnSair";
-            this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnSair.Text = "Sair";
-            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
-            // 
-            // tsbtnCancelar
-            // 
-            this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
-            this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnCancelar.Name = "tsbtnCancelar";
-            this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnCancelar.Text = "Cancelar";
-            // 
-            // tsbtnSalvar
-            // 
-            this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
-            this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSalvar.Name = "tsbtnSalvar";
-            this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnSalvar.Text = "Salvar";
-            // 
-            // tsbtnEditUsuario
-            // 
-            this.tsbtnEditUsuario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnEditUsuario.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnEditUsuario.Image")));
-            this.tsbtnEditUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnEditUsuario.Name = "tsbtnEditUsuario";
-            this.tsbtnEditUsuario.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnEditUsuario.Text = "Editar";
-            // 
-            // tsbtnAddUsuario
-            // 
-            this.tsbtnAddUsuario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnAddUsuario.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnAddUsuario.Image")));
-            this.tsbtnAddUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnAddUsuario.Name = "tsbtnAddUsuario";
-            this.tsbtnAddUsuario.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnAddUsuario.Text = "Novo";
             // 
             // tpUsuarios
             // 
@@ -176,6 +130,15 @@
             this.tpDadosUsu.TabIndex = 1;
             this.tpDadosUsu.Text = "Dados";
             this.tpDadosUsu.UseVisualStyleBackColor = true;
+            // 
+            // cmbFuncUsuario
+            // 
+            this.cmbFuncUsuario.Font = new System.Drawing.Font("Arial", 12F);
+            this.cmbFuncUsuario.FormattingEnabled = true;
+            this.cmbFuncUsuario.Location = new System.Drawing.Point(11, 91);
+            this.cmbFuncUsuario.Name = "cmbFuncUsuario";
+            this.cmbFuncUsuario.Size = new System.Drawing.Size(356, 26);
+            this.cmbFuncUsuario.TabIndex = 5;
             // 
             // textBox4
             // 
@@ -276,13 +239,13 @@
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
             // 
-            // toolStrip1
+            // tsUsuario
             // 
-            this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
-            this.toolStrip1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(22, 22);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsUsuario.BackColor = System.Drawing.SystemColors.Control;
+            this.tsUsuario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tsUsuario.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsUsuario.ImageScalingSize = new System.Drawing.Size(22, 22);
+            this.tsUsuario.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtnAddUsuario,
             this.tsbtnEditUsuario,
             this.tsbtnSalvar,
@@ -291,11 +254,47 @@
             this.tsbtnImprimir,
             this.toolStripSeparator1,
             this.tsbtnSair});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(983, 29);
-            this.toolStrip1.TabIndex = 5;
-            this.toolStrip1.Text = "toolStrip1";
+            this.tsUsuario.Location = new System.Drawing.Point(0, 0);
+            this.tsUsuario.Name = "tsUsuario";
+            this.tsUsuario.Size = new System.Drawing.Size(983, 29);
+            this.tsUsuario.TabIndex = 5;
+            this.tsUsuario.Text = "toolStrip1";
+            // 
+            // tsbtnAddUsuario
+            // 
+            this.tsbtnAddUsuario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnAddUsuario.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnAddUsuario.Image")));
+            this.tsbtnAddUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnAddUsuario.Name = "tsbtnAddUsuario";
+            this.tsbtnAddUsuario.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnAddUsuario.Text = "Novo";
+            // 
+            // tsbtnEditUsuario
+            // 
+            this.tsbtnEditUsuario.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnEditUsuario.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnEditUsuario.Image")));
+            this.tsbtnEditUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnEditUsuario.Name = "tsbtnEditUsuario";
+            this.tsbtnEditUsuario.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnEditUsuario.Text = "Editar";
+            // 
+            // tsbtnSalvar
+            // 
+            this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
+            this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSalvar.Name = "tsbtnSalvar";
+            this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnSalvar.Text = "Salvar";
+            // 
+            // tsbtnCancelar
+            // 
+            this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
+            this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnCancelar.Name = "tsbtnCancelar";
+            this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnCancelar.Text = "Cancelar";
             // 
             // tsbtnImprimir
             // 
@@ -306,14 +305,15 @@
             this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
             this.tsbtnImprimir.Text = "Imprimir";
             // 
-            // cmbFuncUsuario
+            // tsbtnSair
             // 
-            this.cmbFuncUsuario.Font = new System.Drawing.Font("Arial", 12F);
-            this.cmbFuncUsuario.FormattingEnabled = true;
-            this.cmbFuncUsuario.Location = new System.Drawing.Point(11, 91);
-            this.cmbFuncUsuario.Name = "cmbFuncUsuario";
-            this.cmbFuncUsuario.Size = new System.Drawing.Size(356, 26);
-            this.cmbFuncUsuario.TabIndex = 5;
+            this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
+            this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSair.Name = "tsbtnSair";
+            this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnSair.Text = "Sair";
+            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
             // FrmUsuario
             // 
@@ -322,7 +322,7 @@
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.ControlBox = false;
             this.Controls.Add(this.tpUsuarios);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.tsUsuario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmUsuario";
@@ -336,8 +336,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpDadosUsu.ResumeLayout(false);
             this.tpDadosUsu.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.tsUsuario.ResumeLayout(false);
+            this.tsUsuario.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,7 +366,7 @@
         private System.Windows.Forms.Label lblDescFunc;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip tsUsuario;
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
         private System.Windows.Forms.ComboBox cmbFuncUsuario;
     }

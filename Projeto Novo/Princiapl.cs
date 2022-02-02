@@ -176,5 +176,17 @@ namespace Projeto_Novo
 
             consVendas.Show();
         }
+
+        private void tsmiAbreCaixa_Click(object sender, EventArgs e)
+        {
+            FrmAberturaCaixa aberturaCaixa = new FrmAberturaCaixa();
+            aberturaCaixa.ShowDialog();
+        }
+
+        private void tsmiFechaCaixa_Click(object sender, EventArgs e)
+        {
+            FrmFechamentoCaixa fechamentoCaixa = new FrmFechamentoCaixa();
+            fechamentoCaixa.ShowDialog();
+        }
     }
 }
