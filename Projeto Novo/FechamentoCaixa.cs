@@ -19,10 +19,16 @@ namespace Projeto_Novo
 
         private void FrmFechamentoCaixa_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            switch (e.KeyCode)
             {
-                this.Close();
-                return;
+                //Se enter = Pula para o proximo campo.
+                case Keys.Enter:
+                    this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                    break;
+
+                case Keys.Escape:
+                    this.Close();
+                    break;
             }
         }
     }

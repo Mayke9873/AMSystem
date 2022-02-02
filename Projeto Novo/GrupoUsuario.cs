@@ -20,6 +20,10 @@ namespace Projeto_Novo
         {
             switch (e.KeyCode)
             {
+                case Keys.Enter:
+                    this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                    break;
+
                 case Keys.Escape:
                     tsbtnSair_Click(sender, e);
                     break;
