@@ -80,9 +80,10 @@ namespace Projeto_Novo
 
         private void tsbtnPedido_Click(object sender, EventArgs e)
         {
-            FrmVenda vendas= new FrmVenda();
-            vendas.TopLevel = false;
+            FrmVenda vendas = new FrmVenda();
+            vendas.MdiParent = this;
             
+
 
             if (Application.OpenForms.OfType <FrmVenda>().Count()>0)
             {
