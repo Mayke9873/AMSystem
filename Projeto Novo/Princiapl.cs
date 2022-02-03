@@ -81,7 +81,7 @@ namespace Projeto_Novo
         private void tsbtnPedido_Click(object sender, EventArgs e)
         {
             FrmVenda vendas= new FrmVenda();
-            vendas.TopLevel = true;
+            vendas.TopLevel = false;
             pnlPrincipal.Controls.Add(vendas);
 
             if (Application.OpenForms.OfType <FrmVenda>().Count()>0)
