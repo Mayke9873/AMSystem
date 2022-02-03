@@ -39,7 +39,7 @@ namespace Projeto_Novo
         {
             FrmReceber receber = new FrmReceber();
             receber.MdiParent = ControleJanelas.CriarInstaceMDI();
-            
+
             receber.Show();
         }
     }

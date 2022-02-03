@@ -198,15 +198,20 @@ namespace Projeto_Novo
         {
             FrmContaReceber contaReceber = new FrmContaReceber();
             contaReceber.MdiParent = this;
-            
-            if (Application.OpenForms.OfType <FrmContaReceber> ().Count() > 0)
+
+            foreach (Form form in Application.OpenForms)
             {
-                contaReceber.Focus();
-                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                if (form == contaReceber)
+                {
+                    return;
+                }
             }
 
-            contaReceber.Show();
+            if (Application.OpenForms.OfType<FrmContaReceber>().Count() == 0)
+            {
+                contaReceber.Show();
+                return;
+            }
         }
     }
 }
