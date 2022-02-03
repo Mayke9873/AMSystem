@@ -11,9 +11,9 @@ using System.Drawing.Drawing2D;
 
 namespace Projeto_Novo
 {
-    public partial class FrmPrinciapl : Form
+    public partial class FrmPrincipal : Form
     {
-        public FrmPrinciapl()
+        public FrmPrincipal()
         {
             InitializeComponent();
 
@@ -81,7 +81,7 @@ namespace Projeto_Novo
         private void tsbtnPedido_Click(object sender, EventArgs e)
         {
             FrmVenda vendas= new FrmVenda();
-            vendas.TopLevel = false;
+            vendas.TopLevel = true;
             pnlPrincipal.Controls.Add(vendas);
 
             if (Application.OpenForms.OfType <FrmVenda>().Count()>0)
@@ -201,6 +201,7 @@ namespace Projeto_Novo
             pnlPrincipal.Controls.Add (contaReceber);
             if (Application.OpenForms.OfType <FrmContaReceber> ().Count() > 0)
             {
+                contaReceber.Focus();
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }

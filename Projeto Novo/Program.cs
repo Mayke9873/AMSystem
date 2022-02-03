@@ -20,7 +20,7 @@ namespace Projeto_Novo
 
             if (login.ShowDialog() == DialogResult.OK)
             {
-                Application.Run(new FrmPrinciapl());
+                Application.Run(new FrmPrincipal());
             }
         }
     }

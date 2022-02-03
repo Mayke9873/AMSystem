@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Novo
 {
-    partial class FrmPrinciapl
+    partial class FrmPrincipal
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrinciapl));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.msMenu = new System.Windows.Forms.MenuStrip();
             this.tsmiCadastros = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiClientes = new System.Windows.Forms.ToolStripMenuItem();
@@ -318,7 +318,7 @@
             this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
             this.pnlPrincipal.TabIndex = 2;
             // 
-            // FrmPrinciapl
+            // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -326,8 +326,9 @@
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.tsBotoes);
             this.Controls.Add(this.msMenu);
+            this.IsMdiContainer = true;
             this.KeyPreview = true;
-            this.Name = "FrmPrinciapl";
+            this.Name = "FrmPrincipal";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AmSystem";

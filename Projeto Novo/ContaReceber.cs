@@ -34,5 +34,11 @@ namespace Projeto_Novo
         {
             this.Close();
         }
+
+        private void tsbtnEditC_Receber_Click(object sender, EventArgs e)
+        {
+            FrmReceber receber = new FrmReceber();
+            receber.ShowDialog();
+        }
     }
 }
