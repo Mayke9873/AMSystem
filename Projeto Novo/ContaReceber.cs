@@ -10,11 +10,29 @@ using System.Windows.Forms;
 
 namespace Projeto_Novo
 {
-    public partial class ContaReceber : Form
+    public partial class FrmContaReceber : Form
     {
-        public ContaReceber()
+        public FrmContaReceber()
         {
             InitializeComponent();
+        }
+        private void FrmContaReceber_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
+                    break;
+
+                case Keys.Escape:
+                    tsbtnSair_Click(sender, e);
+                    break;
+            }
+        }
+
+        private void tsbtnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

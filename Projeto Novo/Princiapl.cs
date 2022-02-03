@@ -29,6 +29,10 @@ namespace Projeto_Novo
                 case Keys.Alt | Keys.F4:
                     tsmiSair_Click(sender, e);
                     break;
+
+                case Keys.F2:
+                    tsbtnCReceber_Click(sender, e);
+                    break;
             }
         }
 
@@ -170,6 +174,7 @@ namespace Projeto_Novo
             pnlPrincipal.Controls.Add (consVendas);
             if (Application.OpenForms.OfType <FrmConsVendas> ().Count() > 0)
             {
+                consVendas.BringToFront();
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -187,6 +192,20 @@ namespace Projeto_Novo
         {
             FrmFechamentoCaixa fechamentoCaixa = new FrmFechamentoCaixa();
             fechamentoCaixa.ShowDialog();
+        }
+
+        private void tsbtnCReceber_Click(object sender, EventArgs e)
+        {
+            FrmContaReceber contaReceber = new FrmContaReceber();
+            contaReceber.TopLevel = false;
+            pnlPrincipal.Controls.Add (contaReceber);
+            if (Application.OpenForms.OfType <FrmContaReceber> ().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            contaReceber.Show();
         }
     }
 }
