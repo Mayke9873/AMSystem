@@ -32,19 +32,19 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsC_Receber = new System.Windows.Forms.ToolStrip();
-            this.lblPesquisa = new System.Windows.Forms.Label();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.pnlContasReceber = new System.Windows.Forms.Panel();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.lblPeriodo = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tsbtnAddC_Receber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditC_Receber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.lblPesquisa = new System.Windows.Forms.Label();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.pnlContasReceber = new System.Windows.Forms.Panel();
             this.dgvCliAReceber = new System.Windows.Forms.DataGridView();
+            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.lblPeriodo = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tsC_Receber.SuspendLayout();
             this.pnlContasReceber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliAReceber)).BeginInit();
@@ -80,71 +80,6 @@
             this.tsC_Receber.Size = new System.Drawing.Size(983, 29);
             this.tsC_Receber.TabIndex = 9;
             this.tsC_Receber.Text = "Contas a Receber";
-            // 
-            // lblPesquisa
-            // 
-            this.lblPesquisa.AutoSize = true;
-            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
-            this.lblPesquisa.Name = "lblPesquisa";
-            this.lblPesquisa.Size = new System.Drawing.Size(42, 13);
-            this.lblPesquisa.TabIndex = 11;
-            this.lblPesquisa.Text = "Cliente:";
-            // 
-            // txtPesquisa
-            // 
-            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
-            this.txtPesquisa.TabIndex = 10;
-            // 
-            // pnlContasReceber
-            // 
-            this.pnlContasReceber.Controls.Add(this.dgvCliAReceber);
-            this.pnlContasReceber.Controls.Add(this.maskedTextBox2);
-            this.pnlContasReceber.Controls.Add(this.lblPeriodo);
-            this.pnlContasReceber.Controls.Add(this.maskedTextBox1);
-            this.pnlContasReceber.Controls.Add(this.lblPesquisa);
-            this.pnlContasReceber.Controls.Add(this.txtPesquisa);
-            this.pnlContasReceber.Controls.Add(this.tsC_Receber);
-            this.pnlContasReceber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContasReceber.Location = new System.Drawing.Point(0, 0);
-            this.pnlContasReceber.Name = "pnlContasReceber";
-            this.pnlContasReceber.Size = new System.Drawing.Size(983, 590);
-            this.pnlContasReceber.TabIndex = 1;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(552, 32);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(75, 20);
-            this.maskedTextBox2.TabIndex = 15;
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            // 
-            // lblPeriodo
-            // 
-            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPeriodo.AutoSize = true;
-            this.lblPeriodo.Location = new System.Drawing.Point(417, 35);
-            this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(48, 13);
-            this.lblPeriodo.TabIndex = 14;
-            this.lblPeriodo.Text = "Período:";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(471, 32);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(75, 20);
-            this.maskedTextBox1.TabIndex = 12;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // tsbtnAddC_Receber
             // 
@@ -202,6 +137,39 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // lblPesquisa
+            // 
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(42, 13);
+            this.lblPesquisa.TabIndex = 11;
+            this.lblPesquisa.Text = "Cliente:";
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
+            this.txtPesquisa.TabIndex = 10;
+            // 
+            // pnlContasReceber
+            // 
+            this.pnlContasReceber.Controls.Add(this.dgvCliAReceber);
+            this.pnlContasReceber.Controls.Add(this.maskedTextBox2);
+            this.pnlContasReceber.Controls.Add(this.lblPeriodo);
+            this.pnlContasReceber.Controls.Add(this.maskedTextBox1);
+            this.pnlContasReceber.Controls.Add(this.lblPesquisa);
+            this.pnlContasReceber.Controls.Add(this.txtPesquisa);
+            this.pnlContasReceber.Controls.Add(this.tsC_Receber);
+            this.pnlContasReceber.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContasReceber.Location = new System.Drawing.Point(0, 0);
+            this.pnlContasReceber.Name = "pnlContasReceber";
+            this.pnlContasReceber.Size = new System.Drawing.Size(983, 590);
+            this.pnlContasReceber.TabIndex = 1;
+            // 
             // dgvCliAReceber
             // 
             this.dgvCliAReceber.AllowUserToOrderColumns = true;
@@ -214,13 +182,44 @@
             this.dgvCliAReceber.Size = new System.Drawing.Size(977, 529);
             this.dgvCliAReceber.TabIndex = 16;
             // 
+            // maskedTextBox2
+            // 
+            this.maskedTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBox2.Location = new System.Drawing.Point(552, 32);
+            this.maskedTextBox2.Mask = "00/00/0000";
+            this.maskedTextBox2.Name = "maskedTextBox2";
+            this.maskedTextBox2.Size = new System.Drawing.Size(75, 20);
+            this.maskedTextBox2.TabIndex = 15;
+            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            // 
+            // lblPeriodo
+            // 
+            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPeriodo.AutoSize = true;
+            this.lblPeriodo.Location = new System.Drawing.Point(417, 35);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(48, 13);
+            this.lblPeriodo.TabIndex = 14;
+            this.lblPeriodo.Text = "Período:";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(471, 32);
+            this.maskedTextBox1.Mask = "00/00/0000";
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(75, 20);
+            this.maskedTextBox1.TabIndex = 12;
+            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            // 
             // FrmContaReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.pnlContasReceber);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmContaReceber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

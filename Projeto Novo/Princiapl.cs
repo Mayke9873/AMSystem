@@ -52,7 +52,7 @@ namespace Projeto_Novo
         {
             FrmCliente cliente = new FrmCliente();
             cliente.TopLevel = false;
-            pnlPrincipal.Controls.Add(cliente);
+            
 
             if (Application.OpenForms.OfType<FrmCliente>().Count() > 0)
             {
@@ -67,7 +67,7 @@ namespace Projeto_Novo
         {
             FrmFornecedor fornecedor = new FrmFornecedor();
             fornecedor.TopLevel = false;
-            pnlPrincipal.Controls.Add(fornecedor);
+            
 
             if (Application.OpenForms.OfType<FrmFornecedor>().Count() > 0)
             {
@@ -82,7 +82,7 @@ namespace Projeto_Novo
         {
             FrmVenda vendas= new FrmVenda();
             vendas.TopLevel = false;
-            pnlPrincipal.Controls.Add(vendas);
+            
 
             if (Application.OpenForms.OfType <FrmVenda>().Count()>0)
             {
@@ -101,7 +101,7 @@ namespace Projeto_Novo
         {
             FrmProduto produtos = new FrmProduto();
             produtos.TopLevel = false;
-            pnlPrincipal.Controls.Add(produtos);
+            
             if (Application.OpenForms.OfType<FrmProduto>().Count() > 0)
             {
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -115,7 +115,7 @@ namespace Projeto_Novo
         {
             FrmFuncionario funcionario = new FrmFuncionario();
             funcionario.TopLevel = false;
-            pnlPrincipal.Controls.Add(funcionario);
+            
             if (Application.OpenForms.OfType<FrmFuncionario>().Count() > 0)
             {
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,7 +129,7 @@ namespace Projeto_Novo
         {
             FrmUsuario usuario = new FrmUsuario();
             usuario.TopLevel = false;
-            pnlPrincipal.Controls.Add(usuario);
+            
             if (Application.OpenForms.OfType<FrmUsuario>().Count() > 0)
             {
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -143,7 +143,7 @@ namespace Projeto_Novo
         {
             FrmGrupoUsuario grupoUsuario = new FrmGrupoUsuario();
             grupoUsuario.TopLevel = false;
-            pnlPrincipal.Controls.Add(grupoUsuario);
+            
             if (Application.OpenForms.OfType <FrmGrupoUsuario> ().Count() > 0)
             {
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -157,7 +157,7 @@ namespace Projeto_Novo
         {
             FrmGrupoProdutos grupoProdutos = new FrmGrupoProdutos();
             grupoProdutos.TopLevel = false;
-            pnlPrincipal.Controls.Add(grupoProdutos);
+            
             if (Application.OpenForms.OfType <FrmGrupoProdutos> ().Count() > 0)
             {
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -171,7 +171,7 @@ namespace Projeto_Novo
         {
             FrmConsVendas consVendas = new FrmConsVendas();
             consVendas.TopLevel = false;
-            pnlPrincipal.Controls.Add (consVendas);
+            
             if (Application.OpenForms.OfType <FrmConsVendas> ().Count() > 0)
             {
                 consVendas.BringToFront();
@@ -197,8 +197,8 @@ namespace Projeto_Novo
         private void tsbtnCReceber_Click(object sender, EventArgs e)
         {
             FrmContaReceber contaReceber = new FrmContaReceber();
-            contaReceber.TopLevel = false;
-            pnlPrincipal.Controls.Add (contaReceber);
+            contaReceber.MdiParent = this;
+            
             if (Application.OpenForms.OfType <FrmContaReceber> ().Count() > 0)
             {
                 contaReceber.Focus();

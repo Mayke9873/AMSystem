@@ -170,6 +170,7 @@
             this.Name = "FrmReceber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Receber";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReceber_KeyDown);
             this.pnlReceber.ResumeLayout(false);
             this.pnlReceber.PerformLayout();

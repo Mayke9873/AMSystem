@@ -38,7 +38,9 @@ namespace Projeto_Novo
         private void tsbtnEditC_Receber_Click(object sender, EventArgs e)
         {
             FrmReceber receber = new FrmReceber();
-            receber.ShowDialog();
+            receber.MdiParent = ControleJanelas.CriarInstaceMDI();
+            
+            receber.Show();
         }
     }
 }

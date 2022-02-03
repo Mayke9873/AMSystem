@@ -71,6 +71,7 @@
     <Compile Include="ContaReceber.Designer.cs">
       <DependentUpon>ContaReceber.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControleJanelas.cs" />
     <Compile Include="FechamentoCaixa.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -57,7 +57,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -307,23 +306,11 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // pnlPrincipal
-            // 
-            this.pnlPrincipal.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPrincipal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlPrincipal.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 78);
-            this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
-            this.pnlPrincipal.TabIndex = 2;
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.tsBotoes);
             this.Controls.Add(this.msMenu);
             this.IsMdiContainer = true;
@@ -360,7 +347,6 @@
         private System.Windows.Forms.ToolStripButton tsbtnPedido;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripButton tsbtnCReceber;
-        private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.ToolStripMenuItem tsmiSair;
         private System.Windows.Forms.ToolStripButton tsbtnSair;
         private System.Windows.Forms.ToolStripMenuItem movimentaçãoDeCaixaToolStripMenuItem;
