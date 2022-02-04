@@ -10,20 +10,16 @@ using System.Windows.Forms;
 
 namespace Projeto_Novo
 {
-    public partial class FrmContaReceber : Form
+    public partial class FrmContasPagar : Form
     {
-        public FrmContaReceber()
+        public FrmContasPagar()
         {
             InitializeComponent();
         }
-        private void FrmContaReceber_KeyDown(object sender, KeyEventArgs e)
+        private void FrmContasPagar_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
-                case Keys.Enter:
-                    this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
-                    break;
-
                 case Keys.Escape:
                     tsbtnSair_Click(sender, e);
                     break;
@@ -33,12 +29,6 @@ namespace Projeto_Novo
         private void tsbtnSair_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void tsbtnEditC_Receber_Click(object sender, EventArgs e)
-        {
-            FrmReceber receber = new FrmReceber();
-            receber.ShowDialog();
         }
     }
 }

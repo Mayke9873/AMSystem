@@ -57,6 +57,11 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.tmsiContaReceber = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiContaPagar = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -159,7 +164,8 @@
             // 
             this.tsmiMovimento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiPedido,
-            this.tsmiConsVendas});
+            this.tsmiConsVendas,
+            this.toolStripSeparator4});
             this.tsmiMovimento.Image = ((System.Drawing.Image)(resources.GetObject("tsmiMovimento.Image")));
             this.tsmiMovimento.Name = "tsmiMovimento";
             this.tsmiMovimento.Size = new System.Drawing.Size(97, 20);
@@ -170,14 +176,14 @@
             this.tsmiPedido.Name = "tsmiPedido";
             this.tsmiPedido.ShortcutKeyDisplayString = "F1";
             this.tsmiPedido.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.tsmiPedido.Size = new System.Drawing.Size(177, 22);
+            this.tsmiPedido.Size = new System.Drawing.Size(180, 22);
             this.tsmiPedido.Text = "Venda";
             this.tsmiPedido.Click += new System.EventHandler(this.tsmiPedido_Click);
             // 
             // tsmiConsVendas
             // 
             this.tsmiConsVendas.Name = "tsmiConsVendas";
-            this.tsmiConsVendas.Size = new System.Drawing.Size(177, 22);
+            this.tsmiConsVendas.Size = new System.Drawing.Size(180, 22);
             this.tsmiConsVendas.Text = "Consulta de Vendas";
             this.tsmiConsVendas.Click += new System.EventHandler(this.tsmiConsPedido_Click);
             // 
@@ -185,7 +191,10 @@
             // 
             this.tsmiFinanceiro.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiCaixa,
-            this.movimentaçãoDeCaixaToolStripMenuItem});
+            this.movimentaçãoDeCaixaToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.tmsiContaReceber,
+            this.tsmiContaPagar});
             this.tsmiFinanceiro.Image = ((System.Drawing.Image)(resources.GetObject("tsmiFinanceiro.Image")));
             this.tsmiFinanceiro.Name = "tsmiFinanceiro";
             this.tsmiFinanceiro.Size = new System.Drawing.Size(90, 20);
@@ -306,11 +315,44 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // pnlPrincipal
+            // 
+            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.Location = new System.Drawing.Point(0, 78);
+            this.pnlPrincipal.Name = "pnlPrincipal";
+            this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
+            this.pnlPrincipal.TabIndex = 3;
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(199, 6);
+            // 
+            // tmsiContaReceber
+            // 
+            this.tmsiContaReceber.Name = "tmsiContaReceber";
+            this.tmsiContaReceber.Size = new System.Drawing.Size(202, 22);
+            this.tmsiContaReceber.Text = "Contas a Receber";
+            this.tmsiContaReceber.Click += new System.EventHandler(this.tmsiContaReceber_Click);
+            // 
+            // tsmiContaPagar
+            // 
+            this.tsmiContaPagar.Name = "tsmiContaPagar";
+            this.tsmiContaPagar.Size = new System.Drawing.Size(202, 22);
+            this.tsmiContaPagar.Text = "Contas a Pagar";
+            this.tsmiContaPagar.Click += new System.EventHandler(this.tsmiContaPagar_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.tsBotoes);
             this.Controls.Add(this.msMenu);
             this.IsMdiContainer = true;
@@ -360,6 +402,11 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiFuncionario;
         private System.Windows.Forms.ToolStripMenuItem tsmiAbreCaixa;
         private System.Windows.Forms.ToolStripMenuItem tsmiFechaCaixa;
+        private System.Windows.Forms.Panel pnlPrincipal;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem tmsiContaReceber;
+        private System.Windows.Forms.ToolStripMenuItem tsmiContaPagar;
     }
 }
 
