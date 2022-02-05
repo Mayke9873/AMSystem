@@ -109,6 +109,7 @@
             this.dgvReceber.Name = "dgvReceber";
             this.dgvReceber.Size = new System.Drawing.Size(1078, 571);
             this.dgvReceber.TabIndex = 16;
+            this.dgvReceber.TabStop = false;
             // 
             // mtxDtFinal
             // 
@@ -117,7 +118,7 @@
             this.mtxDtFinal.Mask = "00/00/0000";
             this.mtxDtFinal.Name = "mtxDtFinal";
             this.mtxDtFinal.Size = new System.Drawing.Size(75, 20);
-            this.mtxDtFinal.TabIndex = 15;
+            this.mtxDtFinal.TabIndex = 3;
             this.mtxDtFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtxDtFinal.ValidatingType = typeof(System.DateTime);
             // 
@@ -138,7 +139,7 @@
             this.mtxDtInicial.Mask = "00/00/0000";
             this.mtxDtInicial.Name = "mtxDtInicial";
             this.mtxDtInicial.Size = new System.Drawing.Size(75, 20);
-            this.mtxDtInicial.TabIndex = 12;
+            this.mtxDtInicial.TabIndex = 2;
             this.mtxDtInicial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtxDtInicial.ValidatingType = typeof(System.DateTime);
             // 
@@ -158,7 +159,7 @@
             this.txtPesquisa.Location = new System.Drawing.Point(76, 13);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(358, 20);
-            this.txtPesquisa.TabIndex = 10;
+            this.txtPesquisa.TabIndex = 1;
             // 
             // FrmPagar
             // 

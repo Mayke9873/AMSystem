@@ -23,6 +23,8 @@ namespace Projeto_Novo
             {
                 //Se enter = Pula para o proximo campo.
                 case Keys.Enter:
+                    e.Handled = true;
+                    e.SuppressKeyPress = true;
                     this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
                     break;
 
@@ -30,6 +32,23 @@ namespace Projeto_Novo
                     this.Close();
                     break;
             }
+        }
+
+        private void btnFecharCaixa_Click(object sender, EventArgs e)
+        {
+            if (txtSenhaUsu.Text == "")
+            {
+                MessageBox.Show("Senha não informada, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (txtRetirada.Text == "")
+            {
+                txtRetirada.Text = "0";
+            }
+
+            MessageBox.Show("Realizado retirada de: " + txtRetirada.Text + "R$", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
     }
 }

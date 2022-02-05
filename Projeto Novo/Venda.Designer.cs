@@ -81,7 +81,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 226);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(959, 301);
-            this.dataGridView1.TabIndex = 23;
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             // 
             // txtValorUnit
             // 
@@ -209,6 +210,7 @@
             this.txtIdVenda.Name = "txtIdVenda";
             this.txtIdVenda.Size = new System.Drawing.Size(86, 24);
             this.txtIdVenda.TabIndex = 0;
+            this.txtIdVenda.TabStop = false;
             // 
             // lblIdVenda
             // 

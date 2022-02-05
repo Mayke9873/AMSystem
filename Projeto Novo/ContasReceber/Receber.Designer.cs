@@ -64,7 +64,7 @@
             this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnExcluir.Location = new System.Drawing.Point(201, 621);
+            this.btnExcluir.Location = new System.Drawing.Point(3, 621);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(96, 32);
             this.btnExcluir.TabIndex = 19;
@@ -90,7 +90,7 @@
             this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNovo.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnNovo.Location = new System.Drawing.Point(3, 621);
+            this.btnNovo.Location = new System.Drawing.Point(201, 621);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(96, 32);
             this.btnNovo.TabIndex = 17;

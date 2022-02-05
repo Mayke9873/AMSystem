@@ -73,7 +73,7 @@
             this.txtSenhaUsu.Location = new System.Drawing.Point(82, 111);
             this.txtSenhaUsu.Name = "txtSenhaUsu";
             this.txtSenhaUsu.Size = new System.Drawing.Size(140, 26);
-            this.txtSenhaUsu.TabIndex = 4;
+            this.txtSenhaUsu.TabIndex = 1;
             this.txtSenhaUsu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSenhaUsu.UseSystemPasswordChar = true;
             // 
@@ -83,16 +83,18 @@
             this.txtValorAbertura.Location = new System.Drawing.Point(82, 184);
             this.txtValorAbertura.Name = "txtValorAbertura";
             this.txtValorAbertura.Size = new System.Drawing.Size(140, 26);
-            this.txtValorAbertura.TabIndex = 5;
+            this.txtValorAbertura.TabIndex = 2;
             this.txtValorAbertura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtValFechamento
             // 
+            this.txtValFechamento.Enabled = false;
             this.txtValFechamento.Font = new System.Drawing.Font("Arial", 12F);
             this.txtValFechamento.Location = new System.Drawing.Point(82, 46);
             this.txtValFechamento.Name = "txtValFechamento";
             this.txtValFechamento.Size = new System.Drawing.Size(140, 26);
-            this.txtValFechamento.TabIndex = 3;
+            this.txtValFechamento.TabIndex = 0;
+            this.txtValFechamento.TabStop = false;
             this.txtValFechamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnAbrirCaixa
@@ -102,9 +104,10 @@
             this.btnAbrirCaixa.Location = new System.Drawing.Point(82, 231);
             this.btnAbrirCaixa.Name = "btnAbrirCaixa";
             this.btnAbrirCaixa.Size = new System.Drawing.Size(140, 30);
-            this.btnAbrirCaixa.TabIndex = 6;
+            this.btnAbrirCaixa.TabIndex = 3;
             this.btnAbrirCaixa.Text = "Abrir caixa";
             this.btnAbrirCaixa.UseVisualStyleBackColor = true;
+            this.btnAbrirCaixa.Click += new System.EventHandler(this.btnAbrirCaixa_Click);
             // 
             // FrmAberturaCaixa
             // 
@@ -123,6 +126,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAberturaCaixa";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Abertura de Caixa";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmAberturaCaixa_KeyDown);

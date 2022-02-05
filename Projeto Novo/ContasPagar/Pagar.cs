@@ -21,11 +21,12 @@ namespace Projeto_Novo.ContasPagar
         {
             switch (e.KeyCode)
             {
-                case Keys.Escape:
-                    this.Close();
+                case Keys.Enter:
+                    this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
                     break;
 
-                case Keys.Enter:
+                case Keys.Escape:
+                    this.Close();
                     break;
 
                 case Keys.F1:

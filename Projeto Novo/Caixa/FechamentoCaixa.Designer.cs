@@ -110,6 +110,7 @@
             this.txtSenhaUsu.Size = new System.Drawing.Size(140, 26);
             this.txtSenhaUsu.TabIndex = 6;
             this.txtSenhaUsu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSenhaUsu.UseSystemPasswordChar = true;
             // 
             // lblSenhaUsu
             // 
@@ -123,12 +124,13 @@
             // 
             // txtDiferenca
             // 
+            this.txtDiferenca.Enabled = false;
             this.txtDiferenca.Font = new System.Drawing.Font("Arial", 12F);
             this.txtDiferenca.Location = new System.Drawing.Point(115, 363);
             this.txtDiferenca.Name = "txtDiferenca";
-            this.txtDiferenca.ReadOnly = true;
             this.txtDiferenca.Size = new System.Drawing.Size(94, 26);
             this.txtDiferenca.TabIndex = 11;
+            this.txtDiferenca.TabStop = false;
             this.txtDiferenca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblDiferenca
@@ -188,6 +190,7 @@
             this.btnFecharCaixa.TabIndex = 7;
             this.btnFecharCaixa.Text = "Fechar Caixa";
             this.btnFecharCaixa.UseVisualStyleBackColor = true;
+            this.btnFecharCaixa.Click += new System.EventHandler(this.btnFecharCaixa_Click);
             // 
             // FrmFechamentoCaixa
             // 
