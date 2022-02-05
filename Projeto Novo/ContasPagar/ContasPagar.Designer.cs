@@ -34,17 +34,17 @@
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.tsC_Receber = new System.Windows.Forms.ToolStrip();
+            this.pnlContasReceber = new System.Windows.Forms.Panel();
+            this.dgvFornPagar = new System.Windows.Forms.DataGridView();
+            this.mtxDtFinal = new System.Windows.Forms.MaskedTextBox();
+            this.lblPeriodo = new System.Windows.Forms.Label();
+            this.mtxDtInicial = new System.Windows.Forms.MaskedTextBox();
             this.tsbtnAddC_Pagar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditC_Pagar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.pnlContasReceber = new System.Windows.Forms.Panel();
-            this.dgvFornPagar = new System.Windows.Forms.DataGridView();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.lblPeriodo = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.tsC_Receber.SuspendLayout();
             this.pnlContasReceber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornPagar)).BeginInit();
@@ -99,6 +99,67 @@
             this.tsC_Receber.TabIndex = 9;
             this.tsC_Receber.Text = "Contas a Receber";
             // 
+            // pnlContasReceber
+            // 
+            this.pnlContasReceber.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlContasReceber.Controls.Add(this.dgvFornPagar);
+            this.pnlContasReceber.Controls.Add(this.mtxDtFinal);
+            this.pnlContasReceber.Controls.Add(this.lblPeriodo);
+            this.pnlContasReceber.Controls.Add(this.mtxDtInicial);
+            this.pnlContasReceber.Controls.Add(this.lblPesquisa);
+            this.pnlContasReceber.Controls.Add(this.txtPesquisa);
+            this.pnlContasReceber.Controls.Add(this.tsC_Receber);
+            this.pnlContasReceber.Location = new System.Drawing.Point(0, 0);
+            this.pnlContasReceber.Name = "pnlContasReceber";
+            this.pnlContasReceber.Size = new System.Drawing.Size(983, 590);
+            this.pnlContasReceber.TabIndex = 2;
+            // 
+            // dgvFornPagar
+            // 
+            this.dgvFornPagar.AllowUserToOrderColumns = true;
+            this.dgvFornPagar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFornPagar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFornPagar.Location = new System.Drawing.Point(3, 58);
+            this.dgvFornPagar.Name = "dgvFornPagar";
+            this.dgvFornPagar.Size = new System.Drawing.Size(977, 529);
+            this.dgvFornPagar.TabIndex = 16;
+            // 
+            // mtxDtFinal
+            // 
+            this.mtxDtFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtxDtFinal.Location = new System.Drawing.Point(552, 32);
+            this.mtxDtFinal.Mask = "00/00/0000";
+            this.mtxDtFinal.Name = "mtxDtFinal";
+            this.mtxDtFinal.Size = new System.Drawing.Size(75, 20);
+            this.mtxDtFinal.TabIndex = 15;
+            this.mtxDtFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxDtFinal.ValidatingType = typeof(System.DateTime);
+            // 
+            // lblPeriodo
+            // 
+            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPeriodo.AutoSize = true;
+            this.lblPeriodo.Location = new System.Drawing.Point(417, 35);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(48, 13);
+            this.lblPeriodo.TabIndex = 14;
+            this.lblPeriodo.Text = "Período:";
+            // 
+            // mtxDtInicial
+            // 
+            this.mtxDtInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtxDtInicial.Location = new System.Drawing.Point(471, 32);
+            this.mtxDtInicial.Mask = "00/00/0000";
+            this.mtxDtInicial.Name = "mtxDtInicial";
+            this.mtxDtInicial.Size = new System.Drawing.Size(75, 20);
+            this.mtxDtInicial.TabIndex = 12;
+            this.mtxDtInicial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxDtInicial.ValidatingType = typeof(System.DateTime);
+            // 
             // tsbtnAddC_Pagar
             // 
             this.tsbtnAddC_Pagar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -116,6 +177,7 @@
             this.tsbtnEditC_Pagar.Name = "tsbtnEditC_Pagar";
             this.tsbtnEditC_Pagar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditC_Pagar.Text = "Editar";
+            this.tsbtnEditC_Pagar.Click += new System.EventHandler(this.tsbtnEditC_Pagar_Click);
             // 
             // tsbtnSalvar
             // 
@@ -153,65 +215,6 @@
             this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
-            // 
-            // pnlContasReceber
-            // 
-            this.pnlContasReceber.Controls.Add(this.dgvFornPagar);
-            this.pnlContasReceber.Controls.Add(this.maskedTextBox2);
-            this.pnlContasReceber.Controls.Add(this.lblPeriodo);
-            this.pnlContasReceber.Controls.Add(this.maskedTextBox1);
-            this.pnlContasReceber.Controls.Add(this.lblPesquisa);
-            this.pnlContasReceber.Controls.Add(this.txtPesquisa);
-            this.pnlContasReceber.Controls.Add(this.tsC_Receber);
-            this.pnlContasReceber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlContasReceber.Location = new System.Drawing.Point(0, 0);
-            this.pnlContasReceber.Name = "pnlContasReceber";
-            this.pnlContasReceber.Size = new System.Drawing.Size(983, 590);
-            this.pnlContasReceber.TabIndex = 2;
-            // 
-            // dgvFornPagar
-            // 
-            this.dgvFornPagar.AllowUserToOrderColumns = true;
-            this.dgvFornPagar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvFornPagar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFornPagar.Location = new System.Drawing.Point(3, 58);
-            this.dgvFornPagar.Name = "dgvFornPagar";
-            this.dgvFornPagar.Size = new System.Drawing.Size(977, 529);
-            this.dgvFornPagar.TabIndex = 16;
-            // 
-            // maskedTextBox2
-            // 
-            this.maskedTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(552, 32);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(75, 20);
-            this.maskedTextBox2.TabIndex = 15;
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
-            // 
-            // lblPeriodo
-            // 
-            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPeriodo.AutoSize = true;
-            this.lblPeriodo.Location = new System.Drawing.Point(417, 35);
-            this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(48, 13);
-            this.lblPeriodo.TabIndex = 14;
-            this.lblPeriodo.Text = "Período:";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(471, 32);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(75, 20);
-            this.maskedTextBox1.TabIndex = 12;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
             // 
             // FrmContasPagar
             // 
@@ -251,8 +254,8 @@
         private System.Windows.Forms.ToolStripButton tsbtnSair;
         private System.Windows.Forms.Panel pnlContasReceber;
         private System.Windows.Forms.DataGridView dgvFornPagar;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox mtxDtFinal;
         private System.Windows.Forms.Label lblPeriodo;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mtxDtInicial;
     }
 }

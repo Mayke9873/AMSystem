@@ -77,6 +77,12 @@
     <Compile Include="ContasPagar\ContasPagar.Designer.cs">
       <DependentUpon>ContasPagar.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContasPagar\Pagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContasPagar\Pagar.Designer.cs">
+      <DependentUpon>Pagar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FechamentoCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContasPagar\ContasPagar.resx">
       <DependentUpon>ContasPagar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContasPagar\Pagar.resx">
+      <DependentUpon>Pagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FechamentoCaixa.resx">
       <DependentUpon>FechamentoCaixa.cs</DependentUpon>

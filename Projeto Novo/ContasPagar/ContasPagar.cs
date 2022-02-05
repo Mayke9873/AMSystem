@@ -25,6 +25,11 @@ namespace Projeto_Novo
                     break;
             }
         }
+        private void tsbtnEditC_Pagar_Click(object sender, EventArgs e)
+        {
+            ContasPagar.FrmPagar pagar = new ContasPagar.FrmPagar();
+            pagar.ShowDialog();
+        }
 
         private void tsbtnSair_Click(object sender, EventArgs e)
         {
