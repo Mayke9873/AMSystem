@@ -29,11 +29,18 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
+            this.pnlCliente = new System.Windows.Forms.Panel();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.tpClientes = new System.Windows.Forms.TabControl();
             this.tpCliente = new System.Windows.Forms.TabPage();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.mtxCPF = new System.Windows.Forms.MaskedTextBox();
+            this.lblCPF = new System.Windows.Forms.Label();
+            this.mtxRG = new System.Windows.Forms.MaskedTextBox();
+            this.lblRG = new System.Windows.Forms.Label();
+            this.lnlNumEnd = new System.Windows.Forms.Label();
             this.txtIdCli = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
             this.txtBairroCli = new System.Windows.Forms.TextBox();
@@ -54,6 +61,8 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.lblPesquisa = new System.Windows.Forms.Label();
+            this.pnlCliente.SuspendLayout();
             this.tpClientes.SuspendLayout();
             this.tpCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
@@ -62,6 +71,28 @@
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // pnlCliente
+            // 
+            this.pnlCliente.Controls.Add(this.txtPesquisa);
+            this.pnlCliente.Controls.Add(this.tpClientes);
+            this.pnlCliente.Controls.Add(this.toolStrip1);
+            this.pnlCliente.Controls.Add(this.lblPesquisa);
+            this.pnlCliente.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCliente.Location = new System.Drawing.Point(0, 0);
+            this.pnlCliente.Name = "pnlCliente";
+            this.pnlCliente.Size = new System.Drawing.Size(983, 590);
+            this.pnlCliente.TabIndex = 0;
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
+            this.txtPesquisa.TabIndex = 0;
+            this.txtPesquisa.TabStop = false;
+            // 
             // tpClientes
             // 
             this.tpClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -69,12 +100,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tpClientes.Controls.Add(this.tpCliente);
             this.tpClientes.Controls.Add(this.tpDados);
-            this.tpClientes.Location = new System.Drawing.Point(0, 32);
+            this.tpClientes.Location = new System.Drawing.Point(-1, 58);
             this.tpClientes.Multiline = true;
             this.tpClientes.Name = "tpClientes";
             this.tpClientes.SelectedIndex = 0;
-            this.tpClientes.Size = new System.Drawing.Size(984, 558);
+            this.tpClientes.Size = new System.Drawing.Size(984, 532);
             this.tpClientes.TabIndex = 0;
+            this.tpClientes.TabStop = false;
             // 
             // tpCliente
             // 
@@ -83,7 +115,7 @@
             this.tpCliente.Location = new System.Drawing.Point(4, 22);
             this.tpCliente.Name = "tpCliente";
             this.tpCliente.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCliente.Size = new System.Drawing.Size(976, 532);
+            this.tpCliente.Size = new System.Drawing.Size(976, 506);
             this.tpCliente.TabIndex = 0;
             this.tpCliente.Text = "Cliente";
             this.tpCliente.UseVisualStyleBackColor = true;
@@ -95,7 +127,7 @@
             this.dgvCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCliente.Location = new System.Drawing.Point(3, 3);
             this.dgvCliente.Name = "dgvCliente";
-            this.dgvCliente.Size = new System.Drawing.Size(970, 526);
+            this.dgvCliente.Size = new System.Drawing.Size(970, 500);
             this.dgvCliente.TabIndex = 2;
             // 
             // dgvClientes
@@ -108,11 +140,16 @@
             this.dgvClientes.Location = new System.Drawing.Point(3, 3);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 526);
+            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
             this.dgvClientes.TabIndex = 0;
             // 
             // tpDados
             // 
+            this.tpDados.Controls.Add(this.mtxCPF);
+            this.tpDados.Controls.Add(this.lblCPF);
+            this.tpDados.Controls.Add(this.mtxRG);
+            this.tpDados.Controls.Add(this.lblRG);
+            this.tpDados.Controls.Add(this.lnlNumEnd);
             this.tpDados.Controls.Add(this.txtIdCli);
             this.tpDados.Controls.Add(this.lblIdCli);
             this.tpDados.Controls.Add(this.txtBairroCli);
@@ -127,10 +164,58 @@
             this.tpDados.Location = new System.Drawing.Point(4, 22);
             this.tpDados.Name = "tpDados";
             this.tpDados.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDados.Size = new System.Drawing.Size(976, 532);
+            this.tpDados.Size = new System.Drawing.Size(976, 506);
             this.tpDados.TabIndex = 1;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // mtxCPF
+            // 
+            this.mtxCPF.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxCPF.Location = new System.Drawing.Point(468, 91);
+            this.mtxCPF.Mask = "000,000,000-00";
+            this.mtxCPF.Name = "mtxCPF";
+            this.mtxCPF.Size = new System.Drawing.Size(130, 26);
+            this.mtxCPF.TabIndex = 3;
+            // 
+            // lblCPF
+            // 
+            this.lblCPF.AutoSize = true;
+            this.lblCPF.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblCPF.Location = new System.Drawing.Point(465, 70);
+            this.lblCPF.Name = "lblCPF";
+            this.lblCPF.Size = new System.Drawing.Size(45, 18);
+            this.lblCPF.TabIndex = 16;
+            this.lblCPF.Text = "CPF:";
+            // 
+            // mtxRG
+            // 
+            this.mtxRG.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxRG.Location = new System.Drawing.Point(348, 91);
+            this.mtxRG.Mask = "00,000,000-0";
+            this.mtxRG.Name = "mtxRG";
+            this.mtxRG.Size = new System.Drawing.Size(114, 26);
+            this.mtxRG.TabIndex = 2;
+            // 
+            // lblRG
+            // 
+            this.lblRG.AutoSize = true;
+            this.lblRG.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblRG.Location = new System.Drawing.Point(345, 70);
+            this.lblRG.Name = "lblRG";
+            this.lblRG.Size = new System.Drawing.Size(35, 18);
+            this.lblRG.TabIndex = 15;
+            this.lblRG.Text = "RG:";
+            // 
+            // lnlNumEnd
+            // 
+            this.lnlNumEnd.AutoSize = true;
+            this.lnlNumEnd.Font = new System.Drawing.Font("Arial", 12F);
+            this.lnlNumEnd.Location = new System.Drawing.Point(342, 129);
+            this.lnlNumEnd.Name = "lnlNumEnd";
+            this.lnlNumEnd.Size = new System.Drawing.Size(28, 18);
+            this.lnlNumEnd.TabIndex = 12;
+            this.lnlNumEnd.Text = "Nº:";
             // 
             // txtIdCli
             // 
@@ -140,7 +225,8 @@
             this.txtIdCli.Location = new System.Drawing.Point(11, 34);
             this.txtIdCli.Name = "txtIdCli";
             this.txtIdCli.Size = new System.Drawing.Size(77, 26);
-            this.txtIdCli.TabIndex = 6;
+            this.txtIdCli.TabIndex = 0;
+            this.txtIdCli.TabStop = false;
             // 
             // lblIdCli
             // 
@@ -155,35 +241,35 @@
             // txtBairroCli
             // 
             this.txtBairroCli.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtBairroCli.Location = new System.Drawing.Point(362, 150);
+            this.txtBairroCli.Location = new System.Drawing.Point(403, 150);
             this.txtBairroCli.Name = "txtBairroCli";
-            this.txtBairroCli.Size = new System.Drawing.Size(285, 26);
-            this.txtBairroCli.TabIndex = 5;
+            this.txtBairroCli.Size = new System.Drawing.Size(301, 26);
+            this.txtBairroCli.TabIndex = 7;
             // 
             // txtNumEndCli
             // 
             this.txtNumEndCli.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtNumEndCli.Location = new System.Drawing.Point(298, 150);
+            this.txtNumEndCli.Location = new System.Drawing.Point(345, 150);
             this.txtNumEndCli.Name = "txtNumEndCli";
             this.txtNumEndCli.Size = new System.Drawing.Size(52, 26);
-            this.txtNumEndCli.TabIndex = 4;
+            this.txtNumEndCli.TabIndex = 6;
             // 
             // txtEnderecoCli
             // 
             this.txtEnderecoCli.Font = new System.Drawing.Font("Arial", 12F);
             this.txtEnderecoCli.Location = new System.Drawing.Point(11, 150);
             this.txtEnderecoCli.Name = "txtEnderecoCli";
-            this.txtEnderecoCli.Size = new System.Drawing.Size(285, 26);
-            this.txtEnderecoCli.TabIndex = 3;
+            this.txtEnderecoCli.Size = new System.Drawing.Size(331, 26);
+            this.txtEnderecoCli.TabIndex = 5;
             // 
             // mtxDtNasc
             // 
             this.mtxDtNasc.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxDtNasc.Location = new System.Drawing.Point(362, 91);
+            this.mtxDtNasc.Location = new System.Drawing.Point(604, 91);
             this.mtxDtNasc.Mask = "00/00/0000";
             this.mtxDtNasc.Name = "mtxDtNasc";
             this.mtxDtNasc.Size = new System.Drawing.Size(100, 26);
-            this.mtxDtNasc.TabIndex = 2;
+            this.mtxDtNasc.TabIndex = 4;
             this.mtxDtNasc.ValidatingType = typeof(System.DateTime);
             // 
             // txtNomeCli
@@ -191,14 +277,14 @@
             this.txtNomeCli.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNomeCli.Location = new System.Drawing.Point(11, 91);
             this.txtNomeCli.Name = "txtNomeCli";
-            this.txtNomeCli.Size = new System.Drawing.Size(285, 26);
+            this.txtNomeCli.Size = new System.Drawing.Size(331, 26);
             this.txtNomeCli.TabIndex = 1;
             // 
             // lblBairro
             // 
             this.lblBairro.AutoSize = true;
             this.lblBairro.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblBairro.Location = new System.Drawing.Point(359, 129);
+            this.lblBairro.Location = new System.Drawing.Point(400, 129);
             this.lblBairro.Name = "lblBairro";
             this.lblBairro.Size = new System.Drawing.Size(55, 18);
             this.lblBairro.TabIndex = 3;
@@ -218,7 +304,7 @@
             // 
             this.lblDtNasc.AutoSize = true;
             this.lblDtNasc.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblDtNasc.Location = new System.Drawing.Point(359, 70);
+            this.lblDtNasc.Location = new System.Drawing.Point(601, 70);
             this.lblDtNasc.Name = "lblDtNasc";
             this.lblDtNasc.Size = new System.Drawing.Size(68, 18);
             this.lblDtNasc.TabIndex = 1;
@@ -251,7 +337,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(983, 29);
-            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.TabIndex = 15;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // tsbtnAddCliente
@@ -319,13 +405,21 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // lblPesquisa
+            // 
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(56, 13);
+            this.lblPesquisa.TabIndex = 17;
+            this.lblPesquisa.Text = "Pesquisar:";
+            // 
             // FrmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 590);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.tpClientes);
+            this.Controls.Add(this.pnlCliente);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmCliente";
@@ -333,6 +427,8 @@
             this.Text = "Cliente";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCliente_KeyDown);
+            this.pnlCliente.ResumeLayout(false);
+            this.pnlCliente.PerformLayout();
             this.tpClientes.ResumeLayout(false);
             this.tpCliente.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
@@ -342,18 +438,30 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel pnlCliente;
+        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.TabControl tpClientes;
         private System.Windows.Forms.TabPage tpCliente;
-        private System.Windows.Forms.TabPage tpDados;
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.DataGridView dgvCliente;
+        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.TabPage tpDados;
         private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tsbtnAddCliente;
+        private System.Windows.Forms.ToolStripButton tsbtnEditCliente;
+        private System.Windows.Forms.ToolStripButton tsbtnSalvar;
+        private System.Windows.Forms.ToolStripButton tsbtnCancelar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        private System.Windows.Forms.ToolStripButton tsbtnImprimir;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbtnSair;
+        private System.Windows.Forms.Label lblPesquisa;
+        private System.Windows.Forms.TextBox txtIdCli;
+        private System.Windows.Forms.Label lblIdCli;
         private System.Windows.Forms.TextBox txtBairroCli;
         private System.Windows.Forms.TextBox txtNumEndCli;
         private System.Windows.Forms.TextBox txtEnderecoCli;
@@ -363,15 +471,10 @@
         private System.Windows.Forms.Label lblEndereco;
         private System.Windows.Forms.Label lblDtNasc;
         private System.Windows.Forms.Label lblNomeCli;
-        private System.Windows.Forms.Label lblIdCli;
-        private System.Windows.Forms.TextBox txtIdCli;
-        private System.Windows.Forms.ToolStripButton tsbtnAddCliente;
-        private System.Windows.Forms.ToolStripButton tsbtnEditCliente;
-        private System.Windows.Forms.ToolStripButton tsbtnSalvar;
-        private System.Windows.Forms.ToolStripButton tsbtnCancelar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripButton tsbtnImprimir;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsbtnSair;
+        private System.Windows.Forms.Label lnlNumEnd;
+        private System.Windows.Forms.MaskedTextBox mtxCPF;
+        private System.Windows.Forms.Label lblCPF;
+        private System.Windows.Forms.MaskedTextBox mtxRG;
+        private System.Windows.Forms.Label lblRG;
     }
 }

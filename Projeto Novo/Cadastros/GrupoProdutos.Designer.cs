@@ -29,65 +29,123 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupoProdutos));
-            this.pnlGrupoProdutos = new System.Windows.Forms.Panel();
-            this.lblPesquisa = new System.Windows.Forms.Label();
-            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
+            this.tsbtnAddGrupoProd = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnEditGrupoProd = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.tpGrupoProdutos = new System.Windows.Forms.TabControl();
             this.tpGrupoProdudo = new System.Windows.Forms.TabPage();
             this.dgvGrupoProd = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosGrupoProd = new System.Windows.Forms.TabPage();
+            this.rdoInativo = new System.Windows.Forms.RadioButton();
+            this.rdoAtivo = new System.Windows.Forms.RadioButton();
             this.txtDescGrupoProd = new System.Windows.Forms.TextBox();
             this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
             this.lblDescGrupoProd = new System.Windows.Forms.Label();
-            this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbtnAddGrupoProd = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnEditGrupoProd = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.pnlGrupoProdutos.SuspendLayout();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
+            this.lblPesquisa = new System.Windows.Forms.Label();
+            this.pnlGrupoProdutos = new System.Windows.Forms.Panel();
+            this.tsGrupoProduto.SuspendLayout();
             this.tpGrupoProdutos.SuspendLayout();
             this.tpGrupoProdudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosGrupoProd.SuspendLayout();
-            this.tsGrupoProduto.SuspendLayout();
+            this.pnlGrupoProdutos.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlGrupoProdutos
+            // tsGrupoProduto
             // 
-            this.pnlGrupoProdutos.Controls.Add(this.lblPesquisa);
-            this.pnlGrupoProdutos.Controls.Add(this.txtPesquisa);
-            this.pnlGrupoProdutos.Controls.Add(this.tpGrupoProdutos);
-            this.pnlGrupoProdutos.Controls.Add(this.tsGrupoProduto);
-            this.pnlGrupoProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrupoProdutos.Location = new System.Drawing.Point(0, 0);
-            this.pnlGrupoProdutos.Name = "pnlGrupoProdutos";
-            this.pnlGrupoProdutos.Size = new System.Drawing.Size(983, 590);
-            this.pnlGrupoProdutos.TabIndex = 0;
+            this.tsGrupoProduto.BackColor = System.Drawing.SystemColors.Control;
+            this.tsGrupoProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tsGrupoProduto.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.tsGrupoProduto.ImageScalingSize = new System.Drawing.Size(22, 22);
+            this.tsGrupoProduto.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbtnAddGrupoProd,
+            this.tsbtnEditGrupoProd,
+            this.tsbtnSalvar,
+            this.tsbtnCancelar,
+            this.toolStripSeparator,
+            this.tsbtnImprimir,
+            this.toolStripSeparator1,
+            this.tsbtnSair});
+            this.tsGrupoProduto.Location = new System.Drawing.Point(0, 0);
+            this.tsGrupoProduto.Name = "tsGrupoProduto";
+            this.tsGrupoProduto.Size = new System.Drawing.Size(983, 29);
+            this.tsGrupoProduto.TabIndex = 9;
+            this.tsGrupoProduto.Text = "toolStrip1";
             // 
-            // lblPesquisa
+            // tsbtnAddGrupoProd
             // 
-            this.lblPesquisa.AutoSize = true;
-            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
-            this.lblPesquisa.Name = "lblPesquisa";
-            this.lblPesquisa.Size = new System.Drawing.Size(56, 13);
-            this.lblPesquisa.TabIndex = 11;
-            this.lblPesquisa.Text = "Pesquisar:";
+            this.tsbtnAddGrupoProd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnAddGrupoProd.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnAddGrupoProd.Image")));
+            this.tsbtnAddGrupoProd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnAddGrupoProd.Name = "tsbtnAddGrupoProd";
+            this.tsbtnAddGrupoProd.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnAddGrupoProd.Text = "Novo";
             // 
-            // txtPesquisa
+            // tsbtnEditGrupoProd
             // 
-            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
-            this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
-            this.txtPesquisa.TabIndex = 10;
+            this.tsbtnEditGrupoProd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnEditGrupoProd.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnEditGrupoProd.Image")));
+            this.tsbtnEditGrupoProd.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnEditGrupoProd.Name = "tsbtnEditGrupoProd";
+            this.tsbtnEditGrupoProd.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnEditGrupoProd.Text = "Editar";
+            // 
+            // tsbtnSalvar
+            // 
+            this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
+            this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSalvar.Name = "tsbtnSalvar";
+            this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnSalvar.Text = "Salvar";
+            // 
+            // tsbtnCancelar
+            // 
+            this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
+            this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnCancelar.Name = "tsbtnCancelar";
+            this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnCancelar.Text = "Cancelar";
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
+            // 
+            // tsbtnImprimir
+            // 
+            this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnImprimir.Image")));
+            this.tsbtnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnImprimir.Name = "tsbtnImprimir";
+            this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnImprimir.Text = "Imprimir";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
+            // 
+            // tsbtnSair
+            // 
+            this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
+            this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSair.Name = "tsbtnSair";
+            this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnSair.Text = "Sair";
+            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
             // tpGrupoProdutos
             // 
@@ -141,6 +199,8 @@
             // 
             // tpDadosGrupoProd
             // 
+            this.tpDadosGrupoProd.Controls.Add(this.rdoInativo);
+            this.tpDadosGrupoProd.Controls.Add(this.rdoAtivo);
             this.tpDadosGrupoProd.Controls.Add(this.txtDescGrupoProd);
             this.tpDadosGrupoProd.Controls.Add(this.txtIdUsuario);
             this.tpDadosGrupoProd.Controls.Add(this.lblIdCli);
@@ -152,6 +212,28 @@
             this.tpDadosGrupoProd.TabIndex = 1;
             this.tpDadosGrupoProd.Text = "Dados";
             this.tpDadosGrupoProd.UseVisualStyleBackColor = true;
+            // 
+            // rdoInativo
+            // 
+            this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoInativo.Location = new System.Drawing.Point(300, 37);
+            this.rdoInativo.Name = "rdoInativo";
+            this.rdoInativo.Size = new System.Drawing.Size(67, 21);
+            this.rdoInativo.TabIndex = 3;
+            this.rdoInativo.Text = "Inativo";
+            this.rdoInativo.UseVisualStyleBackColor = true;
+            // 
+            // rdoAtivo
+            // 
+            this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoAtivo.Location = new System.Drawing.Point(237, 37);
+            this.rdoAtivo.Name = "rdoAtivo";
+            this.rdoAtivo.Size = new System.Drawing.Size(57, 21);
+            this.rdoAtivo.TabIndex = 4;
+            this.rdoAtivo.Text = "Ativo";
+            this.rdoAtivo.UseVisualStyleBackColor = true;
             // 
             // txtDescGrupoProd
             // 
@@ -191,91 +273,36 @@
             this.lblDescGrupoProd.TabIndex = 0;
             this.lblDescGrupoProd.Text = "Descrição:";
             // 
-            // tsGrupoProduto
+            // txtPesquisa
             // 
-            this.tsGrupoProduto.BackColor = System.Drawing.SystemColors.Control;
-            this.tsGrupoProduto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.tsGrupoProduto.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
-            this.tsGrupoProduto.ImageScalingSize = new System.Drawing.Size(22, 22);
-            this.tsGrupoProduto.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbtnAddGrupoProd,
-            this.tsbtnEditGrupoProd,
-            this.tsbtnSalvar,
-            this.tsbtnCancelar,
-            this.toolStripSeparator,
-            this.tsbtnImprimir,
-            this.toolStripSeparator1,
-            this.tsbtnSair});
-            this.tsGrupoProduto.Location = new System.Drawing.Point(0, 0);
-            this.tsGrupoProduto.Name = "tsGrupoProduto";
-            this.tsGrupoProduto.Size = new System.Drawing.Size(983, 29);
-            this.tsGrupoProduto.TabIndex = 9;
-            this.tsGrupoProduto.Text = "toolStrip1";
+            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
+            this.txtPesquisa.TabIndex = 10;
+            this.txtPesquisa.TabStop = false;
             // 
-            // toolStripSeparator
+            // lblPesquisa
             // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(56, 13);
+            this.lblPesquisa.TabIndex = 11;
+            this.lblPesquisa.Text = "Pesquisar:";
             // 
-            // toolStripSeparator1
+            // pnlGrupoProdutos
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
-            // 
-            // tsbtnAddGrupoProd
-            // 
-            this.tsbtnAddGrupoProd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnAddGrupoProd.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnAddGrupoProd.Image")));
-            this.tsbtnAddGrupoProd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnAddGrupoProd.Name = "tsbtnAddGrupoProd";
-            this.tsbtnAddGrupoProd.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnAddGrupoProd.Text = "Novo";
-            // 
-            // tsbtnEditGrupoProd
-            // 
-            this.tsbtnEditGrupoProd.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnEditGrupoProd.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnEditGrupoProd.Image")));
-            this.tsbtnEditGrupoProd.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnEditGrupoProd.Name = "tsbtnEditGrupoProd";
-            this.tsbtnEditGrupoProd.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnEditGrupoProd.Text = "Editar";
-            // 
-            // tsbtnSalvar
-            // 
-            this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
-            this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSalvar.Name = "tsbtnSalvar";
-            this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnSalvar.Text = "Salvar";
-            // 
-            // tsbtnCancelar
-            // 
-            this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
-            this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnCancelar.Name = "tsbtnCancelar";
-            this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnCancelar.Text = "Cancelar";
-            // 
-            // tsbtnImprimir
-            // 
-            this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnImprimir.Image")));
-            this.tsbtnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnImprimir.Name = "tsbtnImprimir";
-            this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnImprimir.Text = "Imprimir";
-            // 
-            // tsbtnSair
-            // 
-            this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
-            this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSair.Name = "tsbtnSair";
-            this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnSair.Text = "Sair";
-            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
+            this.pnlGrupoProdutos.Controls.Add(this.lblPesquisa);
+            this.pnlGrupoProdutos.Controls.Add(this.txtPesquisa);
+            this.pnlGrupoProdutos.Controls.Add(this.tpGrupoProdutos);
+            this.pnlGrupoProdutos.Controls.Add(this.tsGrupoProduto);
+            this.pnlGrupoProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGrupoProdutos.Location = new System.Drawing.Point(0, 0);
+            this.pnlGrupoProdutos.Name = "pnlGrupoProdutos";
+            this.pnlGrupoProdutos.Size = new System.Drawing.Size(983, 590);
+            this.pnlGrupoProdutos.TabIndex = 0;
             // 
             // FrmGrupoProdutos
             // 
@@ -290,23 +317,22 @@
             this.Text = "GrupoProdutos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGrupoProdutos_KeyDown);
-            this.pnlGrupoProdutos.ResumeLayout(false);
-            this.pnlGrupoProdutos.PerformLayout();
+            this.tsGrupoProduto.ResumeLayout(false);
+            this.tsGrupoProduto.PerformLayout();
             this.tpGrupoProdutos.ResumeLayout(false);
             this.tpGrupoProdudo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoProd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpDadosGrupoProd.ResumeLayout(false);
             this.tpDadosGrupoProd.PerformLayout();
-            this.tsGrupoProduto.ResumeLayout(false);
-            this.tsGrupoProduto.PerformLayout();
+            this.pnlGrupoProdutos.ResumeLayout(false);
+            this.pnlGrupoProdutos.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel pnlGrupoProdutos;
         private System.Windows.Forms.ToolStrip tsGrupoProduto;
         private System.Windows.Forms.ToolStripButton tsbtnAddGrupoProd;
         private System.Windows.Forms.ToolStripButton tsbtnEditGrupoProd;
@@ -316,8 +342,6 @@
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbtnSair;
-        private System.Windows.Forms.Label lblPesquisa;
-        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.TabControl tpGrupoProdutos;
         private System.Windows.Forms.TabPage tpGrupoProdudo;
         private System.Windows.Forms.DataGridView dgvGrupoProd;
@@ -327,5 +351,10 @@
         private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.Label lblIdCli;
         private System.Windows.Forms.Label lblDescGrupoProd;
+        private System.Windows.Forms.TextBox txtPesquisa;
+        private System.Windows.Forms.Label lblPesquisa;
+        private System.Windows.Forms.Panel pnlGrupoProdutos;
+        private System.Windows.Forms.RadioButton rdoInativo;
+        private System.Windows.Forms.RadioButton rdoAtivo;
     }
 }

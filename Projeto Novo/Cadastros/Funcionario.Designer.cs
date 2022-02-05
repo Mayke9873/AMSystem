@@ -29,15 +29,19 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFuncionario));
+            this.pnlFuncionario = new System.Windows.Forms.Panel();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.tpFornecedores = new System.Windows.Forms.TabControl();
             this.tpFuncionario = new System.Windows.Forms.TabPage();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.rdoInativo = new System.Windows.Forms.RadioButton();
+            this.rdoAtivo = new System.Windows.Forms.RadioButton();
             this.lnlNumEnd = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.mtxCPF = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mtxRG = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdFuncionario = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
@@ -50,6 +54,7 @@
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblDtNasc = new System.Windows.Forms.Label();
             this.lblNomeCli = new System.Windows.Forms.Label();
+            this.lblPesquisa = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsbtnAddFuncionario = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditFuncionario = new System.Windows.Forms.ToolStripButton();
@@ -59,6 +64,7 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.pnlFuncionario.SuspendLayout();
             this.tpFornecedores.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
@@ -67,6 +73,28 @@
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // pnlFuncionario
+            // 
+            this.pnlFuncionario.Controls.Add(this.txtPesquisa);
+            this.pnlFuncionario.Controls.Add(this.tpFornecedores);
+            this.pnlFuncionario.Controls.Add(this.lblPesquisa);
+            this.pnlFuncionario.Controls.Add(this.toolStrip1);
+            this.pnlFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlFuncionario.Location = new System.Drawing.Point(0, 0);
+            this.pnlFuncionario.Name = "pnlFuncionario";
+            this.pnlFuncionario.Size = new System.Drawing.Size(983, 590);
+            this.pnlFuncionario.TabIndex = 0;
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
+            this.txtPesquisa.TabIndex = 16;
+            this.txtPesquisa.TabStop = false;
+            // 
             // tpFornecedores
             // 
             this.tpFornecedores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -74,12 +102,13 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tpFornecedores.Controls.Add(this.tpFuncionario);
             this.tpFornecedores.Controls.Add(this.tpDados);
-            this.tpFornecedores.Location = new System.Drawing.Point(-1, 32);
+            this.tpFornecedores.Location = new System.Drawing.Point(-1, 58);
             this.tpFornecedores.Multiline = true;
             this.tpFornecedores.Name = "tpFornecedores";
             this.tpFornecedores.SelectedIndex = 0;
-            this.tpFornecedores.Size = new System.Drawing.Size(984, 558);
-            this.tpFornecedores.TabIndex = 4;
+            this.tpFornecedores.Size = new System.Drawing.Size(984, 532);
+            this.tpFornecedores.TabIndex = 0;
+            this.tpFornecedores.TabStop = false;
             // 
             // tpFuncionario
             // 
@@ -88,7 +117,7 @@
             this.tpFuncionario.Location = new System.Drawing.Point(4, 22);
             this.tpFuncionario.Name = "tpFuncionario";
             this.tpFuncionario.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFuncionario.Size = new System.Drawing.Size(976, 532);
+            this.tpFuncionario.Size = new System.Drawing.Size(976, 506);
             this.tpFuncionario.TabIndex = 0;
             this.tpFuncionario.Text = "Funcionário";
             this.tpFuncionario.UseVisualStyleBackColor = true;
@@ -100,7 +129,7 @@
             this.dgvFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFuncionario.Location = new System.Drawing.Point(3, 3);
             this.dgvFuncionario.Name = "dgvFuncionario";
-            this.dgvFuncionario.Size = new System.Drawing.Size(970, 526);
+            this.dgvFuncionario.Size = new System.Drawing.Size(970, 500);
             this.dgvFuncionario.TabIndex = 2;
             // 
             // dgvClientes
@@ -113,15 +142,17 @@
             this.dgvClientes.Location = new System.Drawing.Point(3, 3);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 526);
+            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
             this.dgvClientes.TabIndex = 0;
             // 
             // tpDados
             // 
+            this.tpDados.Controls.Add(this.rdoInativo);
+            this.tpDados.Controls.Add(this.rdoAtivo);
             this.tpDados.Controls.Add(this.lnlNumEnd);
-            this.tpDados.Controls.Add(this.maskedTextBox2);
+            this.tpDados.Controls.Add(this.mtxCPF);
             this.tpDados.Controls.Add(this.label2);
-            this.tpDados.Controls.Add(this.maskedTextBox1);
+            this.tpDados.Controls.Add(this.mtxRG);
             this.tpDados.Controls.Add(this.label1);
             this.tpDados.Controls.Add(this.txtIdFuncionario);
             this.tpDados.Controls.Add(this.lblIdCli);
@@ -137,29 +168,51 @@
             this.tpDados.Location = new System.Drawing.Point(4, 22);
             this.tpDados.Name = "tpDados";
             this.tpDados.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDados.Size = new System.Drawing.Size(976, 532);
+            this.tpDados.Size = new System.Drawing.Size(976, 506);
             this.tpDados.TabIndex = 2;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // rdoInativo
+            // 
+            this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoInativo.Location = new System.Drawing.Point(275, 37);
+            this.rdoInativo.Name = "rdoInativo";
+            this.rdoInativo.Size = new System.Drawing.Size(67, 21);
+            this.rdoInativo.TabIndex = 12;
+            this.rdoInativo.Text = "Inativo";
+            this.rdoInativo.UseVisualStyleBackColor = true;
+            // 
+            // rdoAtivo
+            // 
+            this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoAtivo.Location = new System.Drawing.Point(212, 37);
+            this.rdoAtivo.Name = "rdoAtivo";
+            this.rdoAtivo.Size = new System.Drawing.Size(57, 21);
+            this.rdoAtivo.TabIndex = 13;
+            this.rdoAtivo.Text = "Ativo";
+            this.rdoAtivo.UseVisualStyleBackColor = true;
             // 
             // lnlNumEnd
             // 
             this.lnlNumEnd.AutoSize = true;
             this.lnlNumEnd.Font = new System.Drawing.Font("Arial", 12F);
-            this.lnlNumEnd.Location = new System.Drawing.Point(345, 129);
+            this.lnlNumEnd.Location = new System.Drawing.Point(342, 129);
             this.lnlNumEnd.Name = "lnlNumEnd";
             this.lnlNumEnd.Size = new System.Drawing.Size(28, 18);
             this.lnlNumEnd.TabIndex = 11;
             this.lnlNumEnd.Text = "Nº:";
             // 
-            // maskedTextBox2
+            // mtxCPF
             // 
-            this.maskedTextBox2.Font = new System.Drawing.Font("Arial", 12F);
-            this.maskedTextBox2.Location = new System.Drawing.Point(468, 91);
-            this.maskedTextBox2.Mask = "000,000,000-00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(130, 26);
-            this.maskedTextBox2.TabIndex = 10;
+            this.mtxCPF.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxCPF.Location = new System.Drawing.Point(468, 91);
+            this.mtxCPF.Mask = "000,000,000-00";
+            this.mtxCPF.Name = "mtxCPF";
+            this.mtxCPF.Size = new System.Drawing.Size(130, 26);
+            this.mtxCPF.TabIndex = 3;
             // 
             // label2
             // 
@@ -171,14 +224,14 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "CPF:";
             // 
-            // maskedTextBox1
+            // mtxRG
             // 
-            this.maskedTextBox1.Font = new System.Drawing.Font("Arial", 12F);
-            this.maskedTextBox1.Location = new System.Drawing.Point(348, 91);
-            this.maskedTextBox1.Mask = "00,000,000-0";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(114, 26);
-            this.maskedTextBox1.TabIndex = 8;
+            this.mtxRG.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxRG.Location = new System.Drawing.Point(348, 91);
+            this.mtxRG.Mask = "00,000,000-0";
+            this.mtxRG.Name = "mtxRG";
+            this.mtxRG.Size = new System.Drawing.Size(114, 26);
+            this.mtxRG.TabIndex = 2;
             // 
             // label1
             // 
@@ -199,6 +252,7 @@
             this.txtIdFuncionario.Name = "txtIdFuncionario";
             this.txtIdFuncionario.Size = new System.Drawing.Size(77, 26);
             this.txtIdFuncionario.TabIndex = 0;
+            this.txtIdFuncionario.TabStop = false;
             // 
             // lblIdCli
             // 
@@ -216,7 +270,7 @@
             this.txtBairroFuncionario.Location = new System.Drawing.Point(403, 150);
             this.txtBairroFuncionario.Name = "txtBairroFuncionario";
             this.txtBairroFuncionario.Size = new System.Drawing.Size(301, 26);
-            this.txtBairroFuncionario.TabIndex = 5;
+            this.txtBairroFuncionario.TabIndex = 7;
             // 
             // txtNumEndFuncionario
             // 
@@ -224,7 +278,7 @@
             this.txtNumEndFuncionario.Location = new System.Drawing.Point(345, 150);
             this.txtNumEndFuncionario.Name = "txtNumEndFuncionario";
             this.txtNumEndFuncionario.Size = new System.Drawing.Size(52, 26);
-            this.txtNumEndFuncionario.TabIndex = 4;
+            this.txtNumEndFuncionario.TabIndex = 6;
             // 
             // txtEndFuncionario
             // 
@@ -232,7 +286,7 @@
             this.txtEndFuncionario.Location = new System.Drawing.Point(11, 150);
             this.txtEndFuncionario.Name = "txtEndFuncionario";
             this.txtEndFuncionario.Size = new System.Drawing.Size(331, 26);
-            this.txtEndFuncionario.TabIndex = 3;
+            this.txtEndFuncionario.TabIndex = 5;
             // 
             // mtxDtNascFuncionario
             // 
@@ -241,7 +295,7 @@
             this.mtxDtNascFuncionario.Mask = "00/00/0000";
             this.mtxDtNascFuncionario.Name = "mtxDtNascFuncionario";
             this.mtxDtNascFuncionario.Size = new System.Drawing.Size(100, 26);
-            this.mtxDtNascFuncionario.TabIndex = 2;
+            this.mtxDtNascFuncionario.TabIndex = 4;
             this.mtxDtNascFuncionario.ValidatingType = typeof(System.DateTime);
             // 
             // txtNomeFuncionario
@@ -292,6 +346,15 @@
             this.lblNomeCli.TabIndex = 0;
             this.lblNomeCli.Text = "Nome:";
             // 
+            // lblPesquisa
+            // 
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(56, 13);
+            this.lblPesquisa.TabIndex = 17;
+            this.lblPesquisa.Text = "Pesquisar:";
+            // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.Control;
@@ -309,7 +372,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(983, 29);
-            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.TabIndex = 15;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // tsbtnAddFuncionario
@@ -382,14 +445,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 590);
-            this.Controls.Add(this.tpFornecedores);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.pnlFuncionario);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmFuncionario";
             this.Text = "Funcionario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmFuncionario_KeyDown);
+            this.pnlFuncionario.ResumeLayout(false);
+            this.pnlFuncionario.PerformLayout();
             this.tpFornecedores.ResumeLayout(false);
             this.tpFuncionario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
@@ -399,25 +463,22 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel pnlFuncionario;
+        private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.TabControl tpFornecedores;
         private System.Windows.Forms.TabPage tpFuncionario;
         private System.Windows.Forms.DataGridView dgvFuncionario;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton tsbtnAddFuncionario;
-        private System.Windows.Forms.ToolStripButton tsbtnEditFuncionario;
-        private System.Windows.Forms.ToolStripButton tsbtnSalvar;
-        private System.Windows.Forms.ToolStripButton tsbtnCancelar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
-        private System.Windows.Forms.ToolStripButton tsbtnImprimir;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton tsbtnSair;
         private System.Windows.Forms.TabPage tpDados;
+        private System.Windows.Forms.Label lnlNumEnd;
+        private System.Windows.Forms.MaskedTextBox mtxCPF;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIdFuncionario;
         private System.Windows.Forms.Label lblIdCli;
         private System.Windows.Forms.TextBox txtBairroFuncionario;
@@ -429,10 +490,18 @@
         private System.Windows.Forms.Label lblEndereco;
         private System.Windows.Forms.Label lblDtNasc;
         private System.Windows.Forms.Label lblNomeCli;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lnlNumEnd;
+        private System.Windows.Forms.Label lblPesquisa;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton tsbtnAddFuncionario;
+        private System.Windows.Forms.ToolStripButton tsbtnEditFuncionario;
+        private System.Windows.Forms.ToolStripButton tsbtnSalvar;
+        private System.Windows.Forms.ToolStripButton tsbtnCancelar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        private System.Windows.Forms.ToolStripButton tsbtnImprimir;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbtnSair;
+        private System.Windows.Forms.RadioButton rdoInativo;
+        private System.Windows.Forms.RadioButton rdoAtivo;
+        private System.Windows.Forms.MaskedTextBox mtxRG;
     }
 }

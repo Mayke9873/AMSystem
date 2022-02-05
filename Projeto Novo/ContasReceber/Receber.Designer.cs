@@ -33,9 +33,9 @@
             this.btnReceber = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.dgvReceber = new System.Windows.Forms.DataGridView();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.mtxDtFinal = new System.Windows.Forms.MaskedTextBox();
             this.lblPeriodo = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.mtxDtInicial = new System.Windows.Forms.MaskedTextBox();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.pnlReceber.SuspendLayout();
@@ -48,9 +48,9 @@
             this.pnlReceber.Controls.Add(this.btnReceber);
             this.pnlReceber.Controls.Add(this.btnNovo);
             this.pnlReceber.Controls.Add(this.dgvReceber);
-            this.pnlReceber.Controls.Add(this.maskedTextBox2);
+            this.pnlReceber.Controls.Add(this.mtxDtFinal);
             this.pnlReceber.Controls.Add(this.lblPeriodo);
-            this.pnlReceber.Controls.Add(this.maskedTextBox1);
+            this.pnlReceber.Controls.Add(this.mtxDtInicial);
             this.pnlReceber.Controls.Add(this.lblPesquisa);
             this.pnlReceber.Controls.Add(this.txtPesquisa);
             this.pnlReceber.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -110,16 +110,16 @@
             this.dgvReceber.Size = new System.Drawing.Size(1078, 571);
             this.dgvReceber.TabIndex = 16;
             // 
-            // maskedTextBox2
+            // mtxDtFinal
             // 
-            this.maskedTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(653, 13);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(75, 20);
-            this.maskedTextBox2.TabIndex = 15;
-            this.maskedTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.mtxDtFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtxDtFinal.Location = new System.Drawing.Point(653, 13);
+            this.mtxDtFinal.Mask = "00/00/0000";
+            this.mtxDtFinal.Name = "mtxDtFinal";
+            this.mtxDtFinal.Size = new System.Drawing.Size(75, 20);
+            this.mtxDtFinal.TabIndex = 15;
+            this.mtxDtFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxDtFinal.ValidatingType = typeof(System.DateTime);
             // 
             // lblPeriodo
             // 
@@ -131,16 +131,16 @@
             this.lblPeriodo.TabIndex = 14;
             this.lblPeriodo.Text = "Período:";
             // 
-            // maskedTextBox1
+            // mtxDtInicial
             // 
-            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(572, 13);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(75, 20);
-            this.maskedTextBox1.TabIndex = 12;
-            this.maskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.mtxDtInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtxDtInicial.Location = new System.Drawing.Point(572, 13);
+            this.mtxDtInicial.Mask = "00/00/0000";
+            this.mtxDtInicial.Name = "mtxDtInicial";
+            this.mtxDtInicial.Size = new System.Drawing.Size(75, 20);
+            this.mtxDtInicial.TabIndex = 12;
+            this.mtxDtInicial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxDtInicial.ValidatingType = typeof(System.DateTime);
             // 
             // lblPesquisa
             // 
@@ -189,9 +189,9 @@
         private System.Windows.Forms.Button btnReceber;
         private System.Windows.Forms.Button btnNovo;
         private System.Windows.Forms.DataGridView dgvReceber;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox mtxDtFinal;
         private System.Windows.Forms.Label lblPeriodo;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox mtxDtInicial;
         private System.Windows.Forms.Label lblPesquisa;
         private System.Windows.Forms.TextBox txtPesquisa;
     }

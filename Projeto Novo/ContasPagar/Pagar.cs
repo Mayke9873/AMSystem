@@ -44,17 +44,17 @@ namespace Projeto_Novo.ContasPagar
 
         private void btnNovo_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Novo");
         }
 
         private void btnPagar_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Pagar");
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show("Excluir");
         }
     }
 }

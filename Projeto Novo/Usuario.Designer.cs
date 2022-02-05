@@ -29,30 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuario));
+            this.pnlUsuarios = new System.Windows.Forms.Panel();
+            this.lblPesquisa = new System.Windows.Forms.Label();
+            this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.tpUsuarios = new System.Windows.Forms.TabControl();
             this.tpUsuario = new System.Windows.Forms.TabPage();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosUsu = new System.Windows.Forms.TabPage();
             this.cmbFuncUsuario = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtLogin = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.rdoUsuInativo = new System.Windows.Forms.RadioButton();
             this.rdoUsuAtivo = new System.Windows.Forms.RadioButton();
             this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
-            this.txtEnderecoCli = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblSenha = new System.Windows.Forms.Label();
             this.lblDescFunc = new System.Windows.Forms.Label();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsUsuario = new System.Windows.Forms.ToolStrip();
             this.tsbtnAddUsuario = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditUsuario = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.pnlUsuarios.SuspendLayout();
             this.tpUsuarios.SuspendLayout();
             this.tpUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
@@ -61,6 +65,37 @@
             this.tsUsuario.SuspendLayout();
             this.SuspendLayout();
             // 
+            // pnlUsuarios
+            // 
+            this.pnlUsuarios.Controls.Add(this.lblPesquisa);
+            this.pnlUsuarios.Controls.Add(this.txtPesquisa);
+            this.pnlUsuarios.Controls.Add(this.tpUsuarios);
+            this.pnlUsuarios.Controls.Add(this.tsUsuario);
+            this.pnlUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.pnlUsuarios.Name = "pnlUsuarios";
+            this.pnlUsuarios.Size = new System.Drawing.Size(983, 590);
+            this.pnlUsuarios.TabIndex = 0;
+            // 
+            // lblPesquisa
+            // 
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(56, 13);
+            this.lblPesquisa.TabIndex = 15;
+            this.lblPesquisa.Text = "Pesquisar:";
+            // 
+            // txtPesquisa
+            // 
+            this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
+            this.txtPesquisa.Name = "txtPesquisa";
+            this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
+            this.txtPesquisa.TabIndex = 14;
+            this.txtPesquisa.TabStop = false;
+            // 
             // tpUsuarios
             // 
             this.tpUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -68,12 +103,12 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tpUsuarios.Controls.Add(this.tpUsuario);
             this.tpUsuarios.Controls.Add(this.tpDadosUsu);
-            this.tpUsuarios.Location = new System.Drawing.Point(-1, 32);
+            this.tpUsuarios.Location = new System.Drawing.Point(-1, 58);
             this.tpUsuarios.Multiline = true;
             this.tpUsuarios.Name = "tpUsuarios";
             this.tpUsuarios.SelectedIndex = 0;
-            this.tpUsuarios.Size = new System.Drawing.Size(984, 558);
-            this.tpUsuarios.TabIndex = 4;
+            this.tpUsuarios.Size = new System.Drawing.Size(984, 532);
+            this.tpUsuarios.TabIndex = 8;
             this.tpUsuarios.TabStop = false;
             // 
             // tpUsuario
@@ -83,7 +118,7 @@
             this.tpUsuario.Location = new System.Drawing.Point(4, 22);
             this.tpUsuario.Name = "tpUsuario";
             this.tpUsuario.Padding = new System.Windows.Forms.Padding(3);
-            this.tpUsuario.Size = new System.Drawing.Size(976, 532);
+            this.tpUsuario.Size = new System.Drawing.Size(976, 506);
             this.tpUsuario.TabIndex = 0;
             this.tpUsuario.Text = "Usuarios";
             this.tpUsuario.UseVisualStyleBackColor = true;
@@ -95,7 +130,7 @@
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsuarios.Location = new System.Drawing.Point(3, 3);
             this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.Size = new System.Drawing.Size(970, 526);
+            this.dgvUsuarios.Size = new System.Drawing.Size(970, 500);
             this.dgvUsuarios.TabIndex = 2;
             // 
             // dgvClientes
@@ -108,25 +143,25 @@
             this.dgvClientes.Location = new System.Drawing.Point(3, 3);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 526);
+            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
             this.dgvClientes.TabIndex = 0;
             // 
             // tpDadosUsu
             // 
             this.tpDadosUsu.Controls.Add(this.cmbFuncUsuario);
-            this.tpDadosUsu.Controls.Add(this.textBox4);
+            this.tpDadosUsu.Controls.Add(this.txtLogin);
             this.tpDadosUsu.Controls.Add(this.lblUsuario);
             this.tpDadosUsu.Controls.Add(this.rdoUsuInativo);
             this.tpDadosUsu.Controls.Add(this.rdoUsuAtivo);
             this.tpDadosUsu.Controls.Add(this.txtIdUsuario);
             this.tpDadosUsu.Controls.Add(this.lblIdCli);
-            this.tpDadosUsu.Controls.Add(this.txtEnderecoCli);
+            this.tpDadosUsu.Controls.Add(this.txtSenha);
             this.tpDadosUsu.Controls.Add(this.lblSenha);
             this.tpDadosUsu.Controls.Add(this.lblDescFunc);
             this.tpDadosUsu.Location = new System.Drawing.Point(4, 22);
             this.tpDadosUsu.Name = "tpDadosUsu";
             this.tpDadosUsu.Padding = new System.Windows.Forms.Padding(3);
-            this.tpDadosUsu.Size = new System.Drawing.Size(976, 532);
+            this.tpDadosUsu.Size = new System.Drawing.Size(976, 506);
             this.tpDadosUsu.TabIndex = 1;
             this.tpDadosUsu.Text = "Dados";
             this.tpDadosUsu.UseVisualStyleBackColor = true;
@@ -138,21 +173,21 @@
             this.cmbFuncUsuario.Location = new System.Drawing.Point(11, 91);
             this.cmbFuncUsuario.Name = "cmbFuncUsuario";
             this.cmbFuncUsuario.Size = new System.Drawing.Size(356, 26);
-            this.cmbFuncUsuario.TabIndex = 5;
+            this.cmbFuncUsuario.TabIndex = 2;
             // 
-            // textBox4
+            // txtLogin
             // 
-            this.textBox4.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox4.Location = new System.Drawing.Point(11, 157);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(175, 26);
-            this.textBox4.TabIndex = 3;
+            this.txtLogin.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtLogin.Location = new System.Drawing.Point(11, 150);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(175, 26);
+            this.txtLogin.TabIndex = 3;
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblUsuario.Location = new System.Drawing.Point(8, 136);
+            this.lblUsuario.Location = new System.Drawing.Point(8, 129);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(66, 18);
             this.lblUsuario.TabIndex = 0;
@@ -189,6 +224,7 @@
             this.txtIdUsuario.Name = "txtIdUsuario";
             this.txtIdUsuario.Size = new System.Drawing.Size(77, 26);
             this.txtIdUsuario.TabIndex = 0;
+            this.txtIdUsuario.TabStop = false;
             // 
             // lblIdCli
             // 
@@ -200,20 +236,20 @@
             this.lblIdCli.TabIndex = 0;
             this.lblIdCli.Text = "Código:";
             // 
-            // txtEnderecoCli
+            // txtSenha
             // 
-            this.txtEnderecoCli.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtEnderecoCli.Location = new System.Drawing.Point(192, 157);
-            this.txtEnderecoCli.Name = "txtEnderecoCli";
-            this.txtEnderecoCli.Size = new System.Drawing.Size(175, 26);
-            this.txtEnderecoCli.TabIndex = 4;
-            this.txtEnderecoCli.UseSystemPasswordChar = true;
+            this.txtSenha.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtSenha.Location = new System.Drawing.Point(192, 150);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(175, 26);
+            this.txtSenha.TabIndex = 4;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
             this.lblSenha.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblSenha.Location = new System.Drawing.Point(189, 136);
+            this.lblSenha.Location = new System.Drawing.Point(189, 129);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(57, 18);
             this.lblSenha.TabIndex = 0;
@@ -228,16 +264,6 @@
             this.lblDescFunc.Size = new System.Drawing.Size(94, 18);
             this.lblDescFunc.TabIndex = 0;
             this.lblDescFunc.Text = "Funcionário:";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
-            // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
             // 
             // tsUsuario
             // 
@@ -257,7 +283,7 @@
             this.tsUsuario.Location = new System.Drawing.Point(0, 0);
             this.tsUsuario.Name = "tsUsuario";
             this.tsUsuario.Size = new System.Drawing.Size(983, 29);
-            this.tsUsuario.TabIndex = 5;
+            this.tsUsuario.TabIndex = 9;
             this.tsUsuario.Text = "toolStrip1";
             // 
             // tsbtnAddUsuario
@@ -296,6 +322,11 @@
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
             // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
+            // 
             // tsbtnImprimir
             // 
             this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -304,6 +335,11 @@
             this.tsbtnImprimir.Name = "tsbtnImprimir";
             this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
             this.tsbtnImprimir.Text = "Imprimir";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
             // 
             // tsbtnSair
             // 
@@ -321,8 +357,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.ControlBox = false;
-            this.Controls.Add(this.tpUsuarios);
-            this.Controls.Add(this.tsUsuario);
+            this.Controls.Add(this.pnlUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmUsuario";
@@ -330,6 +365,8 @@
             this.Text = "Usuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmUsuario_KeyDown);
+            this.pnlUsuarios.ResumeLayout(false);
+            this.pnlUsuarios.PerformLayout();
             this.tpUsuarios.ResumeLayout(false);
             this.tpUsuario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
@@ -339,35 +376,37 @@
             this.tsUsuario.ResumeLayout(false);
             this.tsUsuario.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ToolStripButton tsbtnSair;
-        private System.Windows.Forms.ToolStripButton tsbtnCancelar;
-        private System.Windows.Forms.ToolStripButton tsbtnSalvar;
-        private System.Windows.Forms.ToolStripButton tsbtnEditUsuario;
-        private System.Windows.Forms.ToolStripButton tsbtnAddUsuario;
+        private System.Windows.Forms.Panel pnlUsuarios;
         private System.Windows.Forms.TabControl tpUsuarios;
         private System.Windows.Forms.TabPage tpUsuario;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpDadosUsu;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.ComboBox cmbFuncUsuario;
+        private System.Windows.Forms.TextBox txtLogin;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.RadioButton rdoUsuInativo;
         private System.Windows.Forms.RadioButton rdoUsuAtivo;
         private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.Label lblIdCli;
-        private System.Windows.Forms.TextBox txtEnderecoCli;
+        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Label lblDescFunc;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStrip tsUsuario;
+        private System.Windows.Forms.ToolStripButton tsbtnAddUsuario;
+        private System.Windows.Forms.ToolStripButton tsbtnEditUsuario;
+        private System.Windows.Forms.ToolStripButton tsbtnSalvar;
+        private System.Windows.Forms.ToolStripButton tsbtnCancelar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
-        private System.Windows.Forms.ComboBox cmbFuncUsuario;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton tsbtnSair;
+        private System.Windows.Forms.Label lblPesquisa;
+        private System.Windows.Forms.TextBox txtPesquisa;
     }
 }

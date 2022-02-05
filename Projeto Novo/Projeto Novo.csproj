@@ -47,16 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AberturaCaixa.cs">
+    <Compile Include="Caixa\AberturaCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AberturaCaixa.Designer.cs">
+    <Compile Include="Caixa\AberturaCaixa.Designer.cs">
       <DependentUpon>AberturaCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cliente.cs">
+    <Compile Include="Cadastros\Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cliente.Designer.cs">
+    <Compile Include="Cadastros\Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsVendas.cs">
@@ -65,10 +65,10 @@
     <Compile Include="ConsVendas.Designer.cs">
       <DependentUpon>ConsVendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContaReceber.cs">
+    <Compile Include="ContasReceber\ContaReceber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContaReceber.Designer.cs">
+    <Compile Include="ContasReceber\ContaReceber.Designer.cs">
       <DependentUpon>ContaReceber.cs</DependentUpon>
     </Compile>
     <Compile Include="ContasPagar\ContasPagar.cs">
@@ -83,34 +83,34 @@
     <Compile Include="ContasPagar\Pagar.Designer.cs">
       <DependentUpon>Pagar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FechamentoCaixa.cs">
+    <Compile Include="Caixa\FechamentoCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FechamentoCaixa.Designer.cs">
+    <Compile Include="Caixa\FechamentoCaixa.Designer.cs">
       <DependentUpon>FechamentoCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Fornecedor.cs">
+    <Compile Include="Cadastros\Fornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fornecedor.Designer.cs">
+    <Compile Include="Cadastros\Fornecedor.Designer.cs">
       <DependentUpon>Fornecedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Funcionario.cs">
+    <Compile Include="Cadastros\Funcionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Funcionario.Designer.cs">
+    <Compile Include="Cadastros\Funcionario.Designer.cs">
       <DependentUpon>Funcionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrupoProdutos.cs">
+    <Compile Include="Cadastros\GrupoProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GrupoProdutos.Designer.cs">
+    <Compile Include="Cadastros\GrupoProdutos.Designer.cs">
       <DependentUpon>GrupoProdutos.cs</DependentUpon>
     </Compile>
-    <Compile Include="GrupoUsuario.cs">
+    <Compile Include="Cadastros\GrupoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GrupoUsuario.Designer.cs">
+    <Compile Include="Cadastros\GrupoUsuario.Designer.cs">
       <DependentUpon>GrupoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -125,18 +125,18 @@
     <Compile Include="Princiapl.Designer.cs">
       <DependentUpon>Princiapl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Produto.cs">
+    <Compile Include="Cadastros\Produto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Produto.Designer.cs">
+    <Compile Include="Cadastros\Produto.Designer.cs">
       <DependentUpon>Produto.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Receber.cs">
+    <Compile Include="ContasReceber\Receber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Receber.Designer.cs">
+    <Compile Include="ContasReceber\Receber.Designer.cs">
       <DependentUpon>Receber.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs">
@@ -151,16 +151,16 @@
     <Compile Include="Venda.Designer.cs">
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AberturaCaixa.resx">
+    <EmbeddedResource Include="Caixa\AberturaCaixa.resx">
       <DependentUpon>AberturaCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cliente.resx">
+    <EmbeddedResource Include="Cadastros\Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ConsVendas.resx">
       <DependentUpon>ConsVendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContaReceber.resx">
+    <EmbeddedResource Include="ContasReceber\ContaReceber.resx">
       <DependentUpon>ContaReceber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContasPagar\ContasPagar.resx">
@@ -169,19 +169,19 @@
     <EmbeddedResource Include="ContasPagar\Pagar.resx">
       <DependentUpon>Pagar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FechamentoCaixa.resx">
+    <EmbeddedResource Include="Caixa\FechamentoCaixa.resx">
       <DependentUpon>FechamentoCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fornecedor.resx">
+    <EmbeddedResource Include="Cadastros\Fornecedor.resx">
       <DependentUpon>Fornecedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Funcionario.resx">
+    <EmbeddedResource Include="Cadastros\Funcionario.resx">
       <DependentUpon>Funcionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrupoProdutos.resx">
+    <EmbeddedResource Include="Cadastros\GrupoProdutos.resx">
       <DependentUpon>GrupoProdutos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GrupoUsuario.resx">
+    <EmbeddedResource Include="Cadastros\GrupoUsuario.resx">
       <DependentUpon>GrupoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -190,7 +190,7 @@
     <EmbeddedResource Include="Princiapl.resx">
       <DependentUpon>Princiapl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Produto.resx">
+    <EmbeddedResource Include="Cadastros\Produto.resx">
       <DependentUpon>Produto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -203,7 +203,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Receber.resx">
+    <EmbeddedResource Include="ContasReceber\Receber.resx">
       <DependentUpon>Receber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario.resx">
@@ -240,5 +240,6 @@
   <ItemGroup>
     <None Include="Resources\Vendas.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

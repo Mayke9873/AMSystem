@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Projeto_Novo
 {
-    public partial class FrmFornecedor : Form
+    public partial class FrmCliente : Form
     {
-        public FrmFornecedor()
+        public FrmCliente()
         {
             InitializeComponent();
         }
 
-        private void FrmFornecedor_KeyDown(object sender, KeyEventArgs e)
+        private void FrmCliente_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
@@ -35,6 +35,5 @@ namespace Projeto_Novo
         {
             this.Close();
         }
-
     }
 }
