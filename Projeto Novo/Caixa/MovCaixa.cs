@@ -8,20 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projeto_Novo
+namespace Projeto_Novo.Caixa
 {
-    public partial class FrmConsVendas : Form
+    public partial class FrmMovCaixa : Form
     {
-        public FrmConsVendas()
+        public FrmMovCaixa()
         {
             InitializeComponent();
         }
-        private void FrmConsVendas_KeyDown(object sender, KeyEventArgs e)
+
+        private void FrmMovCaixa_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.Enter:
-                    e.SuppressKeyPress = true;
                     this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
                     break;
 

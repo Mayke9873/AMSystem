@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icone_sistema.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,6 +61,12 @@
     </Compile>
     <Compile Include="Cadastros\Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Caixa\MovCaixa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Caixa\MovCaixa.Designer.cs">
+      <DependentUpon>MovCaixa.cs</DependentUpon>
     </Compile>
     <Compile Include="ConsVendas.cs">
       <SubType>Form</SubType>
@@ -157,6 +166,9 @@
     <EmbeddedResource Include="Cadastros\Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Caixa\MovCaixa.resx">
+      <DependentUpon>MovCaixa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ConsVendas.resx">
       <DependentUpon>ConsVendas.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +252,8 @@
   <ItemGroup>
     <None Include="Resources\Vendas.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Icone_sistema.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

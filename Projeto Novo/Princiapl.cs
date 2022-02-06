@@ -233,5 +233,20 @@ namespace Projeto_Novo
 
             contaPagar.Show();
         }
+
+        private void tsmiMovCaixa_Click(object sender, EventArgs e)
+        {
+            Caixa.FrmMovCaixa movCaixa = new Caixa.FrmMovCaixa();
+            movCaixa.TopLevel = false;
+            pnlPrincipal.Controls.Add(movCaixa);
+
+            if (Application.OpenForms.OfType<Caixa.FrmMovCaixa>().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            movCaixa.Show();
+        }
     }
 }
