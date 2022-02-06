@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cadastros\Contas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cadastros\Contas.Designer.cs">
+      <DependentUpon>Contas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Caixa\AberturaCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     <Compile Include="Venda.Designer.cs">
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Cadastros\Contas.resx">
+      <DependentUpon>Contas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Caixa\AberturaCaixa.resx">
       <DependentUpon>AberturaCaixa.cs</DependentUpon>
     </EmbeddedResource>

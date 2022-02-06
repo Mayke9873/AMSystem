@@ -8,23 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Projeto_Novo.Caixa
+namespace Projeto_Novo.Cadastros
 {
-    public partial class FrmMovCaixa : Form
+    public partial class FrmContas : Form
     {
-        public FrmMovCaixa()
+        public FrmContas()
         {
             InitializeComponent();
         }
-
-        private void FrmMovCaixa_KeyDown(object sender, KeyEventArgs e)
+        private void FrmContas_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.Enter:
+                    e.SuppressKeyPress = true;
                     this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
                     break;
-                     
+
                 case Keys.Escape:
                     tsbtnSair_Click(sender, e);
                     break;
@@ -35,5 +35,6 @@ namespace Projeto_Novo.Caixa
         {
             this.Close();
         }
+
     }
 }

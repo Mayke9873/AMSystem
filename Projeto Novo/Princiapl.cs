@@ -248,5 +248,20 @@ namespace Projeto_Novo
 
             movCaixa.Show();
         }
+
+        private void tsmiContas_Click(object sender, EventArgs e)
+        {
+            Cadastros.FrmContas contas = new Cadastros.FrmContas();
+            contas.TopLevel = false;
+            pnlPrincipal.Controls.Add(contas);
+
+            if (Application.OpenForms.OfType<Cadastros.FrmContas>().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            contas.Show();
+        }
     }
 }
