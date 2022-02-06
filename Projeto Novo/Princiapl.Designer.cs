@@ -52,7 +52,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tmsiContaReceber = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiContaPagar = new System.Windows.Forms.ToolStripMenuItem();
-            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSair = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +72,7 @@
             this.tsmiCadastros,
             this.tsmiMovimento,
             this.tsmiFinanceiro,
-            this.relatóriosToolStripMenuItem,
+            this.tsmiRelatorio,
             this.tsmiSair});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
@@ -254,26 +254,27 @@
             this.tsmiContaPagar.Text = "Contas a Pagar";
             this.tsmiContaPagar.Click += new System.EventHandler(this.tsmiContaPagar_Click);
             // 
-            // relatóriosToolStripMenuItem
+            // tsmiRelatorio
             // 
-            this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiRelatorio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.vendasToolStripMenuItem,
             this.estoqueToolStripMenuItem});
-            this.relatóriosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("relatóriosToolStripMenuItem.Image")));
-            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
-            this.relatóriosToolStripMenuItem.Text = "Relatórios";
+            this.tsmiRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("tsmiRelatorio.Image")));
+            this.tsmiRelatorio.Name = "tsmiRelatorio";
+            this.tsmiRelatorio.Size = new System.Drawing.Size(87, 20);
+            this.tsmiRelatorio.Text = "Relatórios";
+            this.tsmiRelatorio.Visible = false;
             // 
             // vendasToolStripMenuItem
             // 
             this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vendasToolStripMenuItem.Text = "Vendas";
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             // 
             // tsmiSair
@@ -397,7 +398,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiUsuario;
         private System.Windows.Forms.ToolStripMenuItem tsmiGrupoUsu;
         private System.Windows.Forms.ToolStripMenuItem tsmiConsVendas;
-        private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRelatorio;
         private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiFuncionario;
