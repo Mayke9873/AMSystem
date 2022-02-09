@@ -30,10 +30,16 @@ namespace Projeto_Novo
                     break;
             }
         }
+        private void tsbtnAddVenda_Click(object sender, EventArgs e)
+        {
+            FrmVenda venda = new FrmVenda();
+            venda.ShowDialog();
+        }
 
         private void tsbtnSair_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
     }
 }

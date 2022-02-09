@@ -37,6 +37,7 @@
             this.dgvGrupoProd = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosConta = new System.Windows.Forms.TabPage();
+            this.chkBanco = new System.Windows.Forms.CheckBox();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.rdoAtivo = new System.Windows.Forms.RadioButton();
             this.txtDescGrupoProd = new System.Windows.Forms.TextBox();
@@ -44,15 +45,14 @@
             this.lblIdCli = new System.Windows.Forms.Label();
             this.lblDescGrupoProd = new System.Windows.Forms.Label();
             this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnAddConta = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditConta = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.chkBanco = new System.Windows.Forms.CheckBox();
             this.pnlContas.SuspendLayout();
             this.tpContas.SuspendLayout();
             this.tpConta.SuspendLayout();
@@ -87,7 +87,7 @@
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
+            this.txtPesquisa.Location = new System.Drawing.Point(76, 32);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 10;
@@ -159,6 +159,17 @@
             this.tpDadosConta.TabIndex = 1;
             this.tpDadosConta.Text = "Dados";
             this.tpDadosConta.UseVisualStyleBackColor = true;
+            // 
+            // chkBanco
+            // 
+            this.chkBanco.AutoSize = true;
+            this.chkBanco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkBanco.Location = new System.Drawing.Point(12, 139);
+            this.chkBanco.Name = "chkBanco";
+            this.chkBanco.Size = new System.Drawing.Size(124, 21);
+            this.chkBanco.TabIndex = 5;
+            this.chkBanco.Text = "Conta Bancária";
+            this.chkBanco.UseVisualStyleBackColor = true;
             // 
             // rdoInativo
             // 
@@ -241,6 +252,16 @@
             this.tsGrupoProduto.TabIndex = 9;
             this.tsGrupoProduto.Text = "toolStrip1";
             // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
+            // 
             // tsbtnAddConta
             // 
             this.tsbtnAddConta.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -277,11 +298,6 @@
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
             // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
-            // 
             // tsbtnImprimir
             // 
             this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -290,11 +306,6 @@
             this.tsbtnImprimir.Name = "tsbtnImprimir";
             this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
             this.tsbtnImprimir.Text = "Imprimir";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
             // 
             // tsbtnSair
             // 
@@ -305,17 +316,6 @@
             this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
-            // 
-            // chkBanco
-            // 
-            this.chkBanco.AutoSize = true;
-            this.chkBanco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.chkBanco.Location = new System.Drawing.Point(12, 139);
-            this.chkBanco.Name = "chkBanco";
-            this.chkBanco.Size = new System.Drawing.Size(124, 21);
-            this.chkBanco.TabIndex = 5;
-            this.chkBanco.Text = "Conta Bancária";
-            this.chkBanco.UseVisualStyleBackColor = true;
             // 
             // FrmContas
             // 

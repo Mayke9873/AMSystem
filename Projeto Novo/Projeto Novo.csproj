@@ -36,6 +36,7 @@
     <ApplicationIcon>Icone_sistema.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -74,10 +75,22 @@
     <Compile Include="Caixa\MovCaixa.Designer.cs">
       <DependentUpon>MovCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConsVendas.cs">
+    <Compile Include="Compras\Compra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsVendas.Designer.cs">
+    <Compile Include="Compras\Compra.Designer.cs">
+      <DependentUpon>Compra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Compras\ConsCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compras\ConsCompras.Designer.cs">
+      <DependentUpon>ConsCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vendas\ConsVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vendas\ConsVendas.Designer.cs">
       <DependentUpon>ConsVendas.cs</DependentUpon>
     </Compile>
     <Compile Include="ContasReceber\ContaReceber.cs">
@@ -160,10 +173,10 @@
     <Compile Include="Usuario.Designer.cs">
       <DependentUpon>Usuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Venda.cs">
+    <Compile Include="Vendas\Venda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Venda.Designer.cs">
+    <Compile Include="Vendas\Venda.Designer.cs">
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Cadastros\Contas.resx">
@@ -178,7 +191,13 @@
     <EmbeddedResource Include="Caixa\MovCaixa.resx">
       <DependentUpon>MovCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ConsVendas.resx">
+    <EmbeddedResource Include="Compras\Compra.resx">
+      <DependentUpon>Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\ConsCompras.resx">
+      <DependentUpon>ConsCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vendas\ConsVendas.resx">
       <DependentUpon>ConsVendas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ContasReceber\ContaReceber.resx">
@@ -230,7 +249,7 @@
     <EmbeddedResource Include="Usuario.resx">
       <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Venda.resx">
+    <EmbeddedResource Include="Vendas\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">

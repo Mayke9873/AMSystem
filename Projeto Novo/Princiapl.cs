@@ -263,5 +263,20 @@ namespace Projeto_Novo
 
             contas.Show();
         }
+
+        private void mstiCompras_Click(object sender, EventArgs e)
+        {
+            FrmConsCompras consCompras = new FrmConsCompras();
+            consCompras.TopLevel = false;
+            pnlPrincipal.Controls.Add(consCompras);
+
+            if (Application.OpenForms.OfType<FrmConsCompras>().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            consCompras.Show();
+        }
     }
 }

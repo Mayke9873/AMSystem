@@ -51,7 +51,7 @@
             // 
             this.lblSenhaUsu.AutoSize = true;
             this.lblSenhaUsu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblSenhaUsu.Location = new System.Drawing.Point(124, 88);
+            this.lblSenhaUsu.Location = new System.Drawing.Point(124, 161);
             this.lblSenhaUsu.Name = "lblSenhaUsu";
             this.lblSenhaUsu.Size = new System.Drawing.Size(56, 20);
             this.lblSenhaUsu.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             this.lblValorAbertura.AutoSize = true;
             this.lblValorAbertura.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblValorAbertura.Location = new System.Drawing.Point(97, 161);
+            this.lblValorAbertura.Location = new System.Drawing.Point(97, 88);
             this.lblValorAbertura.Name = "lblValorAbertura";
             this.lblValorAbertura.Size = new System.Drawing.Size(110, 20);
             this.lblValorAbertura.TabIndex = 2;
@@ -70,20 +70,20 @@
             // txtSenhaUsu
             // 
             this.txtSenhaUsu.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtSenhaUsu.Location = new System.Drawing.Point(82, 111);
+            this.txtSenhaUsu.Location = new System.Drawing.Point(82, 184);
             this.txtSenhaUsu.Name = "txtSenhaUsu";
             this.txtSenhaUsu.Size = new System.Drawing.Size(140, 26);
-            this.txtSenhaUsu.TabIndex = 1;
+            this.txtSenhaUsu.TabIndex = 2;
             this.txtSenhaUsu.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtSenhaUsu.UseSystemPasswordChar = true;
             // 
             // txtValorAbertura
             // 
             this.txtValorAbertura.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtValorAbertura.Location = new System.Drawing.Point(82, 184);
+            this.txtValorAbertura.Location = new System.Drawing.Point(82, 111);
             this.txtValorAbertura.Name = "txtValorAbertura";
             this.txtValorAbertura.Size = new System.Drawing.Size(140, 26);
-            this.txtValorAbertura.TabIndex = 2;
+            this.txtValorAbertura.TabIndex = 1;
             this.txtValorAbertura.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtValFechamento

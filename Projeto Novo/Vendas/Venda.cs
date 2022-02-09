@@ -49,7 +49,6 @@ namespace Projeto_Novo
             else if (MessageBox.Show("Deseja sair da venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
-                return;
             }
         }
 
