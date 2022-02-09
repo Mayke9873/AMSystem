@@ -30,6 +30,10 @@ namespace Projeto_Novo
                     break;
             }
         }
+        private void tsbtnAddCliente_Click(object sender, EventArgs e)
+        {
+            this.tpDados.Focus();
+        }
 
         private void tsbtnSair_Click(object sender, EventArgs e)
         {
