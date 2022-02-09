@@ -20,6 +20,11 @@ namespace Projeto_Novo
 
             if (login.ShowDialog() == DialogResult.OK)
             {
+                if (MessageBox.Show("Abrir MDI?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    Application.Run(new MDIParent1());
+                    return;
+                }
                 Application.Run(new FrmPrincipal());
             }
         }

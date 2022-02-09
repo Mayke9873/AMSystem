@@ -64,8 +64,12 @@
             this.tsmiRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsmiJanelas = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // msMenu
@@ -75,9 +79,10 @@
             this.tsmiMovimento,
             this.tsmiFinanceiro,
             this.tsmiRelatorio,
-            this.tsmiSair});
+            this.tsmiSair,
+            this.tsmiJanelas});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
-            this.msMenu.MdiWindowListItem = this.tsmiCadastros;
+            this.msMenu.MdiWindowListItem = this.tsmiJanelas;
             this.msMenu.Name = "msMenu";
             this.msMenu.Size = new System.Drawing.Size(984, 24);
             this.msMenu.TabIndex = 0;
@@ -150,6 +155,7 @@
             // 
             // tsmiCadastros
             // 
+            this.tsmiCadastros.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolTip;
             this.tsmiCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiClientes,
             this.tsmiFornecedor,
@@ -172,7 +178,7 @@
             this.tsmiClientes.Name = "tsmiClientes";
             this.tsmiClientes.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.tsmiClientes.Size = new System.Drawing.Size(180, 22);
-            this.tsmiClientes.Text = "Cliente";
+            this.tsmiClientes.Text = "&Cliente";
             this.tsmiClientes.Click += new System.EventHandler(this.tsmiClientes_Click);
             // 
             // tsmiFornecedor
@@ -180,7 +186,7 @@
             this.tsmiFornecedor.Name = "tsmiFornecedor";
             this.tsmiFornecedor.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.tsmiFornecedor.Size = new System.Drawing.Size(180, 22);
-            this.tsmiFornecedor.Text = "Fornecedor";
+            this.tsmiFornecedor.Text = "&Fornecedor";
             this.tsmiFornecedor.Click += new System.EventHandler(this.tsmiFornecedor_Click);
             // 
             // toolStripSeparator1
@@ -258,26 +264,26 @@
             this.tsmiPedido.Name = "tsmiPedido";
             this.tsmiPedido.ShortcutKeyDisplayString = "F1";
             this.tsmiPedido.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.tsmiPedido.Size = new System.Drawing.Size(177, 22);
+            this.tsmiPedido.Size = new System.Drawing.Size(180, 22);
             this.tsmiPedido.Text = "Venda";
             this.tsmiPedido.Click += new System.EventHandler(this.tsmiPedido_Click);
             // 
             // tsmiConsVendas
             // 
             this.tsmiConsVendas.Name = "tsmiConsVendas";
-            this.tsmiConsVendas.Size = new System.Drawing.Size(177, 22);
+            this.tsmiConsVendas.Size = new System.Drawing.Size(180, 22);
             this.tsmiConsVendas.Text = "Consulta de Vendas";
             this.tsmiConsVendas.Click += new System.EventHandler(this.tsmiConsPedido_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(174, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
             // 
             // mstiCompras
             // 
             this.mstiCompras.Name = "mstiCompras";
-            this.mstiCompras.Size = new System.Drawing.Size(177, 22);
+            this.mstiCompras.Size = new System.Drawing.Size(180, 22);
             this.mstiCompras.Text = "Compras";
             this.mstiCompras.Click += new System.EventHandler(this.mstiCompras_Click);
             // 
@@ -366,11 +372,37 @@
             this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(984, 22);
+            this.statusStrip.TabIndex = 5;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
+            // 
+            // tsmiJanelas
+            // 
+            this.tsmiJanelas.Enabled = false;
+            this.tsmiJanelas.Name = "tsmiJanelas";
+            this.tsmiJanelas.Size = new System.Drawing.Size(56, 20);
+            this.tsmiJanelas.Text = "Janelas";
+            this.tsmiJanelas.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(984, 661);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tsBotoes);
             this.Controls.Add(this.msMenu);
             this.IsMdiContainer = true;
@@ -378,7 +410,6 @@
             this.MainMenuStrip = this.msMenu;
             this.Name = "FrmPrincipal";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AmSystem";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fmrPrinciapl_KeyDown);
@@ -386,6 +417,8 @@
             this.msMenu.PerformLayout();
             this.tsBotoes.ResumeLayout(false);
             this.tsBotoes.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,6 +461,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem tsmiContas;
         private System.Windows.Forms.ToolStripMenuItem mstiCompras;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.ToolStripMenuItem tsmiJanelas;
     }
 }
 
