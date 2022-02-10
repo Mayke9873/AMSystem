@@ -45,13 +45,13 @@
             this.lblIdCli = new System.Windows.Forms.Label();
             this.lblDescGrupoProd = new System.Windows.Forms.Label();
             this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnAddConta = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditConta = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.pnlContas.SuspendLayout();
             this.tpContas.SuspendLayout();
@@ -252,16 +252,6 @@
             this.tsGrupoProduto.TabIndex = 9;
             this.tsGrupoProduto.Text = "toolStrip1";
             // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
-            // 
             // tsbtnAddConta
             // 
             this.tsbtnAddConta.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -298,6 +288,11 @@
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
             // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
+            // 
             // tsbtnImprimir
             // 
             this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -306,6 +301,11 @@
             this.tsbtnImprimir.Name = "tsbtnImprimir";
             this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
             this.tsbtnImprimir.Text = "Imprimir";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
             // 
             // tsbtnSair
             // 
@@ -319,11 +319,9 @@
             // 
             // FrmContas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.pnlContas);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmContas";
             this.ShowIcon = false;

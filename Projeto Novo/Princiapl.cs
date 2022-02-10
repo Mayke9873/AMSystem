@@ -80,6 +80,7 @@ namespace Projeto_Novo
         {
             FrmVenda vendas = new FrmVenda();
             vendas.MdiParent = this;
+
             
             if (Application.OpenForms.OfType<FrmVenda>().Count() > 0)
             {
@@ -181,14 +182,12 @@ namespace Projeto_Novo
         private void tsmiAbreCaixa_Click(object sender, EventArgs e)
         {
             FrmAberturaCaixa aberturaCaixa = new FrmAberturaCaixa();
-            aberturaCaixa.MdiParent = this;
             aberturaCaixa.ShowDialog();
         }
 
         private void tsmiFechaCaixa_Click(object sender, EventArgs e)
         {
             FrmFechamentoCaixa fechamentoCaixa = new FrmFechamentoCaixa();
-            fechamentoCaixa.MdiParent= this;
             fechamentoCaixa.ShowDialog();
         }
 

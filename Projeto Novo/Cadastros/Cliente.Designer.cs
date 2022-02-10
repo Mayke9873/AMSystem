@@ -53,15 +53,15 @@
             this.lblDtNasc = new System.Windows.Forms.Label();
             this.lblNomeCli = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.lblPesquisa = new System.Windows.Forms.Label();
             this.tsbtnAddCliente = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditCliente = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.lblPesquisa = new System.Windows.Forms.Label();
             this.pnlCliente.SuspendLayout();
             this.tpClientes.SuspendLayout();
             this.tpCliente.SuspendLayout();
@@ -89,7 +89,7 @@
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
+            this.txtPesquisa.Location = new System.Drawing.Point(76, 32);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 0;
@@ -344,25 +344,6 @@
             this.toolStrip1.TabIndex = 15;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripSeparator
-            // 
-            this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
-            // 
-            // lblPesquisa
-            // 
-            this.lblPesquisa.AutoSize = true;
-            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
-            this.lblPesquisa.Name = "lblPesquisa";
-            this.lblPesquisa.Size = new System.Drawing.Size(56, 13);
-            this.lblPesquisa.TabIndex = 17;
-            this.lblPesquisa.Text = "Pesquisar:";
-            // 
             // tsbtnAddCliente
             // 
             this.tsbtnAddCliente.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -371,7 +352,6 @@
             this.tsbtnAddCliente.Name = "tsbtnAddCliente";
             this.tsbtnAddCliente.Size = new System.Drawing.Size(26, 26);
             this.tsbtnAddCliente.Text = "Novo";
-            this.tsbtnAddCliente.Click += new System.EventHandler(this.tsbtnAddCliente_Click);
             // 
             // tsbtnEditCliente
             // 
@@ -400,6 +380,11 @@
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
             // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 29);
+            // 
             // tsbtnImprimir
             // 
             this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -408,6 +393,11 @@
             this.tsbtnImprimir.Name = "tsbtnImprimir";
             this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
             this.tsbtnImprimir.Text = "Imprimir";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 29);
             // 
             // tsbtnSair
             // 
@@ -419,10 +409,18 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // lblPesquisa
+            // 
+            this.lblPesquisa.AutoSize = true;
+            this.lblPesquisa.Location = new System.Drawing.Point(12, 35);
+            this.lblPesquisa.Name = "lblPesquisa";
+            this.lblPesquisa.Size = new System.Drawing.Size(56, 13);
+            this.lblPesquisa.TabIndex = 17;
+            this.lblPesquisa.Text = "Pesquisar:";
+            // 
             // FrmCliente
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.pnlCliente);
             this.KeyPreview = true;

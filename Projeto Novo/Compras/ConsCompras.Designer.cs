@@ -35,7 +35,6 @@
             this.tsCompra = new System.Windows.Forms.ToolStrip();
             this.tsbtnAddCompra = new System.Windows.Forms.ToolStripButton();
             this.tsbtnEditCompra = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
@@ -81,7 +80,6 @@
             this.tsCompra.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtnAddCompra,
             this.tsbtnEditCompra,
-            this.tsbtnSalvar,
             this.tsbtnCancelar,
             this.toolStripSeparator,
             this.tsbtnImprimir,
@@ -111,15 +109,6 @@
             this.tsbtnEditCompra.Name = "tsbtnEditCompra";
             this.tsbtnEditCompra.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditCompra.Text = "Editar";
-            // 
-            // tsbtnSalvar
-            // 
-            this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
-            this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSalvar.Name = "tsbtnSalvar";
-            this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnSalvar.Text = "Salvar";
             // 
             // tsbtnCancelar
             // 
@@ -216,13 +205,12 @@
             // 
             // FrmConsCompras
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.pnlConsCompras);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmConsCompras";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Consulta de Compras";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -244,7 +232,6 @@
         private System.Windows.Forms.ToolStrip tsCompra;
         private System.Windows.Forms.ToolStripButton tsbtnAddCompra;
         private System.Windows.Forms.ToolStripButton tsbtnEditCompra;
-        private System.Windows.Forms.ToolStripButton tsbtnSalvar;
         private System.Windows.Forms.ToolStripButton tsbtnCancelar;
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
         private System.Windows.Forms.ToolStripButton tsbtnSair;

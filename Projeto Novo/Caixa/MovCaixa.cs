@@ -22,6 +22,7 @@ namespace Projeto_Novo.Caixa
             switch (e.KeyCode)
             {
                 case Keys.Enter:
+                    e.SuppressKeyPress = true;
                     this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
                     break;
                      
