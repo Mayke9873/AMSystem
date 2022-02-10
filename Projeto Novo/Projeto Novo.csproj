@@ -87,12 +87,6 @@
     <Compile Include="Compras\ConsCompras.Designer.cs">
       <DependentUpon>ConsCompras.cs</DependentUpon>
     </Compile>
-    <Compile Include="MDIParent1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MDIParent1.Designer.cs">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vendas\ConsVendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,9 +196,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\ConsCompras.resx">
       <DependentUpon>ConsCompras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MDIParent1.resx">
-      <DependentUpon>MDIParent1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendas\ConsVendas.resx">
       <DependentUpon>ConsVendas.cs</DependentUpon>

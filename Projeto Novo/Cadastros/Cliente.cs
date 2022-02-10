@@ -22,6 +22,7 @@ namespace Projeto_Novo
             switch (e.KeyCode)
             {
                 case Keys.Enter:
+                    e.SuppressKeyPress = true;
                     this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
                     break;
 
@@ -29,10 +30,6 @@ namespace Projeto_Novo
                     tsbtnSair_Click(sender, e);
                     break;
             }
-        }
-        private void tsbtnAddCliente_Click(object sender, EventArgs e)
-        {
-            this.tpDados.Focus();
         }
 
         private void tsbtnSair_Click(object sender, EventArgs e)

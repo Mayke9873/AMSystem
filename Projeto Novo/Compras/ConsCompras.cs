@@ -18,7 +18,17 @@ namespace Projeto_Novo
         }
         private void FrmConsCompras_KeyDown(object sender, KeyEventArgs e)
         {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter:
+                    e.SuppressKeyPress = true;
+                    this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
+                    break;
 
+                case Keys.Escape:
+                    tsbtnSair_Click(sender, e);
+                    break;
+            }
         }
 
         private void tsbtnAddCompra_Click(object sender, EventArgs e)
