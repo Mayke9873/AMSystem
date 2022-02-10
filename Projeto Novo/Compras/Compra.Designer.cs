@@ -57,7 +57,7 @@
             this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnSair.Location = new System.Drawing.Point(214, 614);
+            this.btnSair.Location = new System.Drawing.Point(214, 543);
             this.btnSair.Name = "btnSair";
             this.btnSair.Size = new System.Drawing.Size(96, 32);
             this.btnSair.TabIndex = 45;
@@ -71,7 +71,7 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnCancelar.Location = new System.Drawing.Point(113, 614);
+            this.btnCancelar.Location = new System.Drawing.Point(113, 543);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 32);
             this.btnCancelar.TabIndex = 44;
@@ -84,7 +84,7 @@
             this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnConfirmar.Location = new System.Drawing.Point(12, 614);
+            this.btnConfirmar.Location = new System.Drawing.Point(12, 543);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(96, 32);
             this.btnConfirmar.TabIndex = 43;
@@ -135,7 +135,7 @@
             this.dgvProdCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProdCompra.Location = new System.Drawing.Point(12, 172);
             this.dgvProdCompra.Name = "dgvProdCompra";
-            this.dgvProdCompra.Size = new System.Drawing.Size(1060, 426);
+            this.dgvProdCompra.Size = new System.Drawing.Size(959, 355);
             this.dgvProdCompra.TabIndex = 23;
             this.dgvProdCompra.TabStop = false;
             // 
@@ -252,9 +252,8 @@
             // 
             // FrmCompra
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnConfirmar);
@@ -275,14 +274,12 @@
             this.Controls.Add(this.lblFornecedor);
             this.Controls.Add(this.txtIdCompra);
             this.Controls.Add(this.lblIdCompra);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmCompra";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Compras";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCompra_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdCompra)).EndInit();
             this.ResumeLayout(false);

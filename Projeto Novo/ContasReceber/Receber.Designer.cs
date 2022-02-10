@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.pnlReceber = new System.Windows.Forms.Panel();
+            this.btnExcluir = new System.Windows.Forms.Button();
+            this.btnPagar = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             this.dgvReceber = new System.Windows.Forms.DataGridView();
             this.mtxDtFinal = new System.Windows.Forms.MaskedTextBox();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.mtxDtInicial = new System.Windows.Forms.MaskedTextBox();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.btnExcluir = new System.Windows.Forms.Button();
-            this.btnPagar = new System.Windows.Forms.Button();
-            this.btnNovo = new System.Windows.Forms.Button();
             this.pnlReceber.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReceber)).BeginInit();
             this.SuspendLayout();
@@ -56,8 +56,44 @@
             this.pnlReceber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReceber.Location = new System.Drawing.Point(0, 0);
             this.pnlReceber.Name = "pnlReceber";
-            this.pnlReceber.Size = new System.Drawing.Size(1084, 661);
+            this.pnlReceber.Size = new System.Drawing.Size(983, 590);
             this.pnlReceber.TabIndex = 2;
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnExcluir.Location = new System.Drawing.Point(201, 550);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(96, 32);
+            this.btnExcluir.TabIndex = 22;
+            this.btnExcluir.Text = "F3 - Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = true;
+            // 
+            // btnPagar
+            // 
+            this.btnPagar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagar.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnPagar.Location = new System.Drawing.Point(102, 550);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(96, 32);
+            this.btnPagar.TabIndex = 21;
+            this.btnPagar.Text = "F2 - Pagar";
+            this.btnPagar.UseVisualStyleBackColor = true;
+            // 
+            // btnNovo
+            // 
+            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovo.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnNovo.Location = new System.Drawing.Point(3, 550);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(96, 32);
+            this.btnNovo.TabIndex = 20;
+            this.btnNovo.Text = "F1 - Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
             // 
             // dgvReceber
             // 
@@ -68,13 +104,13 @@
             this.dgvReceber.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReceber.Location = new System.Drawing.Point(3, 43);
             this.dgvReceber.Name = "dgvReceber";
-            this.dgvReceber.Size = new System.Drawing.Size(1078, 571);
+            this.dgvReceber.Size = new System.Drawing.Size(977, 500);
             this.dgvReceber.TabIndex = 16;
             // 
             // mtxDtFinal
             // 
             this.mtxDtFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mtxDtFinal.Location = new System.Drawing.Point(653, 13);
+            this.mtxDtFinal.Location = new System.Drawing.Point(552, 13);
             this.mtxDtFinal.Mask = "00/00/0000";
             this.mtxDtFinal.Name = "mtxDtFinal";
             this.mtxDtFinal.Size = new System.Drawing.Size(75, 20);
@@ -86,7 +122,7 @@
             // 
             this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPeriodo.AutoSize = true;
-            this.lblPeriodo.Location = new System.Drawing.Point(518, 16);
+            this.lblPeriodo.Location = new System.Drawing.Point(417, 16);
             this.lblPeriodo.Name = "lblPeriodo";
             this.lblPeriodo.Size = new System.Drawing.Size(48, 13);
             this.lblPeriodo.TabIndex = 14;
@@ -95,7 +131,7 @@
             // mtxDtInicial
             // 
             this.mtxDtInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mtxDtInicial.Location = new System.Drawing.Point(572, 13);
+            this.mtxDtInicial.Location = new System.Drawing.Point(471, 13);
             this.mtxDtInicial.Mask = "00/00/0000";
             this.mtxDtInicial.Name = "mtxDtInicial";
             this.mtxDtInicial.Size = new System.Drawing.Size(75, 20);
@@ -118,59 +154,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPesquisa.Location = new System.Drawing.Point(76, 13);
             this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(358, 20);
+            this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 10;
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluir.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnExcluir.Location = new System.Drawing.Point(201, 621);
-            this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(96, 32);
-            this.btnExcluir.TabIndex = 22;
-            this.btnExcluir.Text = "F3 - Excluir";
-            this.btnExcluir.UseVisualStyleBackColor = true;
-            // 
-            // btnPagar
-            // 
-            this.btnPagar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPagar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnPagar.Location = new System.Drawing.Point(102, 621);
-            this.btnPagar.Name = "btnPagar";
-            this.btnPagar.Size = new System.Drawing.Size(96, 32);
-            this.btnPagar.TabIndex = 21;
-            this.btnPagar.Text = "F2 - Pagar";
-            this.btnPagar.UseVisualStyleBackColor = true;
-            // 
-            // btnNovo
-            // 
-            this.btnNovo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNovo.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnNovo.Location = new System.Drawing.Point(3, 621);
-            this.btnNovo.Name = "btnNovo";
-            this.btnNovo.Size = new System.Drawing.Size(96, 32);
-            this.btnNovo.TabIndex = 20;
-            this.btnNovo.Text = "F1 - Novo";
-            this.btnNovo.UseVisualStyleBackColor = true;
             // 
             // FrmReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.pnlReceber);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmReceber";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Receber";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmReceber_KeyDown);
             this.pnlReceber.ResumeLayout(false);
             this.pnlReceber.PerformLayout();
