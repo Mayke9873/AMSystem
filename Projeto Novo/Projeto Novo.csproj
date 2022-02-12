@@ -87,6 +87,7 @@
     <Compile Include="Compras\ConsCompras.Designer.cs">
       <DependentUpon>ConsCompras.cs</DependentUpon>
     </Compile>
+    <Compile Include="JanelaPai.cs" />
     <Compile Include="Vendas\ConsVendas.cs">
       <SubType>Form</SubType>
     </Compile>

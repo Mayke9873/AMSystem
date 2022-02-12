@@ -34,7 +34,14 @@ namespace Projeto_Novo
         private void tsbtnAddCompra_Click(object sender, EventArgs e)
         {
             FrmCompra compra = new FrmCompra();
-            compra.ShowDialog();
+            compra.MdiParent = JanelaPai.Instance();
+
+            if (Application.OpenForms.OfType<FrmCompra>().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            compra.Show();
         }
 
         private void tsbtnSair_Click(object sender, EventArgs e)
