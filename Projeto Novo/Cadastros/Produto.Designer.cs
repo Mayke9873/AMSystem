@@ -269,7 +269,7 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox4.Location = new System.Drawing.Point(11, 157);
+            this.textBox4.Location = new System.Drawing.Point(11, 150);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(90, 26);
             this.textBox4.TabIndex = 3;
@@ -278,7 +278,7 @@
             // 
             this.lblEstoque.AutoSize = true;
             this.lblEstoque.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblEstoque.Location = new System.Drawing.Point(8, 136);
+            this.lblEstoque.Location = new System.Drawing.Point(8, 129);
             this.lblEstoque.Name = "lblEstoque";
             this.lblEstoque.Size = new System.Drawing.Size(70, 18);
             this.lblEstoque.TabIndex = 0;
@@ -287,7 +287,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox3.Location = new System.Drawing.Point(331, 157);
+            this.textBox3.Location = new System.Drawing.Point(331, 150);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(90, 26);
             this.textBox3.TabIndex = 6;
@@ -296,7 +296,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F);
-            this.label2.Location = new System.Drawing.Point(328, 136);
+            this.label2.Location = new System.Drawing.Point(328, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 18);
             this.label2.TabIndex = 0;
@@ -305,7 +305,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Arial", 12F);
-            this.textBox2.Location = new System.Drawing.Point(235, 157);
+            this.textBox2.Location = new System.Drawing.Point(235, 150);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(90, 26);
             this.textBox2.TabIndex = 5;
@@ -314,7 +314,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F);
-            this.label1.Location = new System.Drawing.Point(232, 136);
+            this.label1.Location = new System.Drawing.Point(232, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 18);
             this.label1.TabIndex = 0;
@@ -373,7 +373,7 @@
             // txtEnderecoCli
             // 
             this.txtEnderecoCli.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtEnderecoCli.Location = new System.Drawing.Point(139, 157);
+            this.txtEnderecoCli.Location = new System.Drawing.Point(139, 150);
             this.txtEnderecoCli.Name = "txtEnderecoCli";
             this.txtEnderecoCli.Size = new System.Drawing.Size(90, 26);
             this.txtEnderecoCli.TabIndex = 4;
@@ -390,7 +390,7 @@
             // 
             this.lblEndereco.AutoSize = true;
             this.lblEndereco.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblEndereco.Location = new System.Drawing.Point(136, 136);
+            this.lblEndereco.Location = new System.Drawing.Point(136, 129);
             this.lblEndereco.Name = "lblEndereco";
             this.lblEndereco.Size = new System.Drawing.Size(93, 18);
             this.lblEndereco.TabIndex = 0;

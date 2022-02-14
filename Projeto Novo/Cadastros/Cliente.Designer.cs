@@ -36,6 +36,11 @@
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.grpTpCliente = new System.Windows.Forms.GroupBox();
+            this.rdoJuridica = new System.Windows.Forms.RadioButton();
+            this.rdoFisica = new System.Windows.Forms.RadioButton();
+            this.rdoCliInativo = new System.Windows.Forms.RadioButton();
+            this.rdoCliAtivo = new System.Windows.Forms.RadioButton();
             this.mtxCPF = new System.Windows.Forms.MaskedTextBox();
             this.lblCPF = new System.Windows.Forms.Label();
             this.mtxRG = new System.Windows.Forms.MaskedTextBox();
@@ -68,6 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDados.SuspendLayout();
+            this.grpTpCliente.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,6 +130,8 @@
             // 
             // dgvCliente
             // 
+            this.dgvCliente.AllowUserToAddRows = false;
+            this.dgvCliente.AllowUserToDeleteRows = false;
             this.dgvCliente.AllowUserToOrderColumns = true;
             this.dgvCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -131,6 +139,7 @@
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Location = new System.Drawing.Point(3, 3);
             this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
             this.dgvCliente.Size = new System.Drawing.Size(970, 500);
             this.dgvCliente.TabIndex = 2;
             // 
@@ -149,6 +158,9 @@
             // 
             // tpDados
             // 
+            this.tpDados.Controls.Add(this.grpTpCliente);
+            this.tpDados.Controls.Add(this.rdoCliInativo);
+            this.tpDados.Controls.Add(this.rdoCliAtivo);
             this.tpDados.Controls.Add(this.mtxCPF);
             this.tpDados.Controls.Add(this.lblCPF);
             this.tpDados.Controls.Add(this.mtxRG);
@@ -172,6 +184,61 @@
             this.tpDados.TabIndex = 1;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // grpTpCliente
+            // 
+            this.grpTpCliente.Controls.Add(this.rdoJuridica);
+            this.grpTpCliente.Controls.Add(this.rdoFisica);
+            this.grpTpCliente.Location = new System.Drawing.Point(780, 13);
+            this.grpTpCliente.Name = "grpTpCliente";
+            this.grpTpCliente.Size = new System.Drawing.Size(150, 53);
+            this.grpTpCliente.TabIndex = 21;
+            this.grpTpCliente.TabStop = false;
+            this.grpTpCliente.Text = "Tipo cliente";
+            // 
+            // rdoJuridica
+            // 
+            this.rdoJuridica.AutoSize = true;
+            this.rdoJuridica.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoJuridica.Location = new System.Drawing.Point(71, 19);
+            this.rdoJuridica.Name = "rdoJuridica";
+            this.rdoJuridica.Size = new System.Drawing.Size(75, 21);
+            this.rdoJuridica.TabIndex = 19;
+            this.rdoJuridica.Text = "Jurídica";
+            this.rdoJuridica.UseVisualStyleBackColor = true;
+            // 
+            // rdoFisica
+            // 
+            this.rdoFisica.AutoSize = true;
+            this.rdoFisica.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoFisica.Location = new System.Drawing.Point(6, 19);
+            this.rdoFisica.Name = "rdoFisica";
+            this.rdoFisica.Size = new System.Drawing.Size(62, 21);
+            this.rdoFisica.TabIndex = 20;
+            this.rdoFisica.Text = "Fisíca";
+            this.rdoFisica.UseVisualStyleBackColor = true;
+            // 
+            // rdoCliInativo
+            // 
+            this.rdoCliInativo.AutoSize = true;
+            this.rdoCliInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoCliInativo.Location = new System.Drawing.Point(275, 37);
+            this.rdoCliInativo.Name = "rdoCliInativo";
+            this.rdoCliInativo.Size = new System.Drawing.Size(67, 21);
+            this.rdoCliInativo.TabIndex = 17;
+            this.rdoCliInativo.Text = "Inativo";
+            this.rdoCliInativo.UseVisualStyleBackColor = true;
+            // 
+            // rdoCliAtivo
+            // 
+            this.rdoCliAtivo.AutoSize = true;
+            this.rdoCliAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdoCliAtivo.Location = new System.Drawing.Point(212, 37);
+            this.rdoCliAtivo.Name = "rdoCliAtivo";
+            this.rdoCliAtivo.Size = new System.Drawing.Size(57, 21);
+            this.rdoCliAtivo.TabIndex = 18;
+            this.rdoCliAtivo.Text = "Ativo";
+            this.rdoCliAtivo.UseVisualStyleBackColor = true;
             // 
             // mtxCPF
             // 
@@ -370,6 +437,7 @@
             this.tsbtnSalvar.Name = "tsbtnSalvar";
             this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSalvar.Text = "Salvar";
+            this.tsbtnSalvar.Click += new System.EventHandler(this.tsbtnSalvar_Click);
             // 
             // tsbtnCancelar
             // 
@@ -438,6 +506,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpDados.ResumeLayout(false);
             this.tpDados.PerformLayout();
+            this.grpTpCliente.ResumeLayout(false);
+            this.grpTpCliente.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -479,5 +549,10 @@
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.MaskedTextBox mtxRG;
         private System.Windows.Forms.Label lblRG;
+        private System.Windows.Forms.RadioButton rdoCliInativo;
+        private System.Windows.Forms.RadioButton rdoCliAtivo;
+        private System.Windows.Forms.GroupBox grpTpCliente;
+        private System.Windows.Forms.RadioButton rdoJuridica;
+        private System.Windows.Forms.RadioButton rdoFisica;
     }
 }
