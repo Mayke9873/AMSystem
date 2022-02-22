@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.tpClientes = new System.Windows.Forms.TabControl();
+            this.tcClientes = new System.Windows.Forms.TabControl();
             this.tpCliente = new System.Windows.Forms.TabPage();
             this.dgvCliente = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
@@ -68,7 +68,7 @@
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.pnlCliente.SuspendLayout();
-            this.tpClientes.SuspendLayout();
+            this.tcClientes.SuspendLayout();
             this.tpCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -83,7 +83,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlCliente.Controls.Add(this.txtPesquisa);
-            this.pnlCliente.Controls.Add(this.tpClientes);
+            this.pnlCliente.Controls.Add(this.tcClientes);
             this.pnlCliente.Controls.Add(this.toolStrip1);
             this.pnlCliente.Controls.Add(this.lblPesquisa);
             this.pnlCliente.Location = new System.Drawing.Point(0, 0);
@@ -101,20 +101,20 @@
             this.txtPesquisa.TabIndex = 0;
             this.txtPesquisa.TabStop = false;
             // 
-            // tpClientes
+            // tcClientes
             // 
-            this.tpClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tpClientes.Controls.Add(this.tpCliente);
-            this.tpClientes.Controls.Add(this.tpDados);
-            this.tpClientes.Location = new System.Drawing.Point(-1, 58);
-            this.tpClientes.Multiline = true;
-            this.tpClientes.Name = "tpClientes";
-            this.tpClientes.SelectedIndex = 0;
-            this.tpClientes.Size = new System.Drawing.Size(984, 532);
-            this.tpClientes.TabIndex = 0;
-            this.tpClientes.TabStop = false;
+            this.tcClientes.Controls.Add(this.tpCliente);
+            this.tcClientes.Controls.Add(this.tpDados);
+            this.tcClientes.Location = new System.Drawing.Point(-1, 58);
+            this.tcClientes.Multiline = true;
+            this.tcClientes.Name = "tcClientes";
+            this.tcClientes.SelectedIndex = 0;
+            this.tcClientes.Size = new System.Drawing.Size(984, 532);
+            this.tcClientes.TabIndex = 0;
+            this.tcClientes.TabStop = false;
             // 
             // tpCliente
             // 
@@ -132,7 +132,6 @@
             // 
             this.dgvCliente.AllowUserToAddRows = false;
             this.dgvCliente.AllowUserToDeleteRows = false;
-            this.dgvCliente.AllowUserToOrderColumns = true;
             this.dgvCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -140,6 +139,8 @@
             this.dgvCliente.Location = new System.Drawing.Point(3, 3);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
+            this.dgvCliente.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(970, 500);
             this.dgvCliente.TabIndex = 2;
             // 
@@ -261,6 +262,7 @@
             // 
             // mtxRG
             // 
+            this.mtxRG.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.mtxRG.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxRG.Location = new System.Drawing.Point(348, 91);
             this.mtxRG.Mask = "00,000,000-0";
@@ -419,6 +421,7 @@
             this.tsbtnAddCliente.Name = "tsbtnAddCliente";
             this.tsbtnAddCliente.Size = new System.Drawing.Size(26, 26);
             this.tsbtnAddCliente.Text = "Novo";
+            this.tsbtnAddCliente.Click += new System.EventHandler(this.tsbtnAddCliente_Click);
             // 
             // tsbtnEditCliente
             // 
@@ -432,6 +435,7 @@
             // tsbtnSalvar
             // 
             this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSalvar.Enabled = false;
             this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
             this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnSalvar.Name = "tsbtnSalvar";
@@ -442,11 +446,13 @@
             // tsbtnCancelar
             // 
             this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCancelar.Enabled = false;
             this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
             this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnCancelar.Name = "tsbtnCancelar";
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
+            this.tsbtnCancelar.Click += new System.EventHandler(this.tsbtnCancelar_Click);
             // 
             // toolStripSeparator
             // 
@@ -461,6 +467,7 @@
             this.tsbtnImprimir.Name = "tsbtnImprimir";
             this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
             this.tsbtnImprimir.Text = "Imprimir";
+            this.tsbtnImprimir.Click += new System.EventHandler(this.tsbtnImprimir_Click);
             // 
             // toolStripSeparator1
             // 
@@ -500,7 +507,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmCliente_KeyDown);
             this.pnlCliente.ResumeLayout(false);
             this.pnlCliente.PerformLayout();
-            this.tpClientes.ResumeLayout(false);
+            this.tcClientes.ResumeLayout(false);
             this.tpCliente.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
@@ -518,7 +525,7 @@
 
         private System.Windows.Forms.Panel pnlCliente;
         private System.Windows.Forms.TextBox txtPesquisa;
-        private System.Windows.Forms.TabControl tpClientes;
+        private System.Windows.Forms.TabControl tcClientes;
         private System.Windows.Forms.TabPage tpCliente;
         private System.Windows.Forms.DataGridView dgvCliente;
         private System.Windows.Forms.DataGridView dgvClientes;

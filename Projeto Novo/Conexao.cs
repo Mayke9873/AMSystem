@@ -9,7 +9,7 @@ namespace Projeto_Novo
 {
     internal class Conexao
     {
-        string conn = "SERVER = localhost; DATABASE = projeto_db; UID = root; PWP = ;";
+        string conn = "SERVER = localhost; DATABASE = projeto_db; UID = root; PWP = ; convert zero datetime = True;";
         public MySqlConnection query = null;
 
         public void OpenConn()
@@ -21,7 +21,6 @@ namespace Projeto_Novo
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
@@ -35,7 +34,6 @@ namespace Projeto_Novo
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
