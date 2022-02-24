@@ -32,15 +32,15 @@
             this.pnlContas = new System.Windows.Forms.Panel();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.tpContas = new System.Windows.Forms.TabControl();
+            this.tcContas = new System.Windows.Forms.TabControl();
             this.tpConta = new System.Windows.Forms.TabPage();
-            this.dgvGrupoProd = new System.Windows.Forms.DataGridView();
+            this.dgvContas = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosConta = new System.Windows.Forms.TabPage();
             this.chkBanco = new System.Windows.Forms.CheckBox();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.rdoAtivo = new System.Windows.Forms.RadioButton();
-            this.txtDescGrupoProd = new System.Windows.Forms.TextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtIdUsuario = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
             this.lblDescGrupoProd = new System.Windows.Forms.Label();
@@ -54,9 +54,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.pnlContas.SuspendLayout();
-            this.tpContas.SuspendLayout();
+            this.tcContas.SuspendLayout();
             this.tpConta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosConta.SuspendLayout();
             this.tsGrupoProduto.SuspendLayout();
@@ -66,7 +66,7 @@
             // 
             this.pnlContas.Controls.Add(this.lblPesquisa);
             this.pnlContas.Controls.Add(this.txtPesquisa);
-            this.pnlContas.Controls.Add(this.tpContas);
+            this.pnlContas.Controls.Add(this.tcContas);
             this.pnlContas.Controls.Add(this.tsGrupoProduto);
             this.pnlContas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContas.Location = new System.Drawing.Point(0, 0);
@@ -93,24 +93,24 @@
             this.txtPesquisa.TabIndex = 10;
             this.txtPesquisa.TabStop = false;
             // 
-            // tpContas
+            // tcContas
             // 
-            this.tpContas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcContas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tpContas.Controls.Add(this.tpConta);
-            this.tpContas.Controls.Add(this.tpDadosConta);
-            this.tpContas.Location = new System.Drawing.Point(-1, 58);
-            this.tpContas.Multiline = true;
-            this.tpContas.Name = "tpContas";
-            this.tpContas.SelectedIndex = 0;
-            this.tpContas.Size = new System.Drawing.Size(984, 532);
-            this.tpContas.TabIndex = 8;
-            this.tpContas.TabStop = false;
+            this.tcContas.Controls.Add(this.tpConta);
+            this.tcContas.Controls.Add(this.tpDadosConta);
+            this.tcContas.Location = new System.Drawing.Point(-1, 58);
+            this.tcContas.Multiline = true;
+            this.tcContas.Name = "tcContas";
+            this.tcContas.SelectedIndex = 0;
+            this.tcContas.Size = new System.Drawing.Size(984, 532);
+            this.tcContas.TabIndex = 8;
+            this.tcContas.TabStop = false;
             // 
             // tpConta
             // 
-            this.tpConta.Controls.Add(this.dgvGrupoProd);
+            this.tpConta.Controls.Add(this.dgvContas);
             this.tpConta.Controls.Add(this.dgvClientes);
             this.tpConta.Location = new System.Drawing.Point(4, 22);
             this.tpConta.Name = "tpConta";
@@ -120,15 +120,15 @@
             this.tpConta.Text = "Contas";
             this.tpConta.UseVisualStyleBackColor = true;
             // 
-            // dgvGrupoProd
+            // dgvContas
             // 
-            this.dgvGrupoProd.AllowUserToOrderColumns = true;
-            this.dgvGrupoProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGrupoProd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvGrupoProd.Location = new System.Drawing.Point(3, 3);
-            this.dgvGrupoProd.Name = "dgvGrupoProd";
-            this.dgvGrupoProd.Size = new System.Drawing.Size(970, 500);
-            this.dgvGrupoProd.TabIndex = 2;
+            this.dgvContas.AllowUserToOrderColumns = true;
+            this.dgvContas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvContas.Location = new System.Drawing.Point(3, 3);
+            this.dgvContas.Name = "dgvContas";
+            this.dgvContas.Size = new System.Drawing.Size(970, 500);
+            this.dgvContas.TabIndex = 2;
             // 
             // dgvClientes
             // 
@@ -148,7 +148,7 @@
             this.tpDadosConta.Controls.Add(this.chkBanco);
             this.tpDadosConta.Controls.Add(this.rdoInativo);
             this.tpDadosConta.Controls.Add(this.rdoAtivo);
-            this.tpDadosConta.Controls.Add(this.txtDescGrupoProd);
+            this.tpDadosConta.Controls.Add(this.txtDescricao);
             this.tpDadosConta.Controls.Add(this.txtIdUsuario);
             this.tpDadosConta.Controls.Add(this.lblIdCli);
             this.tpDadosConta.Controls.Add(this.lblDescGrupoProd);
@@ -185,21 +185,23 @@
             // rdoAtivo
             // 
             this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
             this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rdoAtivo.Location = new System.Drawing.Point(237, 37);
             this.rdoAtivo.Name = "rdoAtivo";
             this.rdoAtivo.Size = new System.Drawing.Size(57, 21);
             this.rdoAtivo.TabIndex = 4;
+            this.rdoAtivo.TabStop = true;
             this.rdoAtivo.Text = "Ativo";
             this.rdoAtivo.UseVisualStyleBackColor = true;
             // 
-            // txtDescGrupoProd
+            // txtDescricao
             // 
-            this.txtDescGrupoProd.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtDescGrupoProd.Location = new System.Drawing.Point(11, 91);
-            this.txtDescGrupoProd.Name = "txtDescGrupoProd";
-            this.txtDescGrupoProd.Size = new System.Drawing.Size(356, 26);
-            this.txtDescGrupoProd.TabIndex = 2;
+            this.txtDescricao.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtDescricao.Location = new System.Drawing.Point(11, 91);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(356, 26);
+            this.txtDescricao.TabIndex = 2;
             // 
             // txtIdUsuario
             // 
@@ -260,6 +262,7 @@
             this.tsbtnAddConta.Name = "tsbtnAddConta";
             this.tsbtnAddConta.Size = new System.Drawing.Size(26, 26);
             this.tsbtnAddConta.Text = "Novo";
+            this.tsbtnAddConta.Click += new System.EventHandler(this.tsbtnAddConta_Click);
             // 
             // tsbtnEditConta
             // 
@@ -273,15 +276,18 @@
             // tsbtnSalvar
             // 
             this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSalvar.Enabled = false;
             this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
             this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnSalvar.Name = "tsbtnSalvar";
             this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSalvar.Text = "Salvar";
+            this.tsbtnSalvar.Click += new System.EventHandler(this.tsbtnSalvar_Click);
             // 
             // tsbtnCancelar
             // 
             this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCancelar.Enabled = false;
             this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
             this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnCancelar.Name = "tsbtnCancelar";
@@ -331,9 +337,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmContas_KeyDown);
             this.pnlContas.ResumeLayout(false);
             this.pnlContas.PerformLayout();
-            this.tpContas.ResumeLayout(false);
+            this.tcContas.ResumeLayout(false);
             this.tpConta.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpDadosConta.ResumeLayout(false);
             this.tpDadosConta.PerformLayout();
@@ -348,15 +354,15 @@
         private System.Windows.Forms.Panel pnlContas;
         private System.Windows.Forms.Label lblPesquisa;
         private System.Windows.Forms.TextBox txtPesquisa;
-        private System.Windows.Forms.TabControl tpContas;
+        private System.Windows.Forms.TabControl tcContas;
         private System.Windows.Forms.TabPage tpConta;
-        private System.Windows.Forms.DataGridView dgvGrupoProd;
+        private System.Windows.Forms.DataGridView dgvContas;
         private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpDadosConta;
         private System.Windows.Forms.CheckBox chkBanco;
         private System.Windows.Forms.RadioButton rdoInativo;
         private System.Windows.Forms.RadioButton rdoAtivo;
-        private System.Windows.Forms.TextBox txtDescGrupoProd;
+        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.TextBox txtIdUsuario;
         private System.Windows.Forms.Label lblIdCli;
         private System.Windows.Forms.Label lblDescGrupoProd;

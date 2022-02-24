@@ -41,7 +41,7 @@
             this.rdoFisica = new System.Windows.Forms.RadioButton();
             this.rdoCliInativo = new System.Windows.Forms.RadioButton();
             this.rdoCliAtivo = new System.Windows.Forms.RadioButton();
-            this.mtxCPF = new System.Windows.Forms.MaskedTextBox();
+            this.mtxCpfCnpj = new System.Windows.Forms.MaskedTextBox();
             this.lblCPF = new System.Windows.Forms.Label();
             this.mtxRG = new System.Windows.Forms.MaskedTextBox();
             this.lblRG = new System.Windows.Forms.Label();
@@ -162,7 +162,7 @@
             this.tpDados.Controls.Add(this.grpTpCliente);
             this.tpDados.Controls.Add(this.rdoCliInativo);
             this.tpDados.Controls.Add(this.rdoCliAtivo);
-            this.tpDados.Controls.Add(this.mtxCPF);
+            this.tpDados.Controls.Add(this.mtxCpfCnpj);
             this.tpDados.Controls.Add(this.lblCPF);
             this.tpDados.Controls.Add(this.mtxRG);
             this.tpDados.Controls.Add(this.lblRG);
@@ -211,11 +211,13 @@
             // rdoFisica
             // 
             this.rdoFisica.AutoSize = true;
+            this.rdoFisica.Checked = true;
             this.rdoFisica.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rdoFisica.Location = new System.Drawing.Point(6, 19);
             this.rdoFisica.Name = "rdoFisica";
             this.rdoFisica.Size = new System.Drawing.Size(62, 21);
             this.rdoFisica.TabIndex = 20;
+            this.rdoFisica.TabStop = true;
             this.rdoFisica.Text = "Fisíca";
             this.rdoFisica.UseVisualStyleBackColor = true;
             // 
@@ -233,22 +235,24 @@
             // rdoCliAtivo
             // 
             this.rdoCliAtivo.AutoSize = true;
+            this.rdoCliAtivo.Checked = true;
             this.rdoCliAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rdoCliAtivo.Location = new System.Drawing.Point(212, 37);
             this.rdoCliAtivo.Name = "rdoCliAtivo";
             this.rdoCliAtivo.Size = new System.Drawing.Size(57, 21);
             this.rdoCliAtivo.TabIndex = 18;
+            this.rdoCliAtivo.TabStop = true;
             this.rdoCliAtivo.Text = "Ativo";
             this.rdoCliAtivo.UseVisualStyleBackColor = true;
             // 
-            // mtxCPF
+            // mtxCpfCnpj
             // 
-            this.mtxCPF.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxCPF.Location = new System.Drawing.Point(468, 91);
-            this.mtxCPF.Mask = "000,000,000-00";
-            this.mtxCPF.Name = "mtxCPF";
-            this.mtxCPF.Size = new System.Drawing.Size(130, 26);
-            this.mtxCPF.TabIndex = 3;
+            this.mtxCpfCnpj.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxCpfCnpj.Location = new System.Drawing.Point(468, 91);
+            this.mtxCpfCnpj.Mask = "###,###,###-##";
+            this.mtxCpfCnpj.Name = "mtxCpfCnpj";
+            this.mtxCpfCnpj.Size = new System.Drawing.Size(130, 26);
+            this.mtxCpfCnpj.TabIndex = 3;
             // 
             // lblCPF
             // 
@@ -265,7 +269,7 @@
             this.mtxRG.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.mtxRG.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxRG.Location = new System.Drawing.Point(348, 91);
-            this.mtxRG.Mask = "00,000,000-0";
+            this.mtxRG.Mask = "##,###,###-#";
             this.mtxRG.Name = "mtxRG";
             this.mtxRG.Size = new System.Drawing.Size(114, 26);
             this.mtxRG.TabIndex = 2;
@@ -343,7 +347,6 @@
             this.mtxDtNasc.Name = "mtxDtNasc";
             this.mtxDtNasc.Size = new System.Drawing.Size(100, 26);
             this.mtxDtNasc.TabIndex = 4;
-            this.mtxDtNasc.ValidatingType = typeof(System.DateTime);
             // 
             // txtNomeCli
             // 
@@ -467,7 +470,6 @@
             this.tsbtnImprimir.Name = "tsbtnImprimir";
             this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
             this.tsbtnImprimir.Text = "Imprimir";
-            this.tsbtnImprimir.Click += new System.EventHandler(this.tsbtnImprimir_Click);
             // 
             // toolStripSeparator1
             // 
@@ -552,7 +554,7 @@
         private System.Windows.Forms.Label lblDtNasc;
         private System.Windows.Forms.Label lblNomeCli;
         private System.Windows.Forms.Label lnlNumEnd;
-        private System.Windows.Forms.MaskedTextBox mtxCPF;
+        private System.Windows.Forms.MaskedTextBox mtxCpfCnpj;
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.MaskedTextBox mtxRG;
         private System.Windows.Forms.Label lblRG;

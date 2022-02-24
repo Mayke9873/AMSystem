@@ -21,7 +21,7 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
-            sql = "SELECT id, nome, rg, cpfcnpj, dtnasc, endereco, numendereco, bairro, dtregistro, tipo, ativo" +
+            sql = "SELECT Id, Nome, RG, CpfCnpj as 'CPF ou CNPJ' , dtnasc as Nascimento, Endereco, numendereco as Nº, Bairro, dtregistro as 'Dt Registro', Tipo, Ativo" +
                 " FROM CLIENTE WHERE ativo = 'S'";
 
             try
@@ -69,9 +69,17 @@ namespace Projeto_Novo
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
-            string ativo = null;
-            string tipoCli = null;
-            //int ex = 0;
+            string ativo;
+            string tipoCli;
+            DateTime dtRegistro;
+            string data = mtxDtNasc.Text;
+            string rg = mtxRG.Text;
+            string cpfCnpj = mtxCpfCnpj.Text;
+
+            //Retira mascara dos valores.
+            data = data.Replace("/", "");
+            rg = rg.Replace(".", "").Replace("-", "");
+            cpfCnpj = cpfCnpj.Replace(".", "").Replace("-", "");
 
             if (txtNomeCli.Text.Length == 0)
             {
@@ -83,50 +91,44 @@ namespace Projeto_Novo
             {
                 ativo = "S";
             }
-            else if (rdoCliInativo.Checked == true)
-            {
-                ativo = "N";
-            }
             else
             {
-                ativo = "S";
+                ativo = "N";
             }
 
             if (rdoFisica.Checked == true)
             {
                 tipoCli = "F";
             }
-            else if (rdoJuridica.Checked == true)
+            else
             {
                 tipoCli = "J";
             }
-            else
-            {
-                tipoCli = "F";
-            }
-
-            mtxRG.Text.Replace(".", "").Replace("-", "").Trim();
-            mtxCPF.Text.Replace(".", "").Replace("-", "").Trim();
 
             sql = "INSERT INTO CLIENTE (NOME, RG, CPFCNPJ, DTNASC, ENDERECO, NUMENDERECO, BAIRRO, DTREGISTRO, " +
                 "TIPO, ATIVO) " +
-                "VALUES ('" + txtNomeCli.Text + "','" + mtxRG.Text + "','" + mtxCPF + "','" + mtxDtNasc.Text + "'," +
-                " '" + txtEnderecoCli.Text + "','" + txtNumEndCli.Text + "','" + txtBairroCli.Text + "', '" + DateTime.Now.ToString() + "', " +
-                " '" + tipoCli + "', '" + ativo + "')";
+                "VALUES ('" + txtNomeCli.Text + "', @rg , @cpfCnpj , @dtNasc , '" + txtEnderecoCli.Text + "','" + txtNumEndCli.Text + "'," +
+                " '" + txtBairroCli.Text + "', @dtRegistro, '" + tipoCli + "', '" + ativo + "')";
 
             try
             {
                 con.OpenConn();
                 cmd = new MySqlCommand(sql, con.query);
-                //cmd.Parameters.AddWithValue("@ex", ex);
+
+                //Adiciona os parametros a partir das variaveis.
+                cmd.Parameters.AddWithValue("@dtRegistro", dtRegistro = DateTime.Now);
+                cmd.Parameters.AddWithValue("@dtNasc", DateTime.Parse(mtxDtNasc.Text));
+                cmd.Parameters.AddWithValue("@rg", rg);
+                cmd.Parameters.AddWithValue("@cpfCnpj", cpfCnpj);
+
+
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                sql = "SELECT id, nome, rg, cpfcnpj, dtnasc, endereco, numendereco, bairro, dtregistro, tipo, ativo" +
+                sql = "SELECT Id, Nome, RG, CpfCnpj as 'CPF ou CNPJ' , dtnasc as Nascimento, Endereco, numendereco as Nº, Bairro, dtregistro as 'Dt Registro', Tipo, Ativo" +
                 " FROM CLIENTE WHERE ativo = 'S'";
 
-                con.OpenConn();
                 cmd = new MySqlCommand(sql, con.query);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -165,30 +167,6 @@ namespace Projeto_Novo
             tsbtnEditCliente.Enabled = true;
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
-        }
-
-        private void tsbtnImprimir_Click(object sender, EventArgs e)
-        {
-            sql = "SELECT id, nome, rg, cpfcnpj, dtnasc, endereco, numendereco, bairro, dtregistro, tipo, ativo" +
-                " FROM CLIENTE WHERE ativo = 'S'";
-
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand(sql, con.query);
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                dgvCliente.DataSource = ds;
-                dgvCliente.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            con.CloseConn();
         }
     }
 }
