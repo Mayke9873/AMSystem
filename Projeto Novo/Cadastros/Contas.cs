@@ -134,5 +134,15 @@ namespace Projeto_Novo.Cadastros
                 con.CloseConn();
             }
         }
+
+        private void tsbtnCancelar_Click(object sender, EventArgs e)
+        {
+            tsbtnAddConta.Enabled = true;
+            tsbtnEditConta.Enabled = true;
+            tsbtnSalvar.Enabled = false;
+            tsbtnCancelar.Enabled = false;
+
+            tcContas.SelectTab(tpConta);
+        }
     }
 }

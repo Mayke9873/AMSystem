@@ -161,7 +161,7 @@ namespace Projeto_Novo
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
         {
-            tcClientes.SelectedTab = tpCliente; //muda para a tabpage indicada.
+            tcClientes.SelectTab(tpCliente); //muda para a tabpage indicada.
 
             tsbtnAddCliente.Enabled = true;
             tsbtnEditCliente.Enabled = true;
