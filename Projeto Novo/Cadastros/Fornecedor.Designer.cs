@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFornecedor));
             this.pnlFornecedor = new System.Windows.Forms.Panel();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.tpFornecedores = new System.Windows.Forms.TabControl();
+            this.tcFornecedores = new System.Windows.Forms.TabControl();
             this.tpFornecedor = new System.Windows.Forms.TabPage();
             this.dgvFornecedor = new System.Windows.Forms.DataGridView();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
@@ -41,7 +42,6 @@
             this.lnlNumEnd = new System.Windows.Forms.Label();
             this.mtxCNPJ = new System.Windows.Forms.MaskedTextBox();
             this.lblCNPJ = new System.Windows.Forms.Label();
-            this.mtxIE = new System.Windows.Forms.MaskedTextBox();
             this.lblIE = new System.Windows.Forms.Label();
             this.txtIdFornecedor = new System.Windows.Forms.TextBox();
             this.lblIdForn = new System.Windows.Forms.Label();
@@ -62,19 +62,35 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
+            this.txtIe = new System.Windows.Forms.TextBox();
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlFornecedor.SuspendLayout();
-            this.tpFornecedores.SuspendLayout();
+            this.tcFornecedores.SuspendLayout();
             this.tpFornecedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDados.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlFornecedor
             // 
             this.pnlFornecedor.Controls.Add(this.txtPesquisa);
-            this.pnlFornecedor.Controls.Add(this.tpFornecedores);
+            this.pnlFornecedor.Controls.Add(this.tcFornecedores);
             this.pnlFornecedor.Controls.Add(this.toolStrip1);
             this.pnlFornecedor.Controls.Add(this.lblPesquisa);
             this.pnlFornecedor.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -93,20 +109,20 @@
             this.txtPesquisa.TabIndex = 0;
             this.txtPesquisa.TabStop = false;
             // 
-            // tpFornecedores
+            // tcFornecedores
             // 
-            this.tpFornecedores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcFornecedores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tpFornecedores.Controls.Add(this.tpFornecedor);
-            this.tpFornecedores.Controls.Add(this.tpDados);
-            this.tpFornecedores.Location = new System.Drawing.Point(-1, 58);
-            this.tpFornecedores.Multiline = true;
-            this.tpFornecedores.Name = "tpFornecedores";
-            this.tpFornecedores.SelectedIndex = 0;
-            this.tpFornecedores.Size = new System.Drawing.Size(984, 532);
-            this.tpFornecedores.TabIndex = 0;
-            this.tpFornecedores.TabStop = false;
+            this.tcFornecedores.Controls.Add(this.tpFornecedor);
+            this.tcFornecedores.Controls.Add(this.tpDados);
+            this.tcFornecedores.Location = new System.Drawing.Point(-1, 58);
+            this.tcFornecedores.Multiline = true;
+            this.tcFornecedores.Name = "tcFornecedores";
+            this.tcFornecedores.SelectedIndex = 0;
+            this.tcFornecedores.Size = new System.Drawing.Size(984, 532);
+            this.tcFornecedores.TabIndex = 0;
+            this.tcFornecedores.TabStop = false;
             // 
             // tpFornecedor
             // 
@@ -122,11 +138,30 @@
             // 
             // dgvFornecedor
             // 
+            this.dgvFornecedor.AllowUserToAddRows = false;
+            this.dgvFornecedor.AllowUserToDeleteRows = false;
             this.dgvFornecedor.AllowUserToOrderColumns = true;
+            this.dgvFornecedor.AutoGenerateColumns = false;
             this.dgvFornecedor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFornecedor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column9,
+            this.Column8,
+            this.dataSourceDataGridViewTextBoxColumn,
+            this.connectionTimeoutDataGridViewTextBoxColumn,
+            this.databaseDataGridViewTextBoxColumn,
+            this.connectionStringDataGridViewTextBoxColumn});
+            this.dgvFornecedor.DataSource = this.mySqlConnectionBindingSource;
             this.dgvFornecedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFornecedor.Location = new System.Drawing.Point(3, 3);
             this.dgvFornecedor.Name = "dgvFornecedor";
+            this.dgvFornecedor.ReadOnly = true;
             this.dgvFornecedor.Size = new System.Drawing.Size(970, 500);
             this.dgvFornecedor.TabIndex = 2;
             // 
@@ -145,12 +180,12 @@
             // 
             // tpDados
             // 
+            this.tpDados.Controls.Add(this.txtIe);
             this.tpDados.Controls.Add(this.rdoInativo);
             this.tpDados.Controls.Add(this.rdoAtivo);
             this.tpDados.Controls.Add(this.lnlNumEnd);
             this.tpDados.Controls.Add(this.mtxCNPJ);
             this.tpDados.Controls.Add(this.lblCNPJ);
-            this.tpDados.Controls.Add(this.mtxIE);
             this.tpDados.Controls.Add(this.lblIE);
             this.tpDados.Controls.Add(this.txtIdFornecedor);
             this.tpDados.Controls.Add(this.lblIdForn);
@@ -183,11 +218,13 @@
             // rdoAtivo
             // 
             this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
             this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rdoAtivo.Location = new System.Drawing.Point(212, 37);
             this.rdoAtivo.Name = "rdoAtivo";
             this.rdoAtivo.Size = new System.Drawing.Size(57, 21);
             this.rdoAtivo.TabIndex = 15;
+            this.rdoAtivo.TabStop = true;
             this.rdoAtivo.Text = "Ativo";
             this.rdoAtivo.UseVisualStyleBackColor = true;
             // 
@@ -219,15 +256,6 @@
             this.lblCNPJ.Size = new System.Drawing.Size(54, 18);
             this.lblCNPJ.TabIndex = 9;
             this.lblCNPJ.Text = "CNPJ:";
-            // 
-            // mtxIE
-            // 
-            this.mtxIE.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxIE.Location = new System.Drawing.Point(455, 91);
-            this.mtxIE.Mask = "00,000,000-0";
-            this.mtxIE.Name = "mtxIE";
-            this.mtxIE.Size = new System.Drawing.Size(114, 26);
-            this.mtxIE.TabIndex = 2;
             // 
             // lblIE
             // 
@@ -278,6 +306,7 @@
             // 
             // txtEndFornecedor
             // 
+            this.txtEndFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEndFornecedor.Font = new System.Drawing.Font("Arial", 12F);
             this.txtEndFornecedor.Location = new System.Drawing.Point(11, 150);
             this.txtEndFornecedor.Name = "txtEndFornecedor";
@@ -286,6 +315,7 @@
             // 
             // txtNomeFornecedor
             // 
+            this.txtNomeFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNomeFornecedor.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNomeFornecedor.Location = new System.Drawing.Point(11, 91);
             this.txtNomeFornecedor.Name = "txtNomeFornecedor";
@@ -350,6 +380,7 @@
             this.tsbtnAddFornecedor.Name = "tsbtnAddFornecedor";
             this.tsbtnAddFornecedor.Size = new System.Drawing.Size(26, 26);
             this.tsbtnAddFornecedor.Text = "Novo";
+            this.tsbtnAddFornecedor.Click += new System.EventHandler(this.tsbtnAddFornecedor_Click);
             // 
             // tsbtnEditFornecedor
             // 
@@ -363,20 +394,24 @@
             // tsbtnSalvar
             // 
             this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSalvar.Enabled = false;
             this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
             this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnSalvar.Name = "tsbtnSalvar";
             this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSalvar.Text = "Salvar";
+            this.tsbtnSalvar.Click += new System.EventHandler(this.tsbtnSalvar_Click);
             // 
             // tsbtnCancelar
             // 
             this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCancelar.Enabled = false;
             this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
             this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnCancelar.Name = "tsbtnCancelar";
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
+            this.tsbtnCancelar.Click += new System.EventHandler(this.tsbtnCancelar_Click);
             // 
             // toolStripSeparator
             // 
@@ -416,6 +451,115 @@
             this.lblPesquisa.TabIndex = 17;
             this.lblPesquisa.Text = "Pesquisar:";
             // 
+            // txtIe
+            // 
+            this.txtIe.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtIe.Location = new System.Drawing.Point(455, 91);
+            this.txtIe.Name = "txtIe";
+            this.txtIe.Size = new System.Drawing.Size(114, 26);
+            this.txtIe.TabIndex = 2;
+            // 
+            // mySqlConnectionBindingSource
+            // 
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "id";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 50;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "nome";
+            this.Column2.HeaderText = "Nome";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ie";
+            this.Column3.HeaderText = "IE";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "cnpj";
+            this.Column4.HeaderText = "CNPJ";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "endereco";
+            this.Column5.HeaderText = "Endereço";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "numEndereco";
+            this.Column6.HeaderText = "Nº";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "bairro";
+            this.Column7.HeaderText = "Bairro";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "DtRegistro";
+            this.Column9.HeaderText = "Dt Registro";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "Ativo";
+            this.Column8.HeaderText = "Ativo";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // dataSourceDataGridViewTextBoxColumn
+            // 
+            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
+            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionTimeoutDataGridViewTextBoxColumn
+            // 
+            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
+            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // databaseDataGridViewTextBoxColumn
+            // 
+            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
+            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
+            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
+            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaseDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionStringDataGridViewTextBoxColumn
+            // 
+            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
+            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
+            // 
             // FrmFornecedor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -430,7 +574,7 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmFornecedor_KeyDown);
             this.pnlFornecedor.ResumeLayout(false);
             this.pnlFornecedor.PerformLayout();
-            this.tpFornecedores.ResumeLayout(false);
+            this.tcFornecedores.ResumeLayout(false);
             this.tpFornecedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
@@ -438,6 +582,7 @@
             this.tpDados.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -446,7 +591,7 @@
 
         private System.Windows.Forms.Panel pnlFornecedor;
         private System.Windows.Forms.TextBox txtPesquisa;
-        private System.Windows.Forms.TabControl tpFornecedores;
+        private System.Windows.Forms.TabControl tcFornecedores;
         private System.Windows.Forms.TabPage tpFornecedor;
         private System.Windows.Forms.DataGridView dgvFornecedor;
         private System.Windows.Forms.DataGridView dgvClientes;
@@ -454,7 +599,6 @@
         private System.Windows.Forms.Label lnlNumEnd;
         private System.Windows.Forms.MaskedTextBox mtxCNPJ;
         private System.Windows.Forms.Label lblCNPJ;
-        private System.Windows.Forms.MaskedTextBox mtxIE;
         private System.Windows.Forms.Label lblIE;
         private System.Windows.Forms.TextBox txtIdFornecedor;
         private System.Windows.Forms.Label lblIdForn;
@@ -477,5 +621,20 @@
         private System.Windows.Forms.Label lblPesquisa;
         private System.Windows.Forms.RadioButton rdoInativo;
         private System.Windows.Forms.RadioButton rdoAtivo;
+        private System.Windows.Forms.TextBox txtIe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
     }
 }

@@ -21,12 +21,12 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
-            sql = "SELECT Id, Nome, RG, CpfCnpj as 'CPF ou CNPJ' , dtnasc as Nascimento, Endereco, numendereco as Nº, Bairro, dtregistro as 'Dt Registro', Tipo, Ativo" +
-                " FROM CLIENTE WHERE ativo = 'S'";
-
             try
             {
                 con.OpenConn();
+                sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
+                " FROM CLIENTE WHERE ativo = 'S';";
+
                 cmd = new MySqlCommand(sql, con.query);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
@@ -39,8 +39,10 @@ namespace Projeto_Novo
             {
                 MessageBox.Show(ex.Message);
             }
-            
-            con.CloseConn();
+            finally
+            {
+                con.CloseConn();
+            }
         }
 
         private void FrmCliente_KeyDown(object sender, KeyEventArgs e)
@@ -72,12 +74,10 @@ namespace Projeto_Novo
             string ativo;
             string tipoCli;
             DateTime dtRegistro;
-            string data = mtxDtNasc.Text;
             string rg = mtxRG.Text;
             string cpfCnpj = mtxCpfCnpj.Text;
 
-            //Retira mascara dos valores.
-            data = data.Replace("/", "");
+            //retira mascara das strings
             rg = rg.Replace(".", "").Replace("-", "");
             cpfCnpj = cpfCnpj.Replace(".", "").Replace("-", "");
 
@@ -108,7 +108,7 @@ namespace Projeto_Novo
             sql = "INSERT INTO CLIENTE (NOME, RG, CPFCNPJ, DTNASC, ENDERECO, NUMENDERECO, BAIRRO, DTREGISTRO, " +
                 "TIPO, ATIVO) " +
                 "VALUES ('" + txtNomeCli.Text + "', @rg , @cpfCnpj , @dtNasc , '" + txtEnderecoCli.Text + "','" + txtNumEndCli.Text + "'," +
-                " '" + txtBairroCli.Text + "', @dtRegistro, '" + tipoCli + "', '" + ativo + "')";
+                " '" + txtBairroCli.Text + "', @dtRegistro, '" + tipoCli + "', '" + ativo + "');";
 
             try
             {
@@ -121,13 +121,12 @@ namespace Projeto_Novo
                 cmd.Parameters.AddWithValue("@rg", rg);
                 cmd.Parameters.AddWithValue("@cpfCnpj", cpfCnpj);
 
-
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 sql = "SELECT Id, Nome, RG, CpfCnpj as 'CPF ou CNPJ' , dtnasc as Nascimento, Endereco, numendereco as Nº, Bairro, dtregistro as 'Dt Registro', Tipo, Ativo" +
-                " FROM CLIENTE WHERE ativo = 'S'";
+                " FROM CLIENTE WHERE ativo = 'S';";
 
                 cmd = new MySqlCommand(sql, con.query);
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContas));
             this.pnlContas = new System.Windows.Forms.Panel();
             this.lblPesquisa = new System.Windows.Forms.Label();
@@ -53,6 +54,17 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.mySqlCommandBuilderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mySqlDataReaderBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlContas.SuspendLayout();
             this.tcContas.SuspendLayout();
             this.tpConta.SuspendLayout();
@@ -60,6 +72,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosConta.SuspendLayout();
             this.tsGrupoProduto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlCommandBuilderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlDataReaderBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContas
@@ -122,11 +137,25 @@
             // 
             // dgvContas
             // 
+            this.dgvContas.AllowUserToAddRows = false;
+            this.dgvContas.AllowUserToDeleteRows = false;
             this.dgvContas.AllowUserToOrderColumns = true;
+            this.dgvContas.AutoGenerateColumns = false;
             this.dgvContas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.dataSourceDataGridViewTextBoxColumn,
+            this.connectionTimeoutDataGridViewTextBoxColumn,
+            this.databaseDataGridViewTextBoxColumn,
+            this.connectionStringDataGridViewTextBoxColumn});
+            this.dgvContas.DataSource = this.mySqlConnectionBindingSource;
             this.dgvContas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvContas.Location = new System.Drawing.Point(3, 3);
             this.dgvContas.Name = "dgvContas";
+            this.dgvContas.ReadOnly = true;
             this.dgvContas.Size = new System.Drawing.Size(970, 500);
             this.dgvContas.TabIndex = 2;
             // 
@@ -324,6 +353,78 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // mySqlCommandBuilderBindingSource
+            // 
+            this.mySqlCommandBuilderBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlCommandBuilder);
+            // 
+            // mySqlDataReaderBindingSource
+            // 
+            this.mySqlDataReaderBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlDataReader);
+            // 
+            // mySqlConnectionBindingSource
+            // 
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "id";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "descricao";
+            this.Column2.HeaderText = "Descrição";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ativo";
+            this.Column3.HeaderText = "Ativo";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "banco";
+            this.Column4.HeaderText = "Banco";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // dataSourceDataGridViewTextBoxColumn
+            // 
+            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
+            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionTimeoutDataGridViewTextBoxColumn
+            // 
+            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
+            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // databaseDataGridViewTextBoxColumn
+            // 
+            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
+            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
+            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
+            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaseDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionStringDataGridViewTextBoxColumn
+            // 
+            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
+            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
+            // 
             // FrmContas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -346,6 +447,9 @@
             this.tpDadosConta.PerformLayout();
             this.tsGrupoProduto.ResumeLayout(false);
             this.tsGrupoProduto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlCommandBuilderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlDataReaderBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -376,5 +480,16 @@
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbtnSair;
+        private System.Windows.Forms.BindingSource mySqlCommandBuilderBindingSource;
+        private System.Windows.Forms.BindingSource mySqlDataReaderBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
     }
 }

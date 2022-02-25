@@ -23,7 +23,7 @@ namespace Projeto_Novo.Cadastros
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("SELECT Id, Descricao as 'Descrição', Ativo, Banco FROM CONTA", con.query);
+                cmd = new MySqlCommand("SELECT Id, Descricao, Ativo, Banco FROM CONTA", con.query);
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
