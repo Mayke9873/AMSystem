@@ -44,7 +44,6 @@
             this.tpGrupoUsuarios = new System.Windows.Forms.TabControl();
             this.tpGrupoUsuario = new System.Windows.Forms.TabPage();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosUsu = new System.Windows.Forms.TabPage();
             this.txtDescTipoUsu = new System.Windows.Forms.TextBox();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
@@ -59,7 +58,6 @@
             this.tpGrupoUsuarios.SuspendLayout();
             this.tpGrupoUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosUsu.SuspendLayout();
             this.tbPemissoes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPermUsu)).BeginInit();
@@ -201,7 +199,6 @@
             // tpGrupoUsuario
             // 
             this.tpGrupoUsuario.Controls.Add(this.dgvUsuarios);
-            this.tpGrupoUsuario.Controls.Add(this.dgvClientes);
             this.tpGrupoUsuario.Location = new System.Drawing.Point(4, 22);
             this.tpGrupoUsuario.Name = "tpGrupoUsuario";
             this.tpGrupoUsuario.Padding = new System.Windows.Forms.Padding(3);
@@ -212,26 +209,16 @@
             // 
             // dgvUsuarios
             // 
+            this.dgvUsuarios.AllowUserToAddRows = false;
+            this.dgvUsuarios.AllowUserToDeleteRows = false;
             this.dgvUsuarios.AllowUserToOrderColumns = true;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUsuarios.Location = new System.Drawing.Point(3, 3);
             this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.ReadOnly = true;
             this.dgvUsuarios.Size = new System.Drawing.Size(970, 500);
             this.dgvUsuarios.TabIndex = 2;
-            // 
-            // dgvClientes
-            // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 3);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
-            this.dgvClientes.TabIndex = 0;
             // 
             // tpDadosUsu
             // 
@@ -352,7 +339,6 @@
             this.tpGrupoUsuarios.ResumeLayout(false);
             this.tpGrupoUsuario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpDadosUsu.ResumeLayout(false);
             this.tpDadosUsu.PerformLayout();
             this.tbPemissoes.ResumeLayout(false);
@@ -376,7 +362,6 @@
         private System.Windows.Forms.TabControl tpGrupoUsuarios;
         private System.Windows.Forms.TabPage tpGrupoUsuario;
         private System.Windows.Forms.DataGridView dgvUsuarios;
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpDadosUsu;
         private System.Windows.Forms.TextBox txtDescTipoUsu;
         private System.Windows.Forms.RadioButton rdoInativo;

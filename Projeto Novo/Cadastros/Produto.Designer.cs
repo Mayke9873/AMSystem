@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProduto));
             this.pnlProdutos = new System.Windows.Forms.Panel();
             this.lblPesquisa = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.tpConsVendas = new System.Windows.Forms.TabControl();
             this.tpProduto = new System.Windows.Forms.TabPage();
             this.dgvProduto = new System.Windows.Forms.DataGridView();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosProd = new System.Windows.Forms.TabPage();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.lblEstoque = new System.Windows.Forms.Label();
@@ -62,13 +62,22 @@
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblUnidade = new System.Windows.Forms.Label();
             this.lblDescProd = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pLucro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pnlProdutos.SuspendLayout();
             this.tsProduto.SuspendLayout();
             this.tpConsVendas.SuspendLayout();
             this.tpProduto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosProd.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlProdutos
@@ -206,7 +215,6 @@
             // tpProduto
             // 
             this.tpProduto.Controls.Add(this.dgvProduto);
-            this.tpProduto.Controls.Add(this.dgvClientes);
             this.tpProduto.Location = new System.Drawing.Point(4, 22);
             this.tpProduto.Name = "tpProduto";
             this.tpProduto.Padding = new System.Windows.Forms.Padding(3);
@@ -217,28 +225,28 @@
             // 
             // dgvProduto
             // 
+            this.dgvProduto.AllowUserToAddRows = false;
+            this.dgvProduto.AllowUserToDeleteRows = false;
             this.dgvProduto.AllowUserToOrderColumns = true;
-            this.dgvProduto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduto.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.descricao,
+            this.unidade,
+            this.estoque,
+            this.pCompra,
+            this.pLucro,
+            this.pVenda,
+            this.ativo});
+            this.dgvProduto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProduto.Location = new System.Drawing.Point(3, 3);
             this.dgvProduto.Name = "dgvProduto";
+            this.dgvProduto.ReadOnly = true;
+            this.dgvProduto.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(970, 500);
             this.dgvProduto.TabIndex = 2;
-            // 
-            // dgvClientes
-            // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 3);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
-            this.dgvClientes.TabIndex = 0;
+            this.dgvProduto.TabStop = false;
             // 
             // tpDadosProd
             // 
@@ -416,6 +424,58 @@
             this.lblDescProd.TabIndex = 0;
             this.lblDescProd.Text = "Descrição:";
             // 
+            // id
+            // 
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            // 
+            // unidade
+            // 
+            this.unidade.HeaderText = "Un";
+            this.unidade.Name = "unidade";
+            this.unidade.ReadOnly = true;
+            // 
+            // estoque
+            // 
+            this.estoque.HeaderText = "Estoque";
+            this.estoque.Name = "estoque";
+            this.estoque.ReadOnly = true;
+            // 
+            // pCompra
+            // 
+            this.pCompra.HeaderText = "Preço de Compra";
+            this.pCompra.Name = "pCompra";
+            this.pCompra.ReadOnly = true;
+            // 
+            // pLucro
+            // 
+            this.pLucro.HeaderText = "Lucro";
+            this.pLucro.Name = "pLucro";
+            this.pLucro.ReadOnly = true;
+            // 
+            // pVenda
+            // 
+            this.pVenda.HeaderText = "Preço de Venda";
+            this.pVenda.Name = "pVenda";
+            this.pVenda.ReadOnly = true;
+            // 
+            // ativo
+            // 
+            this.ativo.HeaderText = "Ativo";
+            this.ativo.Name = "ativo";
+            this.ativo.ReadOnly = true;
+            // 
+            // mySqlConnectionBindingSource
+            // 
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
+            // 
             // FrmProduto
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -435,9 +495,9 @@
             this.tpConsVendas.ResumeLayout(false);
             this.tpProduto.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpDadosProd.ResumeLayout(false);
             this.tpDadosProd.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -457,7 +517,6 @@
         private System.Windows.Forms.TabControl tpConsVendas;
         private System.Windows.Forms.TabPage tpProduto;
         private System.Windows.Forms.DataGridView dgvProduto;
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpDadosProd;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label lblEstoque;
@@ -477,5 +536,14 @@
         private System.Windows.Forms.Label lblDescProd;
         private System.Windows.Forms.Label lblPesquisa;
         private System.Windows.Forms.TextBox txtPesquisa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn estoque;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pLucro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pVenda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ativo;
+        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
     }
 }

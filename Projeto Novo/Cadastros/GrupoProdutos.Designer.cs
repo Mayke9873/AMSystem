@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupoProdutos));
             this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
             this.tsbtnAddGrupoProd = new System.Windows.Forms.ToolStripButton();
@@ -41,7 +42,6 @@
             this.tpGrupoProdutos = new System.Windows.Forms.TabControl();
             this.tpGrupoProdudo = new System.Windows.Forms.TabPage();
             this.dgvGrupoProd = new System.Windows.Forms.DataGridView();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosGrupoProd = new System.Windows.Forms.TabPage();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.rdoAtivo = new System.Windows.Forms.RadioButton();
@@ -52,13 +52,14 @@
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.pnlGrupoProdutos = new System.Windows.Forms.Panel();
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tsGrupoProduto.SuspendLayout();
             this.tpGrupoProdutos.SuspendLayout();
             this.tpGrupoProdudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoProd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosGrupoProd.SuspendLayout();
             this.pnlGrupoProdutos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tsGrupoProduto
@@ -165,7 +166,6 @@
             // tpGrupoProdudo
             // 
             this.tpGrupoProdudo.Controls.Add(this.dgvGrupoProd);
-            this.tpGrupoProdudo.Controls.Add(this.dgvClientes);
             this.tpGrupoProdudo.Location = new System.Drawing.Point(4, 22);
             this.tpGrupoProdudo.Name = "tpGrupoProdudo";
             this.tpGrupoProdudo.Padding = new System.Windows.Forms.Padding(3);
@@ -176,26 +176,16 @@
             // 
             // dgvGrupoProd
             // 
+            this.dgvGrupoProd.AllowUserToAddRows = false;
+            this.dgvGrupoProd.AllowUserToDeleteRows = false;
             this.dgvGrupoProd.AllowUserToOrderColumns = true;
             this.dgvGrupoProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGrupoProd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGrupoProd.Location = new System.Drawing.Point(3, 3);
             this.dgvGrupoProd.Name = "dgvGrupoProd";
+            this.dgvGrupoProd.ReadOnly = true;
             this.dgvGrupoProd.Size = new System.Drawing.Size(970, 500);
             this.dgvGrupoProd.TabIndex = 2;
-            // 
-            // dgvClientes
-            // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 3);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
-            this.dgvClientes.TabIndex = 0;
             // 
             // tpDadosGrupoProd
             // 
@@ -304,6 +294,10 @@
             this.pnlGrupoProdutos.Size = new System.Drawing.Size(983, 590);
             this.pnlGrupoProdutos.TabIndex = 0;
             // 
+            // mySqlConnectionBindingSource
+            // 
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
+            // 
             // FrmGrupoProdutos
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -321,11 +315,11 @@
             this.tpGrupoProdutos.ResumeLayout(false);
             this.tpGrupoProdudo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoProd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpDadosGrupoProd.ResumeLayout(false);
             this.tpDadosGrupoProd.PerformLayout();
             this.pnlGrupoProdutos.ResumeLayout(false);
             this.pnlGrupoProdutos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -344,7 +338,6 @@
         private System.Windows.Forms.TabControl tpGrupoProdutos;
         private System.Windows.Forms.TabPage tpGrupoProdudo;
         private System.Windows.Forms.DataGridView dgvGrupoProd;
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpDadosGrupoProd;
         private System.Windows.Forms.TextBox txtDescGrupoProd;
         private System.Windows.Forms.TextBox txtIdUsuario;
@@ -355,5 +348,6 @@
         private System.Windows.Forms.Panel pnlGrupoProdutos;
         private System.Windows.Forms.RadioButton rdoInativo;
         private System.Windows.Forms.RadioButton rdoAtivo;
+        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
     }
 }

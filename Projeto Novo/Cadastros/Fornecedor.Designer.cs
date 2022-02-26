@@ -35,8 +35,9 @@
             this.tcFornecedores = new System.Windows.Forms.TabControl();
             this.tpFornecedor = new System.Windows.Forms.TabPage();
             this.dgvFornecedor = new System.Windows.Forms.DataGridView();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.txtIe = new System.Windows.Forms.TextBox();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.rdoAtivo = new System.Windows.Forms.RadioButton();
             this.lnlNumEnd = new System.Windows.Forms.Label();
@@ -62,8 +63,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
-            this.txtIe = new System.Windows.Forms.TextBox();
-            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,18 +72,13 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlFornecedor.SuspendLayout();
             this.tcFornecedores.SuspendLayout();
             this.tpFornecedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.tpDados.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlFornecedor
@@ -127,7 +121,6 @@
             // tpFornecedor
             // 
             this.tpFornecedor.Controls.Add(this.dgvFornecedor);
-            this.tpFornecedor.Controls.Add(this.dgvClientes);
             this.tpFornecedor.Location = new System.Drawing.Point(4, 22);
             this.tpFornecedor.Name = "tpFornecedor";
             this.tpFornecedor.Padding = new System.Windows.Forms.Padding(3);
@@ -152,11 +145,7 @@
             this.Column6,
             this.Column7,
             this.Column9,
-            this.Column8,
-            this.dataSourceDataGridViewTextBoxColumn,
-            this.connectionTimeoutDataGridViewTextBoxColumn,
-            this.databaseDataGridViewTextBoxColumn,
-            this.connectionStringDataGridViewTextBoxColumn});
+            this.Column8});
             this.dgvFornecedor.DataSource = this.mySqlConnectionBindingSource;
             this.dgvFornecedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFornecedor.Location = new System.Drawing.Point(3, 3);
@@ -165,18 +154,9 @@
             this.dgvFornecedor.Size = new System.Drawing.Size(970, 500);
             this.dgvFornecedor.TabIndex = 2;
             // 
-            // dgvClientes
+            // mySqlConnectionBindingSource
             // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 3);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
-            this.dgvClientes.TabIndex = 0;
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
             // 
             // tpDados
             // 
@@ -203,6 +183,14 @@
             this.tpDados.TabIndex = 3;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // txtIe
+            // 
+            this.txtIe.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtIe.Location = new System.Drawing.Point(455, 91);
+            this.txtIe.Name = "txtIe";
+            this.txtIe.Size = new System.Drawing.Size(114, 26);
+            this.txtIe.TabIndex = 2;
             // 
             // rdoInativo
             // 
@@ -451,18 +439,6 @@
             this.lblPesquisa.TabIndex = 17;
             this.lblPesquisa.Text = "Pesquisar:";
             // 
-            // txtIe
-            // 
-            this.txtIe.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtIe.Location = new System.Drawing.Point(455, 91);
-            this.txtIe.Name = "txtIe";
-            this.txtIe.Size = new System.Drawing.Size(114, 26);
-            this.txtIe.TabIndex = 2;
-            // 
-            // mySqlConnectionBindingSource
-            // 
-            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "id";
@@ -528,38 +504,6 @@
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
-            // dataSourceDataGridViewTextBoxColumn
-            // 
-            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
-            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
-            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
-            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // connectionTimeoutDataGridViewTextBoxColumn
-            // 
-            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
-            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
-            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
-            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
-            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // databaseDataGridViewTextBoxColumn
-            // 
-            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
-            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
-            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
-            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
-            this.databaseDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // connectionStringDataGridViewTextBoxColumn
-            // 
-            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
-            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
-            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
-            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
-            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
-            // 
             // FrmFornecedor
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -577,12 +521,11 @@
             this.tcFornecedores.ResumeLayout(false);
             this.tpFornecedor.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFornecedor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.tpDados.ResumeLayout(false);
             this.tpDados.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -594,7 +537,6 @@
         private System.Windows.Forms.TabControl tcFornecedores;
         private System.Windows.Forms.TabPage tpFornecedor;
         private System.Windows.Forms.DataGridView dgvFornecedor;
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpDados;
         private System.Windows.Forms.Label lnlNumEnd;
         private System.Windows.Forms.MaskedTextBox mtxCNPJ;
@@ -622,6 +564,7 @@
         private System.Windows.Forms.RadioButton rdoInativo;
         private System.Windows.Forms.RadioButton rdoAtivo;
         private System.Windows.Forms.TextBox txtIe;
+        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -631,10 +574,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
     }
 }

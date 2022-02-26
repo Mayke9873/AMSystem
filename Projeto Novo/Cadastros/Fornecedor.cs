@@ -24,7 +24,7 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("SELECT * FROM FORNECEDOR;", con.query);
+                cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE ATIVO = 'S';", con.query);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -108,7 +108,7 @@ namespace Projeto_Novo
 
                 MessageBox.Show("Dados gravado com sucesso!", "SQS System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                cmd = new MySqlCommand("SELECT * FROM FORNECEDOR;", con.query);
+                cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE ATIVO = 'S';", con.query);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 //DataSet ds
 
