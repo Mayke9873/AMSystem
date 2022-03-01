@@ -54,8 +54,6 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.mySqlCommandBuilderBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mySqlDataReaderBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,8 +70,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosConta.SuspendLayout();
             this.tsGrupoProduto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlCommandBuilderBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlDataReaderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -156,6 +152,8 @@
             this.dgvContas.Location = new System.Drawing.Point(3, 3);
             this.dgvContas.Name = "dgvContas";
             this.dgvContas.ReadOnly = true;
+            this.dgvContas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContas.Size = new System.Drawing.Size(970, 500);
             this.dgvContas.TabIndex = 2;
             // 
@@ -353,14 +351,6 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // mySqlCommandBuilderBindingSource
-            // 
-            this.mySqlCommandBuilderBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlCommandBuilder);
-            // 
-            // mySqlDataReaderBindingSource
-            // 
-            this.mySqlDataReaderBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlDataReader);
-            // 
             // mySqlConnectionBindingSource
             // 
             this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
@@ -447,8 +437,6 @@
             this.tpDadosConta.PerformLayout();
             this.tsGrupoProduto.ResumeLayout(false);
             this.tsGrupoProduto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlCommandBuilderBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlDataReaderBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -480,8 +468,7 @@
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbtnSair;
-        private System.Windows.Forms.BindingSource mySqlCommandBuilderBindingSource;
-        private System.Windows.Forms.BindingSource mySqlDataReaderBindingSource;
+        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -490,6 +477,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
     }
 }

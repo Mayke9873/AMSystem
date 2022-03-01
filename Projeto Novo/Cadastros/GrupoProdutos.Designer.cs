@@ -179,7 +179,9 @@
             this.dgvGrupoProd.AllowUserToAddRows = false;
             this.dgvGrupoProd.AllowUserToDeleteRows = false;
             this.dgvGrupoProd.AllowUserToOrderColumns = true;
+            this.dgvGrupoProd.AutoGenerateColumns = false;
             this.dgvGrupoProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrupoProd.DataSource = this.mySqlConnectionBindingSource;
             this.dgvGrupoProd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGrupoProd.Location = new System.Drawing.Point(3, 3);
             this.dgvGrupoProd.Name = "dgvGrupoProd";

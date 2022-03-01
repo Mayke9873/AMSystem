@@ -35,6 +35,7 @@
             this.tcFuncionarios = new System.Windows.Forms.TabControl();
             this.tpFuncionario = new System.Windows.Forms.TabPage();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.rdoAtivo = new System.Windows.Forms.RadioButton();
@@ -64,7 +65,6 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,9 +79,9 @@
             this.tcFuncionarios.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.tpDados.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlFuncionario
@@ -156,10 +156,16 @@
             this.dgvFuncionario.Location = new System.Drawing.Point(3, 3);
             this.dgvFuncionario.Name = "dgvFuncionario";
             this.dgvFuncionario.ReadOnly = true;
+            this.dgvFuncionario.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvFuncionario.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionario.Size = new System.Drawing.Size(970, 500);
             this.dgvFuncionario.TabIndex = 2;
             this.dgvFuncionario.TabStop = false;
+            // 
+            // mySqlConnectionBindingSource
+            // 
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
             // 
             // tpDados
             // 
@@ -462,10 +468,6 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // mySqlConnectionBindingSource
-            // 
-            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "id";
@@ -553,11 +555,11 @@
             this.tcFuncionarios.ResumeLayout(false);
             this.tpFuncionario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.tpDados.ResumeLayout(false);
             this.tpDados.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
