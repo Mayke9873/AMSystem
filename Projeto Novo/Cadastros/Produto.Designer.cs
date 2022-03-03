@@ -47,6 +47,8 @@
             this.dgvProduto = new System.Windows.Forms.DataGridView();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDadosProd = new System.Windows.Forms.TabPage();
+            this.cbGrupo = new System.Windows.Forms.ComboBox();
+            this.lblGrupo = new System.Windows.Forms.Label();
             this.txtEstoque = new System.Windows.Forms.TextBox();
             this.lblEstoque = new System.Windows.Forms.Label();
             this.txtValVenda = new System.Windows.Forms.TextBox();
@@ -63,8 +65,6 @@
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblUnidade = new System.Windows.Forms.Label();
             this.lblDescProd = new System.Windows.Forms.Label();
-            this.lblGrupo = new System.Windows.Forms.Label();
-            this.cbGrupo = new System.Windows.Forms.ComboBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -302,6 +302,26 @@
             this.tpDadosProd.Text = "Dados";
             this.tpDadosProd.UseVisualStyleBackColor = true;
             // 
+            // cbGrupo
+            // 
+            this.cbGrupo.DataSource = this.mySqlConnectionBindingSource;
+            this.cbGrupo.Font = new System.Drawing.Font("Arial", 12F);
+            this.cbGrupo.FormattingEnabled = true;
+            this.cbGrupo.Location = new System.Drawing.Point(12, 210);
+            this.cbGrupo.Name = "cbGrupo";
+            this.cbGrupo.Size = new System.Drawing.Size(217, 26);
+            this.cbGrupo.TabIndex = 8;
+            // 
+            // lblGrupo
+            // 
+            this.lblGrupo.AutoSize = true;
+            this.lblGrupo.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblGrupo.Location = new System.Drawing.Point(9, 189);
+            this.lblGrupo.Name = "lblGrupo";
+            this.lblGrupo.Size = new System.Drawing.Size(55, 18);
+            this.lblGrupo.TabIndex = 7;
+            this.lblGrupo.Text = "Grupo:";
+            // 
             // txtEstoque
             // 
             this.txtEstoque.Font = new System.Drawing.Font("Arial", 12F);
@@ -454,53 +474,37 @@
             this.lblDescProd.TabIndex = 0;
             this.lblDescProd.Text = "Descrição:";
             // 
-            // lblGrupo
-            // 
-            this.lblGrupo.AutoSize = true;
-            this.lblGrupo.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblGrupo.Location = new System.Drawing.Point(9, 189);
-            this.lblGrupo.Name = "lblGrupo";
-            this.lblGrupo.Size = new System.Drawing.Size(55, 18);
-            this.lblGrupo.TabIndex = 7;
-            this.lblGrupo.Text = "Grupo:";
-            // 
-            // cbGrupo
-            // 
-            this.cbGrupo.DataSource = this.mySqlConnectionBindingSource;
-            this.cbGrupo.Font = new System.Drawing.Font("Arial", 12F);
-            this.cbGrupo.FormattingEnabled = true;
-            this.cbGrupo.Location = new System.Drawing.Point(12, 210);
-            this.cbGrupo.Name = "cbGrupo";
-            this.cbGrupo.Size = new System.Drawing.Size(217, 26);
-            this.cbGrupo.TabIndex = 8;
-            this.cbGrupo.SelectedIndexChanged += new System.EventHandler(this.cbGrupo_SelectedIndexChanged);
-            // 
             // id
             // 
+            this.id.DataPropertyName = "id";
             this.id.HeaderText = "Id";
             this.id.Name = "id";
             this.id.ReadOnly = true;
             // 
             // descricao
             // 
+            this.descricao.DataPropertyName = "descricao";
             this.descricao.HeaderText = "Descrição";
             this.descricao.Name = "descricao";
             this.descricao.ReadOnly = true;
             // 
             // unidade
             // 
+            this.unidade.DataPropertyName = "unidade";
             this.unidade.HeaderText = "Un";
             this.unidade.Name = "unidade";
             this.unidade.ReadOnly = true;
             // 
             // estoque
             // 
+            this.estoque.DataPropertyName = "estoque";
             this.estoque.HeaderText = "Estoque";
             this.estoque.Name = "estoque";
             this.estoque.ReadOnly = true;
             // 
             // pCompra
             // 
+            this.pCompra.DataPropertyName = "pCompra";
             this.pCompra.HeaderText = "Preço de Compra";
             this.pCompra.Name = "pCompra";
             this.pCompra.ReadOnly = true;
@@ -508,12 +512,14 @@
             // 
             // pLucro
             // 
+            this.pLucro.DataPropertyName = "pLucro";
             this.pLucro.HeaderText = "Lucro";
             this.pLucro.Name = "pLucro";
             this.pLucro.ReadOnly = true;
             // 
             // pVenda
             // 
+            this.pVenda.DataPropertyName = "pVenda";
             this.pVenda.HeaderText = "Preço de Venda";
             this.pVenda.Name = "pVenda";
             this.pVenda.ReadOnly = true;
@@ -521,18 +527,21 @@
             // 
             // grupo
             // 
+            this.grupo.DataPropertyName = "grupo";
             this.grupo.HeaderText = "Grupo";
             this.grupo.Name = "grupo";
             this.grupo.ReadOnly = true;
             // 
             // dtRegistro
             // 
+            this.dtRegistro.DataPropertyName = "dtRegistro";
             this.dtRegistro.HeaderText = "Dt Registro";
             this.dtRegistro.Name = "dtRegistro";
             this.dtRegistro.ReadOnly = true;
             // 
             // ativo
             // 
+            this.ativo.DataPropertyName = "ativo";
             this.ativo.HeaderText = "Ativo";
             this.ativo.Name = "ativo";
             this.ativo.ReadOnly = true;

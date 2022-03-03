@@ -97,7 +97,6 @@ namespace Projeto_Novo.Cadastros
                 banco = "S";
             }
 
-
             try
             {
                 con.OpenConn();

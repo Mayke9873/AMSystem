@@ -20,11 +20,9 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
-
             try
             {
                 con.OpenConn();
-
                 cmd = new MySqlCommand("SELECT ID, DESCRICAO, UNIDADE, ESTOQUE, PCOMPRA, PLUCRO, PVENDA, GRUPO, DTREGISTRO, ATIVO FROM PRODUTO", con.query);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -82,22 +80,6 @@ namespace Projeto_Novo
             tcProdutos.SelectTab(tpProduto);
         }
 
-        private void cbGrupo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT DESCRICAO FROM GRUPOPRODUTO");
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                con.CloseConn();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
             string ativo;
@@ -144,6 +126,13 @@ namespace Projeto_Novo
             {
                 con.CloseConn();
             }
+
+            tsbtnAddProduto.Enabled = true;
+            tsbtnEditProduto.Enabled = true;
+            tsbtnCancelar.Enabled = false;
+            tsbtnSalvar.Enabled = false;
+
+            tcProdutos.SelectTab(tpProduto); 
         }
     }
 }
