@@ -74,6 +74,12 @@ namespace Projeto_Novo
         {
             string ativo;
 
+            if (txtDescGrupoProd.Text.Length == 0)
+            {
+                MessageBox.Show("Descrição não preenchida. Por favor, verifique!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (rdoAtivo.Checked == true)
             {
                 ativo = "S";

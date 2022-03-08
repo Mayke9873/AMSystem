@@ -541,6 +541,7 @@
             this.tsbtnSalvar.Name = "tsbtnSalvar";
             this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSalvar.Text = "Salvar";
+            this.tsbtnSalvar.Click += new System.EventHandler(this.tsbtnSalvar_Click);
             // 
             // tsbtnCancelar
             // 
@@ -551,6 +552,7 @@
             this.tsbtnCancelar.Name = "tsbtnCancelar";
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
+            this.tsbtnCancelar.Click += new System.EventHandler(this.tsbtnCancelar_Click);
             // 
             // toolStripSeparator
             // 
