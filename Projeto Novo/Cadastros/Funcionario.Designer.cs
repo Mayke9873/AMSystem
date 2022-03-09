@@ -143,7 +143,7 @@
             this.dgvFuncionario.AllowUserToOrderColumns = true;
             this.dgvFuncionario.AllowUserToResizeRows = false;
             this.dgvFuncionario.AutoGenerateColumns = false;
-            this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFuncionario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,

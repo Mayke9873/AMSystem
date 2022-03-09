@@ -36,6 +36,7 @@
             this.tcContas = new System.Windows.Forms.TabControl();
             this.tpConta = new System.Windows.Forms.TabPage();
             this.dgvContas = new System.Windows.Forms.DataGridView();
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosConta = new System.Windows.Forms.TabPage();
             this.chkBanco = new System.Windows.Forms.CheckBox();
@@ -54,7 +55,6 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,10 +67,10 @@
             this.tcContas.SuspendLayout();
             this.tpConta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             this.tpDadosConta.SuspendLayout();
             this.tsGrupoProduto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlContas
@@ -152,10 +152,14 @@
             this.dgvContas.Location = new System.Drawing.Point(3, 3);
             this.dgvContas.Name = "dgvContas";
             this.dgvContas.ReadOnly = true;
-            this.dgvContas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvContas.RowHeadersWidth = 12;
             this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContas.Size = new System.Drawing.Size(970, 500);
             this.dgvContas.TabIndex = 2;
+            // 
+            // mySqlConnectionBindingSource
+            // 
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
             // 
             // dgvClientes
             // 
@@ -351,16 +355,13 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // mySqlConnectionBindingSource
-            // 
-            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "id";
             this.Column1.HeaderText = "Id";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
+            this.Column1.Width = 60;
             // 
             // Column2
             // 
@@ -368,6 +369,7 @@
             this.Column2.HeaderText = "Descrição";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
             // 
             // Column3
             // 
@@ -375,6 +377,7 @@
             this.Column3.HeaderText = "Ativo";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 80;
             // 
             // Column4
             // 
@@ -382,6 +385,7 @@
             this.Column4.HeaderText = "Banco";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
+            this.Column4.Width = 80;
             // 
             // dataSourceDataGridViewTextBoxColumn
             // 
@@ -432,12 +436,12 @@
             this.tcContas.ResumeLayout(false);
             this.tpConta.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvContas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
             this.tpDadosConta.ResumeLayout(false);
             this.tpDadosConta.PerformLayout();
             this.tsGrupoProduto.ResumeLayout(false);
             this.tsGrupoProduto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
