@@ -45,6 +45,13 @@
             this.tcGrupoUsuarios = new System.Windows.Forms.TabControl();
             this.tpGrupoUsuario = new System.Windows.Forms.TabPage();
             this.dgvGpUsuarios = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDadosUsu = new System.Windows.Forms.TabPage();
             this.txtDescTipoUsu = new System.Windows.Forms.TextBox();
@@ -55,13 +62,6 @@
             this.lblDescTipoUsu = new System.Windows.Forms.Label();
             this.tbPemissoes = new System.Windows.Forms.TabPage();
             this.dgvPermUsu = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlGrupoUsu.SuspendLayout();
             this.tsGrupoUsu.SuspendLayout();
             this.tcGrupoUsuarios.SuspendLayout();
@@ -244,9 +244,65 @@
             this.dgvGpUsuarios.Name = "dgvGpUsuarios";
             this.dgvGpUsuarios.ReadOnly = true;
             this.dgvGpUsuarios.RowHeadersWidth = 12;
-            this.dgvGpUsuarios.RowTemplate.Height = 12;
+            this.dgvGpUsuarios.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvGpUsuarios.Size = new System.Drawing.Size(970, 500);
             this.dgvGpUsuarios.TabIndex = 2;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "id";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 60;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "descricao";
+            this.Column2.HeaderText = "Descrição";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ativo";
+            this.Column3.HeaderText = "Ativo";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Width = 80;
+            // 
+            // dataSourceDataGridViewTextBoxColumn
+            // 
+            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
+            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionTimeoutDataGridViewTextBoxColumn
+            // 
+            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
+            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // databaseDataGridViewTextBoxColumn
+            // 
+            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
+            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
+            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
+            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaseDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionStringDataGridViewTextBoxColumn
+            // 
+            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
+            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
             // 
             // mySqlConnectionBindingSource
             // 
@@ -353,62 +409,6 @@
             this.dgvPermUsu.Name = "dgvPermUsu";
             this.dgvPermUsu.Size = new System.Drawing.Size(660, 530);
             this.dgvPermUsu.TabIndex = 0;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "id";
-            this.Column1.HeaderText = "Id";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 60;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "descricao";
-            this.Column2.HeaderText = "Descrição";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 200;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "ativo";
-            this.Column3.HeaderText = "Ativo";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Width = 80;
-            // 
-            // dataSourceDataGridViewTextBoxColumn
-            // 
-            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
-            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
-            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
-            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // connectionTimeoutDataGridViewTextBoxColumn
-            // 
-            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
-            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
-            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
-            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
-            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // databaseDataGridViewTextBoxColumn
-            // 
-            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
-            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
-            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
-            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
-            this.databaseDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // connectionStringDataGridViewTextBoxColumn
-            // 
-            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
-            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
-            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
-            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
-            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
             // 
             // FrmGrupoUsuario
             // 

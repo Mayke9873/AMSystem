@@ -45,6 +45,20 @@
             this.tcProdutos = new System.Windows.Forms.TabControl();
             this.tpProduto = new System.Windows.Forms.TabPage();
             this.dgvProduto = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pLucro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dtRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDadosProd = new System.Windows.Forms.TabPage();
             this.cbGrupo = new System.Windows.Forms.ComboBox();
@@ -65,20 +79,6 @@
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblUnidade = new System.Windows.Forms.Label();
             this.lblDescProd = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pLucro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pVenda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dtRegistro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ativo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlProdutos.SuspendLayout();
             this.tsProduto.SuspendLayout();
             this.tcProdutos.SuspendLayout();
@@ -263,12 +263,116 @@
             this.dgvProduto.Location = new System.Drawing.Point(3, 3);
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
-            this.dgvProduto.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvProduto.RowHeadersWidth = 12;
             this.dgvProduto.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProduto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProduto.Size = new System.Drawing.Size(970, 500);
             this.dgvProduto.TabIndex = 2;
             this.dgvProduto.TabStop = false;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "id";
+            this.id.HeaderText = "Id";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            // 
+            // descricao
+            // 
+            this.descricao.DataPropertyName = "descricao";
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.ReadOnly = true;
+            // 
+            // unidade
+            // 
+            this.unidade.DataPropertyName = "unidade";
+            this.unidade.HeaderText = "Un";
+            this.unidade.Name = "unidade";
+            this.unidade.ReadOnly = true;
+            // 
+            // estoque
+            // 
+            this.estoque.DataPropertyName = "estoque";
+            this.estoque.HeaderText = "Estoque";
+            this.estoque.Name = "estoque";
+            this.estoque.ReadOnly = true;
+            // 
+            // pCompra
+            // 
+            this.pCompra.DataPropertyName = "pCompra";
+            this.pCompra.HeaderText = "Preço de Compra";
+            this.pCompra.Name = "pCompra";
+            this.pCompra.ReadOnly = true;
+            this.pCompra.Width = 120;
+            // 
+            // pLucro
+            // 
+            this.pLucro.DataPropertyName = "pLucro";
+            this.pLucro.HeaderText = "Lucro";
+            this.pLucro.Name = "pLucro";
+            this.pLucro.ReadOnly = true;
+            // 
+            // pVenda
+            // 
+            this.pVenda.DataPropertyName = "pVenda";
+            this.pVenda.HeaderText = "Preço de Venda";
+            this.pVenda.Name = "pVenda";
+            this.pVenda.ReadOnly = true;
+            this.pVenda.Width = 120;
+            // 
+            // grupo
+            // 
+            this.grupo.DataPropertyName = "grupo";
+            this.grupo.HeaderText = "Grupo";
+            this.grupo.Name = "grupo";
+            this.grupo.ReadOnly = true;
+            // 
+            // dtRegistro
+            // 
+            this.dtRegistro.DataPropertyName = "dtRegistro";
+            this.dtRegistro.HeaderText = "Dt Registro";
+            this.dtRegistro.Name = "dtRegistro";
+            this.dtRegistro.ReadOnly = true;
+            // 
+            // ativo
+            // 
+            this.ativo.DataPropertyName = "ativo";
+            this.ativo.HeaderText = "Ativo";
+            this.ativo.Name = "ativo";
+            this.ativo.ReadOnly = true;
+            // 
+            // dataSourceDataGridViewTextBoxColumn
+            // 
+            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
+            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionTimeoutDataGridViewTextBoxColumn
+            // 
+            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
+            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // databaseDataGridViewTextBoxColumn
+            // 
+            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
+            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
+            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
+            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaseDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionStringDataGridViewTextBoxColumn
+            // 
+            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
+            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
             // 
             // mySqlConnectionBindingSource
             // 
@@ -473,110 +577,6 @@
             this.lblDescProd.Size = new System.Drawing.Size(84, 18);
             this.lblDescProd.TabIndex = 0;
             this.lblDescProd.Text = "Descrição:";
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "Id";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // descricao
-            // 
-            this.descricao.DataPropertyName = "descricao";
-            this.descricao.HeaderText = "Descrição";
-            this.descricao.Name = "descricao";
-            this.descricao.ReadOnly = true;
-            // 
-            // unidade
-            // 
-            this.unidade.DataPropertyName = "unidade";
-            this.unidade.HeaderText = "Un";
-            this.unidade.Name = "unidade";
-            this.unidade.ReadOnly = true;
-            // 
-            // estoque
-            // 
-            this.estoque.DataPropertyName = "estoque";
-            this.estoque.HeaderText = "Estoque";
-            this.estoque.Name = "estoque";
-            this.estoque.ReadOnly = true;
-            // 
-            // pCompra
-            // 
-            this.pCompra.DataPropertyName = "pCompra";
-            this.pCompra.HeaderText = "Preço de Compra";
-            this.pCompra.Name = "pCompra";
-            this.pCompra.ReadOnly = true;
-            this.pCompra.Width = 120;
-            // 
-            // pLucro
-            // 
-            this.pLucro.DataPropertyName = "pLucro";
-            this.pLucro.HeaderText = "Lucro";
-            this.pLucro.Name = "pLucro";
-            this.pLucro.ReadOnly = true;
-            // 
-            // pVenda
-            // 
-            this.pVenda.DataPropertyName = "pVenda";
-            this.pVenda.HeaderText = "Preço de Venda";
-            this.pVenda.Name = "pVenda";
-            this.pVenda.ReadOnly = true;
-            this.pVenda.Width = 120;
-            // 
-            // grupo
-            // 
-            this.grupo.DataPropertyName = "grupo";
-            this.grupo.HeaderText = "Grupo";
-            this.grupo.Name = "grupo";
-            this.grupo.ReadOnly = true;
-            // 
-            // dtRegistro
-            // 
-            this.dtRegistro.DataPropertyName = "dtRegistro";
-            this.dtRegistro.HeaderText = "Dt Registro";
-            this.dtRegistro.Name = "dtRegistro";
-            this.dtRegistro.ReadOnly = true;
-            // 
-            // ativo
-            // 
-            this.ativo.DataPropertyName = "ativo";
-            this.ativo.HeaderText = "Ativo";
-            this.ativo.Name = "ativo";
-            this.ativo.ReadOnly = true;
-            // 
-            // dataSourceDataGridViewTextBoxColumn
-            // 
-            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
-            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
-            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
-            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // connectionTimeoutDataGridViewTextBoxColumn
-            // 
-            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
-            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
-            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
-            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
-            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // databaseDataGridViewTextBoxColumn
-            // 
-            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
-            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
-            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
-            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
-            this.databaseDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // connectionStringDataGridViewTextBoxColumn
-            // 
-            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
-            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
-            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
-            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
-            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
             // 
             // FrmProduto
             // 
