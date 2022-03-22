@@ -72,5 +72,17 @@ namespace Projeto_Novo
                 return;
             }
         }
+
+        private void txtProduto_TextChanged(object sender, EventArgs e)
+        {
+            if (txtProduto.Text.Length != 0)
+            {
+                dgvProdutos.Visible = true;
+            }
+            else
+            {
+                dgvProdutos.Visible = false;
+            }
+        }
     }
 }
