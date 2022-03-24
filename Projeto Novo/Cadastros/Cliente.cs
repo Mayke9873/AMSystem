@@ -67,6 +67,24 @@ namespace Projeto_Novo
             tsbtnEditCliente.Enabled = false;
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
+
+            txtNomeCli.Enabled = true;
+            mtxRG.Enabled = true;
+            mtxCpfCnpj.Enabled = true;
+            mtxDtNasc.Enabled = true;
+            txtEnderecoCli.Enabled = true;
+            txtNumEndCli.Enabled = true;
+            txtBairroCli.Enabled = true;
+            chkAtivo.Enabled = true;
+            grpTpCliente.Enabled = true;
+
+            txtNomeCli.Clear();
+            mtxRG.Clear();
+            mtxCpfCnpj.Clear();
+            mtxDtNasc.Clear();
+            txtEnderecoCli.Clear();
+            txtNumEndCli.Clear();
+            txtBairroCli.Clear();
         }
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
@@ -87,7 +105,7 @@ namespace Projeto_Novo
                 return;
             }
 
-            if (rdoCliAtivo.Checked == true)
+            if (chkAtivo.Checked == true)
             {
                 ativo = "S";
             }
@@ -125,8 +143,11 @@ namespace Projeto_Novo
                 cmd.Dispose();
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                sql = "SELECT Id, Nome, RG, CpfCnpj as 'CPF ou CNPJ' , dtnasc as Nascimento, Endereco, numendereco as Nº, Bairro, dtregistro as 'Dt Registro', Tipo, Ativo" +
+
+                sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
                 " FROM CLIENTE WHERE ativo = 'S';";
+                //sql = "SELECT Id, Nome, RG, CpfCnpj as 'CPF ou CNPJ' , dtnasc as Nascimento, Endereco, numendereco as Nº, Bairro, dtregistro as 'Dt Registro', Tipo, Ativo" +
+                //" FROM CLIENTE WHERE ativo = 'S';";
 
                 cmd = new MySqlCommand(sql, con.query);
 
@@ -142,6 +163,18 @@ namespace Projeto_Novo
                 tsbtnEditCliente.Enabled = true;
                 tsbtnSalvar.Enabled = false;
                 tsbtnCancelar.Enabled = false;
+
+                txtNomeCli.Enabled = false;
+                mtxRG.Enabled = false;
+                mtxCpfCnpj.Enabled = false;
+                mtxDtNasc.Enabled = false;
+                txtEnderecoCli.Enabled = false;
+                txtNumEndCli.Enabled = false;
+                txtBairroCli.Enabled = false;
+                chkAtivo.Enabled = false;
+                grpTpCliente.Enabled = false;
+
+                dgvCliente.CurrentCell = dgvCliente.Rows[dgvCliente.Rows.Count - 1].Cells[0];
             }
             catch (Exception a)
             {
@@ -153,10 +186,6 @@ namespace Projeto_Novo
             }
         }
 
-        private void tsbtnSair_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
         {
@@ -166,6 +195,34 @@ namespace Projeto_Novo
             tsbtnEditCliente.Enabled = true;
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
+
+            txtNomeCli.Enabled = false;
+            mtxRG.Enabled = false;
+            mtxCpfCnpj.Enabled = false;
+            mtxDtNasc.Enabled = false;
+            txtEnderecoCli.Enabled = false;
+            txtNumEndCli.Enabled = false;
+            txtBairroCli.Enabled = false;
+            chkAtivo.Enabled = false;
+            grpTpCliente.Enabled = false;
+        }
+
+        private void dgvCliente_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgvCliente.Rows[e.RowIndex];
+            txtIdCli.Text = row.Cells[0].Value.ToString();
+            txtNomeCli.Text = row.Cells[1].Value.ToString();
+            mtxRG.Text = row.Cells[2].Value.ToString();
+            mtxCpfCnpj.Text = row.Cells[3].Value.ToString();
+            mtxDtNasc.Text = row.Cells[4].Value.ToString();
+            txtEnderecoCli.Text = row.Cells[5].Value.ToString();
+            txtNumEndCli.Text = row.Cells[6].Value.ToString();
+            txtBairroCli.Text = row.Cells[7].Value.ToString();
+        }
+
+        private void tsbtnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

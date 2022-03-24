@@ -23,12 +23,21 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("SELECT ID, DESCRICAO, UNIDADE, ESTOQUE, PCOMPRA, PLUCRO, PVENDA, GRUPO, DTREGISTRO, ATIVO FROM PRODUTO", con.query);
+                cmd = new MySqlCommand("SELECT ID, DESCRICAO, UNIDADE, ESTOQUE, PCOMPRA, PLUCRO, PVENDA, GRUPO, DTREGISTRO, ATIVO FROM PRODUTO WHERE ATIVO = 'S'", con.query);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
                 dgvProduto.DataSource = ds;
                 dgvProduto.DataMember = ds.Tables[0].TableName;
+                cmd.Dispose();
+
+
+                cmd = new MySqlCommand("SELECT DESCRICAO FROM GRUPO_PRODUTO WHERE ATIVO = 'S';",con.query);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                cbGrupo.DisplayMember = "descricao";
+                cbGrupo.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -100,7 +109,7 @@ namespace Projeto_Novo
 
                 cmd = new MySqlCommand("INSERT INTO PRODUTO (descricao, unidade, estoque, pCompra, pLucro, pVenda, grupo, dtRegistro, ativo) VALUES" +
                     "('" + txtDescricao.Text + "', '" + txtUnidade.Text + "', '" + txtEstoque.Text + "', '" + txtValCompra.Text + "', '" + txtValLucro.Text + "'," +
-                    "'" + txtValVenda.Text + "', '" + cbGrupo.Text + "', @dtRegistro, @ativo)", con.query);
+                    "'" + txtValVenda.Text + "', '" + cbGrupo.Text + "', @dtRegistro, @ativo);", con.query);
 
                 cmd.Parameters.AddWithValue("@ativo", ativo);
                 cmd.Parameters.AddWithValue("@dtRegistro", dtRegistro = DateTime.Now);
@@ -110,7 +119,7 @@ namespace Projeto_Novo
 
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                cmd = new MySqlCommand("SELECT * FROM PRODUTO", con.query);
+                cmd = new MySqlCommand("SELECT * FROM PRODUTO WHERE ATIVO = 'S';", con.query);
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);

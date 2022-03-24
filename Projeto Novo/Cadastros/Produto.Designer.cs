@@ -261,6 +261,7 @@
             this.dgvProduto.DataSource = this.mySqlConnectionBindingSource;
             this.dgvProduto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvProduto.Location = new System.Drawing.Point(3, 3);
+            this.dgvProduto.MultiSelect = false;
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
             this.dgvProduto.RowHeadersWidth = 12;
@@ -408,7 +409,7 @@
             // 
             // cbGrupo
             // 
-            this.cbGrupo.DataSource = this.mySqlConnectionBindingSource;
+            this.cbGrupo.AllowDrop = true;
             this.cbGrupo.Font = new System.Drawing.Font("Arial", 12F);
             this.cbGrupo.FormattingEnabled = true;
             this.cbGrupo.Location = new System.Drawing.Point(12, 210);
@@ -618,7 +619,6 @@
         private System.Windows.Forms.ToolStripButton tsbtnSair;
         private System.Windows.Forms.TabControl tcProdutos;
         private System.Windows.Forms.TabPage tpProduto;
-        private System.Windows.Forms.DataGridView dgvProduto;
         private System.Windows.Forms.TabPage tpDadosProd;
         private System.Windows.Forms.TextBox txtEstoque;
         private System.Windows.Forms.Label lblEstoque;
@@ -639,7 +639,6 @@
         private System.Windows.Forms.Label lblPesquisa;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
-        private System.Windows.Forms.ComboBox cbGrupo;
         private System.Windows.Forms.Label lblGrupo;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
@@ -655,5 +654,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox cbGrupo;
+        private System.Windows.Forms.DataGridView dgvProduto;
     }
 }

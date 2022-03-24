@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
@@ -59,8 +59,6 @@
             this.grpTpCliente = new System.Windows.Forms.GroupBox();
             this.rdoJuridica = new System.Windows.Forms.RadioButton();
             this.rdoFisica = new System.Windows.Forms.RadioButton();
-            this.rdoCliInativo = new System.Windows.Forms.RadioButton();
-            this.rdoCliAtivo = new System.Windows.Forms.RadioButton();
             this.mtxCpfCnpj = new System.Windows.Forms.MaskedTextBox();
             this.lblCPF = new System.Windows.Forms.Label();
             this.mtxRG = new System.Windows.Forms.MaskedTextBox();
@@ -87,6 +85,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.pnlCliente.SuspendLayout();
             this.tcClientes.SuspendLayout();
             this.tpCliente.SuspendLayout();
@@ -180,6 +179,7 @@
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(970, 500);
             this.dgvCliente.TabIndex = 2;
+            this.dgvCliente.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_RowEnter);
             // 
             // Column1
             // 
@@ -200,8 +200,8 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "rg";
-            dataGridViewCellStyle10.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle7.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column3.HeaderText = "RG";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -218,8 +218,8 @@
             // Column5
             // 
             this.Column5.DataPropertyName = "DtNasc";
-            dataGridViewCellStyle11.Format = "d";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle8.Format = "d";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column5.HeaderText = "Nascimento";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -251,9 +251,9 @@
             // Column8
             // 
             this.Column8.DataPropertyName = "dtRegistro";
-            dataGridViewCellStyle12.Format = "d";
-            dataGridViewCellStyle12.NullValue = null;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle9.Format = "d";
+            dataGridViewCellStyle9.NullValue = null;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column8.HeaderText = "Dt Registro";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -322,9 +322,8 @@
             // 
             // tpDados
             // 
+            this.tpDados.Controls.Add(this.chkAtivo);
             this.tpDados.Controls.Add(this.grpTpCliente);
-            this.tpDados.Controls.Add(this.rdoCliInativo);
-            this.tpDados.Controls.Add(this.rdoCliAtivo);
             this.tpDados.Controls.Add(this.mtxCpfCnpj);
             this.tpDados.Controls.Add(this.lblCPF);
             this.tpDados.Controls.Add(this.mtxRG);
@@ -353,6 +352,7 @@
             // 
             this.grpTpCliente.Controls.Add(this.rdoJuridica);
             this.grpTpCliente.Controls.Add(this.rdoFisica);
+            this.grpTpCliente.Enabled = false;
             this.grpTpCliente.Location = new System.Drawing.Point(780, 13);
             this.grpTpCliente.Name = "grpTpCliente";
             this.grpTpCliente.Size = new System.Drawing.Size(150, 53);
@@ -384,32 +384,9 @@
             this.rdoFisica.Text = "Fisíca";
             this.rdoFisica.UseVisualStyleBackColor = true;
             // 
-            // rdoCliInativo
-            // 
-            this.rdoCliInativo.AutoSize = true;
-            this.rdoCliInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoCliInativo.Location = new System.Drawing.Point(275, 37);
-            this.rdoCliInativo.Name = "rdoCliInativo";
-            this.rdoCliInativo.Size = new System.Drawing.Size(67, 21);
-            this.rdoCliInativo.TabIndex = 17;
-            this.rdoCliInativo.Text = "Inativo";
-            this.rdoCliInativo.UseVisualStyleBackColor = true;
-            // 
-            // rdoCliAtivo
-            // 
-            this.rdoCliAtivo.AutoSize = true;
-            this.rdoCliAtivo.Checked = true;
-            this.rdoCliAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoCliAtivo.Location = new System.Drawing.Point(212, 37);
-            this.rdoCliAtivo.Name = "rdoCliAtivo";
-            this.rdoCliAtivo.Size = new System.Drawing.Size(57, 21);
-            this.rdoCliAtivo.TabIndex = 18;
-            this.rdoCliAtivo.TabStop = true;
-            this.rdoCliAtivo.Text = "Ativo";
-            this.rdoCliAtivo.UseVisualStyleBackColor = true;
-            // 
             // mtxCpfCnpj
             // 
+            this.mtxCpfCnpj.Enabled = false;
             this.mtxCpfCnpj.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxCpfCnpj.Location = new System.Drawing.Point(468, 91);
             this.mtxCpfCnpj.Mask = "###,###,###-##";
@@ -430,6 +407,7 @@
             // mtxRG
             // 
             this.mtxRG.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
+            this.mtxRG.Enabled = false;
             this.mtxRG.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxRG.Location = new System.Drawing.Point(348, 91);
             this.mtxRG.Mask = "##,###,###-#";
@@ -480,6 +458,8 @@
             // 
             // txtBairroCli
             // 
+            this.txtBairroCli.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBairroCli.Enabled = false;
             this.txtBairroCli.Font = new System.Drawing.Font("Arial", 12F);
             this.txtBairroCli.Location = new System.Drawing.Point(403, 150);
             this.txtBairroCli.Name = "txtBairroCli";
@@ -488,6 +468,8 @@
             // 
             // txtNumEndCli
             // 
+            this.txtNumEndCli.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumEndCli.Enabled = false;
             this.txtNumEndCli.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNumEndCli.Location = new System.Drawing.Point(345, 150);
             this.txtNumEndCli.Name = "txtNumEndCli";
@@ -496,6 +478,8 @@
             // 
             // txtEnderecoCli
             // 
+            this.txtEnderecoCli.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEnderecoCli.Enabled = false;
             this.txtEnderecoCli.Font = new System.Drawing.Font("Arial", 12F);
             this.txtEnderecoCli.Location = new System.Drawing.Point(11, 150);
             this.txtEnderecoCli.Name = "txtEnderecoCli";
@@ -504,6 +488,7 @@
             // 
             // mtxDtNasc
             // 
+            this.mtxDtNasc.Enabled = false;
             this.mtxDtNasc.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxDtNasc.Location = new System.Drawing.Point(604, 91);
             this.mtxDtNasc.Mask = "00/00/0000";
@@ -513,6 +498,8 @@
             // 
             // txtNomeCli
             // 
+            this.txtNomeCli.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNomeCli.Enabled = false;
             this.txtNomeCli.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNomeCli.Location = new System.Drawing.Point(11, 91);
             this.txtNomeCli.Name = "txtNomeCli";
@@ -658,6 +645,20 @@
             this.lblPesquisa.TabIndex = 17;
             this.lblPesquisa.Text = "Pesquisar:";
             // 
+            // chkAtivo
+            // 
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(284, 37);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 22;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
+            // 
             // FrmCliente
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -720,8 +721,6 @@
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.MaskedTextBox mtxRG;
         private System.Windows.Forms.Label lblRG;
-        private System.Windows.Forms.RadioButton rdoCliInativo;
-        private System.Windows.Forms.RadioButton rdoCliAtivo;
         private System.Windows.Forms.GroupBox grpTpCliente;
         private System.Windows.Forms.RadioButton rdoJuridica;
         private System.Windows.Forms.RadioButton rdoFisica;
@@ -742,5 +741,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isPasswordExpiredDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.CheckBox chkAtivo;
     }
 }

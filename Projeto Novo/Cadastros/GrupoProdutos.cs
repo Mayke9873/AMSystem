@@ -23,7 +23,7 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPOPRODUTO WHERE ATIVO = 'S';", con.query);
+                cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE ATIVO = 'S' and id > 1;", con.query);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -93,7 +93,7 @@ namespace Projeto_Novo
             {
                 con.OpenConn();
 
-                cmd = new MySqlCommand("INSERT INTO GRUPOPRODUTO (DESCRICAO, ATIVO) VALUES " +
+                cmd = new MySqlCommand("INSERT INTO GRUPO_PRODUTO (DESCRICAO, ATIVO) VALUES " +
                     "('"+ txtDescGrupoProd.Text + "', '"+ ativo +"');",con.query);
 
                 cmd.ExecuteNonQuery();
@@ -101,7 +101,7 @@ namespace Projeto_Novo
 
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPOPRODUTO", con.query);
+                cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE ATIVO = 'S' and id > 1;", con.query);
 
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
