@@ -78,6 +78,10 @@ namespace Projeto_Novo
             chkAtivo.Enabled = true;
             grpTpCliente.Enabled = true;
 
+            chkAtivo.Checked = true;
+            rdoFisica.Checked = true;
+
+            txtIdCli.Clear();
             txtNomeCli.Clear();
             mtxRG.Clear();
             mtxCpfCnpj.Clear();
@@ -123,10 +127,19 @@ namespace Projeto_Novo
                 tipoCli = "J";
             }
 
+            if (txtIdCli.Text.Length == 0)
+            {
             sql = "INSERT INTO CLIENTE (NOME, RG, CPFCNPJ, DTNASC, ENDERECO, NUMENDERECO, BAIRRO, DTREGISTRO, " +
                 "TIPO, ATIVO) " +
                 "VALUES ('" + txtNomeCli.Text + "', @rg , @cpfCnpj , @dtNasc , '" + txtEnderecoCli.Text + "','" + txtNumEndCli.Text + "'," +
                 " '" + txtBairroCli.Text + "', @dtRegistro, '" + tipoCli + "', '" + ativo + "');";
+            }
+            else
+            {
+                sql = "UPDATE CLIENTE SET NOME = '" + txtNomeCli.Text + "', RG = @rg, CPFCNPJ = @cpfCnpj, DTNASC = @dtNasc, ENDERECO = '" + txtEnderecoCli.Text + "', " +
+                    "NUMENDERECO = '" + txtNumEndCli.Text + "', BAIRRO = '" + txtBairroCli.Text + "', TIPO = '" + tipoCli + "', ATIVO = '" + ativo + "'" +
+                    "WHERE ID = '" + txtIdCli.Text + "'";
+            }
 
             try
             {
@@ -135,27 +148,34 @@ namespace Projeto_Novo
 
                 //Adiciona os parametros a partir das variaveis.
                 cmd.Parameters.AddWithValue("@dtRegistro", dtRegistro = DateTime.Now);
-                cmd.Parameters.AddWithValue("@dtNasc", DateTime.Parse(mtxDtNasc.Text));
                 cmd.Parameters.AddWithValue("@rg", rg);
                 cmd.Parameters.AddWithValue("@cpfCnpj", cpfCnpj);
+
+                if (mtxDtNasc.MaskCompleted)
+                {
+                    cmd.Parameters.AddWithValue("@dtNasc", DateTime.Parse(mtxDtNasc.Text));
+                }
+                else
+                {
+                    cmd.Parameters.AddWithValue("@dtNasc", null);
+                }
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-
-                sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
-                " FROM CLIENTE WHERE ativo = 'S';";
-                //sql = "SELECT Id, Nome, RG, CpfCnpj as 'CPF ou CNPJ' , dtnasc as Nascimento, Endereco, numendereco as Nº, Bairro, dtregistro as 'Dt Registro', Tipo, Ativo" +
-                //" FROM CLIENTE WHERE ativo = 'S';";
-
-                cmd = new MySqlCommand(sql, con.query);
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                dgvCliente.DataSource = ds;
-                dgvCliente.DataMember = ds.Tables[0].TableName;
+                if (rdoTodos.Checked == true)
+                {
+                    this.rdoTodos_CheckedChanged(sender, new EventArgs());
+                }
+                else if (rdoAtivo.Checked == true)
+                {
+                    this.rdoAtivo_CheckedChanged(sender, new EventArgs());
+                }
+                else if (rdoInativo.Checked == true)
+                {
+                    this.rdoInativo_CheckedChanged(sender, new EventArgs());
+                }
 
                 tcClientes.SelectedTab = tpCliente;
 
@@ -173,8 +193,6 @@ namespace Projeto_Novo
                 txtBairroCli.Enabled = false;
                 chkAtivo.Enabled = false;
                 grpTpCliente.Enabled = false;
-
-                dgvCliente.CurrentCell = dgvCliente.Rows[dgvCliente.Rows.Count - 1].Cells[0];
             }
             catch (Exception a)
             {
@@ -206,9 +224,29 @@ namespace Projeto_Novo
             chkAtivo.Enabled = false;
             grpTpCliente.Enabled = false;
         }
+        private void tsbtnEditCliente_Click(object sender, EventArgs e)
+        {
+            tcClientes.SelectedTab = tpDados; //muda para a tabpage especifica.
+            tsbtnAddCliente.Enabled = false;
+            tsbtnEditCliente.Enabled = false;
+            tsbtnSalvar.Enabled = true;
+            tsbtnCancelar.Enabled = true;
+
+            txtNomeCli.Enabled = true;
+            mtxRG.Enabled = true;
+            mtxCpfCnpj.Enabled = true;
+            mtxDtNasc.Enabled = true;
+            txtEnderecoCli.Enabled = true;
+            txtNumEndCli.Enabled = true;
+            txtBairroCli.Enabled = true;
+            chkAtivo.Enabled = true;
+            grpTpCliente.Enabled = true;
+        }
 
         private void dgvCliente_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            string tipo, ativo;
+
             DataGridViewRow row = dgvCliente.Rows[e.RowIndex];
             txtIdCli.Text = row.Cells[0].Value.ToString();
             txtNomeCli.Text = row.Cells[1].Value.ToString();
@@ -218,11 +256,188 @@ namespace Projeto_Novo
             txtEnderecoCli.Text = row.Cells[5].Value.ToString();
             txtNumEndCli.Text = row.Cells[6].Value.ToString();
             txtBairroCli.Text = row.Cells[7].Value.ToString();
+
+            ativo = row.Cells[10].Value.ToString();
+            if (ativo == "S")
+            {
+                chkAtivo.Checked = true;
+            }
+            else
+            {
+                chkAtivo.Checked = false;
+            }
+
+            tipo = row.Cells[9].Value.ToString();
+            if (tipo == "F")
+            {
+                rdoFisica.Checked = true;
+            }
+            else if (tipo == "J")
+            {
+                rdoJuridica.Checked = true;
+            }
         }
 
         private void tsbtnSair_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            if (rdoAtivo.Checked == true)
+            {
+                try
+                {
+                    con.OpenConn();
+                    sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
+                    " FROM CLIENTE WHERE NOME LIKE '%" + txtPesquisa.Text + "%' AND ATIVO = 'S';";
+
+                    cmd = new MySqlCommand(sql, con.query);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dgvCliente.DataSource = ds;
+                    dgvCliente.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
+            else if (rdoInativo.Checked == true)
+            {
+                try
+                {
+                    con.OpenConn();
+                    sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
+                    " FROM CLIENTE WHERE NOME LIKE '%" + txtPesquisa.Text + "%' AND ATIVO = 'N';";
+
+                    cmd = new MySqlCommand(sql, con.query);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dgvCliente.DataSource = ds;
+                    dgvCliente.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
+            else if (rdoTodos.Checked == true)
+            {
+                try
+                {
+                    con.OpenConn();
+                    sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
+                    " FROM CLIENTE WHERE NOME LIKE '%" + txtPesquisa.Text + "%';";
+
+                    cmd = new MySqlCommand(sql, con.query);
+
+                    MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dgvCliente.DataSource = ds;
+                    dgvCliente.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally 
+                { 
+                    con.CloseConn(); 
+                }
+            }            
+        }
+
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con.OpenConn();
+                sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
+                " FROM CLIENTE WHERE NOME LIKE '%" + txtPesquisa.Text + "%';";
+
+                cmd = new MySqlCommand(sql, con.query);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                dgvCliente.DataSource = ds;
+                dgvCliente.DataMember = ds.Tables[0].TableName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.CloseConn();
+            }
+        }
+
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con.OpenConn();
+                sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
+                " FROM CLIENTE WHERE NOME LIKE '%" + txtPesquisa.Text + "%' AND ATIVO = 'S';";
+
+                cmd = new MySqlCommand(sql, con.query);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                dgvCliente.DataSource = ds;
+                dgvCliente.DataMember = ds.Tables[0].TableName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.CloseConn();
+            }
+        }
+
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                con.OpenConn();
+                sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
+                " FROM CLIENTE WHERE NOME LIKE '%" + txtPesquisa.Text + "%' AND ATIVO = 'N';";
+
+                cmd = new MySqlCommand(sql, con.query);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                dgvCliente.DataSource = ds;
+                dgvCliente.DataMember = ds.Tables[0].TableName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.CloseConn();
+            }
         }
     }
 }

@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
@@ -56,6 +59,7 @@
             this.isPasswordExpiredDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.grpTpCliente = new System.Windows.Forms.GroupBox();
             this.rdoJuridica = new System.Windows.Forms.RadioButton();
             this.rdoFisica = new System.Windows.Forms.RadioButton();
@@ -85,7 +89,9 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
-            this.chkAtivo = new System.Windows.Forms.CheckBox();
+            this.rdoTodos = new System.Windows.Forms.RadioButton();
+            this.rdoAtivo = new System.Windows.Forms.RadioButton();
+            this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.pnlCliente.SuspendLayout();
             this.tcClientes.SuspendLayout();
             this.tpCliente.SuspendLayout();
@@ -101,6 +107,9 @@
             this.pnlCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlCliente.Controls.Add(this.rdoInativo);
+            this.pnlCliente.Controls.Add(this.rdoAtivo);
+            this.pnlCliente.Controls.Add(this.rdoTodos);
             this.pnlCliente.Controls.Add(this.txtPesquisa);
             this.pnlCliente.Controls.Add(this.tcClientes);
             this.pnlCliente.Controls.Add(this.toolStrip1);
@@ -114,11 +123,13 @@
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPesquisa.Location = new System.Drawing.Point(76, 32);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 0;
             this.txtPesquisa.TabStop = false;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // tcClientes
             // 
@@ -152,6 +163,14 @@
             this.dgvCliente.AllowUserToDeleteRows = false;
             this.dgvCliente.AllowUserToOrderColumns = true;
             this.dgvCliente.AutoGenerateColumns = false;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -171,10 +190,26 @@
             this.connectionStringDataGridViewTextBoxColumn,
             this.isPasswordExpiredDataGridViewCheckBoxColumn});
             this.dgvCliente.DataSource = this.mySqlConnectionBindingSource;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCliente.DefaultCellStyle = dataGridViewCellStyle41;
             this.dgvCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCliente.Location = new System.Drawing.Point(3, 3);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.dgvCliente.RowHeadersWidth = 12;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(970, 500);
@@ -200,8 +235,8 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "rg";
-            dataGridViewCellStyle7.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle38.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle38;
             this.Column3.HeaderText = "RG";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -218,8 +253,8 @@
             // Column5
             // 
             this.Column5.DataPropertyName = "DtNasc";
-            dataGridViewCellStyle8.Format = "d";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle39.Format = "d";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle39;
             this.Column5.HeaderText = "Nascimento";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -251,9 +286,9 @@
             // Column8
             // 
             this.Column8.DataPropertyName = "dtRegistro";
-            dataGridViewCellStyle9.Format = "d";
-            dataGridViewCellStyle9.NullValue = null;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle40.Format = "d";
+            dataGridViewCellStyle40.NullValue = null;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle40;
             this.Column8.HeaderText = "Dt Registro";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -347,6 +382,20 @@
             this.tpDados.TabIndex = 1;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // chkAtivo
+            // 
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(284, 37);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 22;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // grpTpCliente
             // 
@@ -584,6 +633,7 @@
             this.tsbtnEditCliente.Name = "tsbtnEditCliente";
             this.tsbtnEditCliente.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditCliente.Text = "Editar";
+            this.tsbtnEditCliente.Click += new System.EventHandler(this.tsbtnEditCliente_Click);
             // 
             // tsbtnSalvar
             // 
@@ -645,19 +695,44 @@
             this.lblPesquisa.TabIndex = 17;
             this.lblPesquisa.Text = "Pesquisar:";
             // 
-            // chkAtivo
+            // rdoTodos
             // 
-            this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Checked = true;
-            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAtivo.Enabled = false;
-            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.chkAtivo.Location = new System.Drawing.Point(284, 37);
-            this.chkAtivo.Name = "chkAtivo";
-            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
-            this.chkAtivo.TabIndex = 22;
-            this.chkAtivo.Text = "Ativo";
-            this.chkAtivo.UseVisualStyleBackColor = true;
+            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoTodos.AutoSize = true;
+            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
+            this.rdoTodos.Name = "rdoTodos";
+            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdoTodos.TabIndex = 18;
+            this.rdoTodos.TabStop = true;
+            this.rdoTodos.Text = "Todos";
+            this.rdoTodos.UseVisualStyleBackColor = true;
+            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
+            // 
+            // rdoAtivo
+            // 
+            this.rdoAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
+            this.rdoAtivo.Location = new System.Drawing.Point(489, 33);
+            this.rdoAtivo.Name = "rdoAtivo";
+            this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
+            this.rdoAtivo.TabIndex = 19;
+            this.rdoAtivo.TabStop = true;
+            this.rdoAtivo.Text = "Ativo";
+            this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
+            // 
+            // rdoInativo
+            // 
+            this.rdoInativo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Location = new System.Drawing.Point(558, 33);
+            this.rdoInativo.Name = "rdoInativo";
+            this.rdoInativo.Size = new System.Drawing.Size(57, 17);
+            this.rdoInativo.TabIndex = 20;
+            this.rdoInativo.Text = "Inativo";
+            this.rdoInativo.UseVisualStyleBackColor = true;
+            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
             // 
             // FrmCliente
             // 
@@ -742,5 +817,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isPasswordExpiredDataGridViewCheckBoxColumn;
         private System.Windows.Forms.CheckBox chkAtivo;
+        private System.Windows.Forms.RadioButton rdoInativo;
+        private System.Windows.Forms.RadioButton rdoAtivo;
+        private System.Windows.Forms.RadioButton rdoTodos;
     }
 }
