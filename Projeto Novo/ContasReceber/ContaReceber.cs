@@ -39,7 +39,15 @@ namespace Projeto_Novo
         private void tsbtnEditC_Receber_Click(object sender, EventArgs e)
         {
             FrmReceber receber = new FrmReceber();
-            receber.ShowDialog();
+            receber.MdiParent = JanelaPai.Instance();
+
+            if (Application.OpenForms.OfType<FrmReceber>().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            receber.Show();
         }
     }
 }
