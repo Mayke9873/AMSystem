@@ -452,6 +452,7 @@
             this.txtValVenda.Name = "txtValVenda";
             this.txtValVenda.Size = new System.Drawing.Size(90, 26);
             this.txtValVenda.TabIndex = 6;
+            this.txtValVenda.Leave += new System.EventHandler(this.txtValVenda_Leave);
             // 
             // label2
             // 
@@ -470,6 +471,7 @@
             this.txtValLucro.Name = "txtValLucro";
             this.txtValLucro.Size = new System.Drawing.Size(90, 26);
             this.txtValLucro.TabIndex = 5;
+            this.txtValLucro.Leave += new System.EventHandler(this.txtValLucro_Leave);
             // 
             // label1
             // 

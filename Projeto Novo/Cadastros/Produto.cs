@@ -143,5 +143,59 @@ namespace Projeto_Novo
 
             tcProdutos.SelectTab(tpProduto); 
         }
+
+        private void txtValLucro_Leave(object sender, EventArgs e)
+        {
+            decimal compra, lucro, venda;
+
+            if (txtValCompra.Text.Length != 0)
+            {
+                compra = decimal.Parse(txtValCompra.Text);
+            }
+            else
+            {
+                compra = 0;
+            }
+
+            if (txtValLucro.Text.Length != 0)
+            {
+                lucro = decimal.Parse(txtValLucro.Text);
+            }
+            else
+            {
+                lucro = 0;
+            }
+
+            venda = compra + (compra * (lucro / 100));
+
+            txtValVenda.Text = venda.ToString();
+        }
+
+        private void txtValVenda_Leave(object sender, EventArgs e)
+        {
+            decimal compra, lucro, venda;
+
+            if (txtValCompra.Text.Length != 0)
+            {
+                compra = decimal.Parse(txtValCompra.Text);
+            }
+            else
+            {
+                compra = 0;
+            }
+
+            if (txtValVenda.Text.Length != 0)
+            {
+                venda = decimal.Parse(txtValVenda.Text);
+            }
+            else
+            {
+                venda = 0;
+            }
+
+            lucro = (venda - compra) / compra * 100;
+
+            txtValLucro.Text = lucro.ToString();
+        }
     }
 }
