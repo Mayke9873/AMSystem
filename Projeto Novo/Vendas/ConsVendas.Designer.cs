@@ -32,6 +32,11 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
+            this.tsbtnAddVenda = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnEditVenda = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
+            this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.pnlConsPedidos = new System.Windows.Forms.Panel();
@@ -39,12 +44,6 @@
             this.mtxDtFinal = new System.Windows.Forms.MaskedTextBox();
             this.txtDtInicial = new System.Windows.Forms.MaskedTextBox();
             this.lblPeriodo = new System.Windows.Forms.Label();
-            this.tsbtnAddVenda = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnEditVenda = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSalvar = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnCancelar = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
-            this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.tsGrupoProduto.SuspendLayout();
             this.pnlConsPedidos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -69,7 +68,6 @@
             this.tsGrupoProduto.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbtnAddVenda,
             this.tsbtnEditVenda,
-            this.tsbtnSalvar,
             this.tsbtnCancelar,
             this.toolStripSeparator,
             this.tsbtnImprimir,
@@ -80,6 +78,53 @@
             this.tsGrupoProduto.Size = new System.Drawing.Size(983, 29);
             this.tsGrupoProduto.TabIndex = 9;
             this.tsGrupoProduto.Text = "toolStrip1";
+            // 
+            // tsbtnAddVenda
+            // 
+            this.tsbtnAddVenda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnAddVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnAddVenda.Image")));
+            this.tsbtnAddVenda.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnAddVenda.Name = "tsbtnAddVenda";
+            this.tsbtnAddVenda.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnAddVenda.Text = "Novo";
+            this.tsbtnAddVenda.Click += new System.EventHandler(this.tsbtnAddVenda_Click);
+            // 
+            // tsbtnEditVenda
+            // 
+            this.tsbtnEditVenda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnEditVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnEditVenda.Image")));
+            this.tsbtnEditVenda.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnEditVenda.Name = "tsbtnEditVenda";
+            this.tsbtnEditVenda.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnEditVenda.Text = "Editar";
+            // 
+            // tsbtnCancelar
+            // 
+            this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
+            this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnCancelar.Name = "tsbtnCancelar";
+            this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnCancelar.Text = "Cancelar";
+            // 
+            // tsbtnImprimir
+            // 
+            this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnImprimir.Image")));
+            this.tsbtnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnImprimir.Name = "tsbtnImprimir";
+            this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnImprimir.Text = "Imprimir";
+            // 
+            // tsbtnSair
+            // 
+            this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
+            this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbtnSair.Name = "tsbtnSair";
+            this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
+            this.tsbtnSair.Text = "Sair";
+            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
             // lblPesquisa
             // 
@@ -158,73 +203,16 @@
             this.lblPeriodo.TabIndex = 12;
             this.lblPeriodo.Text = "Periodo:";
             // 
-            // tsbtnAddVenda
-            // 
-            this.tsbtnAddVenda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnAddVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnAddVenda.Image")));
-            this.tsbtnAddVenda.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnAddVenda.Name = "tsbtnAddVenda";
-            this.tsbtnAddVenda.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnAddVenda.Text = "Novo";
-            this.tsbtnAddVenda.Click += new System.EventHandler(this.tsbtnAddVenda_Click);
-            // 
-            // tsbtnEditVenda
-            // 
-            this.tsbtnEditVenda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnEditVenda.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnEditVenda.Image")));
-            this.tsbtnEditVenda.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnEditVenda.Name = "tsbtnEditVenda";
-            this.tsbtnEditVenda.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnEditVenda.Text = "Editar";
-            // 
-            // tsbtnSalvar
-            // 
-            this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
-            this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSalvar.Name = "tsbtnSalvar";
-            this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnSalvar.Text = "Salvar";
-            // 
-            // tsbtnCancelar
-            // 
-            this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
-            this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnCancelar.Name = "tsbtnCancelar";
-            this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnCancelar.Text = "Cancelar";
-            // 
-            // tsbtnImprimir
-            // 
-            this.tsbtnImprimir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnImprimir.Image")));
-            this.tsbtnImprimir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnImprimir.Name = "tsbtnImprimir";
-            this.tsbtnImprimir.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnImprimir.Text = "Imprimir";
-            // 
-            // tsbtnSair
-            // 
-            this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
-            this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSair.Name = "tsbtnSair";
-            this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnSair.Text = "Sair";
-            this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
-            // 
             // FrmConsVendas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.pnlConsPedidos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmConsVendas";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "ConsVendas";
+            this.Text = "Consulta de Vendas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmConsVendas_KeyDown);
             this.tsGrupoProduto.ResumeLayout(false);
@@ -240,7 +228,6 @@
 
         private System.Windows.Forms.ToolStripButton tsbtnSair;
         private System.Windows.Forms.ToolStripButton tsbtnCancelar;
-        private System.Windows.Forms.ToolStripButton tsbtnSalvar;
         private System.Windows.Forms.ToolStripButton tsbtnEditVenda;
         private System.Windows.Forms.ToolStripButton tsbtnAddVenda;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;

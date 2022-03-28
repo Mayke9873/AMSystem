@@ -22,6 +22,7 @@ namespace Projeto_Novo
             switch (e.KeyCode)
             {
                 case Keys.Enter:
+                    e.SuppressKeyPress = true;
                     this.SelectNextControl(this.ActiveControl, !e.Shift, true, true, true);
                     break;
 

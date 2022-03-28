@@ -51,8 +51,7 @@ namespace Projeto_Novo
         private void tsmiClientes_Click(object sender, EventArgs e)
         {
             FrmCliente cliente = new FrmCliente();
-            cliente.TopLevel = false;
-            pnlPrincipal.Controls.Add(cliente);
+            cliente.MdiParent = this;
 
             if (Application.OpenForms.OfType<FrmCliente>().Count() > 0)
             {
@@ -66,8 +65,7 @@ namespace Projeto_Novo
         private void tsmiFornecedor_Click(object sender, EventArgs e)
         {
             FrmFornecedor fornecedor = new FrmFornecedor();
-            fornecedor.TopLevel = false;
-            pnlPrincipal.Controls.Add(fornecedor);
+            fornecedor.MdiParent = this;
 
             if (Application.OpenForms.OfType<FrmFornecedor>().Count() > 0)
             {
@@ -81,8 +79,8 @@ namespace Projeto_Novo
         private void tsbtnPedido_Click(object sender, EventArgs e)
         {
             FrmVenda vendas = new FrmVenda();
-            vendas.TopLevel = false;
-            pnlPrincipal.Controls.Add(vendas);
+            vendas.MdiParent = this;
+
             
             if (Application.OpenForms.OfType<FrmVenda>().Count() > 0)
             {
@@ -100,8 +98,7 @@ namespace Projeto_Novo
         private void tsmiProdutos_Click(object sender, EventArgs e)
         {
             FrmProduto produtos = new FrmProduto();
-            produtos.TopLevel = false;
-            pnlPrincipal.Controls.Add(produtos);
+            produtos.MdiParent = this;            
             
             if (Application.OpenForms.OfType <FrmProduto>().Count() > 0)
             {
@@ -115,8 +112,7 @@ namespace Projeto_Novo
         private void tsmiFuncionario_Click(object sender, EventArgs e)
         {
             FrmFuncionario funcionario = new FrmFuncionario();
-            funcionario.TopLevel = false;
-            pnlPrincipal.Controls.Add(funcionario);
+            funcionario.MdiParent = this;            
             
             if (Application.OpenForms.OfType<FrmFuncionario>().Count() > 0)
             {
@@ -130,8 +126,7 @@ namespace Projeto_Novo
         private void tsmiUsuario_Click(object sender, EventArgs e)
         {
             FrmUsuario usuario = new FrmUsuario();
-            usuario.TopLevel = false;
-            pnlPrincipal.Controls.Add(usuario);
+            usuario.MdiParent = this;            
             
             if (Application.OpenForms.OfType<FrmUsuario>().Count() > 0)
             {
@@ -145,8 +140,7 @@ namespace Projeto_Novo
         private void tsmiGrupoUsu_Click(object sender, EventArgs e)
         {
             FrmGrupoUsuario grupoUsuario = new FrmGrupoUsuario();
-            grupoUsuario.TopLevel = false;
-            pnlPrincipal.Controls.Add(grupoUsuario);
+            grupoUsuario.MdiParent = this;            
             
             if (Application.OpenForms.OfType <FrmGrupoUsuario> ().Count() > 0)
             {
@@ -160,8 +154,7 @@ namespace Projeto_Novo
         private void tsmiGrupoProd_Click(object sender, EventArgs e)
         {
             FrmGrupoProdutos grupoProdutos = new FrmGrupoProdutos();
-            grupoProdutos.TopLevel = false;
-            pnlPrincipal.Controls.Add(grupoProdutos);
+            grupoProdutos.MdiParent = this;            
             
             if (Application.OpenForms.OfType <FrmGrupoProdutos> ().Count() > 0)
             {
@@ -175,8 +168,7 @@ namespace Projeto_Novo
         private void tsmiConsPedido_Click(object sender, EventArgs e)
         {
             FrmConsVendas consVendas = new FrmConsVendas();
-            consVendas.TopLevel = false;
-            pnlPrincipal.Controls.Add(consVendas);
+            consVendas.MdiParent = this;            
             
             if (Application.OpenForms.OfType <FrmConsVendas> ().Count() > 0)
             {
@@ -202,8 +194,7 @@ namespace Projeto_Novo
         private void tsbtnCReceber_Click(object sender, EventArgs e)
         {
             FrmContaReceber contaReceber = new FrmContaReceber();
-            contaReceber.TopLevel = false;
-            pnlPrincipal.Controls.Add(contaReceber);
+            contaReceber.MdiParent = this;            
 
             if (Application.OpenForms.OfType<FrmContaReceber>().Count() > 0)
             {
@@ -222,8 +213,7 @@ namespace Projeto_Novo
         private void tsmiContaPagar_Click(object sender, EventArgs e)
         {
             FrmContasPagar contaPagar = new FrmContasPagar();
-            contaPagar.TopLevel = false;
-            pnlPrincipal.Controls.Add(contaPagar);
+            contaPagar.MdiParent = this;            
 
             if (Application.OpenForms.OfType<FrmContasPagar>().Count() > 0)
             {
@@ -237,8 +227,7 @@ namespace Projeto_Novo
         private void tsmiMovCaixa_Click(object sender, EventArgs e)
         {
             Caixa.FrmMovCaixa movCaixa = new Caixa.FrmMovCaixa();
-            movCaixa.TopLevel = false;
-            pnlPrincipal.Controls.Add(movCaixa);
+            movCaixa.MdiParent = this;            
 
             if (Application.OpenForms.OfType<Caixa.FrmMovCaixa>().Count() > 0)
             {
@@ -252,8 +241,7 @@ namespace Projeto_Novo
         private void tsmiContas_Click(object sender, EventArgs e)
         {
             Cadastros.FrmContas contas = new Cadastros.FrmContas();
-            contas.TopLevel = false;
-            pnlPrincipal.Controls.Add(contas);
+            contas.MdiParent = this;            
 
             if (Application.OpenForms.OfType<Cadastros.FrmContas>().Count() > 0)
             {
@@ -267,8 +255,7 @@ namespace Projeto_Novo
         private void mstiCompras_Click(object sender, EventArgs e)
         {
             FrmConsCompras consCompras = new FrmConsCompras();
-            consCompras.TopLevel = false;
-            pnlPrincipal.Controls.Add(consCompras);
+            consCompras.MdiParent = this;            
 
             if (Application.OpenForms.OfType<FrmConsCompras>().Count() > 0)
             {

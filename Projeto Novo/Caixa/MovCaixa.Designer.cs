@@ -32,16 +32,16 @@
             this.dgvMovCaixa = new System.Windows.Forms.DataGridView();
             this.lblPesquisaConta = new System.Windows.Forms.Label();
             this.pnlMovCaixa = new System.Windows.Forms.Panel();
-            this.mtxDtFinal = new System.Windows.Forms.MaskedTextBox();
-            this.mtxDtInicial = new System.Windows.Forms.MaskedTextBox();
-            this.lblPeriodo = new System.Windows.Forms.Label();
-            this.cmbConta = new System.Windows.Forms.ComboBox();
-            this.cmbFuncionario = new System.Windows.Forms.ComboBox();
-            this.lblFuncionario = new System.Windows.Forms.Label();
             this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.lblFuncionario = new System.Windows.Forms.Label();
+            this.cmbFuncionario = new System.Windows.Forms.ComboBox();
+            this.cmbConta = new System.Windows.Forms.ComboBox();
+            this.mtxDtFinal = new System.Windows.Forms.MaskedTextBox();
+            this.mtxDtInicial = new System.Windows.Forms.MaskedTextBox();
+            this.lblPeriodo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovCaixa)).BeginInit();
             this.pnlMovCaixa.SuspendLayout();
             this.tsGrupoProduto.SuspendLayout();
@@ -87,61 +87,6 @@
             this.pnlMovCaixa.Size = new System.Drawing.Size(983, 590);
             this.pnlMovCaixa.TabIndex = 2;
             // 
-            // mtxDtFinal
-            // 
-            this.mtxDtFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mtxDtFinal.Location = new System.Drawing.Point(704, 32);
-            this.mtxDtFinal.Mask = "00/00/0000";
-            this.mtxDtFinal.Name = "mtxDtFinal";
-            this.mtxDtFinal.Size = new System.Drawing.Size(80, 20);
-            this.mtxDtFinal.TabIndex = 3;
-            this.mtxDtFinal.ValidatingType = typeof(System.DateTime);
-            // 
-            // mtxDtInicial
-            // 
-            this.mtxDtInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mtxDtInicial.Location = new System.Drawing.Point(618, 32);
-            this.mtxDtInicial.Mask = "00/00/0000";
-            this.mtxDtInicial.Name = "mtxDtInicial";
-            this.mtxDtInicial.Size = new System.Drawing.Size(80, 20);
-            this.mtxDtInicial.TabIndex = 2;
-            this.mtxDtInicial.ValidatingType = typeof(System.DateTime);
-            // 
-            // lblPeriodo
-            // 
-            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPeriodo.AutoSize = true;
-            this.lblPeriodo.Location = new System.Drawing.Point(566, 35);
-            this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(46, 13);
-            this.lblPeriodo.TabIndex = 12;
-            this.lblPeriodo.Text = "Periodo:";
-            // 
-            // cmbConta
-            // 
-            this.cmbConta.FormattingEnabled = true;
-            this.cmbConta.Location = new System.Drawing.Point(74, 32);
-            this.cmbConta.Name = "cmbConta";
-            this.cmbConta.Size = new System.Drawing.Size(170, 21);
-            this.cmbConta.TabIndex = 1;
-            // 
-            // cmbFuncionario
-            // 
-            this.cmbFuncionario.FormattingEnabled = true;
-            this.cmbFuncionario.Location = new System.Drawing.Point(353, 32);
-            this.cmbFuncionario.Name = "cmbFuncionario";
-            this.cmbFuncionario.Size = new System.Drawing.Size(173, 21);
-            this.cmbFuncionario.TabIndex = 2;
-            // 
-            // lblFuncionario
-            // 
-            this.lblFuncionario.AutoSize = true;
-            this.lblFuncionario.Location = new System.Drawing.Point(282, 35);
-            this.lblFuncionario.Name = "lblFuncionario";
-            this.lblFuncionario.Size = new System.Drawing.Size(65, 13);
-            this.lblFuncionario.TabIndex = 15;
-            this.lblFuncionario.Text = "Funcionario:";
-            // 
             // tsGrupoProduto
             // 
             this.tsGrupoProduto.BackColor = System.Drawing.SystemColors.Control;
@@ -182,13 +127,66 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // lblFuncionario
+            // 
+            this.lblFuncionario.AutoSize = true;
+            this.lblFuncionario.Location = new System.Drawing.Point(282, 35);
+            this.lblFuncionario.Name = "lblFuncionario";
+            this.lblFuncionario.Size = new System.Drawing.Size(65, 13);
+            this.lblFuncionario.TabIndex = 15;
+            this.lblFuncionario.Text = "Funcionario:";
+            // 
+            // cmbFuncionario
+            // 
+            this.cmbFuncionario.FormattingEnabled = true;
+            this.cmbFuncionario.Location = new System.Drawing.Point(353, 32);
+            this.cmbFuncionario.Name = "cmbFuncionario";
+            this.cmbFuncionario.Size = new System.Drawing.Size(173, 21);
+            this.cmbFuncionario.TabIndex = 2;
+            // 
+            // cmbConta
+            // 
+            this.cmbConta.FormattingEnabled = true;
+            this.cmbConta.Location = new System.Drawing.Point(74, 32);
+            this.cmbConta.Name = "cmbConta";
+            this.cmbConta.Size = new System.Drawing.Size(170, 21);
+            this.cmbConta.TabIndex = 1;
+            // 
+            // mtxDtFinal
+            // 
+            this.mtxDtFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtxDtFinal.Location = new System.Drawing.Point(704, 32);
+            this.mtxDtFinal.Mask = "00/00/0000";
+            this.mtxDtFinal.Name = "mtxDtFinal";
+            this.mtxDtFinal.Size = new System.Drawing.Size(80, 20);
+            this.mtxDtFinal.TabIndex = 3;
+            this.mtxDtFinal.ValidatingType = typeof(System.DateTime);
+            // 
+            // mtxDtInicial
+            // 
+            this.mtxDtInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtxDtInicial.Location = new System.Drawing.Point(618, 32);
+            this.mtxDtInicial.Mask = "00/00/0000";
+            this.mtxDtInicial.Name = "mtxDtInicial";
+            this.mtxDtInicial.Size = new System.Drawing.Size(80, 20);
+            this.mtxDtInicial.TabIndex = 2;
+            this.mtxDtInicial.ValidatingType = typeof(System.DateTime);
+            // 
+            // lblPeriodo
+            // 
+            this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPeriodo.AutoSize = true;
+            this.lblPeriodo.Location = new System.Drawing.Point(566, 35);
+            this.lblPeriodo.Name = "lblPeriodo";
+            this.lblPeriodo.Size = new System.Drawing.Size(46, 13);
+            this.lblPeriodo.TabIndex = 12;
+            this.lblPeriodo.Text = "Periodo:";
+            // 
             // FrmMovCaixa
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.pnlMovCaixa);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmMovCaixa";
             this.ShowIcon = false;

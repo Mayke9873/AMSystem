@@ -64,7 +64,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -79,13 +78,13 @@
             this.tsmiSair});
             this.msMenu.Location = new System.Drawing.Point(0, 0);
             this.msMenu.Name = "msMenu";
-            this.msMenu.Size = new System.Drawing.Size(984, 24);
-            this.msMenu.Stretch = false;
+            this.msMenu.Size = new System.Drawing.Size(1084, 24);
             this.msMenu.TabIndex = 0;
             this.msMenu.Text = "msMenus";
             // 
             // tsmiCadastros
             // 
+            this.tsmiCadastros.AccessibleRole = System.Windows.Forms.AccessibleRole.ToolTip;
             this.tsmiCadastros.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiClientes,
             this.tsmiFornecedor,
@@ -108,7 +107,7 @@
             this.tsmiClientes.Name = "tsmiClientes";
             this.tsmiClientes.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.tsmiClientes.Size = new System.Drawing.Size(166, 22);
-            this.tsmiClientes.Text = "Cliente";
+            this.tsmiClientes.Text = "&Cliente";
             this.tsmiClientes.Click += new System.EventHandler(this.tsmiClientes_Click);
             // 
             // tsmiFornecedor
@@ -116,7 +115,7 @@
             this.tsmiFornecedor.Name = "tsmiFornecedor";
             this.tsmiFornecedor.ShortcutKeys = System.Windows.Forms.Keys.F6;
             this.tsmiFornecedor.Size = new System.Drawing.Size(166, 22);
-            this.tsmiFornecedor.Text = "Fornecedor";
+            this.tsmiFornecedor.Text = "&Fornecedor";
             this.tsmiFornecedor.Click += new System.EventHandler(this.tsmiFornecedor_Click);
             // 
             // toolStripSeparator1
@@ -194,26 +193,26 @@
             this.tsmiPedido.Name = "tsmiPedido";
             this.tsmiPedido.ShortcutKeyDisplayString = "F1";
             this.tsmiPedido.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.tsmiPedido.Size = new System.Drawing.Size(180, 22);
+            this.tsmiPedido.Size = new System.Drawing.Size(177, 22);
             this.tsmiPedido.Text = "Venda";
             this.tsmiPedido.Click += new System.EventHandler(this.tsmiPedido_Click);
             // 
             // tsmiConsVendas
             // 
             this.tsmiConsVendas.Name = "tsmiConsVendas";
-            this.tsmiConsVendas.Size = new System.Drawing.Size(180, 22);
+            this.tsmiConsVendas.Size = new System.Drawing.Size(177, 22);
             this.tsmiConsVendas.Text = "Consulta de Vendas";
             this.tsmiConsVendas.Click += new System.EventHandler(this.tsmiConsPedido_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(174, 6);
             // 
             // mstiCompras
             // 
             this.mstiCompras.Name = "mstiCompras";
-            this.mstiCompras.Size = new System.Drawing.Size(180, 22);
+            this.mstiCompras.Size = new System.Drawing.Size(177, 22);
             this.mstiCompras.Text = "Compras";
             this.mstiCompras.Click += new System.EventHandler(this.mstiCompras_Click);
             // 
@@ -325,7 +324,7 @@
             this.tsBotoes.Name = "tsBotoes";
             this.tsBotoes.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.tsBotoes.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.tsBotoes.Size = new System.Drawing.Size(984, 54);
+            this.tsBotoes.Size = new System.Drawing.Size(1084, 54);
             this.tsBotoes.TabIndex = 1;
             this.tsBotoes.Text = "Botoes";
             // 
@@ -361,33 +360,25 @@
             this.tsbtnSair.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbtnSair.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSair.Image")));
             this.tsbtnSair.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbtnSair.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
+            this.tsbtnSair.Margin = new System.Windows.Forms.Padding(12, 1, 0, 2);
             this.tsbtnSair.Name = "tsbtnSair";
             this.tsbtnSair.Size = new System.Drawing.Size(36, 47);
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // pnlPrincipal
-            // 
-            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 78);
-            this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(984, 583);
-            this.pnlPrincipal.TabIndex = 3;
-            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.pnlPrincipal);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ClientSize = new System.Drawing.Size(1084, 661);
             this.Controls.Add(this.tsBotoes);
             this.Controls.Add(this.msMenu);
             this.IsMdiContainer = true;
             this.KeyPreview = true;
+            this.MainMenuStrip = this.msMenu;
             this.Name = "FrmPrincipal";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AmSystem";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fmrPrinciapl_KeyDown);
@@ -430,7 +421,6 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiFuncionario;
         private System.Windows.Forms.ToolStripMenuItem tsmiAbreCaixa;
         private System.Windows.Forms.ToolStripMenuItem tsmiFechaCaixa;
-        private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem tmsiContaReceber;

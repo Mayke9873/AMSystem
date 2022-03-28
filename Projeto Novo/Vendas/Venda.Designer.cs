@@ -283,8 +283,7 @@
             // 
             // FrmVenda
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.btnSair);
@@ -311,7 +310,6 @@
             this.Controls.Add(this.txtIdVenda);
             this.Controls.Add(this.lblIdVenda);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
             this.Name = "FrmVenda";
             this.ShowIcon = false;
