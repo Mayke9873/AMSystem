@@ -7,14 +7,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Projeto_Novo
 {
     public partial class FrmConsVendas : Form
     {
+        Conexao con = new Conexao();
+        MySqlCommand cmd;
+
         public FrmConsVendas()
         {
             InitializeComponent();
+
+            try
+            {
+                con.OpenConn();
+                cmd = new MySqlCommand ("SELECT * FROM VENDA WHERE EX = 0;", con.query);
+
+                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                dgvVendas.DataSource = ds;
+                dgvVendas.DataMember = ds.Tables[0].TableName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.CloseConn();
+            }
         }
         private void FrmConsVendas_KeyDown(object sender, KeyEventArgs e)
         {

@@ -197,5 +197,20 @@ namespace Projeto_Novo
 
             txtValLucro.Text = lucro.ToString();
         }
+
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -30,6 +30,15 @@ namespace Projeto_Novo
                 da.Fill(ds);
                 dgvFuncionario.DataSource = ds;
                 dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                cmd.Dispose();
+
+                cmd = new MySqlCommand("SELECT DESCRICAO FROM GRUPO_USUARIO;", con.query);
+
+                MySqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                cbGpUsu.DisplayMember = "DESCRICAO";
+                cbGpUsu.DataSource = dt;
             }
             catch (Exception ex)
             {
@@ -68,6 +77,27 @@ namespace Projeto_Novo
             tsbtnEditFuncionario.Enabled = false;
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
+            txtNome.Enabled = true;
+            mtxRG.Enabled = true;
+            mtxCPF.Enabled = true;
+            mtxDtNasc.Enabled = true;
+            txtEnd.Enabled = true;
+            txtNumEnd.Enabled = true;
+            txtBairro.Enabled = true;
+            gpUsuario.Enabled = true;
+            rdoAtivo.Enabled = true;
+            rdoInativo.Enabled = true;
+
+            txtIdFuncionario.Clear();
+            txtNome.Clear();
+            mtxRG.Clear();
+            mtxCPF.Clear();
+            mtxDtNasc.Clear();
+            txtEnd.Clear();
+            txtNumEnd.Clear();
+            txtBairro.Clear();
+            txtSenha.Clear();
+            txtLogin.Clear();
         }
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
@@ -76,6 +106,16 @@ namespace Projeto_Novo
             tsbtnEditFuncionario.Enabled = true;
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
+            txtNome.Enabled = false;
+            mtxRG.Enabled = false;
+            mtxCPF.Enabled = false;
+            mtxDtNasc.Enabled = false;
+            txtEnd.Enabled = false;
+            txtNumEnd.Enabled = false;
+            txtBairro.Enabled = false;
+            gpUsuario.Enabled = false;
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
 
             tcFuncionarios.SelectTab(tpFuncionario);
         }
@@ -83,12 +123,8 @@ namespace Projeto_Novo
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
             string ativo;
+            int idGpUsu;
             DateTime dtRegistro;
-            string rg = mtxRG.Text;
-            string cpf = mtxCPF.Text;
-
-            rg = rg.Replace(".", "").Replace("-", "");
-            cpf = cpf.Replace(".", "").Replace("-", "");
 
             if (rdoAtivo.Checked == true)
             {
@@ -108,15 +144,25 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("INSERT INTO FUNCIONARIO (NOME, RG, CPF, DtNasc, endereco, numEndereco, bairro, DtRegistro, ativo) VALUES " +
-                    "('"+ txtNome.Text +"', @rg, @cpf, @dtNasc, '"+ txtEnd.Text+"', '"+ txtNumEnd.Text +"', '"+ txtBairro.Text +"', @dtRegistro, " +
-                    "'"+ ativo +"');", con.query);
+                cmd = new MySqlCommand("SELECT ID FROM GRUPO_USUARIO WHERE DESCRICAO = '" + cbGpUsu.Text + "';", con.query);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                idGpUsu = int.Parse(dr[0].ToString());
+                cmd.Dispose();
+                con.CloseConn();
 
-                cmd.Parameters.AddWithValue("@rg", rg);
-                cmd.Parameters.AddWithValue("@cpf", cpf);
+                con.OpenConn();
+                cmd = new MySqlCommand("INSERT INTO FUNCIONARIO (NOME, RG, CPF, DtNasc, endereco, numEndereco, bairro, DtRegistro, grupo_usu, login, senha, ativo) " +
+                    "VALUES ('"+ txtNome.Text +"', @rg, @cpf, @dtNasc, '"+ txtEnd.Text+"', '"+ txtNumEnd.Text +"', '"+ txtBairro.Text +"', @dtRegistro, " +
+                    "@grupo_usu, @login, @senha, '"+ ativo +"');", con.query);
+
+                cmd.Parameters.AddWithValue("@rg", mtxRG.Text.Replace(".", "").Replace("-", ""));
+                cmd.Parameters.AddWithValue("@cpf", mtxCPF.Text.Replace(".", "").Replace("-", ""));
+                cmd.Parameters.AddWithValue("@grupo_usu", idGpUsu);
+                cmd.Parameters.AddWithValue("@login", txtLogin.Text);
+                cmd.Parameters.AddWithValue("@senha", txtSenha.Text);
                 cmd.Parameters.AddWithValue("@dtNasc", DateTime.Parse(mtxDtNasc.Text));
                 cmd.Parameters.AddWithValue("@dtRegistro", dtRegistro = DateTime.Now);
-
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
@@ -131,6 +177,14 @@ namespace Projeto_Novo
                 tsbtnEditFuncionario.Enabled = true;
                 tsbtnSalvar.Enabled = false;
                 tsbtnCancelar.Enabled = false;
+                txtNome.Enabled = false;
+                mtxRG.Enabled = false;
+                mtxCPF.Enabled = false;
+                mtxDtNasc.Enabled = false;
+                txtEnd.Enabled = false;
+                txtNumEnd.Enabled = false;
+                txtBairro.Enabled = false;
+                gpUsuario.Enabled = false;
 
                 tcFuncionarios.SelectTab(tpFuncionario);
             }

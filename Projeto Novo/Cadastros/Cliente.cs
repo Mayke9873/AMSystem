@@ -68,15 +68,20 @@ namespace Projeto_Novo
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
 
+            txtPesquisa.Enabled = false;
             txtNomeCli.Enabled = true;
             mtxRG.Enabled = true;
-            mtxCpfCnpj.Enabled = true;
+            mtxCpf.Enabled = true;
             mtxDtNasc.Enabled = true;
             txtEnderecoCli.Enabled = true;
             txtNumEndCli.Enabled = true;
             txtBairroCli.Enabled = true;
             chkAtivo.Enabled = true;
             grpTpCliente.Enabled = true;
+            mtxCnpj.Enabled = true;
+            mtxIe.Enabled = true;
+            dgvCliente.Enabled = false;
+            dgvCliente.TabStop = false;
 
             chkAtivo.Checked = true;
             rdoFisica.Checked = true;
@@ -84,7 +89,7 @@ namespace Projeto_Novo
             txtIdCli.Clear();
             txtNomeCli.Clear();
             mtxRG.Clear();
-            mtxCpfCnpj.Clear();
+            mtxCpf.Clear();
             mtxDtNasc.Clear();
             txtEnderecoCli.Clear();
             txtNumEndCli.Clear();
@@ -97,7 +102,7 @@ namespace Projeto_Novo
             string tipoCli;
             DateTime dtRegistro;
             string rg = mtxRG.Text;
-            string cpfCnpj = mtxCpfCnpj.Text;
+            string cpfCnpj = mtxCpf.Text;
 
             //retira mascara das strings
             rg = rg.Replace(".", "").Replace("-", "");
@@ -186,13 +191,15 @@ namespace Projeto_Novo
 
                 txtNomeCli.Enabled = false;
                 mtxRG.Enabled = false;
-                mtxCpfCnpj.Enabled = false;
+                mtxCpf.Enabled = false;
                 mtxDtNasc.Enabled = false;
                 txtEnderecoCli.Enabled = false;
                 txtNumEndCli.Enabled = false;
                 txtBairroCli.Enabled = false;
                 chkAtivo.Enabled = false;
                 grpTpCliente.Enabled = false;
+                dgvCliente.Enabled = true;
+                dgvCliente.TabStop = true;
             }
             catch (Exception a)
             {
@@ -216,31 +223,37 @@ namespace Projeto_Novo
 
             txtNomeCli.Enabled = false;
             mtxRG.Enabled = false;
-            mtxCpfCnpj.Enabled = false;
+            mtxCpf.Enabled = false;
             mtxDtNasc.Enabled = false;
             txtEnderecoCli.Enabled = false;
             txtNumEndCli.Enabled = false;
             txtBairroCli.Enabled = false;
             chkAtivo.Enabled = false;
             grpTpCliente.Enabled = false;
+            dgvCliente.Enabled = true;
+            dgvCliente.TabStop = true;
         }
         private void tsbtnEditCliente_Click(object sender, EventArgs e)
         {
             tcClientes.SelectedTab = tpDados; //muda para a tabpage especifica.
+
             tsbtnAddCliente.Enabled = false;
             tsbtnEditCliente.Enabled = false;
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
 
+            txtPesquisa.Enabled = false;
             txtNomeCli.Enabled = true;
             mtxRG.Enabled = true;
-            mtxCpfCnpj.Enabled = true;
+            mtxCpf.Enabled = true;
             mtxDtNasc.Enabled = true;
             txtEnderecoCli.Enabled = true;
             txtNumEndCli.Enabled = true;
             txtBairroCli.Enabled = true;
             chkAtivo.Enabled = true;
             grpTpCliente.Enabled = true;
+            dgvCliente.Enabled = false;
+            dgvCliente.TabStop = false;
         }
 
         private void dgvCliente_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -251,7 +264,7 @@ namespace Projeto_Novo
             txtIdCli.Text = row.Cells[0].Value.ToString();
             txtNomeCli.Text = row.Cells[1].Value.ToString();
             mtxRG.Text = row.Cells[2].Value.ToString();
-            mtxCpfCnpj.Text = row.Cells[3].Value.ToString();
+            mtxCpf.Text = row.Cells[3].Value.ToString();
             mtxDtNasc.Text = row.Cells[4].Value.ToString();
             txtEnderecoCli.Text = row.Cells[5].Value.ToString();
             txtNumEndCli.Text = row.Cells[6].Value.ToString();
@@ -372,9 +385,9 @@ namespace Projeto_Novo
 
                 cmd = new MySqlCommand(sql, con.query);
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adapter.Fill(ds);
+                da.Fill(ds);
                 dgvCliente.DataSource = ds;
                 dgvCliente.DataMember = ds.Tables[0].TableName;
             }
@@ -424,9 +437,9 @@ namespace Projeto_Novo
 
                 cmd = new MySqlCommand(sql, con.query);
 
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
-                adapter.Fill(ds);
+                da.Fill(ds);
                 dgvCliente.DataSource = ds;
                 dgvCliente.DataMember = ds.Tables[0].TableName;
             }
@@ -438,6 +451,37 @@ namespace Projeto_Novo
             {
                 con.CloseConn();
             }
+        }
+
+        private void rdoFisica_CheckedChanged(object sender, EventArgs e)
+        {
+            lblRG.Visible = true;
+            mtxRG.Visible = true;
+            lblCPF.Visible = true;
+            mtxCpf.Visible = true;
+            lblIe.Visible = false;
+            mtxIe.Visible = false;
+            lblCNPJ.Visible = false;
+            mtxCnpj.Visible = false;
+        }
+
+        private void rdoJuridica_CheckedChanged(object sender, EventArgs e)
+        {
+            lblRG.Visible = false;
+            mtxRG.Visible = false;
+            lblCPF.Visible = false;
+            mtxCpf.Visible = false;
+            lblIe.Visible = true;
+            mtxIe.Visible = true;
+            lblCNPJ.Visible = true;
+            mtxCnpj.Visible = true;
+
+            lblIe.Location = new Point(345, 70);
+            mtxIe.Location = new Point(348, 91);
+            lblCNPJ.Location = new Point(454, 70);
+            mtxCnpj.Location = new Point(457, 91);
+
+
         }
     }
 }

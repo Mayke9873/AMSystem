@@ -40,13 +40,13 @@
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.pnlConsPedidos = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvVendas = new System.Windows.Forms.DataGridView();
             this.mtxDtFinal = new System.Windows.Forms.MaskedTextBox();
             this.txtDtInicial = new System.Windows.Forms.MaskedTextBox();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.tsGrupoProduto.SuspendLayout();
             this.pnlConsPedidos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripSeparator1
@@ -139,6 +139,7 @@
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPesquisa.Location = new System.Drawing.Point(76, 32);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(307, 20);
@@ -149,7 +150,7 @@
             this.pnlConsPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlConsPedidos.Controls.Add(this.dataGridView1);
+            this.pnlConsPedidos.Controls.Add(this.dgvVendas);
             this.pnlConsPedidos.Controls.Add(this.mtxDtFinal);
             this.pnlConsPedidos.Controls.Add(this.txtDtInicial);
             this.pnlConsPedidos.Controls.Add(this.lblPeriodo);
@@ -161,17 +162,21 @@
             this.pnlConsPedidos.Size = new System.Drawing.Size(983, 590);
             this.pnlConsPedidos.TabIndex = 1;
             // 
-            // dataGridView1
+            // dgvVendas
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvVendas.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.dgvVendas.AllowDrop = true;
+            this.dgvVendas.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 58);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(977, 529);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.TabStop = false;
+            this.dgvVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVendas.GridColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dgvVendas.Location = new System.Drawing.Point(3, 58);
+            this.dgvVendas.Name = "dgvVendas";
+            this.dgvVendas.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.dgvVendas.Size = new System.Drawing.Size(977, 529);
+            this.dgvVendas.TabIndex = 0;
+            this.dgvVendas.TabStop = false;
             // 
             // mtxDtFinal
             // 
@@ -219,7 +224,7 @@
             this.tsGrupoProduto.PerformLayout();
             this.pnlConsPedidos.ResumeLayout(false);
             this.pnlConsPedidos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVendas)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,6 +245,6 @@
         private System.Windows.Forms.Label lblPeriodo;
         private System.Windows.Forms.MaskedTextBox mtxDtFinal;
         private System.Windows.Forms.MaskedTextBox txtDtInicial;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvVendas;
     }
 }

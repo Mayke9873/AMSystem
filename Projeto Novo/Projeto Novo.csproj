@@ -184,12 +184,6 @@
     <Compile Include="ContasReceber\Receber.Designer.cs">
       <DependentUpon>Receber.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuario.Designer.cs">
-      <DependentUpon>Usuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vendas\Venda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,9 +256,6 @@
     </Compile>
     <EmbeddedResource Include="ContasReceber\Receber.resx">
       <DependentUpon>Receber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usuario.resx">
-      <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendas\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>

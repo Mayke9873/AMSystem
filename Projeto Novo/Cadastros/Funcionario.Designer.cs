@@ -51,6 +51,13 @@
             this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.gpUsuario = new System.Windows.Forms.GroupBox();
+            this.cbGpUsu = new System.Windows.Forms.ComboBox();
+            this.lblCargo = new System.Windows.Forms.Label();
+            this.txtLogin = new System.Windows.Forms.TextBox();
+            this.lblUsuario = new System.Windows.Forms.Label();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.lblSenha = new System.Windows.Forms.Label();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.rdoAtivo = new System.Windows.Forms.RadioButton();
             this.lnlNumEnd = new System.Windows.Forms.Label();
@@ -79,17 +86,24 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rdoTodos = new System.Windows.Forms.RadioButton();
             this.pnlFuncionario.SuspendLayout();
             this.tcFuncionarios.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.tpDados.SuspendLayout();
+            this.gpUsuario.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFuncionario
             // 
+            this.pnlFuncionario.Controls.Add(this.radioButton1);
+            this.pnlFuncionario.Controls.Add(this.radioButton2);
+            this.pnlFuncionario.Controls.Add(this.rdoTodos);
             this.pnlFuncionario.Controls.Add(this.txtPesquisa);
             this.pnlFuncionario.Controls.Add(this.tcFuncionarios);
             this.pnlFuncionario.Controls.Add(this.lblPesquisa);
@@ -104,6 +118,7 @@
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPesquisa.Location = new System.Drawing.Point(76, 32);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
@@ -279,6 +294,7 @@
             // 
             // tpDados
             // 
+            this.tpDados.Controls.Add(this.gpUsuario);
             this.tpDados.Controls.Add(this.rdoInativo);
             this.tpDados.Controls.Add(this.rdoAtivo);
             this.tpDados.Controls.Add(this.lnlNumEnd);
@@ -305,14 +321,88 @@
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
             // 
+            // gpUsuario
+            // 
+            this.gpUsuario.Controls.Add(this.cbGpUsu);
+            this.gpUsuario.Controls.Add(this.lblCargo);
+            this.gpUsuario.Controls.Add(this.txtLogin);
+            this.gpUsuario.Controls.Add(this.lblUsuario);
+            this.gpUsuario.Controls.Add(this.txtSenha);
+            this.gpUsuario.Controls.Add(this.lblSenha);
+            this.gpUsuario.Enabled = false;
+            this.gpUsuario.Font = new System.Drawing.Font("Arial", 12F);
+            this.gpUsuario.Location = new System.Drawing.Point(12, 201);
+            this.gpUsuario.Name = "gpUsuario";
+            this.gpUsuario.Size = new System.Drawing.Size(450, 140);
+            this.gpUsuario.TabIndex = 14;
+            this.gpUsuario.TabStop = false;
+            this.gpUsuario.Text = "Usuário";
+            // 
+            // cbGpUsu
+            // 
+            this.cbGpUsu.Font = new System.Drawing.Font("Arial", 12F);
+            this.cbGpUsu.FormattingEnabled = true;
+            this.cbGpUsu.Location = new System.Drawing.Point(200, 48);
+            this.cbGpUsu.Name = "cbGpUsu";
+            this.cbGpUsu.Size = new System.Drawing.Size(240, 26);
+            this.cbGpUsu.TabIndex = 10;
+            // 
+            // lblCargo
+            // 
+            this.lblCargo.AutoSize = true;
+            this.lblCargo.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblCargo.Location = new System.Drawing.Point(197, 27);
+            this.lblCargo.Name = "lblCargo";
+            this.lblCargo.Size = new System.Drawing.Size(132, 18);
+            this.lblCargo.TabIndex = 9;
+            this.lblCargo.Text = "Grupo de usuario:";
+            // 
+            // txtLogin
+            // 
+            this.txtLogin.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtLogin.Location = new System.Drawing.Point(12, 48);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(150, 26);
+            this.txtLogin.TabIndex = 8;
+            // 
+            // lblUsuario
+            // 
+            this.lblUsuario.AutoSize = true;
+            this.lblUsuario.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblUsuario.Location = new System.Drawing.Point(9, 27);
+            this.lblUsuario.Name = "lblUsuario";
+            this.lblUsuario.Size = new System.Drawing.Size(66, 18);
+            this.lblUsuario.TabIndex = 5;
+            this.lblUsuario.Text = "Usuario:";
+            // 
+            // txtSenha
+            // 
+            this.txtSenha.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtSenha.Location = new System.Drawing.Point(12, 98);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(150, 26);
+            this.txtSenha.TabIndex = 9;
+            this.txtSenha.UseSystemPasswordChar = true;
+            // 
+            // lblSenha
+            // 
+            this.lblSenha.AutoSize = true;
+            this.lblSenha.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblSenha.Location = new System.Drawing.Point(9, 77);
+            this.lblSenha.Name = "lblSenha";
+            this.lblSenha.Size = new System.Drawing.Size(57, 18);
+            this.lblSenha.TabIndex = 6;
+            this.lblSenha.Text = "Senha:";
+            // 
             // rdoInativo
             // 
             this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Enabled = false;
             this.rdoInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rdoInativo.Location = new System.Drawing.Point(275, 37);
             this.rdoInativo.Name = "rdoInativo";
             this.rdoInativo.Size = new System.Drawing.Size(67, 21);
-            this.rdoInativo.TabIndex = 12;
+            this.rdoInativo.TabIndex = 14;
             this.rdoInativo.Text = "Inativo";
             this.rdoInativo.UseVisualStyleBackColor = true;
             // 
@@ -320,6 +410,7 @@
             // 
             this.rdoAtivo.AutoSize = true;
             this.rdoAtivo.Checked = true;
+            this.rdoAtivo.Enabled = false;
             this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rdoAtivo.Location = new System.Drawing.Point(212, 37);
             this.rdoAtivo.Name = "rdoAtivo";
@@ -341,6 +432,7 @@
             // 
             // mtxCPF
             // 
+            this.mtxCPF.Enabled = false;
             this.mtxCPF.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxCPF.Location = new System.Drawing.Point(468, 91);
             this.mtxCPF.Mask = "000,000,000-00";
@@ -360,6 +452,7 @@
             // 
             // mtxRG
             // 
+            this.mtxRG.Enabled = false;
             this.mtxRG.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxRG.Location = new System.Drawing.Point(348, 91);
             this.mtxRG.Mask = "00,000,000-0";
@@ -401,6 +494,7 @@
             // txtBairro
             // 
             this.txtBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBairro.Enabled = false;
             this.txtBairro.Font = new System.Drawing.Font("Arial", 12F);
             this.txtBairro.Location = new System.Drawing.Point(403, 150);
             this.txtBairro.Name = "txtBairro";
@@ -410,6 +504,7 @@
             // txtNumEnd
             // 
             this.txtNumEnd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumEnd.Enabled = false;
             this.txtNumEnd.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNumEnd.Location = new System.Drawing.Point(345, 150);
             this.txtNumEnd.Name = "txtNumEnd";
@@ -419,6 +514,7 @@
             // txtEnd
             // 
             this.txtEnd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEnd.Enabled = false;
             this.txtEnd.Font = new System.Drawing.Font("Arial", 12F);
             this.txtEnd.Location = new System.Drawing.Point(11, 150);
             this.txtEnd.Name = "txtEnd";
@@ -427,6 +523,7 @@
             // 
             // mtxDtNasc
             // 
+            this.mtxDtNasc.Enabled = false;
             this.mtxDtNasc.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxDtNasc.Location = new System.Drawing.Point(604, 91);
             this.mtxDtNasc.Mask = "00/00/0000";
@@ -438,6 +535,7 @@
             // txtNome
             // 
             this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNome.Enabled = false;
             this.txtNome.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNome.Location = new System.Drawing.Point(11, 91);
             this.txtNome.Name = "txtNome";
@@ -583,6 +681,42 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // radioButton1
+            // 
+            this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(558, 33);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(57, 17);
+            this.radioButton1.TabIndex = 23;
+            this.radioButton1.Text = "Inativo";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(489, 33);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(49, 17);
+            this.radioButton2.TabIndex = 22;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Ativo";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // rdoTodos
+            // 
+            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoTodos.AutoSize = true;
+            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
+            this.rdoTodos.Name = "rdoTodos";
+            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdoTodos.TabIndex = 21;
+            this.rdoTodos.TabStop = true;
+            this.rdoTodos.Text = "Todos";
+            this.rdoTodos.UseVisualStyleBackColor = true;
+            // 
             // FrmFuncionario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -603,6 +737,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.tpDados.ResumeLayout(false);
             this.tpDados.PerformLayout();
+            this.gpUsuario.ResumeLayout(false);
+            this.gpUsuario.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -660,5 +796,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.GroupBox gpUsuario;
+        private System.Windows.Forms.TextBox txtLogin;
+        private System.Windows.Forms.Label lblUsuario;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.Label lblSenha;
+        private System.Windows.Forms.ComboBox cbGpUsu;
+        private System.Windows.Forms.Label lblCargo;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdoTodos;
     }
 }
