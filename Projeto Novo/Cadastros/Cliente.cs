@@ -189,6 +189,7 @@ namespace Projeto_Novo
                 tsbtnSalvar.Enabled = false;
                 tsbtnCancelar.Enabled = false;
 
+                txtPesquisa.Enabled = true;
                 txtNomeCli.Enabled = false;
                 mtxRG.Enabled = false;
                 mtxCpf.Enabled = false;
@@ -221,6 +222,7 @@ namespace Projeto_Novo
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
 
+            txtPesquisa.Enabled = true;
             txtNomeCli.Enabled = false;
             mtxRG.Enabled = false;
             mtxCpf.Enabled = false;

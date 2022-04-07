@@ -364,7 +364,7 @@
             this.txtValorTotal.Name = "txtValorTotal";
             this.txtValorTotal.Size = new System.Drawing.Size(86, 24);
             this.txtValorTotal.TabIndex = 19;
-            this.txtValorTotal.Leave += new System.EventHandler(this.txtValorTotal_Leave);
+            this.txtValorTotal.Enter += new System.EventHandler(this.txtValorTotal_Enter);
             // 
             // lblValorTotal
             // 

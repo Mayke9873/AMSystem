@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.pnlCliente = new System.Windows.Forms.Panel();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
@@ -62,6 +62,10 @@
             this.isPasswordExpiredDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.lblIe = new System.Windows.Forms.Label();
+            this.lblCNPJ = new System.Windows.Forms.Label();
+            this.mtxIe = new System.Windows.Forms.MaskedTextBox();
+            this.mtxCnpj = new System.Windows.Forms.MaskedTextBox();
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.grpTpCliente = new System.Windows.Forms.GroupBox();
             this.rdoJuridica = new System.Windows.Forms.RadioButton();
@@ -92,10 +96,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
-            this.mtxCnpj = new System.Windows.Forms.MaskedTextBox();
-            this.mtxIe = new System.Windows.Forms.MaskedTextBox();
-            this.lblCNPJ = new System.Windows.Forms.Label();
-            this.lblIe = new System.Windows.Forms.Label();
             this.pnlCliente.SuspendLayout();
             this.tcClientes.SuspendLayout();
             this.tpCliente.SuspendLayout();
@@ -206,14 +206,14 @@
             this.dgvCliente.AllowUserToDeleteRows = false;
             this.dgvCliente.AllowUserToOrderColumns = true;
             this.dgvCliente.AutoGenerateColumns = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -233,26 +233,26 @@
             this.connectionStringDataGridViewTextBoxColumn,
             this.isPasswordExpiredDataGridViewCheckBoxColumn});
             this.dgvCliente.DataSource = this.mySqlConnectionBindingSource;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCliente.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCliente.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCliente.Location = new System.Drawing.Point(3, 3);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCliente.RowHeadersWidth = 12;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(970, 500);
@@ -278,8 +278,8 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "rg";
-            dataGridViewCellStyle14.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column3.HeaderText = "RG";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -296,8 +296,8 @@
             // Column5
             // 
             this.Column5.DataPropertyName = "DtNasc";
-            dataGridViewCellStyle15.Format = "d";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.Format = "d";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle9;
             this.Column5.HeaderText = "Nascimento";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -329,9 +329,9 @@
             // Column8
             // 
             this.Column8.DataPropertyName = "dtRegistro";
-            dataGridViewCellStyle16.Format = "d";
-            dataGridViewCellStyle16.NullValue = null;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle10.Format = "d";
+            dataGridViewCellStyle10.NullValue = null;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle10;
             this.Column8.HeaderText = "Dt Registro";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -429,6 +429,50 @@
             this.tpDados.TabIndex = 1;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // lblIe
+            // 
+            this.lblIe.AutoSize = true;
+            this.lblIe.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblIe.Location = new System.Drawing.Point(345, 19);
+            this.lblIe.Name = "lblIe";
+            this.lblIe.Size = new System.Drawing.Size(26, 18);
+            this.lblIe.TabIndex = 27;
+            this.lblIe.Text = "IE:";
+            this.lblIe.Visible = false;
+            // 
+            // lblCNPJ
+            // 
+            this.lblCNPJ.AutoSize = true;
+            this.lblCNPJ.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblCNPJ.Location = new System.Drawing.Point(454, 19);
+            this.lblCNPJ.Name = "lblCNPJ";
+            this.lblCNPJ.Size = new System.Drawing.Size(54, 18);
+            this.lblCNPJ.TabIndex = 26;
+            this.lblCNPJ.Text = "CNPJ:";
+            this.lblCNPJ.Visible = false;
+            // 
+            // mtxIe
+            // 
+            this.mtxIe.Enabled = false;
+            this.mtxIe.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxIe.HidePromptOnLeave = true;
+            this.mtxIe.Location = new System.Drawing.Point(348, 40);
+            this.mtxIe.Name = "mtxIe";
+            this.mtxIe.Size = new System.Drawing.Size(103, 26);
+            this.mtxIe.TabIndex = 2;
+            this.mtxIe.Visible = false;
+            // 
+            // mtxCnpj
+            // 
+            this.mtxCnpj.Enabled = false;
+            this.mtxCnpj.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxCnpj.Location = new System.Drawing.Point(457, 40);
+            this.mtxCnpj.Mask = "##,###,###/####-##";
+            this.mtxCnpj.Name = "mtxCnpj";
+            this.mtxCnpj.Size = new System.Drawing.Size(150, 26);
+            this.mtxCnpj.TabIndex = 3;
+            this.mtxCnpj.Visible = false;
             // 
             // chkAtivo
             // 
@@ -744,50 +788,6 @@
             this.lblPesquisa.Size = new System.Drawing.Size(56, 13);
             this.lblPesquisa.TabIndex = 17;
             this.lblPesquisa.Text = "Pesquisar:";
-            // 
-            // mtxCnpj
-            // 
-            this.mtxCnpj.Enabled = false;
-            this.mtxCnpj.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxCnpj.Location = new System.Drawing.Point(457, 40);
-            this.mtxCnpj.Mask = "##,###,###/####-##";
-            this.mtxCnpj.Name = "mtxCnpj";
-            this.mtxCnpj.Size = new System.Drawing.Size(150, 26);
-            this.mtxCnpj.TabIndex = 3;
-            this.mtxCnpj.Visible = false;
-            // 
-            // mtxIe
-            // 
-            this.mtxIe.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.mtxIe.Enabled = false;
-            this.mtxIe.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxIe.Location = new System.Drawing.Point(348, 40);
-            this.mtxIe.Name = "mtxIe";
-            this.mtxIe.Size = new System.Drawing.Size(103, 26);
-            this.mtxIe.TabIndex = 2;
-            this.mtxIe.Visible = false;
-            // 
-            // lblCNPJ
-            // 
-            this.lblCNPJ.AutoSize = true;
-            this.lblCNPJ.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblCNPJ.Location = new System.Drawing.Point(454, 19);
-            this.lblCNPJ.Name = "lblCNPJ";
-            this.lblCNPJ.Size = new System.Drawing.Size(54, 18);
-            this.lblCNPJ.TabIndex = 26;
-            this.lblCNPJ.Text = "CNPJ:";
-            this.lblCNPJ.Visible = false;
-            // 
-            // lblIe
-            // 
-            this.lblIe.AutoSize = true;
-            this.lblIe.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblIe.Location = new System.Drawing.Point(345, 19);
-            this.lblIe.Name = "lblIe";
-            this.lblIe.Size = new System.Drawing.Size(26, 18);
-            this.lblIe.TabIndex = 27;
-            this.lblIe.Text = "IE:";
-            this.lblIe.Visible = false;
             // 
             // FrmCliente
             // 

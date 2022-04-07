@@ -23,7 +23,7 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand ("SELECT * FROM VENDA WHERE EX = 0;", con.query);
+                cmd = new MySqlCommand("SELECT ID, CLIENTE, VALOR, DESCONTO, VALOR_TOTAL, DATA_VENDA, EX FROM VENDA;", con.query);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -40,6 +40,29 @@ namespace Projeto_Novo
                 con.CloseConn();
             }
         }
+
+        private void Consulta()
+        {
+            try
+            {
+                con.OpenConn();
+                cmd = new MySqlCommand("SELECT ID, CLIENTE, VALOR, DESCONTO, VALOR_TOTAL, DATA_VENDA, EX FROM VENDA WHERE CLIENTE LIKE '%" + txtPesquisa.Text + "%';", con.query);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                dgvVendas.DataSource = ds;
+                dgvVendas.DataMember = ds.Tables[0].TableName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.CloseConn();
+            }
+        }
+
         private void FrmConsVendas_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -73,5 +96,9 @@ namespace Projeto_Novo
             this.Close();
         }
 
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            Consulta();
+        }
     }
 }
