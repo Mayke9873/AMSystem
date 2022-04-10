@@ -64,11 +64,12 @@ namespace Projeto_Novo
         private void tsbtnAddFornecedor_Click(object sender, EventArgs e)
         {
             tcFornecedores.SelectTab(tpDados);
-
             tsbtnAddFornecedor.Enabled = false;
             tsbtnEditFornecedor.Enabled = false;
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
+
+            txtPesquisa.Enabled = false;
             txtNomeFornecedor.Enabled = true;
             txtIe.Enabled = true;
             mtxCNPJ.Enabled = true;
@@ -91,11 +92,12 @@ namespace Projeto_Novo
         private void tsbtnEditFornecedor_Click(object sender, EventArgs e)
         {
             tcFornecedores.SelectTab(tpDados);
-
             tsbtnAddFornecedor.Enabled = false;
             tsbtnEditFornecedor.Enabled = false;
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
+
+            txtPesquisa.Enabled = false;
             txtNomeFornecedor.Enabled = true;
             txtIe.Enabled = true;
             mtxCNPJ.Enabled = true;
@@ -171,6 +173,7 @@ namespace Projeto_Novo
                 tsbtnEditFornecedor.Enabled = true;
                 tsbtnSalvar.Enabled = false;
                 tsbtnCancelar.Enabled = false;
+                txtPesquisa.Enabled = true;
                 txtNomeFornecedor.Enabled = false;
                 txtIe.Enabled = false;
                 mtxCNPJ.Enabled = false;
@@ -194,11 +197,12 @@ namespace Projeto_Novo
         private void tsbtnCancelar_Click(object sender, EventArgs e)
         {
             tcFornecedores.SelectTab(tpFornecedor);
-
             tsbtnAddFornecedor.Enabled = true;
             tsbtnEditFornecedor.Enabled = true;
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
+
+            txtPesquisa.Enabled = true;
             txtNomeFornecedor.Enabled = false;
             txtIe.Enabled = false;
             mtxCNPJ.Enabled = false;
