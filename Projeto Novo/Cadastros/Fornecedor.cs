@@ -20,24 +20,73 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
+            this.Consulta();
+        }
 
-            try
+        private void Consulta()
+        {
+            if (rdoAtivo.Checked == true)
             {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE ATIVO = 'S';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvFornecedor.DataSource = ds;
-                dgvFornecedor.DataMember = ds.Tables[0].TableName;
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE ATIVO = 'S';", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFornecedor.DataSource = ds;
+                    dgvFornecedor.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
-            catch (Exception ex)
+            else if (rdoInativo.Checked == true)
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE ATIVO = 'N';", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFornecedor.DataSource = ds;
+                    dgvFornecedor.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
-            finally
+            else if (rdoTodos.Checked == true)
             {
-                con.CloseConn();
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR;", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFornecedor.DataSource = ds;
+                    dgvFornecedor.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
         }
 
@@ -156,18 +205,7 @@ namespace Projeto_Novo
 
                 MessageBox.Show("Dados gravado com sucesso!", "SQS System", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (rdoTodos.Checked == true)
-                {
-                    rdoTodos_CheckedChanged(null, null);
-                }
-                else if (rdoAtivo.Checked == true)
-                {
-                    rdoAtivo_CheckedChanged(null, null);
-                }
-                else if (rdoInativo.Checked == true)
-                {
-                    rdoInativo_CheckedChanged(null, null);
-                }
+                this.Consulta();
 
                 tsbtnAddFornecedor.Enabled = true;
                 tsbtnEditFornecedor.Enabled = true;
@@ -214,18 +252,21 @@ namespace Projeto_Novo
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-            if (rdoTodos.Checked == true)
-            {
-                rdoTodos_CheckedChanged(null, null);
-            }
-            else if (rdoAtivo.Checked == true)
-            {
-                rdoAtivo_CheckedChanged(null, null);
-            }
-            else if (rdoInativo.Checked == true)
-            {
-                rdoInativo_CheckedChanged(null, null);
-            }
+            this.Consulta();
+        }
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
         }
 
         private void dgvFornecedor_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -249,74 +290,6 @@ namespace Projeto_Novo
             else if (ativo == "N")
             {
                 chkAtivo.Checked = false;
-            }
-        }
-
-        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE NOME LIKE'%" + txtPesquisa.Text + "%';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvFornecedor.DataSource = ds;
-                dgvFornecedor.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                throw;
-            }
-            finally
-            {
-                con.CloseConn();
-
-            }
-        }
-
-        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE NOME LIKE '%" + txtPesquisa.Text + "%' AND ATIVO = 'S';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvFornecedor.DataSource = ds;
-                dgvFornecedor.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.CloseConn();
-            }
-        }
-
-        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE NOME LIKE '%" + txtPesquisa.Text + "%' AND ATIVO = 'N';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvFornecedor.DataSource = ds;
-                dgvFornecedor.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.CloseConn();
             }
         }
     }

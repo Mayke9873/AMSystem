@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFuncionario));
             this.pnlFuncionario = new System.Windows.Forms.Panel();
+            this.rdoInativo = new System.Windows.Forms.RadioButton();
+            this.rdoAtivo = new System.Windows.Forms.RadioButton();
+            this.rdoTodos = new System.Windows.Forms.RadioButton();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.tcFuncionarios = new System.Windows.Forms.TabControl();
             this.tpFuncionario = new System.Windows.Forms.TabPage();
@@ -58,8 +61,6 @@
             this.lblUsuario = new System.Windows.Forms.Label();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.lblSenha = new System.Windows.Forms.Label();
-            this.rdoInativo = new System.Windows.Forms.RadioButton();
-            this.rdoAtivo = new System.Windows.Forms.RadioButton();
             this.lnlNumEnd = new System.Windows.Forms.Label();
             this.mtxCPF = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -86,9 +87,7 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.rdoTodos = new System.Windows.Forms.RadioButton();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.pnlFuncionario.SuspendLayout();
             this.tcFuncionarios.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
@@ -101,8 +100,8 @@
             // 
             // pnlFuncionario
             // 
-            this.pnlFuncionario.Controls.Add(this.radioButton1);
-            this.pnlFuncionario.Controls.Add(this.radioButton2);
+            this.pnlFuncionario.Controls.Add(this.rdoInativo);
+            this.pnlFuncionario.Controls.Add(this.rdoAtivo);
             this.pnlFuncionario.Controls.Add(this.rdoTodos);
             this.pnlFuncionario.Controls.Add(this.txtPesquisa);
             this.pnlFuncionario.Controls.Add(this.tcFuncionarios);
@@ -114,6 +113,45 @@
             this.pnlFuncionario.Size = new System.Drawing.Size(983, 590);
             this.pnlFuncionario.TabIndex = 0;
             // 
+            // rdoInativo
+            // 
+            this.rdoInativo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Location = new System.Drawing.Point(558, 33);
+            this.rdoInativo.Name = "rdoInativo";
+            this.rdoInativo.Size = new System.Drawing.Size(57, 17);
+            this.rdoInativo.TabIndex = 23;
+            this.rdoInativo.Text = "Inativo";
+            this.rdoInativo.UseVisualStyleBackColor = true;
+            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
+            // 
+            // rdoAtivo
+            // 
+            this.rdoAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
+            this.rdoAtivo.Location = new System.Drawing.Point(489, 33);
+            this.rdoAtivo.Name = "rdoAtivo";
+            this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
+            this.rdoAtivo.TabIndex = 22;
+            this.rdoAtivo.TabStop = true;
+            this.rdoAtivo.Text = "Ativo";
+            this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
+            // 
+            // rdoTodos
+            // 
+            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoTodos.AutoSize = true;
+            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
+            this.rdoTodos.Name = "rdoTodos";
+            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdoTodos.TabIndex = 21;
+            this.rdoTodos.TabStop = true;
+            this.rdoTodos.Text = "Todos";
+            this.rdoTodos.UseVisualStyleBackColor = true;
+            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
+            // 
             // txtPesquisa
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -124,6 +162,7 @@
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 16;
             this.txtPesquisa.TabStop = false;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // tcFuncionarios
             // 
@@ -294,9 +333,8 @@
             // 
             // tpDados
             // 
+            this.tpDados.Controls.Add(this.chkAtivo);
             this.tpDados.Controls.Add(this.gpUsuario);
-            this.tpDados.Controls.Add(this.rdoInativo);
-            this.tpDados.Controls.Add(this.rdoAtivo);
             this.tpDados.Controls.Add(this.lnlNumEnd);
             this.tpDados.Controls.Add(this.mtxCPF);
             this.tpDados.Controls.Add(this.label2);
@@ -393,32 +431,6 @@
             this.lblSenha.Size = new System.Drawing.Size(57, 18);
             this.lblSenha.TabIndex = 6;
             this.lblSenha.Text = "Senha:";
-            // 
-            // rdoInativo
-            // 
-            this.rdoInativo.AutoSize = true;
-            this.rdoInativo.Enabled = false;
-            this.rdoInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoInativo.Location = new System.Drawing.Point(275, 37);
-            this.rdoInativo.Name = "rdoInativo";
-            this.rdoInativo.Size = new System.Drawing.Size(67, 21);
-            this.rdoInativo.TabIndex = 14;
-            this.rdoInativo.Text = "Inativo";
-            this.rdoInativo.UseVisualStyleBackColor = true;
-            // 
-            // rdoAtivo
-            // 
-            this.rdoAtivo.AutoSize = true;
-            this.rdoAtivo.Checked = true;
-            this.rdoAtivo.Enabled = false;
-            this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoAtivo.Location = new System.Drawing.Point(212, 37);
-            this.rdoAtivo.Name = "rdoAtivo";
-            this.rdoAtivo.Size = new System.Drawing.Size(57, 21);
-            this.rdoAtivo.TabIndex = 13;
-            this.rdoAtivo.TabStop = true;
-            this.rdoAtivo.Text = "Ativo";
-            this.rdoAtivo.UseVisualStyleBackColor = true;
             // 
             // lnlNumEnd
             // 
@@ -681,41 +693,19 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // radioButton1
+            // chkAtivo
             // 
-            this.radioButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(558, 33);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(57, 17);
-            this.radioButton1.TabIndex = 23;
-            this.radioButton1.Text = "Inativo";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(489, 33);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(49, 17);
-            this.radioButton2.TabIndex = 22;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Ativo";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // rdoTodos
-            // 
-            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdoTodos.AutoSize = true;
-            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
-            this.rdoTodos.Name = "rdoTodos";
-            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
-            this.rdoTodos.TabIndex = 21;
-            this.rdoTodos.TabStop = true;
-            this.rdoTodos.Text = "Todos";
-            this.rdoTodos.UseVisualStyleBackColor = true;
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(283, 37);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 24;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // FrmFuncionario
             // 
@@ -778,8 +768,6 @@
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbtnSair;
-        private System.Windows.Forms.RadioButton rdoInativo;
-        private System.Windows.Forms.RadioButton rdoAtivo;
         private System.Windows.Forms.MaskedTextBox mtxRG;
         private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -803,8 +791,9 @@
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.ComboBox cbGpUsu;
         private System.Windows.Forms.Label lblCargo;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rdoInativo;
+        private System.Windows.Forms.RadioButton rdoAtivo;
         private System.Windows.Forms.RadioButton rdoTodos;
+        private System.Windows.Forms.CheckBox chkAtivo;
     }
 }

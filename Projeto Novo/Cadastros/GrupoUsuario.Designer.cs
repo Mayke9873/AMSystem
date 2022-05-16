@@ -59,7 +59,7 @@
             this.tpDadosUsu = new System.Windows.Forms.TabPage();
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.txtDescTipoUsu = new System.Windows.Forms.TextBox();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.txtIdGpUsuario = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
             this.lblDescTipoUsu = new System.Windows.Forms.Label();
             this.tbPemissoes = new System.Windows.Forms.TabPage();
@@ -360,7 +360,7 @@
             // 
             this.tpDadosUsu.Controls.Add(this.chkAtivo);
             this.tpDadosUsu.Controls.Add(this.txtDescTipoUsu);
-            this.tpDadosUsu.Controls.Add(this.txtIdUsuario);
+            this.tpDadosUsu.Controls.Add(this.txtIdGpUsuario);
             this.tpDadosUsu.Controls.Add(this.lblIdCli);
             this.tpDadosUsu.Controls.Add(this.lblDescTipoUsu);
             this.tpDadosUsu.Location = new System.Drawing.Point(4, 22);
@@ -385,6 +385,7 @@
             // 
             // txtDescTipoUsu
             // 
+            this.txtDescTipoUsu.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescTipoUsu.Enabled = false;
             this.txtDescTipoUsu.Font = new System.Drawing.Font("Arial", 12F);
             this.txtDescTipoUsu.Location = new System.Drawing.Point(11, 91);
@@ -392,16 +393,16 @@
             this.txtDescTipoUsu.Size = new System.Drawing.Size(356, 26);
             this.txtDescTipoUsu.TabIndex = 1;
             // 
-            // txtIdUsuario
+            // txtIdGpUsuario
             // 
-            this.txtIdUsuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtIdUsuario.Enabled = false;
-            this.txtIdUsuario.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtIdUsuario.Location = new System.Drawing.Point(11, 34);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(77, 26);
-            this.txtIdUsuario.TabIndex = 0;
-            this.txtIdUsuario.TabStop = false;
+            this.txtIdGpUsuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtIdGpUsuario.Enabled = false;
+            this.txtIdGpUsuario.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtIdGpUsuario.Location = new System.Drawing.Point(11, 34);
+            this.txtIdGpUsuario.Name = "txtIdGpUsuario";
+            this.txtIdGpUsuario.Size = new System.Drawing.Size(77, 26);
+            this.txtIdGpUsuario.TabIndex = 0;
+            this.txtIdGpUsuario.TabStop = false;
             // 
             // lblIdCli
             // 
@@ -491,7 +492,7 @@
         private System.Windows.Forms.DataGridView dgvGpUsuarios;
         private System.Windows.Forms.TabPage tpDadosUsu;
         private System.Windows.Forms.TextBox txtDescTipoUsu;
-        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.TextBox txtIdGpUsuario;
         private System.Windows.Forms.Label lblIdCli;
         private System.Windows.Forms.Label lblDescTipoUsu;
         private System.Windows.Forms.TabPage tbPemissoes;

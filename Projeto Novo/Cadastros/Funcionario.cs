@@ -20,33 +20,87 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
-            try
+            this.Consulta();
+
+            cmd = new MySqlCommand("SELECT DESCRICAO FROM GRUPO_USUARIO;", con.query);
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            cbGpUsu.DisplayMember = "DESCRICAO";
+            cbGpUsu.DataSource = dt;
+        }
+
+        private void Consulta()
+        {
+            if (rdoAtivo.Checked == true)
             {
-                con.OpenConn();
+                try
+                {
+                    con.OpenConn();
 
-                cmd = new MySqlCommand("Select * from funcionario where ativo = 'S';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvFuncionario.DataSource = ds;
-                dgvFuncionario.DataMember = ds.Tables[0].TableName;
-                cmd.Dispose();
-
-                cmd = new MySqlCommand("SELECT DESCRICAO FROM GRUPO_USUARIO;", con.query);
-
-                MySqlDataReader dr = cmd.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Load(dr);
-                cbGpUsu.DisplayMember = "DESCRICAO";
-                cbGpUsu.DataSource = dt;
+                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'S';", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFuncionario.DataSource = ds;
+                    dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                    cmd.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
-            catch (Exception ex)
+            else if (rdoInativo.Checked == true)
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    con.OpenConn();
+
+                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'N';", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFuncionario.DataSource = ds;
+                    dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                    cmd.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
-            finally
+            else if (rdoTodos.Checked == true)
             {
-                con.CloseConn();
+                try
+                {
+                    con.OpenConn();
+
+                    cmd = new MySqlCommand("Select * from funcionario;", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFuncionario.DataSource = ds;
+                    dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                    cmd.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
         }
         private void FrmFuncionario_KeyDown(object sender, KeyEventArgs e)
@@ -126,7 +180,7 @@ namespace Projeto_Novo
             int idGpUsu;
             DateTime dtRegistro;
 
-            if (rdoAtivo.Checked == true)
+            if (chkAtivo.Checked == true)
             {
                 ativo = "S";
             }
@@ -166,12 +220,7 @@ namespace Projeto_Novo
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
-                cmd = new MySqlCommand("SELECT * FROM FUNCIONARIO WHERE ATIVO = 'S';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvFuncionario.DataSource = ds;
-                dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                this.Consulta();
 
                 tsbtnAddFuncionario.Enabled = true;
                 tsbtnEditFuncionario.Enabled = true;
@@ -196,6 +245,26 @@ namespace Projeto_Novo
             {
                 con.CloseConn();
             }
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

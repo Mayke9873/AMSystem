@@ -363,6 +363,8 @@
             // 
             // txtIe
             // 
+            this.txtIe.AccessibleDescription = "";
+            this.txtIe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtIe.Enabled = false;
             this.txtIe.Font = new System.Drawing.Font("Arial", 12F);
             this.txtIe.Location = new System.Drawing.Point(434, 91);
@@ -423,6 +425,7 @@
             // 
             // txtBairroFornecedor
             // 
+            this.txtBairroFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtBairroFornecedor.Enabled = false;
             this.txtBairroFornecedor.Font = new System.Drawing.Font("Arial", 12F);
             this.txtBairroFornecedor.Location = new System.Drawing.Point(403, 150);
@@ -432,6 +435,7 @@
             // 
             // txtNumEndFornecedor
             // 
+            this.txtNumEndFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumEndFornecedor.Enabled = false;
             this.txtNumEndFornecedor.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNumEndFornecedor.Location = new System.Drawing.Point(345, 150);

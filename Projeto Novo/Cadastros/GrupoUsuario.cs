@@ -127,15 +127,15 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                if (txtIdUsuario.Text.Length == 0)
+                if (txtIdGpUsuario.Text.Length == 0)
                 {
                     cmd = new MySqlCommand("INSERT INTO GRUPO_USUARIO (DESCRICAO, ATIVO) VALUES" +
                     "('" + txtDescTipoUsu.Text + "', '" + ativo + "');", con.query);
                 }
-                else if (txtIdUsuario.Text.Length != 0)
+                else if (txtIdGpUsuario.Text.Length != 0)
                 {
                     cmd = new MySqlCommand("UPDATE GRUPO_USUARIO SET DESCRICAO = '" + txtDescTipoUsu.Text + "', ATIVO = '" + ativo + "' " +
-                        "WHERE ID = '" + txtIdUsuario.Text + "';", con.query);
+                        "WHERE ID = '" + txtIdGpUsuario.Text + "';", con.query);
                 }
 
                 cmd.ExecuteNonQuery();
@@ -174,6 +174,18 @@ namespace Projeto_Novo
         {
             this.Consulta();
         }
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
 
         private void tsbtnAddGrupoUSu_Click(object sender, EventArgs e)
         {
@@ -189,7 +201,7 @@ namespace Projeto_Novo
             chkAtivo.Enabled = true;
             dgvGpUsuarios.Enabled = false;
 
-            txtIdUsuario.Clear();
+            txtIdGpUsuario.Clear();
             txtDescTipoUsu.Clear();
             chkAtivo.Checked = true;
 
@@ -230,19 +242,6 @@ namespace Projeto_Novo
             tcGrupoUsuarios.SelectTab(tpGrupoUsuario);
         }
 
-        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
-        {
-            this.Consulta();
-        }
-        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
-        {
-            this.Consulta();
-        }
-        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
-        {
-            this.Consulta();
-        }
-
         private void dgvGpUsuarios_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             string ativo;
@@ -250,7 +249,7 @@ namespace Projeto_Novo
             DataGridViewRow row = dgvGpUsuarios.Rows[e.RowIndex];
             if (row != null)
             {
-                txtIdUsuario.Text = row.Cells[0].Value.ToString();
+                txtIdGpUsuario.Text = row.Cells[0].Value.ToString();
                 txtDescTipoUsu.Text = row.Cells[1].Value.ToString();
                 ativo = row.Cells[2].Value.ToString();
 

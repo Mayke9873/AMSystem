@@ -20,23 +20,76 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
-            try
+            this.Consulta();
+        }
+
+        private void Consulta()
+        {
+            if (rdoTodos.Checked == true)
             {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE ATIVO = 'S' and id > 1;", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvGrupoProd.DataSource = ds;
-                dgvGrupoProd.DataMember = ds.Tables[0].TableName;
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE id > 1;", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvGrupoProd.DataSource = ds;
+                    dgvGrupoProd.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+                return;
             }
-            catch (Exception Ex)
+            else if (rdoAtivo.Checked == true)
             {
-                MessageBox.Show(Ex.Message);
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE ATIVO = 'S' and id > 1;", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvGrupoProd.DataSource = ds;
+                    dgvGrupoProd.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+                return;
             }
-            finally
+            else if (rdoInativo.Checked == true)
             {
-                con.CloseConn();
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE ATIVO = 'N' and id > 1;", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvGrupoProd.DataSource = ds;
+                    dgvGrupoProd.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+                return;
             }
         }
 
@@ -55,9 +108,14 @@ namespace Projeto_Novo
             }
         }
 
-
         private void tsbtnAddGrupoProd_Click(object sender, EventArgs e)
         {
+            txtPesquisa.Enabled = false;
+            rdoTodos.Enabled = false;
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
+            txtDescGrupoProd.Enabled = true;
+            chkAtivo.Enabled = true;
             tsbtnAddGrupoProd.Enabled = false;
             tsbtnEditGrupoProd.Enabled = false;
             tsbtnSalvar.Enabled = true;
@@ -65,9 +123,20 @@ namespace Projeto_Novo
 
             tcGrupoProdutos.SelectTab(tpDadosGrupoProd);
         }
-        private void tsbtnSair_Click(object sender, EventArgs e)
+        private void tsbtnEditGrupoProd_Click(object sender, EventArgs e)
         {
-            this.Close();
+            txtPesquisa.Enabled = false;
+            rdoTodos.Enabled = false;
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
+            txtDescGrupoProd.Enabled = true;
+            chkAtivo.Enabled = true;
+            tsbtnAddGrupoProd.Enabled = false;
+            tsbtnEditGrupoProd.Enabled = false;
+            tsbtnSalvar.Enabled = true;
+            tsbtnCancelar.Enabled = true;
+
+            tcGrupoProdutos.SelectTab(tpDadosGrupoProd);
         }
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
@@ -80,7 +149,7 @@ namespace Projeto_Novo
                 return;
             }
 
-            if (rdoAtivo.Checked == true)
+            if (chkAtivo.Checked == true)
             {
                 ativo = "S";
             }
@@ -93,22 +162,31 @@ namespace Projeto_Novo
             {
                 con.OpenConn();
 
-                cmd = new MySqlCommand("INSERT INTO GRUPO_PRODUTO (DESCRICAO, ATIVO) VALUES " +
-                    "('"+ txtDescGrupoProd.Text + "', '"+ ativo +"');",con.query);
+                if (txtIdGpProduto.Text.Length == 0)
+                {
+                    cmd = new MySqlCommand("INSERT INTO GRUPO_PRODUTO (DESCRICAO, ATIVO) VALUES " +
+                    "('" + txtDescGrupoProd.Text + "', '" + ativo + "');", con.query);
+                }
+                else if(txtIdGpProduto.Text.Length != 0)
+                {
+                    //      FAZER UPDATE
+                    //cmd = new MySqlCommand("INSERT INTO GRUPO_PRODUTO (DESCRICAO, ATIVO) VALUES " +
+                    //"('" + txtDescGrupoProd.Text + "', '" + ativo + "');", con.query);
+                }
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE ATIVO = 'S' and id > 1;", con.query);
+                this.Consulta();
 
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvGrupoProd.DataSource = ds;
-                dgvGrupoProd.DataMember = ds.Tables[0].TableName;
-
+                txtPesquisa.Enabled = true;
+                rdoTodos.Enabled = true;
+                rdoAtivo.Enabled = true;
+                rdoInativo.Enabled = true;
+                txtDescGrupoProd.Enabled = false;
+                chkAtivo.Enabled = false;
                 tsbtnAddGrupoProd.Enabled = true;
                 tsbtnEditGrupoProd.Enabled = true;
                 tsbtnSalvar.Enabled = false;
@@ -128,12 +206,70 @@ namespace Projeto_Novo
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
         {
+            txtPesquisa.Enabled = true;
+            rdoTodos.Enabled = true;
+            rdoAtivo.Enabled = true;
+            rdoInativo.Enabled = true;
+            txtDescGrupoProd.Enabled = false;
+            chkAtivo.Enabled = false;
             tsbtnAddGrupoProd.Enabled = true;
             tsbtnEditGrupoProd.Enabled = true;
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
 
             tcGrupoProdutos.SelectTab(tpGrupoProdudo);
+        }
+
+        private void tsbtnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void dgvGrupoProd_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            string ativo;
+
+            DataGridViewRow row = dgvGrupoProd.Rows[e.RowIndex];
+            if (row != null)
+            {
+                txtIdGpProduto.Text = row.Cells[0].Value.ToString();
+                txtDescGrupoProd.Text = row.Cells[1].Value.ToString();
+                ativo = row.Cells[2].Value.ToString();
+
+                if (ativo == "S")
+                {
+                    chkAtivo.Checked = true;
+                }
+                else if (ativo == "N")
+                {
+                    chkAtivo.Checked = false;
+                }
+            }
+        }
+
+        private void FrmGrupoProdutos_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

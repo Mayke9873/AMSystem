@@ -23,7 +23,8 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("SELECT ID, DESCRICAO, UNIDADE, ESTOQUE, PCOMPRA, PLUCRO, PVENDA, GRUPO, DTREGISTRO, ATIVO FROM PRODUTO WHERE ATIVO = 'S'", con.query);
+                cmd = new MySqlCommand("SELECT ID, DESCRICAO, UNIDADE, ESTOQUE, PCOMPRA, PLUCRO, PVENDA, GRUPO, DTREGISTRO, ATIVO FROM PRODUTO WHERE ATIVO = 'S' AND " +
+                    "'%" + txtDescricao.Text + "%'", con.query);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -111,7 +112,7 @@ namespace Projeto_Novo
                     dgvProduto.DataSource = ds;
                     dgvProduto.DataMember = ds.Tables[0].TableName;
                     cmd.Dispose();
-                }
+                } 
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);

@@ -20,26 +20,33 @@ namespace Projeto_Novo.Cadastros
         {
             InitializeComponent();
 
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT Id, Descricao, Ativo, Banco FROM CONTA", con.query);
+            this.Consulta();
+        }
 
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvContas.DataSource = ds;
-                dgvContas.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
+        private void Consulta()
+        {
+            if (true)
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.CloseConn();
-            }
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT Id, Descricao, Ativo, Banco FROM CONTA", con.query);
 
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvContas.DataSource = ds;
+                    dgvContas.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
         }
         private void FrmContas_KeyDown(object sender, KeyEventArgs e)
         {
