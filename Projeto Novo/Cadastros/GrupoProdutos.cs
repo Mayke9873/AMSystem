@@ -30,7 +30,8 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE id > 1;", con.query);
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO" +
+                        " WHERE id > 1 AND ((Id = '" + txtPesquisa.Text + "') OR (DESCRICAO like '%" + txtPesquisa.Text + "%'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -52,7 +53,8 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE ATIVO = 'S' and id > 1;", con.query);
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO" +
+                        " WHERE ATIVO = 'S' and id > 1 AND ((Id = '" + txtPesquisa.Text + "') OR (DESCRICAO like '%" + txtPesquisa.Text + "%'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -74,7 +76,8 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO WHERE ATIVO = 'N' and id > 1;", con.query);
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_PRODUTO" +
+                        " WHERE ATIVO = 'N' and id > 1 AND ((Id = '" + txtPesquisa.Text + "') OR (DESCRICAO like '%" + txtPesquisa.Text + "%'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -265,11 +268,6 @@ namespace Projeto_Novo
                     chkAtivo.Checked = false;
                 }
             }
-        }
-
-        private void FrmGrupoProdutos_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

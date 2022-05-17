@@ -39,7 +39,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
 
-                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'S';", con.query);
+                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'S' AND ((Id = '" + txtPesquisa.Text + "') OR (Nome like '%" + txtPesquisa.Text + "%'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -62,7 +62,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
 
-                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'N';", con.query);
+                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'N' AND ((Id = '" + txtPesquisa.Text + "') OR (Nome like '%" + txtPesquisa.Text + "%'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -85,7 +85,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
 
-                    cmd = new MySqlCommand("Select * from funcionario;", con.query);
+                    cmd = new MySqlCommand("Select * from funcionario; WHERE Id = '" + txtPesquisa.Text + "' OR Nome like '%" + txtPesquisa.Text + "%';", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -264,7 +264,7 @@ namespace Projeto_Novo
 
         private void rdoInativo_CheckedChanged(object sender, EventArgs e)
         {
-
+            this.Consulta();
         }
     }
 }

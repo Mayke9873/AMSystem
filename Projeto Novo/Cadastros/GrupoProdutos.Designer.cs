@@ -430,7 +430,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Grupo de Produtos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmGrupoProdutos_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGrupoProdutos_KeyDown);
             this.tsGrupoProduto.ResumeLayout(false);
             this.tsGrupoProduto.PerformLayout();

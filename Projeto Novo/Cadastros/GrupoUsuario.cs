@@ -31,7 +31,7 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE DESCRICAO LIKE '%" + txtPesquisa.Text + "%';", con.query);
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE DESCRICAO LIKE '%" + txtPesquisa.Text + "%' or ID = '" + txtPesquisa.Text + "';", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -52,7 +52,7 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE ATIVO = 'S' AND DESCRICAO LIKE '%" + txtPesquisa.Text + "%';", con.query);
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE ATIVO = 'S' AND ((DESCRICAO LIKE '%" + txtPesquisa.Text + "%') OR (ID = '" + txtPesquisa.Text + "'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -73,7 +73,7 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE ATIVO = 'N' AND DESCRICAO LIKE '%" + txtPesquisa.Text + "%'", con.query);
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE ATIVO = 'N' AND ((DESCRICAO LIKE '%" + txtPesquisa.Text + "%') OR (ID = '" + txtPesquisa.Text + "'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -134,8 +134,8 @@ namespace Projeto_Novo
                 }
                 else if (txtIdGpUsuario.Text.Length != 0)
                 {
-                    cmd = new MySqlCommand("UPDATE GRUPO_USUARIO SET DESCRICAO = '" + txtDescTipoUsu.Text + "', ATIVO = '" + ativo + "' " +
-                        "WHERE ID = '" + txtIdGpUsuario.Text + "';", con.query);
+                    cmd = new MySqlCommand("UPDATE GRUPO_USUARIO SET DESCRICAO = '" + txtDescTipoUsu.Text + "', ATIVO = '" + ativo + "'" +
+                        " WHERE ID = '" + txtIdGpUsuario.Text + "';", con.query);
                 }
 
                 cmd.ExecuteNonQuery();

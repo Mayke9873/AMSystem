@@ -30,7 +30,8 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE ATIVO = 'S';", con.query);
+                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE" +
+                        " ATIVO = 'S' AND Nome like '%" + txtPesquisa.Text + "%' OR ((ID = '0') OR (Id = '" + txtPesquisa.Text + "'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -51,7 +52,8 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE ATIVO = 'N';", con.query);
+                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE" +
+                        " ATIVO = 'N' AND ((Id = '" + txtPesquisa.Text + "') OR (Nome like '%" + txtPesquisa.Text + "%'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -72,7 +74,7 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR;", con.query);
+                    cmd = new MySqlCommand("SELECT * FROM FORNECEDOR WHERE Nome like '%" + txtPesquisa.Text + "%' OR ((ID = '0') OR (Id = '" + txtPesquisa.Text + "'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);

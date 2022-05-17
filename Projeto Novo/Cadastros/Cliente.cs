@@ -32,7 +32,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
                     sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
-                    " FROM CLIENTE WHERE ativo = 'S';";
+                    " FROM CLIENTE WHERE ativo = 'S' and ((Nome like '%" + txtPesquisa.Text + "%') or (Id = '" + txtPesquisa.Text + "'));";
 
                     cmd = new MySqlCommand(sql, con.query);
 
@@ -57,7 +57,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
                     sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
-                    " FROM CLIENTE WHERE ativo = 'N';";
+                    " FROM CLIENTE WHERE ativo = 'N' and ((Nome like '%" + txtPesquisa.Text + "%') or (Id = '" + txtPesquisa.Text + "'));";
 
                     cmd = new MySqlCommand(sql, con.query);
 
@@ -82,7 +82,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
                     sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
-                    " FROM CLIENTE;";
+                    " FROM CLIENTE where Nome like '%" + txtPesquisa.Text + "%' OR Id = '" + txtPesquisa.Text + "';";
 
                     cmd = new MySqlCommand(sql, con.query);
 
