@@ -167,10 +167,9 @@
             this.ClientSize = new System.Drawing.Size(983, 590);
             this.Controls.Add(this.pnlReceber);
             this.KeyPreview = true;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmPagar";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Pagar";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

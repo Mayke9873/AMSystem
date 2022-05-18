@@ -33,7 +33,15 @@ namespace Projeto_Novo
         private void tsbtnAddVenda_Click(object sender, EventArgs e)
         {
             FrmVenda venda = new FrmVenda();
-            venda.ShowDialog();
+            venda.MdiParent = JanelaPai.Instance();
+
+            if (Application.OpenForms.OfType<FrmVenda>().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            venda.Show();
         }
 
         private void tsbtnSair_Click(object sender, EventArgs e)

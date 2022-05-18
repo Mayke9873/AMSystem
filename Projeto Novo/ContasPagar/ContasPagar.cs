@@ -33,7 +33,14 @@ namespace Projeto_Novo
         private void tsbtnEditC_Pagar_Click(object sender, EventArgs e)
         {
             ContasPagar.FrmPagar pagar = new ContasPagar.FrmPagar();
-            pagar.ShowDialog();
+            pagar.MdiParent = JanelaPai.Instance();
+
+            if (Application.OpenForms.OfType<ContasPagar.FrmPagar>().Count() > 0)
+            {
+                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            pagar.Show();
         }
 
         private void tsbtnSair_Click(object sender, EventArgs e)

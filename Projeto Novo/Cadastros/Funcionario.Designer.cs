@@ -28,13 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFuncionario));
             this.pnlFuncionario = new System.Windows.Forms.Panel();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.tpFornecedores = new System.Windows.Forms.TabControl();
+            this.tcFuncionarios = new System.Windows.Forms.TabControl();
             this.tpFuncionario = new System.Windows.Forms.TabPage();
             this.dgvFuncionario = new System.Windows.Forms.DataGridView();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
             this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.rdoAtivo = new System.Windows.Forms.RadioButton();
@@ -45,11 +60,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdFuncionario = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
-            this.txtBairroFuncionario = new System.Windows.Forms.TextBox();
-            this.txtNumEndFuncionario = new System.Windows.Forms.TextBox();
-            this.txtEndFuncionario = new System.Windows.Forms.TextBox();
-            this.mtxDtNascFuncionario = new System.Windows.Forms.MaskedTextBox();
-            this.txtNomeFuncionario = new System.Windows.Forms.TextBox();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.txtNumEnd = new System.Windows.Forms.TextBox();
+            this.txtEnd = new System.Windows.Forms.TextBox();
+            this.mtxDtNasc = new System.Windows.Forms.MaskedTextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
             this.lblBairro = new System.Windows.Forms.Label();
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblDtNasc = new System.Windows.Forms.Label();
@@ -65,10 +80,10 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.pnlFuncionario.SuspendLayout();
-            this.tpFornecedores.SuspendLayout();
+            this.tcFuncionarios.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.tpDados.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -76,7 +91,7 @@
             // pnlFuncionario
             // 
             this.pnlFuncionario.Controls.Add(this.txtPesquisa);
-            this.pnlFuncionario.Controls.Add(this.tpFornecedores);
+            this.pnlFuncionario.Controls.Add(this.tcFuncionarios);
             this.pnlFuncionario.Controls.Add(this.lblPesquisa);
             this.pnlFuncionario.Controls.Add(this.toolStrip1);
             this.pnlFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -95,25 +110,24 @@
             this.txtPesquisa.TabIndex = 16;
             this.txtPesquisa.TabStop = false;
             // 
-            // tpFornecedores
+            // tcFuncionarios
             // 
-            this.tpFornecedores.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tpFornecedores.Controls.Add(this.tpFuncionario);
-            this.tpFornecedores.Controls.Add(this.tpDados);
-            this.tpFornecedores.Location = new System.Drawing.Point(-1, 58);
-            this.tpFornecedores.Multiline = true;
-            this.tpFornecedores.Name = "tpFornecedores";
-            this.tpFornecedores.SelectedIndex = 0;
-            this.tpFornecedores.Size = new System.Drawing.Size(984, 532);
-            this.tpFornecedores.TabIndex = 0;
-            this.tpFornecedores.TabStop = false;
+            this.tcFuncionarios.Controls.Add(this.tpFuncionario);
+            this.tcFuncionarios.Controls.Add(this.tpDados);
+            this.tcFuncionarios.Location = new System.Drawing.Point(-1, 58);
+            this.tcFuncionarios.Multiline = true;
+            this.tcFuncionarios.Name = "tcFuncionarios";
+            this.tcFuncionarios.SelectedIndex = 0;
+            this.tcFuncionarios.Size = new System.Drawing.Size(984, 532);
+            this.tcFuncionarios.TabIndex = 0;
+            this.tcFuncionarios.TabStop = false;
             // 
             // tpFuncionario
             // 
             this.tpFuncionario.Controls.Add(this.dgvFuncionario);
-            this.tpFuncionario.Controls.Add(this.dgvClientes);
             this.tpFuncionario.Location = new System.Drawing.Point(4, 22);
             this.tpFuncionario.Name = "tpFuncionario";
             this.tpFuncionario.Padding = new System.Windows.Forms.Padding(3);
@@ -124,26 +138,144 @@
             // 
             // dgvFuncionario
             // 
+            this.dgvFuncionario.AllowUserToAddRows = false;
+            this.dgvFuncionario.AllowUserToDeleteRows = false;
             this.dgvFuncionario.AllowUserToOrderColumns = true;
+            this.dgvFuncionario.AllowUserToResizeRows = false;
+            this.dgvFuncionario.AutoGenerateColumns = false;
             this.dgvFuncionario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFuncionario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.dataSourceDataGridViewTextBoxColumn,
+            this.connectionTimeoutDataGridViewTextBoxColumn,
+            this.databaseDataGridViewTextBoxColumn,
+            this.connectionStringDataGridViewTextBoxColumn});
+            this.dgvFuncionario.DataSource = this.mySqlConnectionBindingSource;
             this.dgvFuncionario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvFuncionario.Location = new System.Drawing.Point(3, 3);
             this.dgvFuncionario.Name = "dgvFuncionario";
+            this.dgvFuncionario.ReadOnly = true;
+            this.dgvFuncionario.RowHeadersWidth = 12;
+            this.dgvFuncionario.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFuncionario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionario.Size = new System.Drawing.Size(970, 500);
             this.dgvFuncionario.TabIndex = 2;
+            this.dgvFuncionario.TabStop = false;
             // 
-            // dgvClientes
+            // Column1
             // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 3);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
-            this.dgvClientes.TabIndex = 0;
+            this.Column1.DataPropertyName = "id";
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "nome";
+            this.Column2.HeaderText = "Nome";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "rg";
+            this.Column3.HeaderText = "RG";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "cpf";
+            this.Column4.HeaderText = "CPF";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "dtNasc";
+            this.Column5.HeaderText = "Nascimento";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "endereco";
+            this.Column6.HeaderText = "Endereço";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "numEndereco";
+            this.Column7.HeaderText = "Nº";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "bairro";
+            this.Column8.HeaderText = "Bairro";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "dtRegistro";
+            this.Column9.HeaderText = "Dt Registro";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "ativo";
+            this.Column10.HeaderText = "Ativo";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // dataSourceDataGridViewTextBoxColumn
+            // 
+            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
+            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionTimeoutDataGridViewTextBoxColumn
+            // 
+            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
+            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // databaseDataGridViewTextBoxColumn
+            // 
+            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
+            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
+            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
+            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaseDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionStringDataGridViewTextBoxColumn
+            // 
+            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
+            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // mySqlConnectionBindingSource
+            // 
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
             // 
             // tpDados
             // 
@@ -156,11 +288,11 @@
             this.tpDados.Controls.Add(this.label1);
             this.tpDados.Controls.Add(this.txtIdFuncionario);
             this.tpDados.Controls.Add(this.lblIdCli);
-            this.tpDados.Controls.Add(this.txtBairroFuncionario);
-            this.tpDados.Controls.Add(this.txtNumEndFuncionario);
-            this.tpDados.Controls.Add(this.txtEndFuncionario);
-            this.tpDados.Controls.Add(this.mtxDtNascFuncionario);
-            this.tpDados.Controls.Add(this.txtNomeFuncionario);
+            this.tpDados.Controls.Add(this.txtBairro);
+            this.tpDados.Controls.Add(this.txtNumEnd);
+            this.tpDados.Controls.Add(this.txtEnd);
+            this.tpDados.Controls.Add(this.mtxDtNasc);
+            this.tpDados.Controls.Add(this.txtNome);
             this.tpDados.Controls.Add(this.lblBairro);
             this.tpDados.Controls.Add(this.lblEndereco);
             this.tpDados.Controls.Add(this.lblDtNasc);
@@ -187,11 +319,13 @@
             // rdoAtivo
             // 
             this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
             this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.rdoAtivo.Location = new System.Drawing.Point(212, 37);
             this.rdoAtivo.Name = "rdoAtivo";
             this.rdoAtivo.Size = new System.Drawing.Size(57, 21);
             this.rdoAtivo.TabIndex = 13;
+            this.rdoAtivo.TabStop = true;
             this.rdoAtivo.Text = "Ativo";
             this.rdoAtivo.UseVisualStyleBackColor = true;
             // 
@@ -264,47 +398,51 @@
             this.lblIdCli.TabIndex = 6;
             this.lblIdCli.Text = "Código:";
             // 
-            // txtBairroFuncionario
+            // txtBairro
             // 
-            this.txtBairroFuncionario.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtBairroFuncionario.Location = new System.Drawing.Point(403, 150);
-            this.txtBairroFuncionario.Name = "txtBairroFuncionario";
-            this.txtBairroFuncionario.Size = new System.Drawing.Size(301, 26);
-            this.txtBairroFuncionario.TabIndex = 7;
+            this.txtBairro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBairro.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtBairro.Location = new System.Drawing.Point(403, 150);
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(301, 26);
+            this.txtBairro.TabIndex = 7;
             // 
-            // txtNumEndFuncionario
+            // txtNumEnd
             // 
-            this.txtNumEndFuncionario.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtNumEndFuncionario.Location = new System.Drawing.Point(345, 150);
-            this.txtNumEndFuncionario.Name = "txtNumEndFuncionario";
-            this.txtNumEndFuncionario.Size = new System.Drawing.Size(52, 26);
-            this.txtNumEndFuncionario.TabIndex = 6;
+            this.txtNumEnd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumEnd.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtNumEnd.Location = new System.Drawing.Point(345, 150);
+            this.txtNumEnd.Name = "txtNumEnd";
+            this.txtNumEnd.Size = new System.Drawing.Size(52, 26);
+            this.txtNumEnd.TabIndex = 6;
             // 
-            // txtEndFuncionario
+            // txtEnd
             // 
-            this.txtEndFuncionario.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtEndFuncionario.Location = new System.Drawing.Point(11, 150);
-            this.txtEndFuncionario.Name = "txtEndFuncionario";
-            this.txtEndFuncionario.Size = new System.Drawing.Size(331, 26);
-            this.txtEndFuncionario.TabIndex = 5;
+            this.txtEnd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEnd.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtEnd.Location = new System.Drawing.Point(11, 150);
+            this.txtEnd.Name = "txtEnd";
+            this.txtEnd.Size = new System.Drawing.Size(331, 26);
+            this.txtEnd.TabIndex = 5;
             // 
-            // mtxDtNascFuncionario
+            // mtxDtNasc
             // 
-            this.mtxDtNascFuncionario.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxDtNascFuncionario.Location = new System.Drawing.Point(604, 91);
-            this.mtxDtNascFuncionario.Mask = "00/00/0000";
-            this.mtxDtNascFuncionario.Name = "mtxDtNascFuncionario";
-            this.mtxDtNascFuncionario.Size = new System.Drawing.Size(100, 26);
-            this.mtxDtNascFuncionario.TabIndex = 4;
-            this.mtxDtNascFuncionario.ValidatingType = typeof(System.DateTime);
+            this.mtxDtNasc.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxDtNasc.Location = new System.Drawing.Point(604, 91);
+            this.mtxDtNasc.Mask = "00/00/0000";
+            this.mtxDtNasc.Name = "mtxDtNasc";
+            this.mtxDtNasc.Size = new System.Drawing.Size(100, 26);
+            this.mtxDtNasc.TabIndex = 4;
+            this.mtxDtNasc.ValidatingType = typeof(System.DateTime);
             // 
-            // txtNomeFuncionario
+            // txtNome
             // 
-            this.txtNomeFuncionario.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtNomeFuncionario.Location = new System.Drawing.Point(11, 91);
-            this.txtNomeFuncionario.Name = "txtNomeFuncionario";
-            this.txtNomeFuncionario.Size = new System.Drawing.Size(331, 26);
-            this.txtNomeFuncionario.TabIndex = 1;
+            this.txtNome.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNome.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtNome.Location = new System.Drawing.Point(11, 91);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(331, 26);
+            this.txtNome.TabIndex = 1;
             // 
             // lblBairro
             // 
@@ -383,6 +521,7 @@
             this.tsbtnAddFuncionario.Name = "tsbtnAddFuncionario";
             this.tsbtnAddFuncionario.Size = new System.Drawing.Size(26, 26);
             this.tsbtnAddFuncionario.Text = "Novo";
+            this.tsbtnAddFuncionario.Click += new System.EventHandler(this.tsbtnAddFuncionario_Click);
             // 
             // tsbtnEditFuncionario
             // 
@@ -396,20 +535,24 @@
             // tsbtnSalvar
             // 
             this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSalvar.Enabled = false;
             this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
             this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnSalvar.Name = "tsbtnSalvar";
             this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSalvar.Text = "Salvar";
+            this.tsbtnSalvar.Click += new System.EventHandler(this.tsbtnSalvar_Click);
             // 
             // tsbtnCancelar
             // 
             this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCancelar.Enabled = false;
             this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
             this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnCancelar.Name = "tsbtnCancelar";
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
+            this.tsbtnCancelar.Click += new System.EventHandler(this.tsbtnCancelar_Click);
             // 
             // toolStripSeparator
             // 
@@ -454,10 +597,10 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmFuncionario_KeyDown);
             this.pnlFuncionario.ResumeLayout(false);
             this.pnlFuncionario.PerformLayout();
-            this.tpFornecedores.ResumeLayout(false);
+            this.tcFuncionarios.ResumeLayout(false);
             this.tpFuncionario.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.tpDados.ResumeLayout(false);
             this.tpDados.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -470,10 +613,9 @@
 
         private System.Windows.Forms.Panel pnlFuncionario;
         private System.Windows.Forms.TextBox txtPesquisa;
-        private System.Windows.Forms.TabControl tpFornecedores;
+        private System.Windows.Forms.TabControl tcFuncionarios;
         private System.Windows.Forms.TabPage tpFuncionario;
         private System.Windows.Forms.DataGridView dgvFuncionario;
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpDados;
         private System.Windows.Forms.Label lnlNumEnd;
         private System.Windows.Forms.MaskedTextBox mtxCPF;
@@ -481,11 +623,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIdFuncionario;
         private System.Windows.Forms.Label lblIdCli;
-        private System.Windows.Forms.TextBox txtBairroFuncionario;
-        private System.Windows.Forms.TextBox txtNumEndFuncionario;
-        private System.Windows.Forms.TextBox txtEndFuncionario;
-        private System.Windows.Forms.MaskedTextBox mtxDtNascFuncionario;
-        private System.Windows.Forms.TextBox txtNomeFuncionario;
+        private System.Windows.Forms.TextBox txtBairro;
+        private System.Windows.Forms.TextBox txtNumEnd;
+        private System.Windows.Forms.TextBox txtEnd;
+        private System.Windows.Forms.MaskedTextBox mtxDtNasc;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label lblBairro;
         private System.Windows.Forms.Label lblEndereco;
         private System.Windows.Forms.Label lblDtNasc;
@@ -503,5 +645,20 @@
         private System.Windows.Forms.RadioButton rdoInativo;
         private System.Windows.Forms.RadioButton rdoAtivo;
         private System.Windows.Forms.MaskedTextBox mtxRG;
+        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
     }
 }
