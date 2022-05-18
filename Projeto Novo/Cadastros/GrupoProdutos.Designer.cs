@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGrupoProdutos));
             this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
             this.tsbtnAddGrupoProd = new System.Windows.Forms.ToolStripButton();
@@ -38,25 +39,34 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.tpGrupoProdutos = new System.Windows.Forms.TabControl();
+            this.tcGrupoProdutos = new System.Windows.Forms.TabControl();
             this.tpGrupoProdudo = new System.Windows.Forms.TabPage();
             this.dgvGrupoProd = new System.Windows.Forms.DataGridView();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDadosGrupoProd = new System.Windows.Forms.TabPage();
-            this.rdoInativo = new System.Windows.Forms.RadioButton();
-            this.rdoAtivo = new System.Windows.Forms.RadioButton();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.txtDescGrupoProd = new System.Windows.Forms.TextBox();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.txtIdGpProduto = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
             this.lblDescGrupoProd = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.pnlGrupoProdutos = new System.Windows.Forms.Panel();
+            this.rdoInativo = new System.Windows.Forms.RadioButton();
+            this.rdoAtivo = new System.Windows.Forms.RadioButton();
+            this.rdoTodos = new System.Windows.Forms.RadioButton();
             this.tsGrupoProduto.SuspendLayout();
-            this.tpGrupoProdutos.SuspendLayout();
+            this.tcGrupoProdutos.SuspendLayout();
             this.tpGrupoProdudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoProd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             this.tpDadosGrupoProd.SuspendLayout();
             this.pnlGrupoProdutos.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +100,7 @@
             this.tsbtnAddGrupoProd.Name = "tsbtnAddGrupoProd";
             this.tsbtnAddGrupoProd.Size = new System.Drawing.Size(26, 26);
             this.tsbtnAddGrupoProd.Text = "Novo";
+            this.tsbtnAddGrupoProd.Click += new System.EventHandler(this.tsbtnAddGrupoProd_Click);
             // 
             // tsbtnEditGrupoProd
             // 
@@ -99,24 +110,29 @@
             this.tsbtnEditGrupoProd.Name = "tsbtnEditGrupoProd";
             this.tsbtnEditGrupoProd.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditGrupoProd.Text = "Editar";
+            this.tsbtnEditGrupoProd.Click += new System.EventHandler(this.tsbtnEditGrupoProd_Click);
             // 
             // tsbtnSalvar
             // 
             this.tsbtnSalvar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnSalvar.Enabled = false;
             this.tsbtnSalvar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnSalvar.Image")));
             this.tsbtnSalvar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnSalvar.Name = "tsbtnSalvar";
             this.tsbtnSalvar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSalvar.Text = "Salvar";
+            this.tsbtnSalvar.Click += new System.EventHandler(this.tsbtnSalvar_Click);
             // 
             // tsbtnCancelar
             // 
             this.tsbtnCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbtnCancelar.Enabled = false;
             this.tsbtnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("tsbtnCancelar.Image")));
             this.tsbtnCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnCancelar.Name = "tsbtnCancelar";
             this.tsbtnCancelar.Size = new System.Drawing.Size(26, 26);
             this.tsbtnCancelar.Text = "Cancelar";
+            this.tsbtnCancelar.Click += new System.EventHandler(this.tsbtnCancelar_Click);
             // 
             // toolStripSeparator
             // 
@@ -147,25 +163,24 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // tpGrupoProdutos
+            // tcGrupoProdutos
             // 
-            this.tpGrupoProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tcGrupoProdutos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tpGrupoProdutos.Controls.Add(this.tpGrupoProdudo);
-            this.tpGrupoProdutos.Controls.Add(this.tpDadosGrupoProd);
-            this.tpGrupoProdutos.Location = new System.Drawing.Point(-1, 58);
-            this.tpGrupoProdutos.Multiline = true;
-            this.tpGrupoProdutos.Name = "tpGrupoProdutos";
-            this.tpGrupoProdutos.SelectedIndex = 0;
-            this.tpGrupoProdutos.Size = new System.Drawing.Size(984, 532);
-            this.tpGrupoProdutos.TabIndex = 8;
-            this.tpGrupoProdutos.TabStop = false;
+            this.tcGrupoProdutos.Controls.Add(this.tpGrupoProdudo);
+            this.tcGrupoProdutos.Controls.Add(this.tpDadosGrupoProd);
+            this.tcGrupoProdutos.Location = new System.Drawing.Point(-1, 58);
+            this.tcGrupoProdutos.Multiline = true;
+            this.tcGrupoProdutos.Name = "tcGrupoProdutos";
+            this.tcGrupoProdutos.SelectedIndex = 0;
+            this.tcGrupoProdutos.Size = new System.Drawing.Size(984, 532);
+            this.tcGrupoProdutos.TabIndex = 8;
+            this.tcGrupoProdutos.TabStop = false;
             // 
             // tpGrupoProdudo
             // 
             this.tpGrupoProdudo.Controls.Add(this.dgvGrupoProd);
-            this.tpGrupoProdudo.Controls.Add(this.dgvClientes);
             this.tpGrupoProdudo.Location = new System.Drawing.Point(4, 22);
             this.tpGrupoProdudo.Name = "tpGrupoProdudo";
             this.tpGrupoProdudo.Padding = new System.Windows.Forms.Padding(3);
@@ -176,33 +191,97 @@
             // 
             // dgvGrupoProd
             // 
+            this.dgvGrupoProd.AllowUserToAddRows = false;
+            this.dgvGrupoProd.AllowUserToDeleteRows = false;
             this.dgvGrupoProd.AllowUserToOrderColumns = true;
+            this.dgvGrupoProd.AutoGenerateColumns = false;
+            this.dgvGrupoProd.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgvGrupoProd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGrupoProd.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.dataSourceDataGridViewTextBoxColumn,
+            this.connectionTimeoutDataGridViewTextBoxColumn,
+            this.databaseDataGridViewTextBoxColumn,
+            this.connectionStringDataGridViewTextBoxColumn});
+            this.dgvGrupoProd.DataSource = this.mySqlConnectionBindingSource;
             this.dgvGrupoProd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGrupoProd.Location = new System.Drawing.Point(3, 3);
             this.dgvGrupoProd.Name = "dgvGrupoProd";
+            this.dgvGrupoProd.ReadOnly = true;
+            this.dgvGrupoProd.RowHeadersWidth = 12;
+            this.dgvGrupoProd.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGrupoProd.Size = new System.Drawing.Size(970, 500);
             this.dgvGrupoProd.TabIndex = 2;
+            this.dgvGrupoProd.TabStop = false;
+            this.dgvGrupoProd.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGrupoProd_RowEnter);
             // 
-            // dgvClientes
+            // Column1
             // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvClientes.Location = new System.Drawing.Point(3, 3);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(970, 500);
-            this.dgvClientes.TabIndex = 0;
+            this.Column1.DataPropertyName = "id";
+            this.Column1.FillWeight = 13.26861F;
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "descricao";
+            this.Column2.FillWeight = 129.9598F;
+            this.Column2.HeaderText = "Descrição";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "ativo";
+            this.Column3.FillWeight = 156.7715F;
+            this.Column3.HeaderText = "Ativo";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // dataSourceDataGridViewTextBoxColumn
+            // 
+            this.dataSourceDataGridViewTextBoxColumn.DataPropertyName = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.HeaderText = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn.Name = "dataSourceDataGridViewTextBoxColumn";
+            this.dataSourceDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataSourceDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionTimeoutDataGridViewTextBoxColumn
+            // 
+            this.connectionTimeoutDataGridViewTextBoxColumn.DataPropertyName = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.HeaderText = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn.Name = "connectionTimeoutDataGridViewTextBoxColumn";
+            this.connectionTimeoutDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionTimeoutDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // databaseDataGridViewTextBoxColumn
+            // 
+            this.databaseDataGridViewTextBoxColumn.DataPropertyName = "Database";
+            this.databaseDataGridViewTextBoxColumn.HeaderText = "Database";
+            this.databaseDataGridViewTextBoxColumn.Name = "databaseDataGridViewTextBoxColumn";
+            this.databaseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.databaseDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // connectionStringDataGridViewTextBoxColumn
+            // 
+            this.connectionStringDataGridViewTextBoxColumn.DataPropertyName = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.HeaderText = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn.Name = "connectionStringDataGridViewTextBoxColumn";
+            this.connectionStringDataGridViewTextBoxColumn.ReadOnly = true;
+            this.connectionStringDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // mySqlConnectionBindingSource
+            // 
+            this.mySqlConnectionBindingSource.DataSource = typeof(MySql.Data.MySqlClient.MySqlConnection);
             // 
             // tpDadosGrupoProd
             // 
-            this.tpDadosGrupoProd.Controls.Add(this.rdoInativo);
-            this.tpDadosGrupoProd.Controls.Add(this.rdoAtivo);
+            this.tpDadosGrupoProd.Controls.Add(this.chkAtivo);
             this.tpDadosGrupoProd.Controls.Add(this.txtDescGrupoProd);
-            this.tpDadosGrupoProd.Controls.Add(this.txtIdUsuario);
+            this.tpDadosGrupoProd.Controls.Add(this.txtIdGpProduto);
             this.tpDadosGrupoProd.Controls.Add(this.lblIdCli);
             this.tpDadosGrupoProd.Controls.Add(this.lblDescGrupoProd);
             this.tpDadosGrupoProd.Location = new System.Drawing.Point(4, 22);
@@ -213,45 +292,37 @@
             this.tpDadosGrupoProd.Text = "Dados";
             this.tpDadosGrupoProd.UseVisualStyleBackColor = true;
             // 
-            // rdoInativo
+            // chkAtivo
             // 
-            this.rdoInativo.AutoSize = true;
-            this.rdoInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoInativo.Location = new System.Drawing.Point(300, 37);
-            this.rdoInativo.Name = "rdoInativo";
-            this.rdoInativo.Size = new System.Drawing.Size(67, 21);
-            this.rdoInativo.TabIndex = 3;
-            this.rdoInativo.Text = "Inativo";
-            this.rdoInativo.UseVisualStyleBackColor = true;
-            // 
-            // rdoAtivo
-            // 
-            this.rdoAtivo.AutoSize = true;
-            this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoAtivo.Location = new System.Drawing.Point(237, 37);
-            this.rdoAtivo.Name = "rdoAtivo";
-            this.rdoAtivo.Size = new System.Drawing.Size(57, 21);
-            this.rdoAtivo.TabIndex = 4;
-            this.rdoAtivo.Text = "Ativo";
-            this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(309, 37);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 5;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // txtDescGrupoProd
             // 
+            this.txtDescGrupoProd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescGrupoProd.Enabled = false;
             this.txtDescGrupoProd.Font = new System.Drawing.Font("Arial", 12F);
             this.txtDescGrupoProd.Location = new System.Drawing.Point(11, 91);
             this.txtDescGrupoProd.Name = "txtDescGrupoProd";
             this.txtDescGrupoProd.Size = new System.Drawing.Size(356, 26);
             this.txtDescGrupoProd.TabIndex = 2;
             // 
-            // txtIdUsuario
+            // txtIdGpProduto
             // 
-            this.txtIdUsuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtIdUsuario.Enabled = false;
-            this.txtIdUsuario.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtIdUsuario.Location = new System.Drawing.Point(11, 34);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(77, 26);
-            this.txtIdUsuario.TabIndex = 0;
+            this.txtIdGpProduto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtIdGpProduto.Enabled = false;
+            this.txtIdGpProduto.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtIdGpProduto.Location = new System.Drawing.Point(11, 34);
+            this.txtIdGpProduto.Name = "txtIdGpProduto";
+            this.txtIdGpProduto.Size = new System.Drawing.Size(77, 26);
+            this.txtIdGpProduto.TabIndex = 0;
             // 
             // lblIdCli
             // 
@@ -277,11 +348,13 @@
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPesquisa.Location = new System.Drawing.Point(76, 32);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 10;
             this.txtPesquisa.TabStop = false;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // lblPesquisa
             // 
@@ -294,15 +367,57 @@
             // 
             // pnlGrupoProdutos
             // 
+            this.pnlGrupoProdutos.Controls.Add(this.rdoInativo);
+            this.pnlGrupoProdutos.Controls.Add(this.rdoAtivo);
+            this.pnlGrupoProdutos.Controls.Add(this.rdoTodos);
             this.pnlGrupoProdutos.Controls.Add(this.lblPesquisa);
             this.pnlGrupoProdutos.Controls.Add(this.txtPesquisa);
-            this.pnlGrupoProdutos.Controls.Add(this.tpGrupoProdutos);
+            this.pnlGrupoProdutos.Controls.Add(this.tcGrupoProdutos);
             this.pnlGrupoProdutos.Controls.Add(this.tsGrupoProduto);
             this.pnlGrupoProdutos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrupoProdutos.Location = new System.Drawing.Point(0, 0);
             this.pnlGrupoProdutos.Name = "pnlGrupoProdutos";
             this.pnlGrupoProdutos.Size = new System.Drawing.Size(983, 590);
             this.pnlGrupoProdutos.TabIndex = 0;
+            // 
+            // rdoInativo
+            // 
+            this.rdoInativo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Location = new System.Drawing.Point(558, 33);
+            this.rdoInativo.Name = "rdoInativo";
+            this.rdoInativo.Size = new System.Drawing.Size(57, 17);
+            this.rdoInativo.TabIndex = 23;
+            this.rdoInativo.Text = "Inativo";
+            this.rdoInativo.UseVisualStyleBackColor = true;
+            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
+            // 
+            // rdoAtivo
+            // 
+            this.rdoAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
+            this.rdoAtivo.Location = new System.Drawing.Point(489, 33);
+            this.rdoAtivo.Name = "rdoAtivo";
+            this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
+            this.rdoAtivo.TabIndex = 22;
+            this.rdoAtivo.TabStop = true;
+            this.rdoAtivo.Text = "Ativo";
+            this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
+            // 
+            // rdoTodos
+            // 
+            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoTodos.AutoSize = true;
+            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
+            this.rdoTodos.Name = "rdoTodos";
+            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdoTodos.TabIndex = 21;
+            this.rdoTodos.TabStop = true;
+            this.rdoTodos.Text = "Todos";
+            this.rdoTodos.UseVisualStyleBackColor = true;
+            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
             // 
             // FrmGrupoProdutos
             // 
@@ -318,10 +433,10 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmGrupoProdutos_KeyDown);
             this.tsGrupoProduto.ResumeLayout(false);
             this.tsGrupoProduto.PerformLayout();
-            this.tpGrupoProdutos.ResumeLayout(false);
+            this.tcGrupoProdutos.ResumeLayout(false);
             this.tpGrupoProdudo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupoProd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();
             this.tpDadosGrupoProd.ResumeLayout(false);
             this.tpDadosGrupoProd.PerformLayout();
             this.pnlGrupoProdutos.ResumeLayout(false);
@@ -341,19 +456,28 @@
         private System.Windows.Forms.ToolStripButton tsbtnImprimir;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbtnSair;
-        private System.Windows.Forms.TabControl tpGrupoProdutos;
+        private System.Windows.Forms.TabControl tcGrupoProdutos;
         private System.Windows.Forms.TabPage tpGrupoProdudo;
-        private System.Windows.Forms.DataGridView dgvGrupoProd;
-        private System.Windows.Forms.DataGridView dgvClientes;
         private System.Windows.Forms.TabPage tpDadosGrupoProd;
         private System.Windows.Forms.TextBox txtDescGrupoProd;
-        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.TextBox txtIdGpProduto;
         private System.Windows.Forms.Label lblIdCli;
         private System.Windows.Forms.Label lblDescGrupoProd;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label lblPesquisa;
         private System.Windows.Forms.Panel pnlGrupoProdutos;
+        private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
+        private System.Windows.Forms.DataGridView dgvGrupoProd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.RadioButton rdoInativo;
         private System.Windows.Forms.RadioButton rdoAtivo;
+        private System.Windows.Forms.RadioButton rdoTodos;
+        private System.Windows.Forms.CheckBox chkAtivo;
     }
 }

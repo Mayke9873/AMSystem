@@ -38,7 +38,7 @@ namespace Projeto_Novo
 
         private void tsmiSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja sair?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja sair do sistema?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -84,6 +84,7 @@ namespace Projeto_Novo
             
             if (Application.OpenForms.OfType<FrmVenda>().Count() > 0)
             {
+                vendas.Activate();
                 MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -121,20 +122,6 @@ namespace Projeto_Novo
             }
             
             funcionario.Show();
-        }
-
-        private void tsmiUsuario_Click(object sender, EventArgs e)
-        {
-            FrmUsuario usuario = new FrmUsuario();
-            usuario.MdiParent = this;            
-            
-            if (Application.OpenForms.OfType<FrmUsuario>().Count() > 0)
-            {
-                MessageBox.Show("Tela já está aberta, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            usuario.Show();
         }
 
         private void tsmiGrupoUsu_Click(object sender, EventArgs e)

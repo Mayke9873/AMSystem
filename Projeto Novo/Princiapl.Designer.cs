@@ -38,7 +38,6 @@
             this.tsmiGrupoProd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiFuncionario = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiGrupoUsu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiContas = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,7 +92,6 @@
             this.tsmiGrupoProd,
             this.toolStripSeparator3,
             this.tsmiFuncionario,
-            this.tsmiUsuario,
             this.tsmiGrupoUsu,
             this.toolStripSeparator6,
             this.tsmiContas});
@@ -150,13 +148,6 @@
             this.tsmiFuncionario.Text = "Funcionário";
             this.tsmiFuncionario.Click += new System.EventHandler(this.tsmiFuncionario_Click);
             // 
-            // tsmiUsuario
-            // 
-            this.tsmiUsuario.Name = "tsmiUsuario";
-            this.tsmiUsuario.Size = new System.Drawing.Size(166, 22);
-            this.tsmiUsuario.Text = "Usuários";
-            this.tsmiUsuario.Click += new System.EventHandler(this.tsmiUsuario_Click);
-            // 
             // tsmiGrupoUsu
             // 
             this.tsmiGrupoUsu.Name = "tsmiGrupoUsu";
@@ -193,26 +184,27 @@
             this.tsmiPedido.Name = "tsmiPedido";
             this.tsmiPedido.ShortcutKeyDisplayString = "F1";
             this.tsmiPedido.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.tsmiPedido.Size = new System.Drawing.Size(177, 22);
+            this.tsmiPedido.Size = new System.Drawing.Size(196, 22);
             this.tsmiPedido.Text = "Venda";
             this.tsmiPedido.Click += new System.EventHandler(this.tsmiPedido_Click);
             // 
             // tsmiConsVendas
             // 
             this.tsmiConsVendas.Name = "tsmiConsVendas";
-            this.tsmiConsVendas.Size = new System.Drawing.Size(177, 22);
+            this.tsmiConsVendas.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.tsmiConsVendas.Size = new System.Drawing.Size(196, 22);
             this.tsmiConsVendas.Text = "Consulta de Vendas";
             this.tsmiConsVendas.Click += new System.EventHandler(this.tsmiConsPedido_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(174, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(193, 6);
             // 
             // mstiCompras
             // 
             this.mstiCompras.Name = "mstiCompras";
-            this.mstiCompras.Size = new System.Drawing.Size(177, 22);
+            this.mstiCompras.Size = new System.Drawing.Size(196, 22);
             this.mstiCompras.Text = "Compras";
             this.mstiCompras.Click += new System.EventHandler(this.mstiCompras_Click);
             // 
@@ -375,7 +367,6 @@
             this.Controls.Add(this.tsBotoes);
             this.Controls.Add(this.msMenu);
             this.IsMdiContainer = true;
-            this.KeyPreview = true;
             this.MainMenuStrip = this.msMenu;
             this.Name = "FrmPrincipal";
             this.ShowIcon = false;
@@ -412,7 +403,6 @@
         private System.Windows.Forms.ToolStripButton tsbtnSair;
         private System.Windows.Forms.ToolStripMenuItem tsmiMovCaixa;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem tsmiUsuario;
         private System.Windows.Forms.ToolStripMenuItem tsmiGrupoUsu;
         private System.Windows.Forms.ToolStripMenuItem tsmiConsVendas;
         private System.Windows.Forms.ToolStripMenuItem tsmiRelatorio;
