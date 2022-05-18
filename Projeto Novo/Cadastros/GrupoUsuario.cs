@@ -21,27 +21,76 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
-            try
-            {
-                con.OpenConn();
+            this.Consulta();
+        }
 
-                cmd = new MySqlCommand("SELECT * FROM GRUPO_USUARIO WHERE ATIVO = 'S';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvGpUsuarios.DataSource = ds;
-                dgvGpUsuarios.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
+        private void Consulta()
+        {
+            if (rdoTodos.Checked == true)
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE DESCRICAO LIKE '%" + txtPesquisa.Text + "%' or ID = '" + txtPesquisa.Text + "';", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvGpUsuarios.DataSource = ds;
+                    dgvGpUsuarios.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
-            finally
+            else if (rdoAtivo.Checked == true)
             {
-                con.CloseConn();
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE ATIVO = 'S' AND ((DESCRICAO LIKE '%" + txtPesquisa.Text + "%') OR (ID = '" + txtPesquisa.Text + "'));", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvGpUsuarios.DataSource = ds;
+                    dgvGpUsuarios.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
+            else if (rdoInativo.Checked == true)
+            {
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT ID, DESCRICAO, ATIVO FROM GRUPO_USUARIO WHERE ATIVO = 'N' AND ((DESCRICAO LIKE '%" + txtPesquisa.Text + "%') OR (ID = '" + txtPesquisa.Text + "'));", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvGpUsuarios.DataSource = ds;
+                    dgvGpUsuarios.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
         }
+
         private void FrmGrupoUsuario_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -62,21 +111,11 @@ namespace Projeto_Novo
             this.Close();
         }
 
-        private void tsbtnAddGrupoUSu_Click(object sender, EventArgs e)
-        {
-            tsbtnAddGrupoUSu.Enabled = false;
-            tsbtnEditGrupoUsu.Enabled = false;
-            tsbtnSalvar.Enabled = true;
-            tsbtnCancelar.Enabled = true;
-
-            tcGrupoUsuarios.SelectTab(tpDadosUsu);
-        }
-
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
             string ativo;
 
-            if (rdoAtivo.Checked == true)
+            if (chkAtivo.Checked == true)
             {
                 ativo = "S";
             }
@@ -88,25 +127,35 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("INSERT INTO GRUPO_USUARIO (DESCRICAO, ATIVO) VALUES" +
+                if (txtIdGpUsuario.Text.Length == 0)
+                {
+                    cmd = new MySqlCommand("INSERT INTO GRUPO_USUARIO (DESCRICAO, ATIVO) VALUES" +
                     "('" + txtDescTipoUsu.Text + "', '" + ativo + "');", con.query);
+                }
+                else if (txtIdGpUsuario.Text.Length != 0)
+                {
+                    cmd = new MySqlCommand("UPDATE GRUPO_USUARIO SET DESCRICAO = '" + txtDescTipoUsu.Text + "', ATIVO = '" + ativo + "'" +
+                        " WHERE ID = '" + txtIdGpUsuario.Text + "';", con.query);
+                }
+
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                cmd = new MySqlCommand("SELECT * FROM GRUPO_USUARIO WHERE ATIVO = 'S';", con.query);
+                this.Consulta();
 
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvGpUsuarios.DataSource = ds;
-                dgvGpUsuarios.DataMember = ds.Tables[0].TableName;
-
+                txtPesquisa.Enabled = true;
+                rdoTodos.Enabled = true;
+                rdoAtivo.Enabled = true;
+                rdoInativo.Enabled = true;
                 tsbtnAddGrupoUSu.Enabled = true;
                 tsbtnEditGrupoUsu.Enabled = true;
                 tsbtnSalvar.Enabled = false;
                 tsbtnCancelar.Enabled = false;
+                txtDescTipoUsu.Enabled = false;
+                chkAtivo.Enabled = false;
+                dgvGpUsuarios.Enabled = true;
 
                 tcGrupoUsuarios.SelectTab(tpGrupoUsuario);
             }
@@ -120,14 +169,99 @@ namespace Projeto_Novo
             }
         }
 
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void tsbtnAddGrupoUSu_Click(object sender, EventArgs e)
+        {
+            txtPesquisa.Enabled = false;
+            rdoTodos.Enabled = false;
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
+            tsbtnAddGrupoUSu.Enabled = false;
+            tsbtnEditGrupoUsu.Enabled = false;
+            tsbtnSalvar.Enabled = true;
+            tsbtnCancelar.Enabled = true;
+            txtDescTipoUsu.Enabled = true;
+            chkAtivo.Enabled = true;
+            dgvGpUsuarios.Enabled = false;
+
+            txtIdGpUsuario.Clear();
+            txtDescTipoUsu.Clear();
+            chkAtivo.Checked = true;
+
+            tcGrupoUsuarios.SelectTab(tpDadosUsu);
+        }
+
+        private void tsbtnEditGrupoUsu_Click(object sender, EventArgs e)
+        {
+            txtPesquisa.Enabled = false;
+            rdoTodos.Enabled = false;
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
+            tsbtnAddGrupoUSu.Enabled = false;
+            tsbtnEditGrupoUsu.Enabled = false;
+            tsbtnSalvar.Enabled = true;
+            tsbtnCancelar.Enabled = true;
+            txtDescTipoUsu.Enabled = true;
+            chkAtivo.Enabled = true;
+            dgvGpUsuarios.Enabled = false;
+
+            tcGrupoUsuarios.SelectTab(tpDadosUsu);
+        }
+
         private void tsbtnCancelar_Click(object sender, EventArgs e)
         {
+            txtPesquisa.Enabled = true;
+            rdoTodos.Enabled = true;
+            rdoAtivo.Enabled = true;
+            rdoInativo.Enabled = true;
             tsbtnAddGrupoUSu.Enabled = true;
             tsbtnEditGrupoUsu.Enabled = true;
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
+            txtDescTipoUsu.Enabled = false;
+            chkAtivo.Enabled = false;
+            dgvGpUsuarios.Enabled = true;
 
             tcGrupoUsuarios.SelectTab(tpGrupoUsuario);
+        }
+
+        private void dgvGpUsuarios_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            string ativo;
+
+            DataGridViewRow row = dgvGpUsuarios.Rows[e.RowIndex];
+            if (row != null)
+            {
+                txtIdGpUsuario.Text = row.Cells[0].Value.ToString();
+                txtDescTipoUsu.Text = row.Cells[1].Value.ToString();
+                ativo = row.Cells[2].Value.ToString();
+
+                if (ativo == "S") 
+                {
+                    chkAtivo.Checked = true;
+                }
+                else if(ativo == "N")
+                {
+                    chkAtivo.Checked = false;
+                }
+            }
         }
     }
 }

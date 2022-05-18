@@ -29,14 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCliente));
             this.pnlCliente = new System.Windows.Forms.Panel();
+            this.rdoInativo = new System.Windows.Forms.RadioButton();
+            this.rdoAtivo = new System.Windows.Forms.RadioButton();
+            this.rdoTodos = new System.Windows.Forms.RadioButton();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.tcClientes = new System.Windows.Forms.TabControl();
             this.tpCliente = new System.Windows.Forms.TabPage();
@@ -59,11 +62,15 @@
             this.isPasswordExpiredDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.lblIe = new System.Windows.Forms.Label();
+            this.lblCNPJ = new System.Windows.Forms.Label();
+            this.mtxIe = new System.Windows.Forms.MaskedTextBox();
+            this.mtxCnpj = new System.Windows.Forms.MaskedTextBox();
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.grpTpCliente = new System.Windows.Forms.GroupBox();
             this.rdoJuridica = new System.Windows.Forms.RadioButton();
             this.rdoFisica = new System.Windows.Forms.RadioButton();
-            this.mtxCpfCnpj = new System.Windows.Forms.MaskedTextBox();
+            this.mtxCpf = new System.Windows.Forms.MaskedTextBox();
             this.lblCPF = new System.Windows.Forms.Label();
             this.mtxRG = new System.Windows.Forms.MaskedTextBox();
             this.lblRG = new System.Windows.Forms.Label();
@@ -89,9 +96,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
-            this.rdoTodos = new System.Windows.Forms.RadioButton();
-            this.rdoAtivo = new System.Windows.Forms.RadioButton();
-            this.rdoInativo = new System.Windows.Forms.RadioButton();
             this.pnlCliente.SuspendLayout();
             this.tcClientes.SuspendLayout();
             this.tpCliente.SuspendLayout();
@@ -118,6 +122,45 @@
             this.pnlCliente.Name = "pnlCliente";
             this.pnlCliente.Size = new System.Drawing.Size(983, 590);
             this.pnlCliente.TabIndex = 0;
+            // 
+            // rdoInativo
+            // 
+            this.rdoInativo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Location = new System.Drawing.Point(558, 33);
+            this.rdoInativo.Name = "rdoInativo";
+            this.rdoInativo.Size = new System.Drawing.Size(57, 17);
+            this.rdoInativo.TabIndex = 20;
+            this.rdoInativo.Text = "Inativo";
+            this.rdoInativo.UseVisualStyleBackColor = true;
+            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
+            // 
+            // rdoAtivo
+            // 
+            this.rdoAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
+            this.rdoAtivo.Location = new System.Drawing.Point(489, 33);
+            this.rdoAtivo.Name = "rdoAtivo";
+            this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
+            this.rdoAtivo.TabIndex = 19;
+            this.rdoAtivo.TabStop = true;
+            this.rdoAtivo.Text = "Ativo";
+            this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
+            // 
+            // rdoTodos
+            // 
+            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoTodos.AutoSize = true;
+            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
+            this.rdoTodos.Name = "rdoTodos";
+            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdoTodos.TabIndex = 18;
+            this.rdoTodos.TabStop = true;
+            this.rdoTodos.Text = "Todos";
+            this.rdoTodos.UseVisualStyleBackColor = true;
+            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
             // 
             // txtPesquisa
             // 
@@ -163,14 +206,14 @@
             this.dgvCliente.AllowUserToDeleteRows = false;
             this.dgvCliente.AllowUserToOrderColumns = true;
             this.dgvCliente.AutoGenerateColumns = false;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -190,26 +233,26 @@
             this.connectionStringDataGridViewTextBoxColumn,
             this.isPasswordExpiredDataGridViewCheckBoxColumn});
             this.dgvCliente.DataSource = this.mySqlConnectionBindingSource;
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCliente.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCliente.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCliente.Location = new System.Drawing.Point(3, 3);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCliente.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCliente.RowHeadersWidth = 12;
             this.dgvCliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCliente.Size = new System.Drawing.Size(970, 500);
@@ -235,8 +278,8 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "rg";
-            dataGridViewCellStyle38.NullValue = null;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.NullValue = null;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column3.HeaderText = "RG";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -253,8 +296,8 @@
             // Column5
             // 
             this.Column5.DataPropertyName = "DtNasc";
-            dataGridViewCellStyle39.Format = "d";
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.Format = "d";
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column5.HeaderText = "Nascimento";
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
@@ -286,9 +329,9 @@
             // Column8
             // 
             this.Column8.DataPropertyName = "dtRegistro";
-            dataGridViewCellStyle40.Format = "d";
-            dataGridViewCellStyle40.NullValue = null;
-            this.Column8.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column8.DefaultCellStyle = dataGridViewCellStyle4;
             this.Column8.HeaderText = "Dt Registro";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -357,9 +400,13 @@
             // 
             // tpDados
             // 
+            this.tpDados.Controls.Add(this.lblIe);
+            this.tpDados.Controls.Add(this.lblCNPJ);
+            this.tpDados.Controls.Add(this.mtxIe);
+            this.tpDados.Controls.Add(this.mtxCnpj);
             this.tpDados.Controls.Add(this.chkAtivo);
             this.tpDados.Controls.Add(this.grpTpCliente);
-            this.tpDados.Controls.Add(this.mtxCpfCnpj);
+            this.tpDados.Controls.Add(this.mtxCpf);
             this.tpDados.Controls.Add(this.lblCPF);
             this.tpDados.Controls.Add(this.mtxRG);
             this.tpDados.Controls.Add(this.lblRG);
@@ -382,6 +429,50 @@
             this.tpDados.TabIndex = 1;
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
+            // 
+            // lblIe
+            // 
+            this.lblIe.AutoSize = true;
+            this.lblIe.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblIe.Location = new System.Drawing.Point(345, 19);
+            this.lblIe.Name = "lblIe";
+            this.lblIe.Size = new System.Drawing.Size(26, 18);
+            this.lblIe.TabIndex = 27;
+            this.lblIe.Text = "IE:";
+            this.lblIe.Visible = false;
+            // 
+            // lblCNPJ
+            // 
+            this.lblCNPJ.AutoSize = true;
+            this.lblCNPJ.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblCNPJ.Location = new System.Drawing.Point(454, 19);
+            this.lblCNPJ.Name = "lblCNPJ";
+            this.lblCNPJ.Size = new System.Drawing.Size(54, 18);
+            this.lblCNPJ.TabIndex = 26;
+            this.lblCNPJ.Text = "CNPJ:";
+            this.lblCNPJ.Visible = false;
+            // 
+            // mtxIe
+            // 
+            this.mtxIe.Enabled = false;
+            this.mtxIe.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxIe.HidePromptOnLeave = true;
+            this.mtxIe.Location = new System.Drawing.Point(348, 40);
+            this.mtxIe.Name = "mtxIe";
+            this.mtxIe.Size = new System.Drawing.Size(103, 26);
+            this.mtxIe.TabIndex = 2;
+            this.mtxIe.Visible = false;
+            // 
+            // mtxCnpj
+            // 
+            this.mtxCnpj.Enabled = false;
+            this.mtxCnpj.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxCnpj.Location = new System.Drawing.Point(457, 40);
+            this.mtxCnpj.Mask = "##,###,###/####-##";
+            this.mtxCnpj.Name = "mtxCnpj";
+            this.mtxCnpj.Size = new System.Drawing.Size(150, 26);
+            this.mtxCnpj.TabIndex = 3;
+            this.mtxCnpj.Visible = false;
             // 
             // chkAtivo
             // 
@@ -419,6 +510,7 @@
             this.rdoJuridica.TabIndex = 19;
             this.rdoJuridica.Text = "Jurídica";
             this.rdoJuridica.UseVisualStyleBackColor = true;
+            this.rdoJuridica.CheckedChanged += new System.EventHandler(this.rdoJuridica_CheckedChanged);
             // 
             // rdoFisica
             // 
@@ -432,22 +524,23 @@
             this.rdoFisica.TabStop = true;
             this.rdoFisica.Text = "Fisíca";
             this.rdoFisica.UseVisualStyleBackColor = true;
+            this.rdoFisica.CheckedChanged += new System.EventHandler(this.rdoFisica_CheckedChanged);
             // 
-            // mtxCpfCnpj
+            // mtxCpf
             // 
-            this.mtxCpfCnpj.Enabled = false;
-            this.mtxCpfCnpj.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxCpfCnpj.Location = new System.Drawing.Point(468, 91);
-            this.mtxCpfCnpj.Mask = "###,###,###-##";
-            this.mtxCpfCnpj.Name = "mtxCpfCnpj";
-            this.mtxCpfCnpj.Size = new System.Drawing.Size(130, 26);
-            this.mtxCpfCnpj.TabIndex = 3;
+            this.mtxCpf.Enabled = false;
+            this.mtxCpf.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxCpf.Location = new System.Drawing.Point(457, 91);
+            this.mtxCpf.Mask = "###,###,###-##";
+            this.mtxCpf.Name = "mtxCpf";
+            this.mtxCpf.Size = new System.Drawing.Size(150, 26);
+            this.mtxCpf.TabIndex = 3;
             // 
             // lblCPF
             // 
             this.lblCPF.AutoSize = true;
             this.lblCPF.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblCPF.Location = new System.Drawing.Point(465, 70);
+            this.lblCPF.Location = new System.Drawing.Point(454, 70);
             this.lblCPF.Name = "lblCPF";
             this.lblCPF.Size = new System.Drawing.Size(45, 18);
             this.lblCPF.TabIndex = 16;
@@ -461,7 +554,7 @@
             this.mtxRG.Location = new System.Drawing.Point(348, 91);
             this.mtxRG.Mask = "##,###,###-#";
             this.mtxRG.Name = "mtxRG";
-            this.mtxRG.Size = new System.Drawing.Size(114, 26);
+            this.mtxRG.Size = new System.Drawing.Size(103, 26);
             this.mtxRG.TabIndex = 2;
             // 
             // lblRG
@@ -531,6 +624,7 @@
             this.txtEnderecoCli.Enabled = false;
             this.txtEnderecoCli.Font = new System.Drawing.Font("Arial", 12F);
             this.txtEnderecoCli.Location = new System.Drawing.Point(11, 150);
+            this.txtEnderecoCli.MaxLength = 255;
             this.txtEnderecoCli.Name = "txtEnderecoCli";
             this.txtEnderecoCli.Size = new System.Drawing.Size(331, 26);
             this.txtEnderecoCli.TabIndex = 5;
@@ -539,10 +633,10 @@
             // 
             this.mtxDtNasc.Enabled = false;
             this.mtxDtNasc.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxDtNasc.Location = new System.Drawing.Point(604, 91);
+            this.mtxDtNasc.Location = new System.Drawing.Point(613, 91);
             this.mtxDtNasc.Mask = "00/00/0000";
             this.mtxDtNasc.Name = "mtxDtNasc";
-            this.mtxDtNasc.Size = new System.Drawing.Size(100, 26);
+            this.mtxDtNasc.Size = new System.Drawing.Size(91, 26);
             this.mtxDtNasc.TabIndex = 4;
             // 
             // txtNomeCli
@@ -579,7 +673,7 @@
             // 
             this.lblDtNasc.AutoSize = true;
             this.lblDtNasc.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblDtNasc.Location = new System.Drawing.Point(601, 70);
+            this.lblDtNasc.Location = new System.Drawing.Point(610, 70);
             this.lblDtNasc.Name = "lblDtNasc";
             this.lblDtNasc.Size = new System.Drawing.Size(68, 18);
             this.lblDtNasc.TabIndex = 1;
@@ -695,45 +789,6 @@
             this.lblPesquisa.TabIndex = 17;
             this.lblPesquisa.Text = "Pesquisar:";
             // 
-            // rdoTodos
-            // 
-            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdoTodos.AutoSize = true;
-            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
-            this.rdoTodos.Name = "rdoTodos";
-            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
-            this.rdoTodos.TabIndex = 18;
-            this.rdoTodos.TabStop = true;
-            this.rdoTodos.Text = "Todos";
-            this.rdoTodos.UseVisualStyleBackColor = true;
-            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
-            // 
-            // rdoAtivo
-            // 
-            this.rdoAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdoAtivo.AutoSize = true;
-            this.rdoAtivo.Checked = true;
-            this.rdoAtivo.Location = new System.Drawing.Point(489, 33);
-            this.rdoAtivo.Name = "rdoAtivo";
-            this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
-            this.rdoAtivo.TabIndex = 19;
-            this.rdoAtivo.TabStop = true;
-            this.rdoAtivo.Text = "Ativo";
-            this.rdoAtivo.UseVisualStyleBackColor = true;
-            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
-            // 
-            // rdoInativo
-            // 
-            this.rdoInativo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rdoInativo.AutoSize = true;
-            this.rdoInativo.Location = new System.Drawing.Point(558, 33);
-            this.rdoInativo.Name = "rdoInativo";
-            this.rdoInativo.Size = new System.Drawing.Size(57, 17);
-            this.rdoInativo.TabIndex = 20;
-            this.rdoInativo.Text = "Inativo";
-            this.rdoInativo.UseVisualStyleBackColor = true;
-            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
-            // 
             // FrmCliente
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -792,7 +847,7 @@
         private System.Windows.Forms.Label lblDtNasc;
         private System.Windows.Forms.Label lblNomeCli;
         private System.Windows.Forms.Label lnlNumEnd;
-        private System.Windows.Forms.MaskedTextBox mtxCpfCnpj;
+        private System.Windows.Forms.MaskedTextBox mtxCpf;
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.MaskedTextBox mtxRG;
         private System.Windows.Forms.Label lblRG;
@@ -820,5 +875,9 @@
         private System.Windows.Forms.RadioButton rdoInativo;
         private System.Windows.Forms.RadioButton rdoAtivo;
         private System.Windows.Forms.RadioButton rdoTodos;
+        private System.Windows.Forms.MaskedTextBox mtxCnpj;
+        private System.Windows.Forms.Label lblIe;
+        private System.Windows.Forms.Label lblCNPJ;
+        private System.Windows.Forms.MaskedTextBox mtxIe;
     }
 }

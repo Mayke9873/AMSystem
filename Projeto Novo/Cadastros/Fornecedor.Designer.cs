@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFornecedor));
             this.pnlFornecedor = new System.Windows.Forms.Panel();
+            this.rdoInativo = new System.Windows.Forms.RadioButton();
+            this.rdoAtivo = new System.Windows.Forms.RadioButton();
+            this.rdoTodos = new System.Windows.Forms.RadioButton();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.tcFornecedores = new System.Windows.Forms.TabControl();
             this.tpFornecedor = new System.Windows.Forms.TabPage();
@@ -50,11 +53,10 @@
             this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
-            this.txtIe = new System.Windows.Forms.TextBox();
-            this.rdoInativo = new System.Windows.Forms.RadioButton();
-            this.rdoAtivo = new System.Windows.Forms.RadioButton();
-            this.lnlNumEnd = new System.Windows.Forms.Label();
             this.mtxCNPJ = new System.Windows.Forms.MaskedTextBox();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
+            this.txtIe = new System.Windows.Forms.TextBox();
+            this.lnlNumEnd = new System.Windows.Forms.Label();
             this.lblCNPJ = new System.Windows.Forms.Label();
             this.lblIE = new System.Windows.Forms.Label();
             this.txtIdFornecedor = new System.Windows.Forms.TextBox();
@@ -87,6 +89,9 @@
             // 
             // pnlFornecedor
             // 
+            this.pnlFornecedor.Controls.Add(this.rdoInativo);
+            this.pnlFornecedor.Controls.Add(this.rdoAtivo);
+            this.pnlFornecedor.Controls.Add(this.rdoTodos);
             this.pnlFornecedor.Controls.Add(this.txtPesquisa);
             this.pnlFornecedor.Controls.Add(this.tcFornecedores);
             this.pnlFornecedor.Controls.Add(this.toolStrip1);
@@ -97,15 +102,56 @@
             this.pnlFornecedor.Size = new System.Drawing.Size(983, 590);
             this.pnlFornecedor.TabIndex = 0;
             // 
+            // rdoInativo
+            // 
+            this.rdoInativo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Location = new System.Drawing.Point(558, 33);
+            this.rdoInativo.Name = "rdoInativo";
+            this.rdoInativo.Size = new System.Drawing.Size(57, 17);
+            this.rdoInativo.TabIndex = 23;
+            this.rdoInativo.Text = "Inativo";
+            this.rdoInativo.UseVisualStyleBackColor = true;
+            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
+            // 
+            // rdoAtivo
+            // 
+            this.rdoAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
+            this.rdoAtivo.Location = new System.Drawing.Point(489, 33);
+            this.rdoAtivo.Name = "rdoAtivo";
+            this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
+            this.rdoAtivo.TabIndex = 22;
+            this.rdoAtivo.TabStop = true;
+            this.rdoAtivo.Text = "Ativo";
+            this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
+            // 
+            // rdoTodos
+            // 
+            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoTodos.AutoSize = true;
+            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
+            this.rdoTodos.Name = "rdoTodos";
+            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdoTodos.TabIndex = 21;
+            this.rdoTodos.TabStop = true;
+            this.rdoTodos.Text = "Todos";
+            this.rdoTodos.UseVisualStyleBackColor = true;
+            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
+            // 
             // txtPesquisa
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtPesquisa.Location = new System.Drawing.Point(76, 32);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 0;
             this.txtPesquisa.TabStop = false;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // tcFornecedores
             // 
@@ -163,6 +209,7 @@
             this.dgvFornecedor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFornecedor.Size = new System.Drawing.Size(970, 500);
             this.dgvFornecedor.TabIndex = 2;
+            this.dgvFornecedor.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFornecedor_RowEnter);
             // 
             // Column1
             // 
@@ -267,11 +314,10 @@
             // 
             // tpDados
             // 
-            this.tpDados.Controls.Add(this.txtIe);
-            this.tpDados.Controls.Add(this.rdoInativo);
-            this.tpDados.Controls.Add(this.rdoAtivo);
-            this.tpDados.Controls.Add(this.lnlNumEnd);
             this.tpDados.Controls.Add(this.mtxCNPJ);
+            this.tpDados.Controls.Add(this.chkAtivo);
+            this.tpDados.Controls.Add(this.txtIe);
+            this.tpDados.Controls.Add(this.lnlNumEnd);
             this.tpDados.Controls.Add(this.lblCNPJ);
             this.tpDados.Controls.Add(this.lblIE);
             this.tpDados.Controls.Add(this.txtIdFornecedor);
@@ -291,37 +337,40 @@
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
             // 
+            // mtxCNPJ
+            // 
+            this.mtxCNPJ.Enabled = false;
+            this.mtxCNPJ.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxCNPJ.Location = new System.Drawing.Point(554, 91);
+            this.mtxCNPJ.Mask = "##,###,###/####-##";
+            this.mtxCNPJ.Name = "mtxCNPJ";
+            this.mtxCNPJ.Size = new System.Drawing.Size(150, 26);
+            this.mtxCNPJ.TabIndex = 25;
+            // 
+            // chkAtivo
+            // 
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(284, 37);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 23;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
+            // 
             // txtIe
             // 
+            this.txtIe.AccessibleDescription = "";
+            this.txtIe.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtIe.Enabled = false;
             this.txtIe.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtIe.Location = new System.Drawing.Point(455, 91);
+            this.txtIe.Location = new System.Drawing.Point(434, 91);
             this.txtIe.Name = "txtIe";
             this.txtIe.Size = new System.Drawing.Size(114, 26);
             this.txtIe.TabIndex = 2;
-            // 
-            // rdoInativo
-            // 
-            this.rdoInativo.AutoSize = true;
-            this.rdoInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoInativo.Location = new System.Drawing.Point(275, 37);
-            this.rdoInativo.Name = "rdoInativo";
-            this.rdoInativo.Size = new System.Drawing.Size(67, 21);
-            this.rdoInativo.TabIndex = 14;
-            this.rdoInativo.Text = "Inativo";
-            this.rdoInativo.UseVisualStyleBackColor = true;
-            // 
-            // rdoAtivo
-            // 
-            this.rdoAtivo.AutoSize = true;
-            this.rdoAtivo.Checked = true;
-            this.rdoAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoAtivo.Location = new System.Drawing.Point(212, 37);
-            this.rdoAtivo.Name = "rdoAtivo";
-            this.rdoAtivo.Size = new System.Drawing.Size(57, 21);
-            this.rdoAtivo.TabIndex = 15;
-            this.rdoAtivo.TabStop = true;
-            this.rdoAtivo.Text = "Ativo";
-            this.rdoAtivo.UseVisualStyleBackColor = true;
             // 
             // lnlNumEnd
             // 
@@ -333,20 +382,11 @@
             this.lnlNumEnd.TabIndex = 11;
             this.lnlNumEnd.Text = "Nº:";
             // 
-            // mtxCNPJ
-            // 
-            this.mtxCNPJ.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxCNPJ.Location = new System.Drawing.Point(574, 91);
-            this.mtxCNPJ.Mask = "000,000,000-00";
-            this.mtxCNPJ.Name = "mtxCNPJ";
-            this.mtxCNPJ.Size = new System.Drawing.Size(130, 26);
-            this.mtxCNPJ.TabIndex = 3;
-            // 
             // lblCNPJ
             // 
             this.lblCNPJ.AutoSize = true;
             this.lblCNPJ.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblCNPJ.Location = new System.Drawing.Point(571, 70);
+            this.lblCNPJ.Location = new System.Drawing.Point(551, 70);
             this.lblCNPJ.Name = "lblCNPJ";
             this.lblCNPJ.Size = new System.Drawing.Size(54, 18);
             this.lblCNPJ.TabIndex = 9;
@@ -356,7 +396,7 @@
             // 
             this.lblIE.AutoSize = true;
             this.lblIE.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblIE.Location = new System.Drawing.Point(452, 70);
+            this.lblIE.Location = new System.Drawing.Point(431, 70);
             this.lblIE.Name = "lblIE";
             this.lblIE.Size = new System.Drawing.Size(26, 18);
             this.lblIE.TabIndex = 7;
@@ -385,6 +425,8 @@
             // 
             // txtBairroFornecedor
             // 
+            this.txtBairroFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtBairroFornecedor.Enabled = false;
             this.txtBairroFornecedor.Font = new System.Drawing.Font("Arial", 12F);
             this.txtBairroFornecedor.Location = new System.Drawing.Point(403, 150);
             this.txtBairroFornecedor.Name = "txtBairroFornecedor";
@@ -393,6 +435,8 @@
             // 
             // txtNumEndFornecedor
             // 
+            this.txtNumEndFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumEndFornecedor.Enabled = false;
             this.txtNumEndFornecedor.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNumEndFornecedor.Location = new System.Drawing.Point(345, 150);
             this.txtNumEndFornecedor.Name = "txtNumEndFornecedor";
@@ -402,6 +446,7 @@
             // txtEndFornecedor
             // 
             this.txtEndFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEndFornecedor.Enabled = false;
             this.txtEndFornecedor.Font = new System.Drawing.Font("Arial", 12F);
             this.txtEndFornecedor.Location = new System.Drawing.Point(11, 150);
             this.txtEndFornecedor.Name = "txtEndFornecedor";
@@ -411,6 +456,7 @@
             // txtNomeFornecedor
             // 
             this.txtNomeFornecedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNomeFornecedor.Enabled = false;
             this.txtNomeFornecedor.Font = new System.Drawing.Font("Arial", 12F);
             this.txtNomeFornecedor.Location = new System.Drawing.Point(11, 91);
             this.txtNomeFornecedor.Name = "txtNomeFornecedor";
@@ -485,6 +531,7 @@
             this.tsbtnEditFornecedor.Name = "tsbtnEditFornecedor";
             this.tsbtnEditFornecedor.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditFornecedor.Text = "Editar";
+            this.tsbtnEditFornecedor.Click += new System.EventHandler(this.tsbtnEditFornecedor_Click);
             // 
             // tsbtnSalvar
             // 
@@ -581,7 +628,6 @@
         private System.Windows.Forms.DataGridView dgvFornecedor;
         private System.Windows.Forms.TabPage tpDados;
         private System.Windows.Forms.Label lnlNumEnd;
-        private System.Windows.Forms.MaskedTextBox mtxCNPJ;
         private System.Windows.Forms.Label lblCNPJ;
         private System.Windows.Forms.Label lblIE;
         private System.Windows.Forms.TextBox txtIdFornecedor;
@@ -603,8 +649,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbtnSair;
         private System.Windows.Forms.Label lblPesquisa;
-        private System.Windows.Forms.RadioButton rdoInativo;
-        private System.Windows.Forms.RadioButton rdoAtivo;
         private System.Windows.Forms.TextBox txtIe;
         private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -620,5 +664,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
+        private System.Windows.Forms.RadioButton rdoInativo;
+        private System.Windows.Forms.RadioButton rdoAtivo;
+        private System.Windows.Forms.RadioButton rdoTodos;
+        private System.Windows.Forms.CheckBox chkAtivo;
+        private System.Windows.Forms.MaskedTextBox mtxCNPJ;
     }
 }

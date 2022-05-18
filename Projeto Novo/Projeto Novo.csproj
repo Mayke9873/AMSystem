@@ -8,10 +8,12 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Projeto_Novo</RootNamespace>
     <AssemblyName>Projeto Novo</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -184,12 +185,6 @@
     <Compile Include="ContasReceber\Receber.Designer.cs">
       <DependentUpon>Receber.cs</DependentUpon>
     </Compile>
-    <Compile Include="Usuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Usuario.Designer.cs">
-      <DependentUpon>Usuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vendas\Venda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,9 +257,6 @@
     </Compile>
     <EmbeddedResource Include="ContasReceber\Receber.resx">
       <DependentUpon>Receber.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Usuario.resx">
-      <DependentUpon>Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vendas\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>

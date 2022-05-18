@@ -20,24 +20,87 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
-            try
-            {
-                con.OpenConn();
+            this.Consulta();
 
-                cmd = new MySqlCommand("Select * from funcionario where ativo = 'S';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvFuncionario.DataSource = ds;
-                dgvFuncionario.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
+            cmd = new MySqlCommand("SELECT DESCRICAO FROM GRUPO_USUARIO;", con.query);
+
+            MySqlDataReader dr = cmd.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(dr);
+            cbGpUsu.DisplayMember = "DESCRICAO";
+            cbGpUsu.DataSource = dt;
+        }
+
+        private void Consulta()
+        {
+            if (rdoAtivo.Checked == true)
             {
-                MessageBox.Show(ex.Message);
+                try
+                {
+                    con.OpenConn();
+
+                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'S' AND ((Id = '" + txtPesquisa.Text + "') OR (Nome like '%" + txtPesquisa.Text + "%'));", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFuncionario.DataSource = ds;
+                    dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                    cmd.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
-            finally
+            else if (rdoInativo.Checked == true)
             {
-                con.CloseConn();
+                try
+                {
+                    con.OpenConn();
+
+                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'N' AND ((Id = '" + txtPesquisa.Text + "') OR (Nome like '%" + txtPesquisa.Text + "%'));", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFuncionario.DataSource = ds;
+                    dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                    cmd.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
+            else if (rdoTodos.Checked == true)
+            {
+                try
+                {
+                    con.OpenConn();
+
+                    cmd = new MySqlCommand("Select * from funcionario; WHERE Id = '" + txtPesquisa.Text + "' OR Nome like '%" + txtPesquisa.Text + "%';", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvFuncionario.DataSource = ds;
+                    dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                    cmd.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
         }
         private void FrmFuncionario_KeyDown(object sender, KeyEventArgs e)
@@ -68,6 +131,27 @@ namespace Projeto_Novo
             tsbtnEditFuncionario.Enabled = false;
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
+            txtNome.Enabled = true;
+            mtxRG.Enabled = true;
+            mtxCPF.Enabled = true;
+            mtxDtNasc.Enabled = true;
+            txtEnd.Enabled = true;
+            txtNumEnd.Enabled = true;
+            txtBairro.Enabled = true;
+            gpUsuario.Enabled = true;
+            rdoAtivo.Enabled = true;
+            rdoInativo.Enabled = true;
+
+            txtIdFuncionario.Clear();
+            txtNome.Clear();
+            mtxRG.Clear();
+            mtxCPF.Clear();
+            mtxDtNasc.Clear();
+            txtEnd.Clear();
+            txtNumEnd.Clear();
+            txtBairro.Clear();
+            txtSenha.Clear();
+            txtLogin.Clear();
         }
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
@@ -76,6 +160,16 @@ namespace Projeto_Novo
             tsbtnEditFuncionario.Enabled = true;
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
+            txtNome.Enabled = false;
+            mtxRG.Enabled = false;
+            mtxCPF.Enabled = false;
+            mtxDtNasc.Enabled = false;
+            txtEnd.Enabled = false;
+            txtNumEnd.Enabled = false;
+            txtBairro.Enabled = false;
+            gpUsuario.Enabled = false;
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
 
             tcFuncionarios.SelectTab(tpFuncionario);
         }
@@ -83,14 +177,10 @@ namespace Projeto_Novo
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
             string ativo;
+            int idGpUsu;
             DateTime dtRegistro;
-            string rg = mtxRG.Text;
-            string cpf = mtxCPF.Text;
 
-            rg = rg.Replace(".", "").Replace("-", "");
-            cpf = cpf.Replace(".", "").Replace("-", "");
-
-            if (rdoAtivo.Checked == true)
+            if (chkAtivo.Checked == true)
             {
                 ativo = "S";
             }
@@ -108,29 +198,42 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("INSERT INTO FUNCIONARIO (NOME, RG, CPF, DtNasc, endereco, numEndereco, bairro, DtRegistro, ativo) VALUES " +
-                    "('"+ txtNome.Text +"', @rg, @cpf, @dtNasc, '"+ txtEnd.Text+"', '"+ txtNumEnd.Text +"', '"+ txtBairro.Text +"', @dtRegistro, " +
-                    "'"+ ativo +"');", con.query);
+                cmd = new MySqlCommand("SELECT ID FROM GRUPO_USUARIO WHERE DESCRICAO = '" + cbGpUsu.Text + "';", con.query);
+                MySqlDataReader dr = cmd.ExecuteReader();
+                dr.Read();
+                idGpUsu = int.Parse(dr[0].ToString());
+                cmd.Dispose();
+                con.CloseConn();
 
-                cmd.Parameters.AddWithValue("@rg", rg);
-                cmd.Parameters.AddWithValue("@cpf", cpf);
+                con.OpenConn();
+                cmd = new MySqlCommand("INSERT INTO FUNCIONARIO (NOME, RG, CPF, DtNasc, endereco, numEndereco, bairro, DtRegistro, grupo_usu, login, senha, ativo) " +
+                    "VALUES ('"+ txtNome.Text +"', @rg, @cpf, @dtNasc, '"+ txtEnd.Text+"', '"+ txtNumEnd.Text +"', '"+ txtBairro.Text +"', @dtRegistro, " +
+                    "@grupo_usu, @login, @senha, '"+ ativo +"');", con.query);
+
+                cmd.Parameters.AddWithValue("@rg", mtxRG.Text.Replace(".", "").Replace("-", ""));
+                cmd.Parameters.AddWithValue("@cpf", mtxCPF.Text.Replace(".", "").Replace("-", ""));
+                cmd.Parameters.AddWithValue("@grupo_usu", idGpUsu);
+                cmd.Parameters.AddWithValue("@login", txtLogin.Text);
+                cmd.Parameters.AddWithValue("@senha", txtSenha.Text);
                 cmd.Parameters.AddWithValue("@dtNasc", DateTime.Parse(mtxDtNasc.Text));
                 cmd.Parameters.AddWithValue("@dtRegistro", dtRegistro = DateTime.Now);
-
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
-                cmd = new MySqlCommand("SELECT * FROM FUNCIONARIO WHERE ATIVO = 'S';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvFuncionario.DataSource = ds;
-                dgvFuncionario.DataMember = ds.Tables[0].TableName;
+                this.Consulta();
 
                 tsbtnAddFuncionario.Enabled = true;
                 tsbtnEditFuncionario.Enabled = true;
                 tsbtnSalvar.Enabled = false;
                 tsbtnCancelar.Enabled = false;
+                txtNome.Enabled = false;
+                mtxRG.Enabled = false;
+                mtxCPF.Enabled = false;
+                mtxDtNasc.Enabled = false;
+                txtEnd.Enabled = false;
+                txtNumEnd.Enabled = false;
+                txtBairro.Enabled = false;
+                gpUsuario.Enabled = false;
 
                 tcFuncionarios.SelectTab(tpFuncionario);
             }
@@ -142,6 +245,26 @@ namespace Projeto_Novo
             {
                 con.CloseConn();
             }
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
         }
     }
 }

@@ -20,26 +20,80 @@ namespace Projeto_Novo.Cadastros
         {
             InitializeComponent();
 
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT Id, Descricao, Ativo, Banco FROM CONTA", con.query);
+            this.Consulta();
+        }
 
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvContas.DataSource = ds;
-                dgvContas.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
+        private void Consulta()
+        {
+            if (rdoAtivo.Checked == true)
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.CloseConn();
-            }
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT Id, Descricao, Ativo, Banco FROM CONTA" +
+                        " WHERE ATIVO = 'S' AND ((ID = '" + txtPesquisa.Text + "') OR (DESCRICAO LIKE '%" + txtPesquisa.Text + "%'));", con.query);
 
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvContas.DataSource = ds;
+                    dgvContas.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
+            else if (rdoInativo.Checked == true)
+            {
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT Id, Descricao, Ativo, Banco FROM CONTA" +
+                        " WHERE ATIVO = 'N' AND ((ID = '" + txtPesquisa.Text + "') OR (DESCRICAO LIKE '%" + txtPesquisa.Text + "%'));", con.query);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvContas.DataSource = ds;
+                    dgvContas.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
+            else if (rdoTodos.Checked == true)
+            {
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT Id, Descricao, Ativo, Banco FROM CONTA" +
+                        " WHERE ID = '" + txtPesquisa.Text + "' OR DESCRICAO LIKE '%" + txtPesquisa.Text + "%';", con.query);
+
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvContas.DataSource = ds;
+                    dgvContas.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
         }
         private void FrmContas_KeyDown(object sender, KeyEventArgs e)
         {
@@ -83,7 +137,7 @@ namespace Projeto_Novo.Cadastros
                 return;
             }
 
-            if (rdoAtivo.Checked == true)
+            if (chkAtivo.Checked == true)
             {
                 ativo = 'S';
             }
@@ -95,6 +149,10 @@ namespace Projeto_Novo.Cadastros
             if (chkBanco.Checked == true)
             {
                 banco = "S";
+            }
+            else
+            {
+                banco = "N";
             }
 
             try
@@ -109,13 +167,7 @@ namespace Projeto_Novo.Cadastros
 
                 MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                cmd = new MySqlCommand("SELECT Id, Descricao as 'Descrição', Ativo, Banco FROM CONTA", con.query);
-
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvContas.DataSource = ds;
-                dgvContas.DataMember = ds.Tables[0].TableName;
+                this.Consulta();
 
                 tsbtnAddConta.Enabled = true;
                 tsbtnEditConta.Enabled = true;

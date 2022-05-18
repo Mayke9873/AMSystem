@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProduto));
             this.pnlProdutos = new System.Windows.Forms.Panel();
+            this.rdoInativo = new System.Windows.Forms.RadioButton();
+            this.rdoAtivo = new System.Windows.Forms.RadioButton();
+            this.rdoTodos = new System.Windows.Forms.RadioButton();
             this.lblPesquisa = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.tsProduto = new System.Windows.Forms.ToolStrip();
@@ -69,16 +72,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtValLucro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.rdoProdInativo = new System.Windows.Forms.RadioButton();
-            this.rdoProdAtivo = new System.Windows.Forms.RadioButton();
             this.txtUnidade = new System.Windows.Forms.TextBox();
-            this.txtIdCli = new System.Windows.Forms.TextBox();
+            this.txtIdProduto = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
             this.txtValCompra = new System.Windows.Forms.TextBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.lblEndereco = new System.Windows.Forms.Label();
             this.lblUnidade = new System.Windows.Forms.Label();
             this.lblDescProd = new System.Windows.Forms.Label();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.pnlProdutos.SuspendLayout();
             this.tsProduto.SuspendLayout();
             this.tcProdutos.SuspendLayout();
@@ -90,6 +92,9 @@
             // 
             // pnlProdutos
             // 
+            this.pnlProdutos.Controls.Add(this.rdoInativo);
+            this.pnlProdutos.Controls.Add(this.rdoAtivo);
+            this.pnlProdutos.Controls.Add(this.rdoTodos);
             this.pnlProdutos.Controls.Add(this.lblPesquisa);
             this.pnlProdutos.Controls.Add(this.txtPesquisa);
             this.pnlProdutos.Controls.Add(this.tsProduto);
@@ -99,6 +104,45 @@
             this.pnlProdutos.Name = "pnlProdutos";
             this.pnlProdutos.Size = new System.Drawing.Size(983, 590);
             this.pnlProdutos.TabIndex = 0;
+            // 
+            // rdoInativo
+            // 
+            this.rdoInativo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoInativo.AutoSize = true;
+            this.rdoInativo.Location = new System.Drawing.Point(558, 33);
+            this.rdoInativo.Name = "rdoInativo";
+            this.rdoInativo.Size = new System.Drawing.Size(57, 17);
+            this.rdoInativo.TabIndex = 23;
+            this.rdoInativo.Text = "Inativo";
+            this.rdoInativo.UseVisualStyleBackColor = true;
+            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
+            // 
+            // rdoAtivo
+            // 
+            this.rdoAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoAtivo.AutoSize = true;
+            this.rdoAtivo.Checked = true;
+            this.rdoAtivo.Location = new System.Drawing.Point(489, 33);
+            this.rdoAtivo.Name = "rdoAtivo";
+            this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
+            this.rdoAtivo.TabIndex = 22;
+            this.rdoAtivo.TabStop = true;
+            this.rdoAtivo.Text = "Ativo";
+            this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
+            // 
+            // rdoTodos
+            // 
+            this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.rdoTodos.AutoSize = true;
+            this.rdoTodos.Location = new System.Drawing.Point(416, 33);
+            this.rdoTodos.Name = "rdoTodos";
+            this.rdoTodos.Size = new System.Drawing.Size(55, 17);
+            this.rdoTodos.TabIndex = 21;
+            this.rdoTodos.TabStop = true;
+            this.rdoTodos.Text = "Todos";
+            this.rdoTodos.UseVisualStyleBackColor = true;
+            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
             // 
             // lblPesquisa
             // 
@@ -113,11 +157,13 @@
             // 
             this.txtPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPesquisa.Location = new System.Drawing.Point(74, 32);
+            this.txtPesquisa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtPesquisa.Location = new System.Drawing.Point(76, 32);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 12;
             this.txtPesquisa.TabStop = false;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // tsProduto
             // 
@@ -158,6 +204,7 @@
             this.tsbtnEditProduto.Name = "tsbtnEditProduto";
             this.tsbtnEditProduto.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditProduto.Text = "Editar";
+            this.tsbtnEditProduto.Click += new System.EventHandler(this.tsbtnEditProduto_Click);
             // 
             // tsbtnSalvar
             // 
@@ -270,6 +317,7 @@
             this.dgvProduto.Size = new System.Drawing.Size(970, 500);
             this.dgvProduto.TabIndex = 2;
             this.dgvProduto.TabStop = false;
+            this.dgvProduto.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_RowEnter);
             // 
             // id
             // 
@@ -381,6 +429,7 @@
             // 
             // tpDadosProd
             // 
+            this.tpDadosProd.Controls.Add(this.chkAtivo);
             this.tpDadosProd.Controls.Add(this.cbGrupo);
             this.tpDadosProd.Controls.Add(this.lblGrupo);
             this.tpDadosProd.Controls.Add(this.txtEstoque);
@@ -389,10 +438,8 @@
             this.tpDadosProd.Controls.Add(this.label2);
             this.tpDadosProd.Controls.Add(this.txtValLucro);
             this.tpDadosProd.Controls.Add(this.label1);
-            this.tpDadosProd.Controls.Add(this.rdoProdInativo);
-            this.tpDadosProd.Controls.Add(this.rdoProdAtivo);
             this.tpDadosProd.Controls.Add(this.txtUnidade);
-            this.tpDadosProd.Controls.Add(this.txtIdCli);
+            this.tpDadosProd.Controls.Add(this.txtIdProduto);
             this.tpDadosProd.Controls.Add(this.lblIdCli);
             this.tpDadosProd.Controls.Add(this.txtValCompra);
             this.tpDadosProd.Controls.Add(this.txtDescricao);
@@ -410,6 +457,7 @@
             // cbGrupo
             // 
             this.cbGrupo.AllowDrop = true;
+            this.cbGrupo.Enabled = false;
             this.cbGrupo.Font = new System.Drawing.Font("Arial", 12F);
             this.cbGrupo.FormattingEnabled = true;
             this.cbGrupo.Location = new System.Drawing.Point(12, 210);
@@ -429,6 +477,8 @@
             // 
             // txtEstoque
             // 
+            this.txtEstoque.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEstoque.Enabled = false;
             this.txtEstoque.Font = new System.Drawing.Font("Arial", 12F);
             this.txtEstoque.Location = new System.Drawing.Point(11, 150);
             this.txtEstoque.Name = "txtEstoque";
@@ -447,6 +497,8 @@
             // 
             // txtValVenda
             // 
+            this.txtValVenda.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtValVenda.Enabled = false;
             this.txtValVenda.Font = new System.Drawing.Font("Arial", 12F);
             this.txtValVenda.Location = new System.Drawing.Point(331, 150);
             this.txtValVenda.Name = "txtValVenda";
@@ -466,6 +518,8 @@
             // 
             // txtValLucro
             // 
+            this.txtValLucro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtValLucro.Enabled = false;
             this.txtValLucro.Font = new System.Drawing.Font("Arial", 12F);
             this.txtValLucro.Location = new System.Drawing.Point(235, 150);
             this.txtValLucro.Name = "txtValLucro";
@@ -483,47 +537,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Lucro (%):";
             // 
-            // rdoProdInativo
-            // 
-            this.rdoProdInativo.AutoSize = true;
-            this.rdoProdInativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoProdInativo.Location = new System.Drawing.Point(354, 36);
-            this.rdoProdInativo.Name = "rdoProdInativo";
-            this.rdoProdInativo.Size = new System.Drawing.Size(67, 21);
-            this.rdoProdInativo.TabIndex = 0;
-            this.rdoProdInativo.Text = "Inativo";
-            this.rdoProdInativo.UseVisualStyleBackColor = true;
-            // 
-            // rdoProdAtivo
-            // 
-            this.rdoProdAtivo.AutoSize = true;
-            this.rdoProdAtivo.Checked = true;
-            this.rdoProdAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoProdAtivo.Location = new System.Drawing.Point(291, 36);
-            this.rdoProdAtivo.Name = "rdoProdAtivo";
-            this.rdoProdAtivo.Size = new System.Drawing.Size(57, 21);
-            this.rdoProdAtivo.TabIndex = 0;
-            this.rdoProdAtivo.TabStop = true;
-            this.rdoProdAtivo.Text = "Ativo";
-            this.rdoProdAtivo.UseVisualStyleBackColor = true;
-            // 
             // txtUnidade
             // 
+            this.txtUnidade.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtUnidade.Enabled = false;
             this.txtUnidade.Font = new System.Drawing.Font("Arial", 12F);
             this.txtUnidade.Location = new System.Drawing.Point(356, 91);
             this.txtUnidade.Name = "txtUnidade";
             this.txtUnidade.Size = new System.Drawing.Size(65, 26);
             this.txtUnidade.TabIndex = 2;
             // 
-            // txtIdCli
+            // txtIdProduto
             // 
-            this.txtIdCli.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtIdCli.Enabled = false;
-            this.txtIdCli.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtIdCli.Location = new System.Drawing.Point(11, 34);
-            this.txtIdCli.Name = "txtIdCli";
-            this.txtIdCli.Size = new System.Drawing.Size(77, 26);
-            this.txtIdCli.TabIndex = 0;
+            this.txtIdProduto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtIdProduto.Enabled = false;
+            this.txtIdProduto.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtIdProduto.Location = new System.Drawing.Point(11, 34);
+            this.txtIdProduto.Name = "txtIdProduto";
+            this.txtIdProduto.Size = new System.Drawing.Size(77, 26);
+            this.txtIdProduto.TabIndex = 0;
             // 
             // lblIdCli
             // 
@@ -537,6 +569,8 @@
             // 
             // txtValCompra
             // 
+            this.txtValCompra.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtValCompra.Enabled = false;
             this.txtValCompra.Font = new System.Drawing.Font("Arial", 12F);
             this.txtValCompra.Location = new System.Drawing.Point(139, 150);
             this.txtValCompra.Name = "txtValCompra";
@@ -545,6 +579,8 @@
             // 
             // txtDescricao
             // 
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescricao.Enabled = false;
             this.txtDescricao.Font = new System.Drawing.Font("Arial", 12F);
             this.txtDescricao.Location = new System.Drawing.Point(11, 91);
             this.txtDescricao.Name = "txtDescricao";
@@ -580,6 +616,20 @@
             this.lblDescProd.Size = new System.Drawing.Size(84, 18);
             this.lblDescProd.TabIndex = 0;
             this.lblDescProd.Text = "Descrição:";
+            // 
+            // chkAtivo
+            // 
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(363, 36);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 23;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // FrmProduto
             // 
@@ -628,10 +678,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtValLucro;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton rdoProdInativo;
-        private System.Windows.Forms.RadioButton rdoProdAtivo;
         private System.Windows.Forms.TextBox txtUnidade;
-        private System.Windows.Forms.TextBox txtIdCli;
+        private System.Windows.Forms.TextBox txtIdProduto;
         private System.Windows.Forms.Label lblIdCli;
         private System.Windows.Forms.TextBox txtValCompra;
         private System.Windows.Forms.TextBox txtDescricao;
@@ -658,5 +706,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox cbGrupo;
         private System.Windows.Forms.DataGridView dgvProduto;
+        private System.Windows.Forms.RadioButton rdoInativo;
+        private System.Windows.Forms.RadioButton rdoAtivo;
+        private System.Windows.Forms.RadioButton rdoTodos;
+        private System.Windows.Forms.CheckBox chkAtivo;
     }
 }
