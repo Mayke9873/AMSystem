@@ -50,9 +50,9 @@ namespace Projeto_Novo
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void Login()
         {
-            // Login
+            // Informação de login do usuário
             if (txtUsuario.Text.Length == 0)
             {
                 MessageBox.Show("Usuário não informado, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -66,7 +66,7 @@ namespace Projeto_Novo
                 return;
             }
 
-            // Aqui vai o Login
+            // Validando login
             try
             {
                 con.OpenConn();
@@ -91,6 +91,16 @@ namespace Projeto_Novo
             {
                 con.CloseConn();
             }
+        }
+
+        private void txtSenha_Validated(object sender, EventArgs e)
+        {
+            this.Login();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Login();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
