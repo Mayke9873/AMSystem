@@ -54,6 +54,7 @@
             this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.gpUsuario = new System.Windows.Forms.GroupBox();
             this.cbGpUsu = new System.Windows.Forms.ComboBox();
             this.lblCargo = new System.Windows.Forms.Label();
@@ -87,7 +88,6 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.pnlFuncionario.SuspendLayout();
             this.tcFuncionarios.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
@@ -224,6 +224,7 @@
             this.dgvFuncionario.Size = new System.Drawing.Size(970, 500);
             this.dgvFuncionario.TabIndex = 2;
             this.dgvFuncionario.TabStop = false;
+            this.dgvFuncionario.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionario_RowEnter);
             // 
             // Column1
             // 
@@ -359,6 +360,20 @@
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
             // 
+            // chkAtivo
+            // 
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(283, 37);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 24;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
+            // 
             // gpUsuario
             // 
             this.gpUsuario.Controls.Add(this.cbGpUsu);
@@ -397,6 +412,7 @@
             // 
             // txtLogin
             // 
+            this.txtLogin.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtLogin.Font = new System.Drawing.Font("Arial", 12F);
             this.txtLogin.Location = new System.Drawing.Point(12, 48);
             this.txtLogin.Name = "txtLogin";
@@ -641,6 +657,7 @@
             this.tsbtnEditFuncionario.Name = "tsbtnEditFuncionario";
             this.tsbtnEditFuncionario.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditFuncionario.Text = "Editar";
+            this.tsbtnEditFuncionario.Click += new System.EventHandler(this.tsbtnEditFuncionario_Click);
             // 
             // tsbtnSalvar
             // 
@@ -692,20 +709,6 @@
             this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
-            // 
-            // chkAtivo
-            // 
-            this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Checked = true;
-            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAtivo.Enabled = false;
-            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.chkAtivo.Location = new System.Drawing.Point(283, 37);
-            this.chkAtivo.Name = "chkAtivo";
-            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
-            this.chkAtivo.TabIndex = 24;
-            this.chkAtivo.Text = "Ativo";
-            this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // FrmFuncionario
             // 

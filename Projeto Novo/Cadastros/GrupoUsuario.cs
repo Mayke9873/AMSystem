@@ -222,6 +222,7 @@ namespace Projeto_Novo
             chkAtivo.Enabled = true;
             dgvGpUsuarios.Enabled = false;
 
+            // Não mudar a aba se index da tabpage <> 0
             if (tcGrupoUsuarios.SelectedIndex == 0)
             {
                 tcGrupoUsuarios.SelectTab(tpDadosUsu);
