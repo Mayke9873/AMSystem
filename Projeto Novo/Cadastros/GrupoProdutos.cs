@@ -124,6 +124,10 @@ namespace Projeto_Novo
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
 
+            txtIdGpProduto.Clear();
+            txtDescGrupoProd.Clear();
+            chkAtivo.Checked = true;
+
             tcGrupoProdutos.SelectTab(tpDadosGrupoProd);
         }
         private void tsbtnEditGrupoProd_Click(object sender, EventArgs e)
@@ -173,8 +177,8 @@ namespace Projeto_Novo
                 else if(txtIdGpProduto.Text.Length != 0)
                 {
                     //      FAZER UPDATE
-                    //cmd = new MySqlCommand("INSERT INTO GRUPO_PRODUTO (DESCRICAO, ATIVO) VALUES " +
-                    //"('" + txtDescGrupoProd.Text + "', '" + ativo + "');", con.query);
+                    cmd = new MySqlCommand("UPDATE GRUPO_PRODUTO SET DESCRICAO = '" + txtDescGrupoProd.Text + "', ATIVO = '" + ativo + "'" +
+                        " WHERE ID = '" + txtIdGpProduto.Text + "'", con.query);
                 }
 
                 cmd.ExecuteNonQuery();
