@@ -324,6 +324,8 @@ namespace Projeto_Novo
 
         private void dgvFuncionario_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            string ativo, gpUsu;
+
             DataGridViewRow row = dgvFuncionario.Rows[e.RowIndex];
             if (row != null)
             {
@@ -335,6 +337,18 @@ namespace Projeto_Novo
                 txtEnd.Text = row.Cells[5].Value.ToString();
                 txtNumEnd.Text = row.Cells[6].Value.ToString();
                 txtBairro.Text = row.Cells[7].Value.ToString();
+                ativo = row.Cells[9].Value.ToString();
+                cbGpUsu.Text = row.Cells[10].Value.ToString();
+
+
+                if (ativo == "S")
+                {
+                    chkAtivo.Checked = true;
+                }
+                else if (ativo == "N")
+                {
+                    chkAtivo.Checked = false;
+                }
             }
         }
     }
