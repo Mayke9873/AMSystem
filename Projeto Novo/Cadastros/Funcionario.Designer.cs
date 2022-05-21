@@ -85,6 +85,8 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,7 +137,6 @@
             this.rdoAtivo.Name = "rdoAtivo";
             this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
             this.rdoAtivo.TabIndex = 22;
-            this.rdoAtivo.TabStop = true;
             this.rdoAtivo.Text = "Ativo";
             this.rdoAtivo.UseVisualStyleBackColor = true;
             this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
@@ -148,7 +149,6 @@
             this.rdoTodos.Name = "rdoTodos";
             this.rdoTodos.Size = new System.Drawing.Size(55, 17);
             this.rdoTodos.TabIndex = 21;
-            this.rdoTodos.TabStop = true;
             this.rdoTodos.Text = "Todos";
             this.rdoTodos.UseVisualStyleBackColor = true;
             this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
@@ -211,6 +211,8 @@
             this.Column9,
             this.Column10,
             this.Column11,
+            this.Column12,
+            this.Column13,
             this.dataSourceDataGridViewTextBoxColumn,
             this.connectionTimeoutDataGridViewTextBoxColumn,
             this.databaseDataGridViewTextBoxColumn,
@@ -682,10 +684,27 @@
             // 
             // Column11
             // 
-            this.Column11.DataPropertyName = "grupo_usu";
+            this.Column11.DataPropertyName = "descricao";
             this.Column11.HeaderText = "Tipo Usuario";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "login";
+            this.Column12.HeaderText = "login";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Visible = false;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "senha";
+            this.Column13.HeaderText = "senha";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
             // 
             // dataSourceDataGridViewTextBoxColumn
             // 
@@ -804,6 +823,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
