@@ -159,8 +159,17 @@ namespace Projeto_Novo.Cadastros
             {
                 con.OpenConn();
 
-                cmd = new MySqlCommand("INSERT INTO CONTA (DESCRICAO, ATIVO, BANCO) " +
+                if (txtIdUsuario.Text.Length == 0)
+                {
+                    cmd = new MySqlCommand("INSERT INTO CONTA (DESCRICAO, ATIVO, BANCO) " +
                 "VALUES ('" + txtDescricao.Text + "', '" + ativo + "', '" + banco + "')", con.query);
+
+                }
+                else if (txtIdUsuario.Text.Length != 0)
+                {
+                    cmd = new MySqlCommand("UPDATE CONTA SET DESCRICAO = '" + txtDescricao.Text + "', ATIVO = '" + ativo + "', " +
+                    BANCO = '" + banco + "' WHERE ID = '"+txtIdUsuario.Text+"';), con.query);
+                }
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
