@@ -168,7 +168,7 @@ namespace Projeto_Novo.Cadastros
                 else if (txtIdUsuario.Text.Length != 0)
                 {
                     cmd = new MySqlCommand("UPDATE CONTA SET DESCRICAO = '" + txtDescricao.Text + "', ATIVO = '" + ativo + "', " +
-                    BANCO = '" + banco + "' WHERE ID = '"+txtIdUsuario.Text+"';), con.query);
+                    "BANCO = '" + banco + "' WHERE ID = '"+txtIdUsuario.Text+"';", con.query);
                 }
 
                 cmd.ExecuteNonQuery();
@@ -203,6 +203,38 @@ namespace Projeto_Novo.Cadastros
             tsbtnCancelar.Enabled = false;
 
             tcContas.SelectTab(tpConta);
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void tsbtnEditConta_Click(object sender, EventArgs e)
+        {
+            tcContas.SelectedTab = tpDadosConta; // Muda para a tabpage especifica
+
+            // Habilita e desabilita botoes.
+            txtDescricao.Enabled = true
+            tsbtnAddConta.Enabled = false;
+            tsbtnEditConta.Enabled = false;
+            tsbtnSalvar.Enabled = true;
+            tsbtnCancelar.Enabled = true;
         }
     }
 }

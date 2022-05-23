@@ -50,6 +50,7 @@
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosConta = new System.Windows.Forms.TabPage();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.chkBanco = new System.Windows.Forms.CheckBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
             this.txtIdUsuario = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.pnlContas.SuspendLayout();
             this.tcContas.SuspendLayout();
             this.tpConta.SuspendLayout();
@@ -100,6 +100,7 @@
             this.rdoInativo.TabIndex = 23;
             this.rdoInativo.Text = "Inativo";
             this.rdoInativo.UseVisualStyleBackColor = true;
+            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
             // 
             // rdoAtivo
             // 
@@ -113,6 +114,7 @@
             this.rdoAtivo.TabStop = true;
             this.rdoAtivo.Text = "Ativo";
             this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
             // 
             // rdoTodos
             // 
@@ -125,6 +127,7 @@
             this.rdoTodos.TabStop = true;
             this.rdoTodos.Text = "Todos";
             this.rdoTodos.UseVisualStyleBackColor = true;
+            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
             // 
             // lblPesquisa
             // 
@@ -145,6 +148,7 @@
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 10;
             this.txtPesquisa.TabStop = false;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // tcContas
             // 
@@ -296,6 +300,20 @@
             this.tpDadosConta.Text = "Dados";
             this.tpDadosConta.UseVisualStyleBackColor = true;
             // 
+            // chkAtivo
+            // 
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(309, 37);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 23;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
+            // 
             // chkBanco
             // 
             this.chkBanco.AutoSize = true;
@@ -384,6 +402,7 @@
             this.tsbtnEditConta.Name = "tsbtnEditConta";
             this.tsbtnEditConta.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditConta.Text = "Editar";
+            this.tsbtnEditConta.Click += new System.EventHandler(this.tsbtnEditConta_Click);
             // 
             // tsbtnSalvar
             // 
@@ -435,20 +454,6 @@
             this.tsbtnSair.Size = new System.Drawing.Size(26, 26);
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
-            // 
-            // chkAtivo
-            // 
-            this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Checked = true;
-            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAtivo.Enabled = false;
-            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.chkAtivo.Location = new System.Drawing.Point(309, 37);
-            this.chkAtivo.Name = "chkAtivo";
-            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
-            this.chkAtivo.TabIndex = 23;
-            this.chkAtivo.Text = "Ativo";
-            this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // FrmContas
             // 
