@@ -222,7 +222,11 @@ namespace Projeto_Novo
             chkAtivo.Enabled = true;
             dgvGpUsuarios.Enabled = false;
 
-            tcGrupoUsuarios.SelectTab(tpDadosUsu);
+            // Não mudar a aba se index da tabpage <> 0
+            if (tcGrupoUsuarios.SelectedIndex == 0)
+            {
+                tcGrupoUsuarios.SelectTab(tpDadosUsu);
+            }
         }
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)

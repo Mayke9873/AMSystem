@@ -117,19 +117,60 @@ namespace Projeto_Novo.Cadastros
 
         private void tsbtnAddConta_Click(object sender, EventArgs e)
         {
-            tcContas.SelectedTab = tpDadosConta; // Muda para a tabpage especifica
+            // Muda para a tabpage Dados 
+            if (tcContas.SelectedIndex == 0)
+            {
+                tcContas.SelectedTab = tpDadosConta;
+            }
 
-            // Habilita e desabilita botoes.
+            // Habilita e desabilita botoes e filtros.
             tsbtnAddConta.Enabled = false;
             tsbtnEditConta.Enabled = false;
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
+            txtPesquisa.Enabled = false;
+            dgvContas.Enabled = false;
+            rdoTodos.Enabled = false;
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
+            txtDescricao.Enabled = true;
+            chkAtivo.Enabled = true;
+            chkBanco.Enabled = true;
+
+            txtIdConta.Clear();
+            txtDescricao.Clear();
+            chkAtivo.Checked = true;
+            chkBanco.Checked = false;
+        }
+
+
+        private void tsbtnEditConta_Click(object sender, EventArgs e)
+        {
+            // Muda para a tabpage Dados 
+            if (tcContas.SelectedIndex == 0)
+            {
+                tcContas.SelectedTab = tpDadosConta;
+            }
+
+            // Habilita e desabilita botoes e filtros.
+            tsbtnAddConta.Enabled = false;
+            tsbtnEditConta.Enabled = false;
+            tsbtnSalvar.Enabled = true;
+            tsbtnCancelar.Enabled = true;
+            txtPesquisa.Enabled = false;
+            dgvContas.Enabled = false;
+            rdoTodos.Enabled = false;
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
+            txtDescricao.Enabled = true;
+            chkAtivo.Enabled = true;
+            chkBanco.Enabled = true;
         }
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
             char ativo;
-            string banco = null;
+            string banco;
 
             if (txtDescricao.Text.Length == 0)
             {
@@ -159,8 +200,17 @@ namespace Projeto_Novo.Cadastros
             {
                 con.OpenConn();
 
-                cmd = new MySqlCommand("INSERT INTO CONTA (DESCRICAO, ATIVO, BANCO) " +
+                if (txtIdConta.Text.Length == 0)
+                {
+                    cmd = new MySqlCommand("INSERT INTO CONTA (DESCRICAO, ATIVO, BANCO) " +
                 "VALUES ('" + txtDescricao.Text + "', '" + ativo + "', '" + banco + "')", con.query);
+
+                }
+                else if (txtIdConta.Text.Length != 0)
+                {
+                    cmd = new MySqlCommand("UPDATE CONTA SET DESCRICAO = '" + txtDescricao.Text + "', ATIVO = '" + ativo + "', " +
+                    "BANCO = '" + banco + "' WHERE ID = '" + txtIdConta.Text + "';", con.query);
+                }
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -169,12 +219,24 @@ namespace Projeto_Novo.Cadastros
 
                 this.Consulta();
 
+                // Habilita e desabilita botoes e filtros.
                 tsbtnAddConta.Enabled = true;
                 tsbtnEditConta.Enabled = true;
                 tsbtnSalvar.Enabled = false;
                 tsbtnCancelar.Enabled = false;
+                txtPesquisa.Enabled = true;
+                dgvContas.Enabled = true;
+                rdoTodos.Enabled = true;
+                rdoAtivo.Enabled = true;
+                rdoInativo.Enabled = true;
+                txtDescricao.Enabled = false;
+                chkAtivo.Enabled = false;
+                chkBanco.Enabled = false;
 
-                tcContas.SelectedTab = tpConta;
+                if (tcContas.SelectedIndex != 0)
+                {
+                    tcContas.SelectedTab = tpConta;
+                }
             }
             catch (Exception ex)
             {
@@ -188,12 +250,78 @@ namespace Projeto_Novo.Cadastros
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
         {
+            this.Consulta();
+
+            // Habilita e desabilita botoes e filtros.
             tsbtnAddConta.Enabled = true;
             tsbtnEditConta.Enabled = true;
             tsbtnSalvar.Enabled = false;
             tsbtnCancelar.Enabled = false;
+            txtPesquisa.Enabled = true;
+            dgvContas.Enabled = true;
+            rdoTodos.Enabled = true;
+            rdoAtivo.Enabled = true;
+            rdoInativo.Enabled = true;
+            txtDescricao.Enabled = false;
+            chkAtivo.Enabled = false;
+            chkBanco.Enabled = false;
 
-            tcContas.SelectTab(tpConta);
+            if (tcContas.SelectedIndex != 0)
+            {
+                tcContas.SelectedTab = tpConta;
+            }
+        }
+
+        private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoAtivo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void rdoInativo_CheckedChanged(object sender, EventArgs e)
+        {
+            this.Consulta();
+        }
+
+        private void dgvContas_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            string ativo, conta;
+
+            DataGridViewRow row = dgvContas.Rows[e.RowIndex];
+            if (row != null)
+            {
+                txtIdConta.Text = row.Cells[0].Value.ToString();
+                txtDescricao.Text = row.Cells[1].Value.ToString();
+                ativo = row.Cells[2].Value.ToString();
+                conta = row.Cells[3].Value.ToString();
+
+                if (ativo == "S")
+                {
+                    chkAtivo.Checked = true;
+                }
+                else if (ativo == "N")
+                {
+                    chkAtivo.Checked = false;
+                }
+
+                if (conta == "S")
+                {
+                    chkBanco.Checked = true;
+                }
+                else if (conta == "N")
+                {
+                    chkBanco.Checked = false;
+                }
+            }
         }
     }
 }

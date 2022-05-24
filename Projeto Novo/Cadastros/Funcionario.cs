@@ -22,13 +22,27 @@ namespace Projeto_Novo
 
             this.Consulta();
 
-            cmd = new MySqlCommand("SELECT DESCRICAO FROM GRUPO_USUARIO;", con.query);
+            try
+            {
+                con.OpenConn();
+                cmd = new MySqlCommand("SELECT DESCRICAO FROM GRUPO_USUARIO;", con.query);
 
-            MySqlDataReader dr = cmd.ExecuteReader();
-            DataTable dt = new DataTable();
-            dt.Load(dr);
-            cbGpUsu.DisplayMember = "DESCRICAO";
-            cbGpUsu.DataSource = dt;
+                MySqlDataReader dr = cmd.ExecuteReader();
+                DataTable dt = new DataTable();
+                dt.Load(dr);
+                cbGpUsu.DisplayMember = "DESCRICAO";
+                cbGpUsu.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.CloseConn();
+            }
+
+            
         }
 
         private void Consulta()
@@ -39,7 +53,9 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
 
-                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'S' AND ((Id = '" + txtPesquisa.Text + "') OR (Nome like '%" + txtPesquisa.Text + "%'));", con.query);
+                    cmd = new MySqlCommand("SELECT a.ID, a.NOME, A.RG, a.CPF, a.DTNASC, a.ENDERECO, a.NUMENDERECO, a.BAIRRO, a.DTREGISTRO, a.ATIVO, b.DESCRICAO, a.LOGIN, a.SENHA " +
+                        "FROM FUNCIONARIO a LEFT JOIN GRUPO_USUARIO b ON a.GRUPO_USU = b.ID " +
+                        "WHERE a.ativo = 'S' AND ((a.Id = '" + txtPesquisa.Text + "') OR (a.Nome like '%" + txtPesquisa.Text + "%'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -62,7 +78,9 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
 
-                    cmd = new MySqlCommand("Select * from funcionario where ativo = 'N' AND ((Id = '" + txtPesquisa.Text + "') OR (Nome like '%" + txtPesquisa.Text + "%'));", con.query);
+                    cmd = new MySqlCommand("SELECT a.ID, a.NOME, A.RG, a.CPF, a.DTNASC, a.ENDERECO, a.NUMENDERECO, a.BAIRRO, a.DTREGISTRO, a.ATIVO, b.DESCRICAO, a.LOGIN, a.SENHA " +
+                        "FROM FUNCIONARIO a LEFT JOIN GRUPO_USUARIO b ON a.GRUPO_USU = b.ID " +
+                        "WHERE a.ativo = 'N' AND ((a.Id = '" + txtPesquisa.Text + "') OR (a.Nome like '%" + txtPesquisa.Text + "%'));", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -85,7 +103,9 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
 
-                    cmd = new MySqlCommand("Select * from funcionario; WHERE Id = '" + txtPesquisa.Text + "' OR Nome like '%" + txtPesquisa.Text + "%';", con.query);
+                    cmd = new MySqlCommand("SELECT a.ID, a.NOME, A.RG, a.CPF, a.DTNASC, a.ENDERECO, a.NUMENDERECO, a.BAIRRO, a.DTREGISTRO, a.ATIVO, b.DESCRICAO, a.LOGIN, a.SENHA " +
+                        "FROM FUNCIONARIO a LEFT JOIN GRUPO_USUARIO b ON a.GRUPO_USU = b.ID " +
+                        "WHERE a.Id = '" + txtPesquisa.Text + "' OR a.Nome like '%" + txtPesquisa.Text + "%';", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -118,15 +138,13 @@ namespace Projeto_Novo
             }
         }
 
-        private void tsbtnSair_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void tsbtnAddFuncionario_Click(object sender, EventArgs e)
         {
-            tcFuncionarios.SelectTab(tpDados);
-
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
+            rdoTodos.Enabled = false;
+            txtPesquisa.Enabled = false;
+            dgvFuncionario.Enabled = false;
             tsbtnAddFuncionario.Enabled = false;
             tsbtnEditFuncionario.Enabled = false;
             tsbtnSalvar.Enabled = true;
@@ -139,8 +157,7 @@ namespace Projeto_Novo
             txtNumEnd.Enabled = true;
             txtBairro.Enabled = true;
             gpUsuario.Enabled = true;
-            rdoAtivo.Enabled = true;
-            rdoInativo.Enabled = true;
+            chkAtivo.Enabled = true;
 
             txtIdFuncionario.Clear();
             txtNome.Clear();
@@ -152,10 +169,44 @@ namespace Projeto_Novo
             txtBairro.Clear();
             txtSenha.Clear();
             txtLogin.Clear();
+
+            tcFuncionarios.SelectTab(tpDados);
+        }
+
+        private void tsbtnEditFuncionario_Click(object sender, EventArgs e)
+        {
+            rdoAtivo.Enabled = false;
+            rdoInativo.Enabled = false;
+            rdoTodos.Enabled = false;
+            txtPesquisa.Enabled = false;
+            dgvFuncionario.Enabled = false;
+            tsbtnAddFuncionario.Enabled = false;
+            tsbtnEditFuncionario.Enabled = false;
+            tsbtnSalvar.Enabled = true;
+            tsbtnCancelar.Enabled = true;
+            txtNome.Enabled = true;
+            mtxRG.Enabled = true;
+            mtxCPF.Enabled = true;
+            mtxDtNasc.Enabled = true;
+            txtEnd.Enabled = true;
+            txtNumEnd.Enabled = true;
+            txtBairro.Enabled = true;
+            gpUsuario.Enabled = true;
+            chkAtivo.Enabled = true;
+
+            if (tcFuncionarios.SelectedIndex == 0)
+            {
+                tcFuncionarios.SelectTab(tpDados);
+            }
         }
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
         {
+            rdoAtivo.Enabled = true;
+            rdoInativo.Enabled = true;
+            rdoTodos.Enabled = true;
+            txtPesquisa.Enabled = true;
+            dgvFuncionario.Enabled = true;
             tsbtnAddFuncionario.Enabled = true;
             tsbtnEditFuncionario.Enabled = true;
             tsbtnSalvar.Enabled = false;
@@ -168,8 +219,6 @@ namespace Projeto_Novo
             txtNumEnd.Enabled = false;
             txtBairro.Enabled = false;
             gpUsuario.Enabled = false;
-            rdoAtivo.Enabled = false;
-            rdoInativo.Enabled = false;
 
             tcFuncionarios.SelectTab(tpFuncionario);
         }
@@ -206,9 +255,20 @@ namespace Projeto_Novo
                 con.CloseConn();
 
                 con.OpenConn();
-                cmd = new MySqlCommand("INSERT INTO FUNCIONARIO (NOME, RG, CPF, DtNasc, endereco, numEndereco, bairro, DtRegistro, grupo_usu, login, senha, ativo) " +
-                    "VALUES ('"+ txtNome.Text +"', @rg, @cpf, @dtNasc, '"+ txtEnd.Text+"', '"+ txtNumEnd.Text +"', '"+ txtBairro.Text +"', @dtRegistro, " +
-                    "@grupo_usu, @login, @senha, '"+ ativo +"');", con.query);
+
+                if (txtIdFuncionario.Text.Length == 0)
+                {
+                    cmd = new MySqlCommand("INSERT INTO FUNCIONARIO (NOME, RG, CPF, DtNasc, endereco, numEndereco, bairro, DtRegistro, grupo_usu, login, senha, ativo) " +
+                    "VALUES ('" + txtNome.Text + "', @rg, @cpf, @dtNasc, '" + txtEnd.Text + "', '" + txtNumEnd.Text + "', '" + txtBairro.Text + "', @dtRegistro, " +
+                    "@grupo_usu, @login, @senha, '" + ativo + "');", con.query);
+                }
+                else if (txtIdFuncionario.Text.Length != 0)
+                {
+                    cmd = new MySqlCommand("UPDATE FUNCIONARIO SET NOME = '" + txtNome.Text + "', RG = @RG, CPF = @CPF, DtNasc = @DTNASC, endereco = '" + txtEnd.Text + "', " +
+                        "numEndereco = '" + txtNumEnd.Text + "', bairro = '" + txtBairro.Text + "', grupo_usu = @GRUPO_USU, login = @LOGIN, senha = @SENHA, ativo = '" + ativo + "' " +
+                        "WHERE ID = '" + txtIdFuncionario.Text + "'", con.query);
+                }
+                
 
                 cmd.Parameters.AddWithValue("@rg", mtxRG.Text.Replace(".", "").Replace("-", ""));
                 cmd.Parameters.AddWithValue("@cpf", mtxCPF.Text.Replace(".", "").Replace("-", ""));
@@ -220,8 +280,15 @@ namespace Projeto_Novo
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
+                MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 this.Consulta();
 
+                rdoAtivo.Enabled = true;
+                rdoInativo.Enabled = true;
+                rdoTodos.Enabled = true;
+                txtPesquisa.Enabled = true;
+                dgvFuncionario.Enabled = true;
                 tsbtnAddFuncionario.Enabled = true;
                 tsbtnEditFuncionario.Enabled = true;
                 tsbtnSalvar.Enabled = false;
@@ -247,6 +314,11 @@ namespace Projeto_Novo
             }
         }
 
+        private void tsbtnSair_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             this.Consulta();
@@ -265,6 +337,39 @@ namespace Projeto_Novo
         private void rdoInativo_CheckedChanged(object sender, EventArgs e)
         {
             this.Consulta();
+        }
+
+        private void dgvFuncionario_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            string ativo;
+
+            DataGridViewRow row = dgvFuncionario.Rows[e.RowIndex];
+            if (row != null)
+            {
+                txtIdFuncionario.Text = row.Cells[0].Value.ToString();
+                txtNome.Text = row.Cells[1].Value.ToString();
+                mtxRG.Text = row.Cells[2].Value.ToString();
+                mtxCPF.Text = row.Cells[3].Value.ToString();
+                mtxDtNasc.Text = row.Cells[4].Value.ToString();
+                txtEnd.Text = row.Cells[5].Value.ToString();
+                txtNumEnd.Text = row.Cells[6].Value.ToString();
+                txtBairro.Text = row.Cells[7].Value.ToString();
+                ativo = row.Cells[9].Value.ToString();
+                cbGpUsu.Text = row.Cells[10].Value.ToString();
+                txtLogin.Text = row.Cells[11].Value.ToString();
+                txtSenha.Text = row.Cells[12].Value.ToString();
+
+
+
+                if (ativo == "S")
+                {
+                    chkAtivo.Checked = true;
+                }
+                else if (ativo == "N")
+                {
+                    chkAtivo.Checked = false;
+                }
+            }
         }
     }
 }

@@ -50,9 +50,10 @@
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgvClientes = new System.Windows.Forms.DataGridView();
             this.tpDadosConta = new System.Windows.Forms.TabPage();
+            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.chkBanco = new System.Windows.Forms.CheckBox();
             this.txtDescricao = new System.Windows.Forms.TextBox();
-            this.txtIdUsuario = new System.Windows.Forms.TextBox();
+            this.txtIdConta = new System.Windows.Forms.TextBox();
             this.lblIdCli = new System.Windows.Forms.Label();
             this.lblDescGrupoProd = new System.Windows.Forms.Label();
             this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
@@ -64,7 +65,6 @@
             this.tsbtnImprimir = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.pnlContas.SuspendLayout();
             this.tcContas.SuspendLayout();
             this.tpConta.SuspendLayout();
@@ -100,6 +100,7 @@
             this.rdoInativo.TabIndex = 23;
             this.rdoInativo.Text = "Inativo";
             this.rdoInativo.UseVisualStyleBackColor = true;
+            this.rdoInativo.CheckedChanged += new System.EventHandler(this.rdoInativo_CheckedChanged);
             // 
             // rdoAtivo
             // 
@@ -113,6 +114,7 @@
             this.rdoAtivo.TabStop = true;
             this.rdoAtivo.Text = "Ativo";
             this.rdoAtivo.UseVisualStyleBackColor = true;
+            this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
             // 
             // rdoTodos
             // 
@@ -125,6 +127,7 @@
             this.rdoTodos.TabStop = true;
             this.rdoTodos.Text = "Todos";
             this.rdoTodos.UseVisualStyleBackColor = true;
+            this.rdoTodos.CheckedChanged += new System.EventHandler(this.rdoTodos_CheckedChanged);
             // 
             // lblPesquisa
             // 
@@ -145,6 +148,7 @@
             this.txtPesquisa.Size = new System.Drawing.Size(257, 20);
             this.txtPesquisa.TabIndex = 10;
             this.txtPesquisa.TabStop = false;
+            this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // tcContas
             // 
@@ -198,6 +202,7 @@
             this.dgvContas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvContas.Size = new System.Drawing.Size(970, 500);
             this.dgvContas.TabIndex = 2;
+            this.dgvContas.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvContas_RowValidated);
             // 
             // Column1
             // 
@@ -285,7 +290,7 @@
             this.tpDadosConta.Controls.Add(this.chkAtivo);
             this.tpDadosConta.Controls.Add(this.chkBanco);
             this.tpDadosConta.Controls.Add(this.txtDescricao);
-            this.tpDadosConta.Controls.Add(this.txtIdUsuario);
+            this.tpDadosConta.Controls.Add(this.txtIdConta);
             this.tpDadosConta.Controls.Add(this.lblIdCli);
             this.tpDadosConta.Controls.Add(this.lblDescGrupoProd);
             this.tpDadosConta.Location = new System.Drawing.Point(4, 22);
@@ -296,9 +301,24 @@
             this.tpDadosConta.Text = "Dados";
             this.tpDadosConta.UseVisualStyleBackColor = true;
             // 
+            // chkAtivo
+            // 
+            this.chkAtivo.AutoSize = true;
+            this.chkAtivo.Checked = true;
+            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkAtivo.Enabled = false;
+            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.chkAtivo.Location = new System.Drawing.Point(309, 37);
+            this.chkAtivo.Name = "chkAtivo";
+            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
+            this.chkAtivo.TabIndex = 23;
+            this.chkAtivo.Text = "Ativo";
+            this.chkAtivo.UseVisualStyleBackColor = true;
+            // 
             // chkBanco
             // 
             this.chkBanco.AutoSize = true;
+            this.chkBanco.Enabled = false;
             this.chkBanco.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.chkBanco.Location = new System.Drawing.Point(12, 139);
             this.chkBanco.Name = "chkBanco";
@@ -309,21 +329,23 @@
             // 
             // txtDescricao
             // 
+            this.txtDescricao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtDescricao.Enabled = false;
             this.txtDescricao.Font = new System.Drawing.Font("Arial", 12F);
             this.txtDescricao.Location = new System.Drawing.Point(11, 91);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(356, 26);
             this.txtDescricao.TabIndex = 2;
             // 
-            // txtIdUsuario
+            // txtIdConta
             // 
-            this.txtIdUsuario.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.txtIdUsuario.Enabled = false;
-            this.txtIdUsuario.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtIdUsuario.Location = new System.Drawing.Point(11, 34);
-            this.txtIdUsuario.Name = "txtIdUsuario";
-            this.txtIdUsuario.Size = new System.Drawing.Size(77, 26);
-            this.txtIdUsuario.TabIndex = 0;
+            this.txtIdConta.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtIdConta.Enabled = false;
+            this.txtIdConta.Font = new System.Drawing.Font("Arial", 12F);
+            this.txtIdConta.Location = new System.Drawing.Point(11, 34);
+            this.txtIdConta.Name = "txtIdConta";
+            this.txtIdConta.Size = new System.Drawing.Size(77, 26);
+            this.txtIdConta.TabIndex = 0;
             // 
             // lblIdCli
             // 
@@ -384,6 +406,7 @@
             this.tsbtnEditConta.Name = "tsbtnEditConta";
             this.tsbtnEditConta.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditConta.Text = "Editar";
+            this.tsbtnEditConta.Click += new System.EventHandler(this.tsbtnEditConta_Click);
             // 
             // tsbtnSalvar
             // 
@@ -436,20 +459,6 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
-            // chkAtivo
-            // 
-            this.chkAtivo.AutoSize = true;
-            this.chkAtivo.Checked = true;
-            this.chkAtivo.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAtivo.Enabled = false;
-            this.chkAtivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.chkAtivo.Location = new System.Drawing.Point(309, 37);
-            this.chkAtivo.Name = "chkAtivo";
-            this.chkAtivo.Size = new System.Drawing.Size(58, 21);
-            this.chkAtivo.TabIndex = 23;
-            this.chkAtivo.Text = "Ativo";
-            this.chkAtivo.UseVisualStyleBackColor = true;
-            // 
             // FrmContas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -489,7 +498,7 @@
         private System.Windows.Forms.TabPage tpDadosConta;
         private System.Windows.Forms.CheckBox chkBanco;
         private System.Windows.Forms.TextBox txtDescricao;
-        private System.Windows.Forms.TextBox txtIdUsuario;
+        private System.Windows.Forms.TextBox txtIdConta;
         private System.Windows.Forms.Label lblIdCli;
         private System.Windows.Forms.Label lblDescGrupoProd;
         private System.Windows.Forms.ToolStrip tsGrupoProduto;
