@@ -668,7 +668,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Venda";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FrmVenda_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmVendas_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProVenda)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).EndInit();

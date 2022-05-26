@@ -42,95 +42,20 @@ namespace Projeto_Novo
             }
         }
 
-        private void dgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void txtIdVendedor_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                con.OpenConn();
-                DataGridViewRow row = dgvProdutos.Rows[e.RowIndex];
-                txtIdProduto.Text = row.Cells[0].Value.ToString();
-                txtProduto.Text = row.Cells[1].Value.ToString();
-                txtValorUnit.Text = row.Cells[3].Value.ToString();
-
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.CloseConn();
-            }
-
-            txtQtd.Focus();
-        }
-
-        private void txtQtd_Leave(object sender, EventArgs e)
-        {
-            if (txtQtd.Text.Length == 0)
-            {
-                txtQtd.Text = "1,000";
-            }
-        }
-
-        private void txtDesconto_Leave(object sender, EventArgs e)
-        {
-            decimal vTotal;
-            decimal vProdtudo = 0;
-            decimal desconto = 0;
-
-            if (txtValorUnit.Text.Length == 0)
-            {
-                txtProduto.Focus();
-            }
-            else
-            {
-                vProdtudo = Convert.ToDecimal(txtValorUnit.Text);
-            }
-
-
-            if (txtDesconto.Text.Length != 0)
-            {
-                desconto = Convert.ToDecimal(txtDesconto.Text);
-                vTotal = (vProdtudo  * Convert.ToDecimal(txtQtd.Text)) - desconto;
-
-                txtValorTotal.Text = vTotal.ToString();
-            }
-            else
-            {
-                vTotal = vProdtudo * Convert.ToDecimal(txtQtd.Text);
-
-                txtValorTotal.Text = vTotal.ToString();
-                txtDesconto.Text = "0,00";
-            }
-
-
-        }
-
-        private void btnConfirmar_Click(object sender, EventArgs e)
-        {
-            DateTime dtVenda;
-
-            if (txtIdVenda.Text != null && txtIdCliente.Text != null && txtCliente.Text != null && txtIdProduto.Text != null && txtProduto.Text != null)
+            if (txtIdVendedor.Text.Length != 0)
             {
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("UPDATE VENDA SET ID_CLIENTE = @ID_CLIENTE, CLIENTE = @CLIENTE, VALOR = @VALOR, DESCONTO = @DESC, VALOR_TOTAL = @TOTAL, " +
-                        "PAGO = @PAGO , DATA_VENDA = @DATA, EX = 0 WHERE ID = '" + txtIdVenda.Text + "'", con.query);
+                    cmd = new MySqlCommand("SELECT NOME FROM FUNCIONARIO WHERE ID = " + int.Parse(txtIdVendedor.Text) + ";", con.query);
+                    MySqlDataReader dr = cmd.ExecuteReader();
 
-                    cmd.Parameters.AddWithValue("@ID_CLIENTE", txtIdCliente.Text);
-                    cmd.Parameters.AddWithValue("@CLIENTE", txtCliente.Text);
-                    cmd.Parameters.AddWithValue("@VALOR", decimal.Parse(txtValorVenda.Text));
-                    cmd.Parameters.AddWithValue("@DESC", decimal.Parse(txtDescontoVenda.Text));
-                    cmd.Parameters.AddWithValue("@TOTAL", decimal.Parse(txtValorVenda.Text));
-                    cmd.Parameters.AddWithValue("@PAGO", decimal.Parse(txtValorVenda.Text));
-                    cmd.Parameters.AddWithValue("@DATA", dtVenda = DateTime.Now);
-                    cmd.ExecuteNonQuery();
-                    cmd.Dispose();
-
-                    MessageBox.Show("Venda realizado com sucesso!", "", MessageBoxButtons.OK);
+                    if (dr.Read())
+                    {
+                        txtVendedor.Text = dr[0].ToString();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -140,100 +65,6 @@ namespace Projeto_Novo
                 {
                     con.CloseConn();
                 }
-
-                txtIdVenda.Clear();
-                txtIdCliente.Clear();
-                txtCliente.Clear();
-                txtIdProduto.Clear();
-                txtProduto.Clear();
-                txtQtd.Clear();
-                txtValorUnit.Clear();
-                txtDesconto.Clear();
-                txtValorTotal.Clear();
-                txtValorVenda.Clear();
-                txtDescontoVenda.Clear();
-                txtIdCliente.Focus();
-            }
-        }
-
-        private void btnSair_Click(object sender, EventArgs e)
-        {
-            if (txtIdVenda.Text.Length != 0)
-
-            {
-                if (MessageBox.Show("Deseja cancelar venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-                {
-                    try
-                    {
-                        con.OpenConn();
-                        cmd = new MySqlCommand("UPDATE VENDA_ITEM SET EX = 1 WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
-                        cmd.ExecuteNonQuery();
-                        cmd.Dispose();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        con.CloseConn();
-                    }
-                    this.Close();
-                    return;
-                }
-            }
-            else if (MessageBox.Show("Deseja sair da venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                this.Close();
-                return;
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            if (txtIdCliente.Text.Length != 0 || txtCliente.Text.Length != 0 || txtIdProduto.Text.Length != 0 && txtProduto.Text.Length != 0)
-            {
-                if (MessageBox.Show("Deseja cancelar venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-                    try
-                    {
-                        con.OpenConn();
-                        cmd = new MySqlCommand("UPDATE VENDA_ITEM SET EX = 1 WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
-                        cmd.ExecuteNonQuery();
-                        cmd.Dispose();
-
-                        cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM " +
-                            "WHERE EX = 0 AND IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
-
-                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                        DataSet ds = new DataSet();
-                        da.Fill(ds);
-                        dgvProVenda.DataSource = ds;
-                        dgvProVenda.DataMember = ds.Tables[0].TableName;
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        con.CloseConn();
-                    }
-
-                    txtIdVenda.Clear();
-                    txtCliente.Clear();
-                    txtIdCliente.Clear();
-                    txtIdProduto.Clear();
-                    txtProduto.Clear();
-                    txtQtd.Clear();
-                    txtValorUnit.Clear();
-                    txtValorTotal.Clear();
-                    txtDesconto.Clear();
-                    txtValorVenda.Clear();
-                    ValorVenda = 0;
-                    return;
-                }
-                return;
             }
         }
 
@@ -277,6 +108,33 @@ namespace Projeto_Novo
                 dgvNome.Visible = false;
             }
         }
+
+        private void txtIdCliente_Leave(object sender, EventArgs e)
+        {
+            if (txtIdCliente.Text.Length != 0)
+            {
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT NOME FROM CLIENTE WHERE ID = " + int.Parse(txtIdCliente.Text) + ";", con.query);
+                    MySqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        txtCliente.Text = dr[0].ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
+        }
+
         private void txtCliente_TextChanged(object sender, EventArgs e)
         {
             if (txtCliente.Text.Length != 0)
@@ -315,6 +173,33 @@ namespace Projeto_Novo
             else
             {
                 dgvNome.Visible = false;
+            }
+        }
+
+        private void txtIdProduto_Leave(object sender, EventArgs e)
+        {
+            if (txtIdProduto.Text.Length != 0)
+            {
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT DESCRICAO, pVenda FROM PRODUTO WHERE ID = " + int.Parse(txtIdProduto.Text) + ";", con.query);
+                    MySqlDataReader dr = cmd.ExecuteReader();
+
+                    if (dr.Read())
+                    {
+                        txtProduto.Text = dr[0].ToString();
+                        txtValorUnit.Text = dr[1].ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
         }
 
@@ -360,60 +245,44 @@ namespace Projeto_Novo
             }
         }
 
-        private void txtIdVendedor_Leave(object sender, EventArgs e)
+        private void txtQtd_Leave(object sender, EventArgs e)
         {
-            if (txtIdVendedor.Text.Length != 0)
+            if (txtQtd.Text.Length == 0)
             {
-                try
-                {
-                    con.OpenConn();
-                    cmd = new MySqlCommand("SELECT NOME FROM FUNCIONARIO WHERE ID = " + int.Parse(txtIdVendedor.Text) + ";", con.query);
-                    MySqlDataReader dr = cmd.ExecuteReader();
-                    
-                    if (dr.Read())
-                    {
-                        txtVendedor.Text = dr[0].ToString();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    con.CloseConn();
-                }
-            }
-        }
-        private void txtIdCliente_Leave(object sender, EventArgs e)
-        {
-            if (txtIdCliente.Text.Length != 0)
-            {
-                try
-                {
-                    con.OpenConn();
-                    cmd = new MySqlCommand("SELECT NOME FROM CLIENTE WHERE ID = " + int.Parse(txtIdCliente.Text) + ";", con.query);
-                    MySqlDataReader dr = cmd.ExecuteReader();
-
-                    if (dr.Read())
-                    { 
-                        txtCliente.Text = dr[0].ToString();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    con.CloseConn();
-                }
+                txtQtd.Text = "1,000";
             }
         }
 
-        private void FrmVenda_Load(object sender, EventArgs e)
+        private void txtDesconto_Leave(object sender, EventArgs e)
         {
+            decimal vTotal;
+            decimal vProdtudo = 0;
+            decimal desconto = 0;
 
+            if (txtValorUnit.Text.Length == 0)
+            {
+                txtProduto.Focus();
+            }
+            else
+            {
+                vProdtudo = Convert.ToDecimal(txtValorUnit.Text);
+            }
+
+
+            if (txtDesconto.Text.Length != 0)
+            {
+                desconto = Convert.ToDecimal(txtDesconto.Text);
+                vTotal = (vProdtudo * Convert.ToDecimal(txtQtd.Text)) - desconto;
+
+                txtValorTotal.Text = vTotal.ToString();
+            }
+            else
+            {
+                vTotal = vProdtudo * Convert.ToDecimal(txtQtd.Text);
+
+                txtValorTotal.Text = vTotal.ToString();
+                txtDesconto.Text = "0,00";
+            }
         }
 
         private void txtValorTotal_Enter(object sender, EventArgs e)
@@ -423,7 +292,8 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("INSERT INTO VENDA (EX) VALUES (1);", con.query);
+                    //INSERT INTO VENDA (EX) VALUES (1);
+                    cmd = new MySqlCommand("insert into venda (ID, EX) select (select max(id)+1 from venda), 1;", con.query);
 
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
@@ -482,25 +352,57 @@ namespace Projeto_Novo
             txtValorUnit.Clear();
             txtDesconto.Clear();
             txtValorTotal.Clear();
-            
+
             txtProduto.Focus();
         }
 
-        private void txtIdProduto_Leave(object sender, EventArgs e)
+        private void dgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (txtIdProduto.Text.Length != 0)
+            try
+            {
+                con.OpenConn();
+                DataGridViewRow row = dgvProdutos.Rows[e.RowIndex];
+                txtIdProduto.Text = row.Cells[0].Value.ToString();
+                txtProduto.Text = row.Cells[1].Value.ToString();
+                txtValorUnit.Text = row.Cells[3].Value.ToString();
+
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.CloseConn();
+            }
+
+            txtQtd.Focus();
+        }
+
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            DateTime dtVenda;
+
+            if (txtIdVenda.Text != null && txtIdCliente.Text != null && txtCliente.Text != null && txtIdProduto.Text != null && txtProduto.Text != null)
             {
                 try
                 {
                     con.OpenConn();
-                    cmd = new MySqlCommand("SELECT DESCRICAO, pVenda FROM PRODUTO WHERE ID = " + int.Parse(txtIdProduto.Text) + ";", con.query);
-                    MySqlDataReader dr = cmd.ExecuteReader();
-                    
-                    if(dr.Read())
-                    { 
-                        txtProduto.Text = dr[0].ToString();
-                        txtValorUnit.Text = dr[1].ToString();
-                    }
+                    cmd = new MySqlCommand("UPDATE VENDA SET ID_CLIENTE = @ID_CLIENTE, CLIENTE = @CLIENTE, VALOR = @VALOR, DESCONTO = @DESC, VALOR_TOTAL = @TOTAL, " +
+                        "PAGO = @PAGO , DATA_VENDA = @DATA, EX = 0 WHERE ID = '" + txtIdVenda.Text + "'", con.query);
+
+                    cmd.Parameters.AddWithValue("@ID_CLIENTE", txtIdCliente.Text);
+                    cmd.Parameters.AddWithValue("@CLIENTE", txtCliente.Text);
+                    cmd.Parameters.AddWithValue("@VALOR", decimal.Parse(txtValorVenda.Text));
+                    cmd.Parameters.AddWithValue("@DESC", decimal.Parse(txtDescontoVenda.Text));
+                    cmd.Parameters.AddWithValue("@TOTAL", decimal.Parse(txtValorVenda.Text));
+                    cmd.Parameters.AddWithValue("@PAGO", decimal.Parse(txtValorVenda.Text));
+                    cmd.Parameters.AddWithValue("@DATA", dtVenda = DateTime.Now);
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+
+                    MessageBox.Show("Venda realizado com sucesso!", "", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
                 {
@@ -510,6 +412,100 @@ namespace Projeto_Novo
                 {
                     con.CloseConn();
                 }
+
+                txtIdVenda.Clear();
+                txtIdCliente.Clear();
+                txtCliente.Clear();
+                txtIdProduto.Clear();
+                txtProduto.Clear();
+                txtQtd.Clear();
+                txtValorUnit.Clear();
+                txtDesconto.Clear();
+                txtValorTotal.Clear();
+                txtValorVenda.Clear();
+                txtDescontoVenda.Clear();
+                txtIdCliente.Focus();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (txtIdCliente.Text.Length != 0 || txtCliente.Text.Length != 0 || txtIdProduto.Text.Length != 0 && txtProduto.Text.Length != 0)
+            {
+                if (MessageBox.Show("Deseja cancelar venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        con.OpenConn();
+                        cmd = new MySqlCommand("UPDATE VENDA_ITEM SET EX = 1 WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+
+                        cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM " +
+                            "WHERE EX = 0 AND IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
+
+                        MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        da.Fill(ds);
+                        dgvProVenda.DataSource = ds;
+                        dgvProVenda.DataMember = ds.Tables[0].TableName;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        con.CloseConn();
+                    }
+
+                    txtIdVenda.Clear();
+                    txtCliente.Clear();
+                    txtIdCliente.Clear();
+                    txtIdProduto.Clear();
+                    txtProduto.Clear();
+                    txtQtd.Clear();
+                    txtValorUnit.Clear();
+                    txtValorTotal.Clear();
+                    txtDesconto.Clear();
+                    txtValorVenda.Clear();
+                    ValorVenda = 0;
+                    return;
+                }
+                return;
+            }
+        }
+
+        private void btnSair_Click(object sender, EventArgs e)
+        {
+            if (txtIdVenda.Text.Length != 0)
+
+            {
+                if (MessageBox.Show("Deseja cancelar venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        con.OpenConn();
+                        cmd = new MySqlCommand("UPDATE VENDA_ITEM SET EX = 1 WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        con.CloseConn();
+                    }
+                    this.Close();
+                    return;
+                }
+            }
+            else if (MessageBox.Show("Deseja sair da venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                return;
             }
         }
     }
