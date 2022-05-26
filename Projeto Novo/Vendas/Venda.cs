@@ -292,7 +292,6 @@ namespace Projeto_Novo
                 try
                 {
                     con.OpenConn();
-                    //INSERT INTO VENDA (EX) VALUES (1);
                     cmd = new MySqlCommand("insert into venda (ID, EX) select (select max(id)+1 from venda), 1;", con.query);
 
                     cmd.ExecuteNonQuery();
@@ -410,6 +409,12 @@ namespace Projeto_Novo
                 }
                 finally
                 {
+                    cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM WHERE id = 0;", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvProVenda.DataSource = ds;
+                    dgvProVenda.DataMember = ds.Tables[0].TableName;
                     con.CloseConn();
                 }
 
