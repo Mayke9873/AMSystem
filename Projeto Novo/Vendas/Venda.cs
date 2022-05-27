@@ -397,7 +397,8 @@ namespace Projeto_Novo
                     cmd.Parameters.AddWithValue("@DESC", decimal.Parse(txtDescontoVenda.Text));
                     cmd.Parameters.AddWithValue("@TOTAL", decimal.Parse(txtValorVenda.Text));
                     cmd.Parameters.AddWithValue("@PAGO", decimal.Parse(txtValorVenda.Text));
-                    cmd.Parameters.AddWithValue("@DATA", dtVenda = DateTime.Now);
+                    cmd.Parameters.AddWithValue("@VENDEDOR", int.Parse(txtIdVendedor.Text));
+                    cmd.Parameters.AddWithValue("@DATA", dtVenda = DateTime.Now); 
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
 
@@ -442,12 +443,15 @@ namespace Projeto_Novo
                     try
                     {
                         con.OpenConn();
-                        cmd = new MySqlCommand("UPDATE VENDA_ITEM SET EX = 1 WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
+                        cmd = new MySqlCommand("DELETE FROM VENDA_ITEM WHERE IDVENDA = '" + int.Parse(txtIdVenda.Text) + "';", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
 
-                        cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM " +
-                            "WHERE EX = 0 AND IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
+                        cmd = new MySqlCommand("DELETE FROM VENDA WHERE ID = " + int.Parse(txtIdVenda.Text) + ";", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+
+                        cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM WHERE id = 0;", con.query);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
@@ -491,7 +495,7 @@ namespace Projeto_Novo
                     try
                     {
                         con.OpenConn();
-                        cmd = new MySqlCommand("UPDATE VENDA_ITEM SET EX = 1 WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
+                        cmd = new MySqlCommand("DELETE FROM VENDA_ITEM WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
                     }
