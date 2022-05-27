@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsVendas));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.tsGrupoProduto = new System.Windows.Forms.ToolStrip();
@@ -51,14 +51,14 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vendedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataSourceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.connectionTimeoutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.databaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.connectionStringDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mtxDtFinal = new System.Windows.Forms.MaskedTextBox();
-            this.txtDtInicial = new System.Windows.Forms.MaskedTextBox();
+            this.mtxDtInicial = new System.Windows.Forms.MaskedTextBox();
             this.lblPeriodo = new System.Windows.Forms.Label();
             this.tsGrupoProduto.SuspendLayout();
             this.pnlConsPedidos.SuspendLayout();
@@ -170,7 +170,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlConsPedidos.Controls.Add(this.dgvVendas);
             this.pnlConsPedidos.Controls.Add(this.mtxDtFinal);
-            this.pnlConsPedidos.Controls.Add(this.txtDtInicial);
+            this.pnlConsPedidos.Controls.Add(this.mtxDtInicial);
             this.pnlConsPedidos.Controls.Add(this.lblPeriodo);
             this.pnlConsPedidos.Controls.Add(this.lblPesquisa);
             this.pnlConsPedidos.Controls.Add(this.txtPesquisa);
@@ -189,14 +189,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVendas.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVendas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvVendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -205,31 +205,31 @@
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column7,
+            this.vendedor,
             this.dataSourceDataGridViewTextBoxColumn,
             this.connectionTimeoutDataGridViewTextBoxColumn,
             this.databaseDataGridViewTextBoxColumn,
             this.connectionStringDataGridViewTextBoxColumn});
             this.dgvVendas.DataSource = this.mySqlConnectionBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvVendas.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvVendas.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvVendas.Location = new System.Drawing.Point(3, 58);
             this.dgvVendas.Name = "dgvVendas";
             this.dgvVendas.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvVendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvVendas.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvVendas.RowHeadersWidth = 12;
             this.dgvVendas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVendas.Size = new System.Drawing.Size(977, 529);
@@ -277,12 +277,12 @@
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
-            // Column7
+            // vendedor
             // 
-            this.Column7.DataPropertyName = "ex";
-            this.Column7.HeaderText = "Ex";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
+            this.vendedor.DataPropertyName = "nome";
+            this.vendedor.HeaderText = "Vendedor";
+            this.vendedor.Name = "vendedor";
+            this.vendedor.ReadOnly = true;
             // 
             // dataSourceDataGridViewTextBoxColumn
             // 
@@ -323,35 +323,34 @@
             // mtxDtFinal
             // 
             this.mtxDtFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mtxDtFinal.Location = new System.Drawing.Point(543, 32);
+            this.mtxDtFinal.Location = new System.Drawing.Point(552, 32);
             this.mtxDtFinal.Mask = "00/00/0000";
             this.mtxDtFinal.Name = "mtxDtFinal";
-            this.mtxDtFinal.Size = new System.Drawing.Size(80, 20);
+            this.mtxDtFinal.Size = new System.Drawing.Size(75, 20);
             this.mtxDtFinal.TabIndex = 3;
+            this.mtxDtFinal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtxDtFinal.ValidatingType = typeof(System.DateTime);
-            this.mtxDtFinal.Visible = false;
             // 
-            // txtDtInicial
+            // mtxDtInicial
             // 
-            this.txtDtInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtDtInicial.Location = new System.Drawing.Point(457, 32);
-            this.txtDtInicial.Mask = "00/00/0000";
-            this.txtDtInicial.Name = "txtDtInicial";
-            this.txtDtInicial.Size = new System.Drawing.Size(80, 20);
-            this.txtDtInicial.TabIndex = 2;
-            this.txtDtInicial.ValidatingType = typeof(System.DateTime);
-            this.txtDtInicial.Visible = false;
+            this.mtxDtInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtxDtInicial.Location = new System.Drawing.Point(471, 32);
+            this.mtxDtInicial.Mask = "00/00/0000";
+            this.mtxDtInicial.Name = "mtxDtInicial";
+            this.mtxDtInicial.Size = new System.Drawing.Size(75, 20);
+            this.mtxDtInicial.TabIndex = 2;
+            this.mtxDtInicial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxDtInicial.ValidatingType = typeof(System.DateTime);
             // 
             // lblPeriodo
             // 
             this.lblPeriodo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPeriodo.AutoSize = true;
-            this.lblPeriodo.Location = new System.Drawing.Point(405, 35);
+            this.lblPeriodo.Location = new System.Drawing.Point(417, 35);
             this.lblPeriodo.Name = "lblPeriodo";
-            this.lblPeriodo.Size = new System.Drawing.Size(46, 13);
+            this.lblPeriodo.Size = new System.Drawing.Size(48, 13);
             this.lblPeriodo.TabIndex = 12;
-            this.lblPeriodo.Text = "Periodo:";
-            this.lblPeriodo.Visible = false;
+            this.lblPeriodo.Text = "Período:";
             // 
             // FrmConsVendas
             // 
@@ -390,7 +389,7 @@
         private System.Windows.Forms.Panel pnlConsPedidos;
         private System.Windows.Forms.Label lblPeriodo;
         private System.Windows.Forms.MaskedTextBox mtxDtFinal;
-        private System.Windows.Forms.MaskedTextBox txtDtInicial;
+        private System.Windows.Forms.MaskedTextBox mtxDtInicial;
         private System.Windows.Forms.DataGridView dgvVendas;
         private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
@@ -399,7 +398,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vendedor;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;

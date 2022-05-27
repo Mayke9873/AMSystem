@@ -23,7 +23,7 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("SELECT ID, CLIENTE, VALOR, DESCONTO, VALOR_TOTAL, DATA_VENDA, EX FROM VENDA;", con.query);
+                cmd = new MySqlCommand("SELECT a.ID, a.CLIENTE, a.VALOR, a.DESCONTO, a.VALOR_TOTAL, a.DATA_VENDA, b.NOME FROM VENDA a LEFT JOIN  FUNCIONARIO b on  a.VENDEDOR = b.ID;", con.query);
 
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
@@ -43,23 +43,52 @@ namespace Projeto_Novo
 
         private void Consulta()
         {
-            try
+            if (mtxDtInicial.MaskCompleted == false || mtxDtFinal.MaskCompleted == false)
             {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT ID, CLIENTE, VALOR, DESCONTO, VALOR_TOTAL, DATA_VENDA, EX FROM VENDA WHERE CLIENTE LIKE '%" + txtPesquisa.Text + "%';", con.query);
-                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                da.Fill(ds);
-                dgvVendas.DataSource = ds;
-                dgvVendas.DataMember = ds.Tables[0].TableName;
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT a.ID, a.CLIENTE, a.VALOR, a.DESCONTO, a.VALOR_TOTAL, a.DATA_VENDA, b.NOME FROM VENDA a LEFT JOIN  FUNCIONARIO b on  a.VENDEDOR = b.ID" +
+                        " WHERE CLIENTE LIKE '%" + txtPesquisa.Text + "%';", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvVendas.DataSource = ds;
+                    dgvVendas.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.CloseConn();
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand("SELECT a.ID, a.CLIENTE, a.VALOR, a.DESCONTO, a.VALOR_TOTAL, a.DATA_VENDA, b.NOME FROM VENDA a LEFT JOIN  FUNCIONARIO b on  a.VENDEDOR = b.ID" +
+                        " WHERE CLIENTE LIKE '%" + txtPesquisa.Text + "%' AND DATA_VENDA BETWEEN" +
+                        //conversão da data no select
+                        " (SELECT date_format(str_to_date('" + mtxDtInicial.Text + "', '%d/%m/%Y'), '%Y-%m-%d'))" +
+                        " AND (SELECT date_format(str_to_date('" + mtxDtInicial.Text + "', '%d/%m/%Y'), '%Y-%m-%d'));", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    dgvVendas.DataSource = ds;
+                    dgvVendas.DataMember = ds.Tables[0].TableName;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
             }
         }
 
