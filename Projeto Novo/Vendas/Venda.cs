@@ -190,6 +190,7 @@ namespace Projeto_Novo
                     {
                         txtProduto.Text = dr[0].ToString();
                         txtValorUnit.Text = dr[1].ToString();
+                        txtQtd.Focus();
                     }
                 }
                 catch (Exception ex)
@@ -389,7 +390,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
                     cmd = new MySqlCommand("UPDATE VENDA SET ID_CLIENTE = @ID_CLIENTE, CLIENTE = @CLIENTE, VALOR = @VALOR, DESCONTO = @DESC, VALOR_TOTAL = @TOTAL, " +
-                        "PAGO = @PAGO , DATA_VENDA = @DATA, EX = 0 WHERE ID = '" + txtIdVenda.Text + "'", con.query);
+                        "PAGO = @PAGO , VENDEDOR = @VENDEDOR, DATA_VENDA = @DATA, EX = 0 WHERE ID = '" + txtIdVenda.Text + "'", con.query);
 
                     cmd.Parameters.AddWithValue("@ID_CLIENTE", txtIdCliente.Text);
                     cmd.Parameters.AddWithValue("@CLIENTE", txtCliente.Text);
@@ -442,15 +443,18 @@ namespace Projeto_Novo
                 {
                     try
                     {
+                        //Exclui itens da venda
                         con.OpenConn();
                         cmd = new MySqlCommand("DELETE FROM VENDA_ITEM WHERE IDVENDA = '" + int.Parse(txtIdVenda.Text) + "';", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
 
+                        //Exclui a venda
                         cmd = new MySqlCommand("DELETE FROM VENDA WHERE ID = " + int.Parse(txtIdVenda.Text) + ";", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
 
+                        //Refaz select dos itens
                         cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM WHERE id = 0;", con.query);
 
                         MySqlDataAdapter da = new MySqlDataAdapter(cmd);
@@ -477,8 +481,10 @@ namespace Projeto_Novo
                     txtValorUnit.Clear();
                     txtValorTotal.Clear();
                     txtDesconto.Clear();
+                    txtDescontoVenda.Clear();
                     txtValorVenda.Clear();
                     ValorVenda = 0;
+                    txtIdCliente.Focus();
                     return;
                 }
                 return;
@@ -494,11 +500,13 @@ namespace Projeto_Novo
                 {
                     try
                     {
+                        //Exclui itens da venda
                         con.OpenConn();
                         cmd = new MySqlCommand("DELETE FROM VENDA_ITEM WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
 
+                        //Exclui a venda
                         cmd = new MySqlCommand("DELETE FROM VENDA WHERE ID = " + int.Parse(txtIdVenda.Text) + ";", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
