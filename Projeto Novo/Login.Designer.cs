@@ -52,6 +52,7 @@
             // txtUsuario
             // 
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtUsuario.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(33, 40);
             this.txtUsuario.Name = "txtUsuario";
@@ -67,6 +68,7 @@
             this.txtSenha.Size = new System.Drawing.Size(160, 25);
             this.txtSenha.TabIndex = 2;
             this.txtSenha.UseSystemPasswordChar = true;
+            this.txtSenha.Validated += new System.EventHandler(this.txtSenha_Validated);
             // 
             // lblSenha
             // 

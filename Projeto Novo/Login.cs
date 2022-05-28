@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
 
 namespace Projeto_Novo
 {
     public partial class FrmLogin : Form
     {
+        //Borda arredondada
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
         (
@@ -23,6 +25,9 @@ namespace Projeto_Novo
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
+
+        Conexao con = new Conexao();
+        MySqlCommand cmd;
 
         public FrmLogin()
         {
@@ -35,7 +40,8 @@ namespace Projeto_Novo
             switch (e.KeyCode)
             {
                 case Keys.Enter:
-                    btnLogin_Click(sender, e);
+                    e.SuppressKeyPress = true;
+                    this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
                     break;
 
                 case Keys.Escape:
@@ -44,23 +50,57 @@ namespace Projeto_Novo
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void Login()
         {
-            // Login
-            if (txtUsuario.Text == "")
+            // Informação de login do usuário
+            if (txtUsuario.Text.Length == 0)
             {
                 MessageBox.Show("Usuário não informado, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtUsuario.Focus();
                 return;
             }
-            else if (txtSenha.Text == "")
+            else if (txtSenha.Text.Length == 0)
             {
+                MessageBox.Show("Senha não informada, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 txtSenha.Focus();
                 return;
             }
 
-            // Aqui vai o Login
-            DialogResult = DialogResult.OK;
+            // Validando login
+            try
+            {
+                con.OpenConn();
+                cmd = new MySqlCommand("SELECT LOGIN, SENHA FROM FUNCIONARIO WHERE LOGIN = '" + txtUsuario.Text + "' AND SENHA = '" + txtSenha.Text + "';", con.query);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    txtUsuario.Focus();
+                    MessageBox.Show("Usuário ou senha inválida, por favor verifique!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                con.CloseConn();
+            }
+        }
+
+        private void txtSenha_Validated(object sender, EventArgs e)
+        {
+            this.Login();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            this.Login();
         }
 
         private void btnSair_Click(object sender, EventArgs e)
