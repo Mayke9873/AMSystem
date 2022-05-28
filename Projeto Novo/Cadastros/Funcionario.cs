@@ -229,14 +229,7 @@ namespace Projeto_Novo
             int idGpUsu;
             DateTime dtRegistro;
 
-            if (chkAtivo.Checked == true)
-            {
-                ativo = "S";
-            }
-            else
-            {
-                ativo = "N";
-            }
+            ativo = (chkAtivo.Checked == true ? "S" : "N");
 
             if (txtNome.Text.Length == 0)
             {
@@ -359,16 +352,7 @@ namespace Projeto_Novo
                 txtLogin.Text = row.Cells[11].Value.ToString();
                 txtSenha.Text = row.Cells[12].Value.ToString();
 
-
-
-                if (ativo == "S")
-                {
-                    chkAtivo.Checked = true;
-                }
-                else if (ativo == "N")
-                {
-                    chkAtivo.Checked = false;
-                }
+                chkAtivo.Checked = (ativo == "S" ? true : false);
             }
         }
     }
