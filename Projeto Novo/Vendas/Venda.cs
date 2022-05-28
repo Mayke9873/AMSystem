@@ -498,6 +498,10 @@ namespace Projeto_Novo
                         cmd = new MySqlCommand("DELETE FROM VENDA_ITEM WHERE IDVENDA = " + int.Parse(txtIdVenda.Text) + ";", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
+
+                        cmd = new MySqlCommand("DELETE FROM VENDA WHERE ID = " + int.Parse(txtIdVenda.Text) + ";", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
                     }
                     catch (Exception ex)
                     {
