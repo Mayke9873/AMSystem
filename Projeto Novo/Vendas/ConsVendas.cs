@@ -20,25 +20,7 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT a.ID, a.CLIENTE, a.VALOR, a.DESCONTO, a.VALOR_TOTAL, a.DATA_VENDA, b.NOME FROM VENDA a LEFT JOIN  FUNCIONARIO b on  a.VENDEDOR = b.ID;", con.query);
-
-                MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                dgvVendas.DataSource = ds;
-                dgvVendas.DataMember = ds.Tables[0].TableName;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.CloseConn();
-            }
+            this.Consulta();
         }
 
         private void Consulta()
@@ -69,12 +51,13 @@ namespace Projeto_Novo
             {
                 try
                 {
+                    //conversão da data no select
                     con.OpenConn();
                     cmd = new MySqlCommand("SELECT a.ID, a.CLIENTE, a.VALOR, a.DESCONTO, a.VALOR_TOTAL, a.DATA_VENDA, b.NOME FROM VENDA a LEFT JOIN  FUNCIONARIO b on  a.VENDEDOR = b.ID" +
                         " WHERE CLIENTE LIKE '%" + txtPesquisa.Text + "%' AND DATA_VENDA BETWEEN" +
-                        //conversão da data no select
                         " (SELECT date_format(str_to_date('" + mtxDtInicial.Text + "', '%d/%m/%Y'), '%Y-%m-%d'))" +
-                        " AND (SELECT date_format(str_to_date('" + mtxDtInicial.Text + "', '%d/%m/%Y'), '%Y-%m-%d'));", con.query);
+                        " AND (SELECT date_format(str_to_date('" + mtxDtFinal.Text + "', '%d/%m/%Y'), '%Y-%m-%d'));", con.query);
+
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
