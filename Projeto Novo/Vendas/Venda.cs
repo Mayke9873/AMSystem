@@ -33,11 +33,11 @@ namespace Projeto_Novo
                     break;
 
                 case Keys.Escape:
-                    btnSair_Click(sender, e);
+                    this.btnSair_Click(sender, e);
                     break;
 
                 case Keys.F2:
-                    btnCancelar_Click(sender, e);
+                    this.btnCancelar_Click(sender, e);
                     break;
             }
         }
