@@ -7,16 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace Projeto_Novo.Relatorios
 {
     public partial class frmRelVendas : Form
     {
-        Conexao con = new Conexao();
-        MySqlCommand cmd;
-
         public frmRelVendas()
         {
             InitializeComponent();
