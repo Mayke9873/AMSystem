@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRelVendas));
             this.vendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projetodbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projeto_dbDataSet = new Projeto_Novo.projeto_dbDataSet();
@@ -76,7 +75,7 @@
             this.rpvVendas.ShowFindControls = false;
             this.rpvVendas.ShowRefreshButton = false;
             this.rpvVendas.ShowStopButton = false;
-            this.rpvVendas.Size = new System.Drawing.Size(684, 551);
+            this.rpvVendas.Size = new System.Drawing.Size(714, 761);
             this.rpvVendas.TabIndex = 0;
             this.rpvVendas.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             // 
@@ -128,11 +127,11 @@
             // 
             // tbnFiltrar
             // 
-            this.tbnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("tbnFiltrar.Image")));
             this.tbnFiltrar.Location = new System.Drawing.Point(644, 2);
             this.tbnFiltrar.Name = "tbnFiltrar";
-            this.tbnFiltrar.Size = new System.Drawing.Size(31, 23);
+            this.tbnFiltrar.Size = new System.Drawing.Size(47, 23);
             this.tbnFiltrar.TabIndex = 5;
+            this.tbnFiltrar.Text = "Filtrar";
             this.tbnFiltrar.UseVisualStyleBackColor = true;
             this.tbnFiltrar.Click += new System.EventHandler(this.tbnFiltrar_Click);
             // 
@@ -140,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 551);
+            this.ClientSize = new System.Drawing.Size(714, 761);
             this.Controls.Add(this.tbnFiltrar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkTodos);
