@@ -670,11 +670,17 @@
                 </FilterValues>
               </Filter>
               <Filter>
-                <FilterExpression>=Fields!data_venda.Value</FilterExpression>
-                <Operator>Between</Operator>
+                <FilterExpression>=IIF(IsNothing(Parameters!DtInicial.Value), true, Parameters!DtInicial.Value &lt;= Fields!data_venda.Value)</FilterExpression>
+                <Operator>Equal</Operator>
                 <FilterValues>
-                  <FilterValue>=CDate(Parameters!DtInicial.Value)</FilterValue>
-                  <FilterValue>=CDate(Parameters!DtFinal.Value)</FilterValue>
+                  <FilterValue>=true</FilterValue>
+                </FilterValues>
+              </Filter>
+              <Filter>
+                <FilterExpression>=IIF(IsNothing(Parameters!DtFinal.Value), true, Parameters!DtFinal.Value &gt;= Fields!data_venda.Value)</FilterExpression>
+                <Operator>Equal</Operator>
+                <FilterValues>
+                  <FilterValue>=true</FilterValue>
                 </FilterValues>
               </Filter>
             </Filters>

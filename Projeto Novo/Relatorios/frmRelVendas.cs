@@ -43,8 +43,8 @@ namespace Projeto_Novo.Relatorios
         private void frmRelVendas_Load(object sender, EventArgs e)
         {
             this.vendaTableAdapter.Fill(this.projeto_dbDataSet.venda);
-            this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtInicial", dtInicial));
-            this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtFinal", dtFinal));
+            this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtInicial", (string)null));
+            this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtFinal", (string)null));
             this.rpvVendas.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
             this.rpvVendas.RefreshReport();
         }
@@ -68,8 +68,8 @@ namespace Projeto_Novo.Relatorios
             if (chkTodos.Checked)
             {
                 this.vendaTableAdapter.Fill(this.projeto_dbDataSet.venda);
-                this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtInicial", dtInicial));
-                this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtFinal", dtFinal));
+                this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtInicial", (string)null));
+                this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtFinal", (string)null));
                 this.rpvVendas.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
                 this.rpvVendas.RefreshReport();
             }
