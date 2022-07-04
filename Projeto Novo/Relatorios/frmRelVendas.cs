@@ -41,6 +41,8 @@ namespace Projeto_Novo.Relatorios
                 this.vendaTableAdapter.Fill(this.projeto_dbDataSet.venda);
                 this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtInicial", (string)null));
                 this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtFinal", (string)null));
+                this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("Periodo", "Todos."));
+                this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("de", (string)null));
                 this.rpvVendas.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
                 this.rpvVendas.RefreshReport();
             }
@@ -49,6 +51,8 @@ namespace Projeto_Novo.Relatorios
                 this.vendaTableAdapter.Fill(this.projeto_dbDataSet.venda);
                 this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtInicial", dtpInicial.Text));
                 this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("DtFinal", dtpFinal.Text));
+                this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("Periodo", (string)null));
+                this.rpvVendas.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("de", "até"));
                 this.rpvVendas.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
                 this.rpvVendas.RefreshReport();
             }
