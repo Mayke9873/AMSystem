@@ -33,11 +33,11 @@ namespace Projeto_Novo
                     break;
 
                 case Keys.Escape:
-                    btnSair_Click(sender, e);
+                    this.btnSair_Click(sender, e);
                     break;
 
                 case Keys.F2:
-                    btnCancelar_Click(sender, e);
+                    this.btnCancelar_Click(sender, e);
                     break;
             }
         }
@@ -384,7 +384,51 @@ namespace Projeto_Novo
         {
             DateTime dtVenda;
 
-            if (txtIdVenda.Text != null && txtIdCliente.Text != null && txtCliente.Text != null && txtIdProduto.Text != null && txtProduto.Text != null)
+            //Verefica funcionario
+            try
+            {
+                con.OpenConn();
+                cmd = new MySqlCommand("SELECT ID, NOME FROM FUNCIONARIO WHERE ID = " + int.Parse(txtIdVendedor.Text) + " AND NOME = '" + txtVendedor.Text + "';", con.query);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read() == false)
+                {
+                    MessageBox.Show("Vendedor inválido. Por favor, verifique!", "AMSystem");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message + "");
+            }
+            finally
+            {
+                con.CloseConn();
+            }
+
+            //Verifica vendedor
+            try
+            {
+                con.OpenConn();
+                cmd = new MySqlCommand("SELECT ID, NOME FROM CLIENTE WHERE ID = " + int.Parse(txtIdCliente.Text) + " AND NOME = '" + txtCliente.Text + "';", con.query);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read() == false)
+                {
+                    MessageBox.Show("Cliente inválido. Por favor, verifique!", "AMSystem");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message + "");
+            }
+            finally 
+            {
+                con.CloseConn();
+            }
+
+            if (txtIdVenda.Text != null && txtIdCliente.Text != null && txtCliente.Text != null)
             {
                 try
                 {

@@ -128,7 +128,10 @@ namespace Projeto_Novo
             txtDescGrupoProd.Clear();
             chkAtivo.Checked = true;
 
-            tcGrupoProdutos.SelectTab(tpDadosGrupoProd);
+            if (tcGrupoProdutos.SelectedIndex == 0)
+            {
+                tcGrupoProdutos.SelectedIndex = 1;
+            }
         }
         private void tsbtnEditGrupoProd_Click(object sender, EventArgs e)
         {
@@ -143,7 +146,10 @@ namespace Projeto_Novo
             tsbtnSalvar.Enabled = true;
             tsbtnCancelar.Enabled = true;
 
-            tcGrupoProdutos.SelectTab(tpDadosGrupoProd);
+            if (tcGrupoProdutos.SelectedIndex == 0)
+            {
+                tcGrupoProdutos.SelectedIndex = 1;
+            }
         }
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
@@ -156,14 +162,7 @@ namespace Projeto_Novo
                 return;
             }
 
-            if (chkAtivo.Checked == true)
-            {
-                ativo = "S";
-            }
-            else
-            {
-                ativo = "N";
-            }
+            ativo = (chkAtivo.Checked == true ? "S" : "N");
 
             try
             {
@@ -263,14 +262,7 @@ namespace Projeto_Novo
                 txtDescGrupoProd.Text = row.Cells[1].Value.ToString();
                 ativo = row.Cells[2].Value.ToString();
 
-                if (ativo == "S")
-                {
-                    chkAtivo.Checked = true;
-                }
-                else if (ativo == "N")
-                {
-                    chkAtivo.Checked = false;
-                }
+                chkAtivo.Checked = (ativo == "S" ? true : false);
             }
         }
     }

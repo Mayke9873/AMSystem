@@ -172,6 +172,25 @@ namespace Projeto_Novo
             txtValVenda.Clear();
             cbGrupo.Text = "";
         }
+        private void tsbtnEditProduto_Click(object sender, EventArgs e)
+        {
+            tcProdutos.SelectTab(tpDadosProd);
+
+            tsbtnAddProduto.Enabled = false;
+            tsbtnEditProduto.Enabled = false;
+            tsbtnSalvar.Enabled = true;
+            tsbtnCancelar.Enabled = true;
+
+            txtPesquisa.Enabled = false;
+            txtDescricao.Enabled = true;
+            txtUnidade.Enabled = true;
+            txtEstoque.Enabled = true;
+            txtValCompra.Enabled = true;
+            txtValLucro.Enabled = true;
+            txtValVenda.Enabled = true;
+            cbGrupo.Enabled = true;
+            chkAtivo.Enabled = true;
+        }
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
         {
@@ -196,17 +215,9 @@ namespace Projeto_Novo
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
-            string ativo;
             DateTime dtRegistro;
 
-            if (chkAtivo.Checked == true)
-            {
-                ativo = "S";
-            }
-            else
-            {
-                ativo = "N";
-            }
+            string ativo = (chkAtivo.Checked == true ? "S" : "N");
 
             try
             {
@@ -351,35 +362,8 @@ namespace Projeto_Novo
                 cbGrupo.Text = row.Cells[7].Value.ToString();
                 ativo = row.Cells[9].Value.ToString();
 
-                if (ativo == "S")
-                {
-                    chkAtivo.Checked = true;
-                }
-                else
-                {
-                    chkAtivo.Checked = false;
-                }
+                chkAtivo.Checked = (ativo == "S" ? true : false);
             }
-        }
-
-        private void tsbtnEditProduto_Click(object sender, EventArgs e)
-        {
-            tcProdutos.SelectTab(tpDadosProd);
-
-            tsbtnAddProduto.Enabled = false;
-            tsbtnEditProduto.Enabled = false;
-            tsbtnSalvar.Enabled = true;
-            tsbtnCancelar.Enabled = true;
-
-            txtPesquisa.Enabled = false;
-            txtDescricao.Enabled = true;
-            txtUnidade.Enabled = true;
-            txtEstoque.Enabled = true;
-            txtValCompra.Enabled = true;
-            txtValLucro.Enabled = true;
-            txtValVenda.Enabled = true;
-            cbGrupo.Enabled = true;
-            chkAtivo.Enabled = true;
         }
     }
 }

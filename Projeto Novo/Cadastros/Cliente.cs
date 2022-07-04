@@ -172,23 +172,28 @@ namespace Projeto_Novo
                 return;
             }
 
-            if (chkAtivo.Checked == true)
+            //Operador ternário. Substitui os IFs
+            ativo = (chkAtivo.Checked == true ? "S" : "N");
+            tipoCli = (rdoFisica.Checked == true ? "F" : "J");
+
+            /*if (chkAtivo.Checked == true)
             {
                 ativo = "S";
             }
             else
             {
                 ativo = "N";
-            }
+            }*/
 
-            if (rdoFisica.Checked == true)
+            /*if (rdoFisica.Checked == true)
             {
                 tipoCli = "F";
             }
             else
             {
                 tipoCli = "J";
-            }
+            }*/
+
 
             if (txtIdCli.Text.Length == 0)
             {
@@ -320,14 +325,7 @@ namespace Projeto_Novo
             txtBairroCli.Text = row.Cells[7].Value.ToString();
 
             ativo = row.Cells[10].Value.ToString();
-            if (ativo == "S")
-            {
-                chkAtivo.Checked = true;
-            }
-            else
-            {
-                chkAtivo.Checked = false;
-            }
+            chkAtivo.Checked = (ativo == "S" ? true : false);
 
             tipo = row.Cells[9].Value.ToString();
             if (tipo == "F")

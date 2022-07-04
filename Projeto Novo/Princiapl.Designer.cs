@@ -55,7 +55,7 @@
             this.tmsiContaReceber = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiContaPagar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRelatorio = new System.Windows.Forms.ToolStripMenuItem();
-            this.vendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tmsiRelVendas = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSair = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBotoes = new System.Windows.Forms.ToolStrip();
@@ -63,8 +63,11 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // msMenu
@@ -273,25 +276,26 @@
             // tsmiRelatorio
             // 
             this.tsmiRelatorio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.vendasToolStripMenuItem,
+            this.tmsiRelVendas,
             this.estoqueToolStripMenuItem});
             this.tsmiRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("tsmiRelatorio.Image")));
             this.tsmiRelatorio.Name = "tsmiRelatorio";
             this.tsmiRelatorio.Size = new System.Drawing.Size(87, 20);
             this.tsmiRelatorio.Text = "Relatórios";
-            this.tsmiRelatorio.Visible = false;
             // 
-            // vendasToolStripMenuItem
+            // tmsiRelVendas
             // 
-            this.vendasToolStripMenuItem.Name = "vendasToolStripMenuItem";
-            this.vendasToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
-            this.vendasToolStripMenuItem.Text = "Vendas";
+            this.tmsiRelVendas.Name = "tmsiRelVendas";
+            this.tmsiRelVendas.Size = new System.Drawing.Size(180, 22);
+            this.tmsiRelVendas.Text = "Vendas";
+            this.tmsiRelVendas.Click += new System.EventHandler(this.tmsiRelVendas_Click);
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
+            this.estoqueToolStripMenuItem.Visible = false;
             // 
             // tsmiSair
             // 
@@ -358,12 +362,30 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 639);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1084, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.ClientSize = new System.Drawing.Size(1084, 661);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tsBotoes);
             this.Controls.Add(this.msMenu);
             this.IsMdiContainer = true;
@@ -377,6 +399,8 @@
             this.msMenu.PerformLayout();
             this.tsBotoes.ResumeLayout(false);
             this.tsBotoes.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,7 +430,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiGrupoUsu;
         private System.Windows.Forms.ToolStripMenuItem tsmiConsVendas;
         private System.Windows.Forms.ToolStripMenuItem tsmiRelatorio;
-        private System.Windows.Forms.ToolStripMenuItem vendasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tmsiRelVendas;
         private System.Windows.Forms.ToolStripMenuItem estoqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tsmiFuncionario;
         private System.Windows.Forms.ToolStripMenuItem tsmiAbreCaixa;
@@ -418,6 +442,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripMenuItem tsmiContas;
         private System.Windows.Forms.ToolStripMenuItem mstiCompras;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
     }
 }
 
