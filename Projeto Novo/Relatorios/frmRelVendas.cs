@@ -60,6 +60,10 @@ namespace Projeto_Novo.Relatorios
 
         private void frmRelVendas_Load(object sender, EventArgs e)
         {
+            // Volta 3 meses no filtro data inicial
+            DateTime data = DateTime.Parse(dtpInicial.Text).AddMonths(-3);
+            dtpInicial.Text = data.ToString();
+
             this.GeraRelatrio();
         }
 
