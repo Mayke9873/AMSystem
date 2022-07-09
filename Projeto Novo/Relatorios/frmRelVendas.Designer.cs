@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.vendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projetodbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projeto_dbDataSet = new Projeto_Novo.projeto_dbDataSet();
@@ -39,7 +39,6 @@
             this.dtpFinal = new System.Windows.Forms.DateTimePicker();
             this.chkTodos = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.vendaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projetodbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.projeto_dbDataSet)).BeginInit();
@@ -64,9 +63,9 @@
             // 
             this.rpvVendas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rpvVendas.IsDocumentMapWidthFixed = true;
-            reportDataSource1.Name = "Venda_DataSet";
-            reportDataSource1.Value = this.vendaBindingSource;
-            this.rpvVendas.LocalReport.DataSources.Add(reportDataSource1);
+            reportDataSource2.Name = "Venda_DataSet";
+            reportDataSource2.Value = this.vendaBindingSource;
+            this.rpvVendas.LocalReport.DataSources.Add(reportDataSource2);
             this.rpvVendas.LocalReport.ReportEmbeddedResource = "Projeto_Novo.Relatorios.Vendas.rdlc";
             this.rpvVendas.Location = new System.Drawing.Point(0, 0);
             this.rpvVendas.Name = "rpvVendas";
@@ -75,7 +74,7 @@
             this.rpvVendas.ShowFindControls = false;
             this.rpvVendas.ShowRefreshButton = false;
             this.rpvVendas.ShowStopButton = false;
-            this.rpvVendas.Size = new System.Drawing.Size(714, 761);
+            this.rpvVendas.Size = new System.Drawing.Size(714, 749);
             this.rpvVendas.TabIndex = 0;
             this.rpvVendas.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             // 
@@ -91,6 +90,7 @@
             this.dtpInicial.Name = "dtpInicial";
             this.dtpInicial.Size = new System.Drawing.Size(79, 20);
             this.dtpInicial.TabIndex = 1;
+            this.dtpInicial.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpInicial_KeyDown);
             // 
             // dtpFinal
             // 
@@ -100,6 +100,8 @@
             this.dtpFinal.Name = "dtpFinal";
             this.dtpFinal.Size = new System.Drawing.Size(79, 20);
             this.dtpFinal.TabIndex = 2;
+            this.dtpFinal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtpFinal_KeyDown);
+            this.dtpFinal.Validated += new System.EventHandler(this.dtpFinal_Validated);
             // 
             // chkTodos
             // 
@@ -125,22 +127,11 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "até";
             // 
-            // tbnFiltrar
-            // 
-            this.tbnFiltrar.Location = new System.Drawing.Point(644, 2);
-            this.tbnFiltrar.Name = "tbnFiltrar";
-            this.tbnFiltrar.Size = new System.Drawing.Size(47, 23);
-            this.tbnFiltrar.TabIndex = 5;
-            this.tbnFiltrar.Text = "Filtrar";
-            this.tbnFiltrar.UseVisualStyleBackColor = true;
-            this.tbnFiltrar.Click += new System.EventHandler(this.tbnFiltrar_Click);
-            // 
             // frmRelVendas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(714, 761);
-            this.Controls.Add(this.tbnFiltrar);
+            this.ClientSize = new System.Drawing.Size(714, 749);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chkTodos);
             this.Controls.Add(this.dtpFinal);
@@ -169,6 +160,5 @@
         private System.Windows.Forms.DateTimePicker dtpFinal;
         private System.Windows.Forms.CheckBox chkTodos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button tbnFiltrar;
     }
 }

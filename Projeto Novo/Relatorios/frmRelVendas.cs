@@ -30,6 +30,7 @@ namespace Projeto_Novo.Relatorios
                 dtpFinal.Enabled = true;
                 dtpInicial.Enabled = true;
             }
+            this.GeraRelatrio();
         }
 
         private void GeraRelatrio()
@@ -63,7 +64,23 @@ namespace Projeto_Novo.Relatorios
             this.GeraRelatrio();
         }
 
-        private void tbnFiltrar_Click(object sender, EventArgs e)
+        private void dtpInicial_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                dtpFinal.Focus();
+            }
+        }
+
+        private void dtpFinal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                dtpInicial.Focus();
+            }
+        }
+
+        private void dtpFinal_Validated(object sender, EventArgs e)
         {
             this.GeraRelatrio();
         }
