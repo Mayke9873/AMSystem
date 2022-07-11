@@ -33,11 +33,11 @@ namespace Projeto_Novo
                     break;
 
                 case Keys.Escape:
-                    btnSair_Click(sender, e);
+                    this.btnSair_Click(sender, e);
                     break;
 
                 case Keys.F2:
-                    btnCancelar_Click(sender, e);
+                    this.btnCancelar_Click(sender, e);
                     break;
             }
         }
@@ -384,7 +384,51 @@ namespace Projeto_Novo
         {
             DateTime dtVenda;
 
-            if (txtIdVenda.Text != null && txtIdCliente.Text != null && txtCliente.Text != null && txtIdProduto.Text != null && txtProduto.Text != null)
+            //Verefica funcionario
+            try
+            {
+                con.OpenConn();
+                cmd = new MySqlCommand("SELECT ID, NOME FROM FUNCIONARIO WHERE ID = " + int.Parse(txtIdVendedor.Text) + " AND NOME = '" + txtVendedor.Text + "';", con.query);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read() == false)
+                {
+                    MessageBox.Show("Vendedor inválido. Por favor, verifique!", "AMSystem");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro: " + ex.Message + "");
+            }
+            finally
+            {
+                con.CloseConn();
+            }
+
+            //Verifica vendedor
+            try
+            {
+                con.OpenConn();
+                cmd = new MySqlCommand("SELECT ID, NOME FROM CLIENTE WHERE ID = " + int.Parse(txtIdCliente.Text) + " AND NOME = '" + txtCliente.Text + "';", con.query);
+                MySqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read() == false)
+                {
+                    MessageBox.Show("Cliente inválido. Por favor, verifique!", "AMSystem");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message + "");
+            }
+            finally 
+            {
+                con.CloseConn();
+            }
+
+            if (txtIdVenda.Text != null && txtIdCliente.Text != null && txtCliente.Text != null)
             {
                 try
                 {
@@ -402,6 +446,24 @@ namespace Projeto_Novo
                     cmd.Parameters.AddWithValue("@DATA", dtVenda = DateTime.Now); 
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
+
+                    cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM WHERE IDVENDA = (SELECT MAX(IDVENDA) FROM VENDA_ITEM);", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet dsProdVenda = new DataSet();
+                    da.Fill(dsProdVenda);
+                    cmd.Dispose();
+
+                    foreach (DataRow dr in dsProdVenda.Tables[0].Rows)
+                    {
+                        cmd = new MySqlCommand("INSERT INTO MOVESTOQUE (idproduto, quantidade, dataMov, idUsuario, tipoMov) VALUES " +
+                            "('" + dr["idprod"] + "', '" + dr["quantidade"] + "' * -1, '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + txtIdVendedor.Text + "', 'V');", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+
+                        cmd = new MySqlCommand("UPDATE PRODUTO SET estoque = (select sum(quantidade) from movestoque where idproduto = '" + dr["idprod"] + "') WHERE ID = '" + dr["idprod"] + "';", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                    }
 
                     MessageBox.Show("Venda realizado com sucesso!", "", MessageBoxButtons.OK);
                 }

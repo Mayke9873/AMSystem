@@ -112,17 +112,8 @@ namespace Projeto_Novo
         }
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
-        {
-            string ativo;
-
-            if (chkAtivo.Checked == true)
-            {
-                ativo = "S";
-            }
-            else
-            {
-                ativo = "N";
-            }
+        { 
+            string ativo = (chkAtivo.Checked == true ? "S" : "N");
 
             try
             {
@@ -257,14 +248,7 @@ namespace Projeto_Novo
                 txtDescTipoUsu.Text = row.Cells[1].Value.ToString();
                 ativo = row.Cells[2].Value.ToString();
 
-                if (ativo == "S") 
-                {
-                    chkAtivo.Checked = true;
-                }
-                else if(ativo == "N")
-                {
-                    chkAtivo.Checked = false;
-                }
+                chkAtivo.Checked = (ativo == "S" ? true : false);
             }
         }
     }

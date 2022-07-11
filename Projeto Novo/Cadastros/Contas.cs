@@ -169,8 +169,7 @@ namespace Projeto_Novo.Cadastros
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
-            char ativo;
-            string banco;
+            char ativo, banco;
 
             if (txtDescricao.Text.Length == 0)
             {
@@ -178,23 +177,9 @@ namespace Projeto_Novo.Cadastros
                 return;
             }
 
-            if (chkAtivo.Checked == true)
-            {
-                ativo = 'S';
-            }
-            else
-            {
-                ativo = 'N';
-            }
-
-            if (chkBanco.Checked == true)
-            {
-                banco = "S";
-            }
-            else
-            {
-                banco = "N";
-            }
+            //Operador ternário. Substitiu os IFs
+            ativo = (chkAtivo.Checked == true ? 'S' : 'N');
+            banco = (chkBanco.Checked == true ? 'S' : 'N');
 
             try
             {
@@ -304,7 +289,11 @@ namespace Projeto_Novo.Cadastros
                 ativo = row.Cells[2].Value.ToString();
                 conta = row.Cells[3].Value.ToString();
 
-                if (ativo == "S")
+                //Operador ternário. Substitiu os IFs
+                chkAtivo.Checked = (ativo == "S" ? true : false);
+                chkBanco.Checked = (conta == "S" ? true : false);
+
+                /*if (ativo == "S")
                 {
                     chkAtivo.Checked = true;
                 }
@@ -320,7 +309,7 @@ namespace Projeto_Novo.Cadastros
                 else if (conta == "N")
                 {
                     chkBanco.Checked = false;
-                }
+                }*/
             }
         }
     }

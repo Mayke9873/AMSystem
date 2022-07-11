@@ -252,5 +252,16 @@ namespace Projeto_Novo
 
             consCompras.Show();
         }
+
+        private void tmsiRelVendas_Click(object sender, EventArgs e)
+        {
+            Relatorios.frmRelVendas relVendas = new Relatorios.frmRelVendas();
+            relVendas.ShowDialog();
+        }
+
+        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        {
+            statusStrip1.Text = "AM System";
+        }
     }
 }

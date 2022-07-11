@@ -172,14 +172,7 @@ namespace Projeto_Novo
                 return;
             }
 
-            if (chkAtivo.Checked == true)
-            {
-                ativo = 'S';
-            }
-            else
-            {
-                ativo = 'N';
-            }
+            ativo = (chkAtivo.Checked == true ? 'S' : 'N');
 
             if (txtIdFornecedor.Text.Length == 0)
             {
@@ -205,7 +198,7 @@ namespace Projeto_Novo
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
-                MessageBox.Show("Dados gravado com sucesso!", "SQS System", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Dados gravado com sucesso!", "AMSystem", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 this.Consulta();
 
@@ -285,14 +278,7 @@ namespace Projeto_Novo
             txtBairroFornecedor.Text = row.Cells[6].Value.ToString();
             ativo = row.Cells[8].Value.ToString();
 
-            if (ativo == "S")
-            {
-                chkAtivo.Checked = true;
-            }
-            else if (ativo == "N")
-            {
-                chkAtivo.Checked = false;
-            }
+            chkAtivo.Checked = (ativo == "S" ? true : false);
         }
     }
 }
