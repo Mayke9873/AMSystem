@@ -447,6 +447,24 @@ namespace Projeto_Novo
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
 
+                    cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM WHERE IDVENDA = (SELECT MAX(IDVENDA) FROM VENDA_ITEM);", con.query);
+                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                    DataSet dsProdVenda = new DataSet();
+                    da.Fill(dsProdVenda);
+                    cmd.Dispose();
+
+                    foreach (DataRow dr in dsProdVenda.Tables[0].Rows)
+                    {
+                        cmd = new MySqlCommand("INSERT INTO MOVESTOQUE (idproduto, quantidade, dataMov, idUsuario, tipoMov) VALUES " +
+                            "('" + dr["idprod"] + "', '" + dr["quantidade"] + "' * -1, '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + txtIdVendedor.Text + "', 'V');", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+
+                        cmd = new MySqlCommand("UPDATE PRODUTO SET estoque = (select sum(quantidade) from movestoque where idproduto = '" + dr["idprod"] + "') WHERE ID = '" + dr["idprod"] + "';", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+                    }
+
                     MessageBox.Show("Venda realizado com sucesso!", "", MessageBoxButtons.OK);
                 }
                 catch (Exception ex)
