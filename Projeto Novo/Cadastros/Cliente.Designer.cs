@@ -139,12 +139,10 @@
             // 
             this.rdoAtivo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdoAtivo.AutoSize = true;
-            this.rdoAtivo.Checked = true;
             this.rdoAtivo.Location = new System.Drawing.Point(489, 33);
             this.rdoAtivo.Name = "rdoAtivo";
             this.rdoAtivo.Size = new System.Drawing.Size(49, 17);
             this.rdoAtivo.TabIndex = 19;
-            this.rdoAtivo.TabStop = true;
             this.rdoAtivo.Text = "Ativo";
             this.rdoAtivo.UseVisualStyleBackColor = true;
             this.rdoAtivo.CheckedChanged += new System.EventHandler(this.rdoAtivo_CheckedChanged);
@@ -153,6 +151,7 @@
             // 
             this.rdoTodos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rdoTodos.AutoSize = true;
+            this.rdoTodos.Checked = true;
             this.rdoTodos.Location = new System.Drawing.Point(416, 33);
             this.rdoTodos.Name = "rdoTodos";
             this.rdoTodos.Size = new System.Drawing.Size(55, 17);
