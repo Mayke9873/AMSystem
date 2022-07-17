@@ -85,6 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AjusteEstoque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AjusteEstoque.Designer.cs">
+      <DependentUpon>AjusteEstoque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastros\Contas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,6 +227,9 @@
     <Compile Include="Vendas\Venda.Designer.cs">
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AjusteEstoque.resx">
+      <DependentUpon>AjusteEstoque.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cadastros\Contas.resx">
       <DependentUpon>Contas.cs</DependentUpon>
     </EmbeddedResource>
