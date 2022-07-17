@@ -32,6 +32,16 @@
             this.txtDesconto = new System.Windows.Forms.TextBox();
             this.lblDesconto = new System.Windows.Forms.Label();
             this.dgvProVenda = new System.Windows.Forms.DataGridView();
+            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataSourceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionTimeoutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.databaseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connectionStringDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtValorUnit = new System.Windows.Forms.TextBox();
             this.lblValorUnt = new System.Windows.Forms.Label();
@@ -73,16 +83,6 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescontoVenda = new System.Windows.Forms.TextBox();
-            this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qtd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataSourceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectionTimeoutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.databaseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.connectionStringDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProVenda)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
@@ -135,6 +135,75 @@
             this.dgvProVenda.Size = new System.Drawing.Size(960, 301);
             this.dgvProVenda.TabIndex = 0;
             this.dgvProVenda.TabStop = false;
+            // 
+            // codigo
+            // 
+            this.codigo.DataPropertyName = "idprod";
+            this.codigo.HeaderText = "Código";
+            this.codigo.Name = "codigo";
+            // 
+            // descricao
+            // 
+            this.descricao.DataPropertyName = "descricao";
+            this.descricao.HeaderText = "Descrição";
+            this.descricao.Name = "descricao";
+            this.descricao.Width = 386;
+            // 
+            // qtd
+            // 
+            this.qtd.DataPropertyName = "quantidade";
+            this.qtd.HeaderText = "Qtd.";
+            this.qtd.Name = "qtd";
+            // 
+            // vUnit
+            // 
+            this.vUnit.DataPropertyName = "valor";
+            this.vUnit.HeaderText = "R$ Unit.";
+            this.vUnit.Name = "vUnit";
+            // 
+            // vDesc
+            // 
+            this.vDesc.DataPropertyName = "desconto";
+            this.vDesc.HeaderText = "Desc.";
+            this.vDesc.Name = "vDesc";
+            // 
+            // vTotal
+            // 
+            this.vTotal.DataPropertyName = "total";
+            this.vTotal.HeaderText = "R$ Total";
+            this.vTotal.Name = "vTotal";
+            this.vTotal.ReadOnly = true;
+            // 
+            // dataSourceDataGridViewTextBoxColumn1
+            // 
+            this.dataSourceDataGridViewTextBoxColumn1.DataPropertyName = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn1.HeaderText = "DataSource";
+            this.dataSourceDataGridViewTextBoxColumn1.Name = "dataSourceDataGridViewTextBoxColumn1";
+            this.dataSourceDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataSourceDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // connectionTimeoutDataGridViewTextBoxColumn1
+            // 
+            this.connectionTimeoutDataGridViewTextBoxColumn1.DataPropertyName = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn1.HeaderText = "ConnectionTimeout";
+            this.connectionTimeoutDataGridViewTextBoxColumn1.Name = "connectionTimeoutDataGridViewTextBoxColumn1";
+            this.connectionTimeoutDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.connectionTimeoutDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // databaseDataGridViewTextBoxColumn1
+            // 
+            this.databaseDataGridViewTextBoxColumn1.DataPropertyName = "Database";
+            this.databaseDataGridViewTextBoxColumn1.HeaderText = "Database";
+            this.databaseDataGridViewTextBoxColumn1.Name = "databaseDataGridViewTextBoxColumn1";
+            this.databaseDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.databaseDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // connectionStringDataGridViewTextBoxColumn1
+            // 
+            this.connectionStringDataGridViewTextBoxColumn1.DataPropertyName = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn1.HeaderText = "ConnectionString";
+            this.connectionStringDataGridViewTextBoxColumn1.Name = "connectionStringDataGridViewTextBoxColumn1";
+            this.connectionStringDataGridViewTextBoxColumn1.Visible = false;
             // 
             // mySqlConnectionBindingSource
             // 
@@ -317,7 +386,7 @@
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(96, 32);
             this.btnConfirmar.TabIndex = 20;
-            this.btnConfirmar.Text = "F1 - Confirmar";
+            this.btnConfirmar.Text = "F3 - Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
@@ -331,7 +400,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 32);
             this.btnCancelar.TabIndex = 21;
-            this.btnCancelar.Text = "F2 - Cancelar";
+            this.btnCancelar.Text = "F4 - Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -458,9 +527,9 @@
             this.label1.Font = new System.Drawing.Font("Arial", 12F);
             this.label1.Location = new System.Drawing.Point(804, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 18);
+            this.label1.Size = new System.Drawing.Size(68, 18);
             this.label1.TabIndex = 25;
-            this.label1.Text = "R$ Total";
+            this.label1.Text = "R$ Total:";
             // 
             // dgvNome
             // 
@@ -541,9 +610,9 @@
             this.label2.Font = new System.Drawing.Font("Arial", 12F);
             this.label2.Location = new System.Drawing.Point(693, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 18);
+            this.label2.Size = new System.Drawing.Size(87, 18);
             this.label2.TabIndex = 28;
-            this.label2.Text = "Desconto";
+            this.label2.Text = "Descontos:";
             // 
             // txtDescontoVenda
             // 
@@ -557,75 +626,6 @@
             this.txtDescontoVenda.TabIndex = 27;
             this.txtDescontoVenda.TabStop = false;
             this.txtDescontoVenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // codigo
-            // 
-            this.codigo.DataPropertyName = "idprod";
-            this.codigo.HeaderText = "Código";
-            this.codigo.Name = "codigo";
-            // 
-            // descricao
-            // 
-            this.descricao.DataPropertyName = "descricao";
-            this.descricao.HeaderText = "Descrição";
-            this.descricao.Name = "descricao";
-            this.descricao.Width = 386;
-            // 
-            // qtd
-            // 
-            this.qtd.DataPropertyName = "quantidade";
-            this.qtd.HeaderText = "Qtd.";
-            this.qtd.Name = "qtd";
-            // 
-            // vUnit
-            // 
-            this.vUnit.DataPropertyName = "valor";
-            this.vUnit.HeaderText = "R$ Unit.";
-            this.vUnit.Name = "vUnit";
-            // 
-            // vDesc
-            // 
-            this.vDesc.DataPropertyName = "desconto";
-            this.vDesc.HeaderText = "Desc.";
-            this.vDesc.Name = "vDesc";
-            // 
-            // vTotal
-            // 
-            this.vTotal.DataPropertyName = "total";
-            this.vTotal.HeaderText = "R$ Total";
-            this.vTotal.Name = "vTotal";
-            this.vTotal.ReadOnly = true;
-            // 
-            // dataSourceDataGridViewTextBoxColumn1
-            // 
-            this.dataSourceDataGridViewTextBoxColumn1.DataPropertyName = "DataSource";
-            this.dataSourceDataGridViewTextBoxColumn1.HeaderText = "DataSource";
-            this.dataSourceDataGridViewTextBoxColumn1.Name = "dataSourceDataGridViewTextBoxColumn1";
-            this.dataSourceDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataSourceDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // connectionTimeoutDataGridViewTextBoxColumn1
-            // 
-            this.connectionTimeoutDataGridViewTextBoxColumn1.DataPropertyName = "ConnectionTimeout";
-            this.connectionTimeoutDataGridViewTextBoxColumn1.HeaderText = "ConnectionTimeout";
-            this.connectionTimeoutDataGridViewTextBoxColumn1.Name = "connectionTimeoutDataGridViewTextBoxColumn1";
-            this.connectionTimeoutDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.connectionTimeoutDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // databaseDataGridViewTextBoxColumn1
-            // 
-            this.databaseDataGridViewTextBoxColumn1.DataPropertyName = "Database";
-            this.databaseDataGridViewTextBoxColumn1.HeaderText = "Database";
-            this.databaseDataGridViewTextBoxColumn1.Name = "databaseDataGridViewTextBoxColumn1";
-            this.databaseDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.databaseDataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // connectionStringDataGridViewTextBoxColumn1
-            // 
-            this.connectionStringDataGridViewTextBoxColumn1.DataPropertyName = "ConnectionString";
-            this.connectionStringDataGridViewTextBoxColumn1.HeaderText = "ConnectionString";
-            this.connectionStringDataGridViewTextBoxColumn1.Name = "connectionStringDataGridViewTextBoxColumn1";
-            this.connectionStringDataGridViewTextBoxColumn1.Visible = false;
             // 
             // FrmVenda
             // 

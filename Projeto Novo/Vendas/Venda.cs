@@ -36,7 +36,11 @@ namespace Projeto_Novo
                     this.btnSair_Click(sender, e);
                     break;
 
-                case Keys.F2:
+                case Keys.F3:
+                    this.btnConfirmar_Click(sender, e);
+                    break;
+
+                case Keys.F4:
                     this.btnCancelar_Click(sender, e);
                     break;
             }
@@ -556,7 +560,6 @@ namespace Projeto_Novo
         private void btnSair_Click(object sender, EventArgs e)
         {
             if (txtIdVenda.Text.Length != 0)
-
             {
                 if (MessageBox.Show("Deseja cancelar venda?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                 {
