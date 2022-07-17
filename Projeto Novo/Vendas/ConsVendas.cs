@@ -31,7 +31,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
                     cmd = new MySqlCommand("SELECT a.ID, a.CLIENTE, a.VALOR, a.DESCONTO, a.VALOR_TOTAL, a.DATA_VENDA, b.NOME FROM VENDA a LEFT JOIN  FUNCIONARIO b on  a.VENDEDOR = b.ID" +
-                        " WHERE CLIENTE LIKE '%" + txtPesquisa.Text + "%';", con.query);
+                        " WHERE CLIENTE LIKE '%" + txtPesquisa.Text + "%' AND EX = 0;", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     da.Fill(ds);
@@ -40,7 +40,7 @@ namespace Projeto_Novo
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show($"Error: {ex.Message}", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 finally
                 {
@@ -56,7 +56,7 @@ namespace Projeto_Novo
                     cmd = new MySqlCommand("SELECT a.ID, a.CLIENTE, a.VALOR, a.DESCONTO, a.VALOR_TOTAL, a.DATA_VENDA, b.NOME FROM VENDA a LEFT JOIN  FUNCIONARIO b on  a.VENDEDOR = b.ID" +
                         " WHERE CLIENTE LIKE '%" + txtPesquisa.Text + "%' AND DATA_VENDA BETWEEN" +
                         " (SELECT date_format(str_to_date('" + mtxDtInicial.Text + "', '%d/%m/%Y'), '%Y-%m-%d'))" +
-                        " AND (SELECT date_format(str_to_date('" + mtxDtFinal.Text + "', '%d/%m/%Y'), '%Y-%m-%d'));", con.query);
+                        " AND (SELECT date_format(str_to_date('" + mtxDtFinal.Text + "', '%d/%m/%Y'), '%Y-%m-%d')) AND EX = 0;", con.query);
 
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
@@ -109,6 +109,11 @@ namespace Projeto_Novo
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
+        {
+            Consulta();
+        }
+
+        private void mtxDtFinal_Leave(object sender, EventArgs e)
         {
             Consulta();
         }
