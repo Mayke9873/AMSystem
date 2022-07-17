@@ -38,11 +38,28 @@ namespace Projeto_Novo
 
         private void tsmiSair_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja sair do sistema?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MdiChildren.Count() > 0)
+            {
+                MessageBox.Show("Por favor, feche todas as telas do sistema para prosseguir!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
             {
                 Application.Exit();
             }
         }
+        private void FrmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (MdiChildren.Count() > 0)
+            {
+                MessageBox.Show("Por favor, feche todas as telas do sistema para prosseguir!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }
+            else if (MessageBox.Show("Deseja sair do sistema?", "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
+
         private void tsbtnSair_Click(object sender, EventArgs e)
         {
             tsmiSair_Click((object)sender, e);
@@ -259,9 +276,10 @@ namespace Projeto_Novo
             relVendas.ShowDialog();
         }
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
+        private void ajusteDeEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            statusStrip1.Text = "AM System";
+            FrmAjusteEstoque frmAjusteEstoque = new FrmAjusteEstoque();
+            frmAjusteEstoque.ShowDialog();
         }
     }
 }
