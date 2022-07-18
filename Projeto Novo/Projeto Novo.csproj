@@ -134,6 +134,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>projeto_dbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Relatorios\frmRelCompras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatorios\frmRelCompras.Designer.cs">
+      <DependentUpon>frmRelCompras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Relatorios\frmRelVendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -247,6 +253,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\ConsCompras.resx">
       <DependentUpon>ConsCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatorios\Compras.rdlc" />
+    <EmbeddedResource Include="Relatorios\frmRelCompras.resx">
+      <DependentUpon>frmRelCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Relatorios\frmRelVendas.resx">
       <DependentUpon>frmRelVendas.cs</DependentUpon>

@@ -29,7 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRelVendas));
             this.vendaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projetodbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projeto_dbDataSet = new Projeto_Novo.projeto_dbDataSet();
@@ -63,9 +64,9 @@
             // 
             this.rpvVendas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rpvVendas.IsDocumentMapWidthFixed = true;
-            reportDataSource2.Name = "Venda_DataSet";
-            reportDataSource2.Value = this.vendaBindingSource;
-            this.rpvVendas.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "Venda_DataSet";
+            reportDataSource1.Value = this.vendaBindingSource;
+            this.rpvVendas.LocalReport.DataSources.Add(reportDataSource1);
             this.rpvVendas.LocalReport.ReportEmbeddedResource = "Projeto_Novo.Relatorios.Vendas.rdlc";
             this.rpvVendas.Location = new System.Drawing.Point(0, 0);
             this.rpvVendas.Name = "rpvVendas";
@@ -137,6 +138,7 @@
             this.Controls.Add(this.dtpFinal);
             this.Controls.Add(this.dtpInicial);
             this.Controls.Add(this.rpvVendas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRelVendas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relatório de Vendas";
