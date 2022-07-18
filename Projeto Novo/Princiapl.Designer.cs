@@ -65,6 +65,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
+            this.tsmiRelCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -295,6 +296,7 @@
             // 
             this.tsmiRelatorio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tmsiRelVendas,
+            this.tsmiRelCompras,
             this.estoqueToolStripMenuItem});
             this.tsmiRelatorio.Image = ((System.Drawing.Image)(resources.GetObject("tsmiRelatorio.Image")));
             this.tsmiRelatorio.Name = "tsmiRelatorio";
@@ -304,14 +306,14 @@
             // tmsiRelVendas
             // 
             this.tmsiRelVendas.Name = "tmsiRelVendas";
-            this.tmsiRelVendas.Size = new System.Drawing.Size(116, 22);
+            this.tmsiRelVendas.Size = new System.Drawing.Size(180, 22);
             this.tmsiRelVendas.Text = "Vendas";
             this.tmsiRelVendas.Click += new System.EventHandler(this.tmsiRelVendas_Click);
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             this.estoqueToolStripMenuItem.Visible = false;
             // 
@@ -381,6 +383,13 @@
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
             // 
+            // tsmiRelCompras
+            // 
+            this.tsmiRelCompras.Name = "tsmiRelCompras";
+            this.tsmiRelCompras.Size = new System.Drawing.Size(180, 22);
+            this.tsmiRelCompras.Text = "Compras";
+            this.tsmiRelCompras.Click += new System.EventHandler(this.tsmiRelCompras_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -445,6 +454,7 @@
         private System.Windows.Forms.ToolStripMenuItem mstiCompras;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripMenuItem ajusteDeEstoqueToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiRelCompras;
     }
 }
 

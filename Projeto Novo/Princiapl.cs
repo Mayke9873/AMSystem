@@ -270,16 +270,23 @@ namespace Projeto_Novo
             consCompras.Show();
         }
 
+        private void ajusteDeEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAjusteEstoque frmAjusteEstoque = new FrmAjusteEstoque();
+            frmAjusteEstoque.ShowDialog();
+        }
+
         private void tmsiRelVendas_Click(object sender, EventArgs e)
         {
             Relatorios.frmRelVendas relVendas = new Relatorios.frmRelVendas();
             relVendas.ShowDialog();
         }
 
-        private void ajusteDeEstoqueToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void tsmiRelCompras_Click(object sender, EventArgs e)
         {
-            FrmAjusteEstoque frmAjusteEstoque = new FrmAjusteEstoque();
-            frmAjusteEstoque.ShowDialog();
+            Relatorios.frmRelCompras relCompras = new Relatorios.frmRelCompras();
+            relCompras.ShowDialog();
         }
     }
 }
