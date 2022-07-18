@@ -314,6 +314,9 @@ namespace Projeto_Novo
         {
             string tipo, ativo;
 
+            //Outra forma de levar informação para os campos
+            //txtIdCli.Text = dgvCliente.CurrentRow.Cells[0].Value.ToString();
+
             DataGridViewRow row = dgvCliente.Rows[e.RowIndex];
             txtIdCli.Text = row.Cells[0].Value.ToString();
             txtNomeCli.Text = row.Cells[1].Value.ToString();
