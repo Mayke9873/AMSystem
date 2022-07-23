@@ -214,9 +214,7 @@ namespace Projeto_Novo
         }
 
         private void tsbtnSalvar_Click(object sender, EventArgs e)
-        {
-            DateTime dtRegistro;
-
+        {            
             string ativo = (chkAtivo.Checked == true ? "S" : "N");
 
             try
@@ -226,17 +224,20 @@ namespace Projeto_Novo
                 if (txtIdProduto.Text.Length == 0)
                 {
                     cmd = new MySqlCommand("INSERT INTO PRODUTO (descricao, unidade, estoque, pCompra, pLucro, pVenda, grupo, dtRegistro, ativo) VALUES" +
-                        "('" + txtDescricao.Text + "', '" + txtUnidade.Text + "', '" + txtEstoque.Text + "', '" + txtValCompra.Text + "', '" + txtValLucro.Text + "'," +
-                        "'" + txtValVenda.Text + "', '" + cbGrupo.Text + "', @dtRegistro, @ativo);", con.query);
+                        "('" + txtDescricao.Text + "', '" + txtUnidade.Text + "', '" + txtEstoque.Text + "', '" + txtValCompra.Text.Replace(",", ".") + "', " +
+                        "'" + txtValLucro.Text.Replace(",", ".") + "', '" + txtValVenda.Text.Replace(",", ".") + "', '" + cbGrupo.Text + "', @dtRegistro, @ativo);", con.query);
                 }
                 else if(txtIdProduto.Text.Length != 0)
                 {
-                    cmd = new MySqlCommand("UPDATE PRODUTO SET descricao = '" + txtDescricao.Text + "', unidade = '" + txtUnidade.Text + "', pCompra = '" + txtValCompra.Text + "', " +
-                        "pLucro = '" + txtValLucro.Text + "', pVenda = '" + txtValVenda.Text + "', grupo = '" + cbGrupo.Text + "', ativo = @ativo WHERE ID = " + int.Parse(txtIdProduto.Text) + "", con.query);
+                    cmd = new MySqlCommand("UPDATE PRODUTO SET descricao = '" + txtDescricao.Text + "', unidade = '" + txtUnidade.Text + "', pCompra = '" + txtValCompra.Text.Replace(",", ".") + "', " +
+                        "pLucro = '" + txtValLucro.Text.Replace(",", ".") + "', pVenda = '" + txtValVenda.Text.Replace(",", ".") + "', grupo = '" + cbGrupo.Text + "', " +
+                        "ativo = @ativo WHERE ID = " + int.Parse(txtIdProduto.Text) + "", con.query);
+
+                    MessageBox.Show(txtValCompra.Text);
                 }
 
                 cmd.Parameters.AddWithValue("@ativo", ativo);
-                cmd.Parameters.AddWithValue("@dtRegistro", dtRegistro = DateTime.Now);
+                cmd.Parameters.AddWithValue("@dtRegistro", DateTime.Now.ToString("yyyy-MM-dd"));
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
