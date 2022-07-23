@@ -92,6 +92,7 @@ namespace Projeto_Novo
                     if (reader.Read())
                     {
                         txtProduto.Text = reader[0].ToString();
+                        txtQtd.Text = "1,000";
                     }
                     else
                     {
@@ -199,6 +200,7 @@ namespace Projeto_Novo
             else if (decimal.Parse(txtQtd.Text) == 0)
             {
                 MessageBox.Show("Quantidade não pode ser 0. Por favor, verifique!", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
             }
 
             try
@@ -210,7 +212,7 @@ namespace Projeto_Novo
                 if (reader.Read())
                 {
                     txtValorUnit.Text = reader[0].ToString();
-                }
+                    txtQtd.Text = decimal.Parse(txtQtd.Text).ToString("F3");                }
             }
             catch (Exception ex)
             {
@@ -240,13 +242,13 @@ namespace Projeto_Novo
                 desconto = Convert.ToDecimal(txtDesconto.Text);
                 vTotal = (vProduto * Convert.ToDecimal(txtQtd.Text) - desconto);
 
-                txtValorTotal.Text = vTotal.ToString();
+                txtValorTotal.Text = vTotal.ToString("F2");
             }
             else
             {
                 vTotal = vProduto * Convert.ToDecimal(txtQtd.Text);
 
-                txtValorTotal.Text = vTotal.ToString();
+                txtValorTotal.Text = vTotal.ToString("F2");
                 txtDesconto.Text = "0,00";
             }
         }
@@ -282,9 +284,9 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("INSERT INTO COMPRA_ITEM (id_Compra, idProd, descricao, valor, desconto, quantidade, total) VALUES" +
-                    $"((select max(id) from COMPRA), '{txtIdProduto.Text}', '{txtProduto.Text}', '{txtValorUnit.Text}', '{txtDesconto.Text}'," +
-                    $"'{txtQtd.Text}', '{txtValorTotal.Text}');", con.query);
+                cmd = new MySqlCommand("INSERT INTO COMPRA_ITEM (id_Compra, idProd, descricao, valor, desconto, quantidade, total, ex) VALUES" +
+                    $"((select max(id) from COMPRA), '{txtIdProduto.Text}', '{txtProduto.Text}', '{txtValorUnit.Text.Replace(",", ".")}', '{txtDesconto.Text.Replace(",", ".")}'," +
+                    $"'{txtQtd.Text.Replace(",", ".")}', '{txtValorTotal.Text.Replace(",", ".")}', 9);", con.query);
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -330,7 +332,7 @@ namespace Projeto_Novo
                 txtIdProduto.Text = row.Cells[0].Value.ToString();
                 txtProduto.Text = row.Cells[1].Value.ToString();
                 txtValorUnit.Text = row.Cells[3].Value.ToString();
-
+                txtQtd.Text = "1,000";
             }
 
             catch (Exception ex)
@@ -387,7 +389,8 @@ namespace Projeto_Novo
                     cmd.Dispose();
 
                     //Carrega DataSet dos produtos inseridos na compra.
-                    cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM COMPRA_ITEM WHERE ID_COMPRA = (SELECT MAX(ID_COMPRA) FROM COMPRA_ITEM);", con.query);
+                    cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM COMPRA_ITEM " +
+                        "WHERE ID_COMPRA = (SELECT MAX(ID_COMPRA) FROM COMPRA_ITEM);", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet dsProdCompra = new DataSet();
                     da.Fill(dsProdCompra);
@@ -395,6 +398,10 @@ namespace Projeto_Novo
 
                     foreach (DataRow dr in dsProdCompra.Tables[0].Rows)
                     {
+                        cmd = new MySqlCommand($"UPDATE COMPRA_ITEM SET EX = 0 WHERE IDPROD = '{dr["idprod"]} AND EX  = 9' AND ID_COMPRA = '{txtIdCompra.Text}';", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+
                         cmd = new MySqlCommand("INSERT INTO MOVESTOQUE (idproduto, quantidade, dataMov, idFornecedor, tipoMov) VALUES " +
                             $"('{dr["idprod"]}', '{dr["quantidade"]}', '{DateTime.Now.ToString("yyyy-MM-dd")}', '{txtIdFornecedor.Text}', 'C');", con.query);
                         cmd.ExecuteNonQuery();
