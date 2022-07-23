@@ -58,6 +58,7 @@
             this.tsmiContaPagar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiRelatorio = new System.Windows.Forms.ToolStripMenuItem();
             this.tmsiRelVendas = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiRelCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.estoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSair = new System.Windows.Forms.ToolStripMenuItem();
             this.tsBotoes = new System.Windows.Forms.ToolStrip();
@@ -65,7 +66,6 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbtnCReceber = new System.Windows.Forms.ToolStripButton();
             this.tsbtnSair = new System.Windows.Forms.ToolStripButton();
-            this.tsmiRelCompras = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenu.SuspendLayout();
             this.tsBotoes.SuspendLayout();
             this.SuspendLayout();
@@ -107,70 +107,66 @@
             // 
             this.tsmiClientes.Name = "tsmiClientes";
             this.tsmiClientes.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F1)));
-            this.tsmiClientes.Size = new System.Drawing.Size(208, 22);
+            this.tsmiClientes.Size = new System.Drawing.Size(180, 22);
             this.tsmiClientes.Text = "&Cliente";
             this.tsmiClientes.Click += new System.EventHandler(this.tsmiClientes_Click);
             // 
             // tsmiFornecedor
             // 
             this.tsmiFornecedor.Name = "tsmiFornecedor";
-            this.tsmiFornecedor.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F2)));
-            this.tsmiFornecedor.Size = new System.Drawing.Size(208, 22);
+            this.tsmiFornecedor.Size = new System.Drawing.Size(180, 22);
             this.tsmiFornecedor.Text = "&Fornecedor";
             this.tsmiFornecedor.Click += new System.EventHandler(this.tsmiFornecedor_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(205, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // tsmiProdutos
             // 
             this.tsmiProdutos.Name = "tsmiProdutos";
-            this.tsmiProdutos.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F3)));
-            this.tsmiProdutos.Size = new System.Drawing.Size(208, 22);
+            this.tsmiProdutos.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F2)));
+            this.tsmiProdutos.Size = new System.Drawing.Size(180, 22);
             this.tsmiProdutos.Text = "Produtos";
             this.tsmiProdutos.Click += new System.EventHandler(this.tsmiProdutos_Click);
             // 
             // tsmiGrupoProd
             // 
             this.tsmiGrupoProd.Name = "tsmiGrupoProd";
-            this.tsmiGrupoProd.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.tsmiGrupoProd.Size = new System.Drawing.Size(208, 22);
+            this.tsmiGrupoProd.Size = new System.Drawing.Size(180, 22);
             this.tsmiGrupoProd.Text = "Grupos";
             this.tsmiGrupoProd.Click += new System.EventHandler(this.tsmiGrupoProd_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(205, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
             // 
             // tsmiFuncionario
             // 
             this.tsmiFuncionario.Name = "tsmiFuncionario";
             this.tsmiFuncionario.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F5)));
-            this.tsmiFuncionario.Size = new System.Drawing.Size(208, 22);
+            this.tsmiFuncionario.Size = new System.Drawing.Size(180, 22);
             this.tsmiFuncionario.Text = "Funcionário";
             this.tsmiFuncionario.Click += new System.EventHandler(this.tsmiFuncionario_Click);
             // 
             // tsmiGrupoUsu
             // 
             this.tsmiGrupoUsu.Name = "tsmiGrupoUsu";
-            this.tsmiGrupoUsu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F6)));
-            this.tsmiGrupoUsu.Size = new System.Drawing.Size(208, 22);
+            this.tsmiGrupoUsu.Size = new System.Drawing.Size(180, 22);
             this.tsmiGrupoUsu.Text = "Grupo de Usuário";
             this.tsmiGrupoUsu.Click += new System.EventHandler(this.tsmiGrupoUsu_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(205, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(177, 6);
             // 
             // tsmiContas
             // 
             this.tsmiContas.Name = "tsmiContas";
-            this.tsmiContas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F7)));
-            this.tsmiContas.Size = new System.Drawing.Size(208, 22);
+            this.tsmiContas.Size = new System.Drawing.Size(180, 22);
             this.tsmiContas.Text = "Contas";
             this.tsmiContas.Click += new System.EventHandler(this.tsmiContas_Click);
             // 
@@ -306,14 +302,21 @@
             // tmsiRelVendas
             // 
             this.tmsiRelVendas.Name = "tmsiRelVendas";
-            this.tmsiRelVendas.Size = new System.Drawing.Size(180, 22);
+            this.tmsiRelVendas.Size = new System.Drawing.Size(122, 22);
             this.tmsiRelVendas.Text = "Vendas";
             this.tmsiRelVendas.Click += new System.EventHandler(this.tmsiRelVendas_Click);
+            // 
+            // tsmiRelCompras
+            // 
+            this.tsmiRelCompras.Name = "tsmiRelCompras";
+            this.tsmiRelCompras.Size = new System.Drawing.Size(122, 22);
+            this.tsmiRelCompras.Text = "Compras";
+            this.tsmiRelCompras.Click += new System.EventHandler(this.tsmiRelCompras_Click);
             // 
             // estoqueToolStripMenuItem
             // 
             this.estoqueToolStripMenuItem.Name = "estoqueToolStripMenuItem";
-            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estoqueToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.estoqueToolStripMenuItem.Text = "Estoque";
             this.estoqueToolStripMenuItem.Visible = false;
             // 
@@ -382,13 +385,6 @@
             this.tsbtnSair.Size = new System.Drawing.Size(36, 47);
             this.tsbtnSair.Text = "Sair";
             this.tsbtnSair.Click += new System.EventHandler(this.tsbtnSair_Click);
-            // 
-            // tsmiRelCompras
-            // 
-            this.tsmiRelCompras.Name = "tsmiRelCompras";
-            this.tsmiRelCompras.Size = new System.Drawing.Size(180, 22);
-            this.tsmiRelCompras.Text = "Compras";
-            this.tsmiRelCompras.Click += new System.EventHandler(this.tsmiRelCompras_Click);
             // 
             // FrmPrincipal
             // 
