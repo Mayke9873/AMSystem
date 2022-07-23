@@ -279,13 +279,13 @@ namespace Projeto_Novo
                 desconto = Convert.ToDecimal(txtDesconto.Text);
                 vTotal = (vProdtudo * Convert.ToDecimal(txtQtd.Text)) - desconto;
 
-                txtValorTotal.Text = vTotal.ToString();
+                txtValorTotal.Text = vTotal.ToString("F2");
             }
             else
             {
                 vTotal = vProdtudo * Convert.ToDecimal(txtQtd.Text);
 
-                txtValorTotal.Text = vTotal.ToString();
+                txtValorTotal.Text = vTotal.ToString("F2");
                 txtDesconto.Text = "0,00";
             }
         }
@@ -321,9 +321,9 @@ namespace Projeto_Novo
             try
             {
                 con.OpenConn();
-                cmd = new MySqlCommand("INSERT INTO VENDA_ITEM (idVenda, idProd, descricao, valor, desconto, quantidade, total) VALUES" +
-                    "((select max(id) from VENDA), '" + txtIdProduto.Text + "', '" + txtProduto.Text + "', '" + txtValorUnit.Text + "', '" + txtDesconto.Text + "'," +
-                    "'" + txtQtd.Text + "', '" + txtValorTotal.Text + "')", con.query);
+                cmd = new MySqlCommand("INSERT INTO VENDA_ITEM (idVenda, idProd, descricao, valor, desconto, quantidade, total, ex) VALUES" +
+                    $"((select max(id) from VENDA), '{txtIdProduto.Text}', '{txtProduto.Text}', '{txtValorUnit.Text.Replace(",", ".")}', " +
+                    $"'{txtDesconto.Text.Replace(",", ".")}', '{txtQtd.Text.Replace(",", ".")}', '{txtValorTotal.Text.Replace(",", ".")}', 9)", con.query);
 
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
@@ -345,10 +345,10 @@ namespace Projeto_Novo
             }
 
             ValorVenda += decimal.Parse(txtValorTotal.Text);
-            txtValorVenda.Text = ValorVenda.ToString();
+            txtValorVenda.Text = ValorVenda.ToString("F2");
 
             DescontoVenda += decimal.Parse(txtDesconto.Text);
-            txtDescontoVenda.Text = DescontoVenda.ToString();
+            txtDescontoVenda.Text = DescontoVenda.ToString("F2");
 
             txtIdProduto.Clear();
             txtProduto.Clear();
@@ -356,8 +356,7 @@ namespace Projeto_Novo
             txtValorUnit.Clear();
             txtDesconto.Clear();
             txtValorTotal.Clear();
-
-            txtProduto.Focus();
+            txtIdProduto.Focus();
         }
 
         private void dgvProdutos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -369,6 +368,7 @@ namespace Projeto_Novo
                 txtIdProduto.Text = row.Cells[0].Value.ToString();
                 txtProduto.Text = row.Cells[1].Value.ToString();
                 txtValorUnit.Text = row.Cells[3].Value.ToString();
+                txtQtd.Text = "1,000";
 
             }
 
@@ -386,8 +386,6 @@ namespace Projeto_Novo
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            DateTime dtVenda;
-
             //Verefica funcionario
             try
             {
@@ -410,7 +408,7 @@ namespace Projeto_Novo
                 con.CloseConn();
             }
 
-            //Verifica vendedor
+            //Verifica vendedor (funcionário)
             try
             {
                 con.OpenConn();
@@ -447,7 +445,7 @@ namespace Projeto_Novo
                     cmd.Parameters.AddWithValue("@TOTAL", decimal.Parse(txtValorVenda.Text));
                     cmd.Parameters.AddWithValue("@PAGO", decimal.Parse(txtValorVenda.Text));
                     cmd.Parameters.AddWithValue("@VENDEDOR", int.Parse(txtIdVendedor.Text));
-                    cmd.Parameters.AddWithValue("@DATA", dtVenda = DateTime.Now); 
+                    cmd.Parameters.AddWithValue("@DATA", DateTime.Now.ToString("yyyy-MM-dd"));
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
 
@@ -459,12 +457,17 @@ namespace Projeto_Novo
 
                     foreach (DataRow dr in dsProdVenda.Tables[0].Rows)
                     {
-                        cmd = new MySqlCommand("INSERT INTO MOVESTOQUE (idproduto, quantidade, dataMov, idUsuario, tipoMov) VALUES " +
-                            "('" + dr["idprod"] + "', '" + dr["quantidade"] + "' * -1, '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '" + txtIdVendedor.Text + "', 'V');", con.query);
+                        cmd = new MySqlCommand($"UPDATE VENDA_ITEM SET EX = 0 WHERE IDPROD = '{dr["idprod"]}' AND EX = 9 AND IDVENDA = '{txtIdVenda.Text}';", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
 
-                        cmd = new MySqlCommand("UPDATE PRODUTO SET estoque = (select sum(quantidade) from movestoque where idproduto = '" + dr["idprod"] + "') WHERE ID = '" + dr["idprod"] + "';", con.query);
+                        cmd = new MySqlCommand("INSERT INTO MOVESTOQUE (idproduto, quantidade, dataMov, idUsuario, tipoMov) VALUES " +
+                            $"('{dr["idprod"]}', '{dr["quantidade"]}' * -1, '{DateTime.Now.ToString("yyyy-MM-dd")}', '{txtIdVendedor.Text}', 'V');", con.query);
+                        cmd.ExecuteNonQuery();
+                        cmd.Dispose();
+
+                        cmd = new MySqlCommand($"UPDATE PRODUTO SET estoque = (select sum(quantidade) from movestoque where idproduto = '{dr["idprod"]}') " +
+                            $"WHERE ID = '{dr["idprod"]}';", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
                     }
