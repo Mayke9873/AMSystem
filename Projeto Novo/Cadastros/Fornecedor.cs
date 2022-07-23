@@ -193,7 +193,7 @@ namespace Projeto_Novo
             {
                 con.OpenConn();
 
-                cmd.Parameters.AddWithValue("@DtRegistro", dtRegistro = DateTime.Now);
+                cmd.Parameters.AddWithValue("@DtRegistro", DateTime.Now.ToString("yyyy-MM-dd"));
                 cmd.Parameters.AddWithValue("@cnpj", mtxCNPJ.Text.Replace(".", "").Replace("/", "").Replace("-", ""));
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
