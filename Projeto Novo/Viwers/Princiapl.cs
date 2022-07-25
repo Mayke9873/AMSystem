@@ -17,6 +17,7 @@ namespace Projeto_Novo
         {
             InitializeComponent();
 
+            this.Text += $" - Versão {System.Reflection.Assembly.GetExecutingAssembly().GetName().Version}";
         }
         private void fmrPrinciapl_KeyDown(object sender, KeyEventArgs e)
         {

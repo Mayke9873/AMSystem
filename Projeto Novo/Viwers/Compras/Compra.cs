@@ -79,38 +79,6 @@ namespace Projeto_Novo
             }
         }
 
-        private void txtIdProduto_Leave(object sender, EventArgs e)
-        {
-            if (txtIdProduto.Text.Length != 0)
-            {
-                try
-                {
-                    con.OpenConn();
-                    cmd = new MySqlCommand($"SELECT DESCRICAO FROM PRODUTO WHERE ID = {int.Parse(txtIdProduto.Text)}", con.query);
-                    MySqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        txtProduto.Text = reader[0].ToString();
-                        txtQtd.Text = "1,000";
-                    }
-                    else
-                    {
-                        MessageBox.Show("Produto não encontrado. Por favor, verifique!", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        txtIdProduto.Focus();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    con.CloseConn();
-                }
-            }
-        }
-
         private void txtFornecedor_TextChanged(object sender, EventArgs e)
         {
             if (txtFornecedor.Text.Length != 0)
@@ -150,6 +118,40 @@ namespace Projeto_Novo
                 dgvNome.Visible = false;
             }
         }
+
+        private void txtIdProduto_Leave(object sender, EventArgs e)
+        {
+            if (txtIdProduto.Text.Length != 0)
+            {
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand($"SELECT DESCRICAO, pCompra FROM PRODUTO WHERE ID = {int.Parse(txtIdProduto.Text)}", con.query);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        txtProduto.Text = reader[0].ToString();
+                        txtValorUnit.Text = reader[1].ToString();
+                        txtQtd.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Produto não encontrado. Por favor, verifique!", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        txtIdProduto.Focus();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+            }
+        }
+
 
         private void txtProduto_TextChanged(object sender, EventArgs e)
         {
@@ -308,10 +310,10 @@ namespace Projeto_Novo
             }
 
             ValorCompra += decimal.Parse(txtValorTotal.Text);
-            txtValorCompra.Text = ValorCompra.ToString();
+            txtValorCompra.Text = ValorCompra.ToString("F2");
 
             DescontoCompra += decimal.Parse(txtDesconto.Text);
-            txtDescontoCompra.Text = DescontoCompra.ToString();
+            txtDescontoCompra.Text = DescontoCompra.ToString("F2");
 
             txtIdProduto.Clear();
             txtProduto.Clear();
@@ -349,6 +351,7 @@ namespace Projeto_Novo
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            // Verifica fornecedor
             try
             {
                 con.OpenConn();

@@ -156,6 +156,7 @@
             this.tsmiGrupoUsu.Name = "tsmiGrupoUsu";
             this.tsmiGrupoUsu.Size = new System.Drawing.Size(180, 22);
             this.tsmiGrupoUsu.Text = "Grupo de Usuário";
+            this.tsmiGrupoUsu.Visible = false;
             this.tsmiGrupoUsu.Click += new System.EventHandler(this.tsmiGrupoUsu_Click);
             // 
             // toolStripSeparator6
@@ -373,6 +374,7 @@
             this.tsbtnCReceber.Size = new System.Drawing.Size(36, 47);
             this.tsbtnCReceber.Text = "F2 - A Receber";
             this.tsbtnCReceber.ToolTipText = "A Receber";
+            this.tsbtnCReceber.Visible = false;
             this.tsbtnCReceber.Click += new System.EventHandler(this.tsbtnCReceber_Click);
             // 
             // tsbtnSair
