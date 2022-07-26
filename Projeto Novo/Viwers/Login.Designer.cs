@@ -151,11 +151,11 @@
         #endregion
 
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.TextBox txtUsuario;
-        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.Label lblSenha;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.PictureBox picLogin;
+        public System.Windows.Forms.TextBox txtUsuario;
+        public System.Windows.Forms.TextBox txtSenha;
     }
 }

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using MySql.Data.MySqlClient;
 
 namespace Projeto_Novo
 {
@@ -26,8 +25,6 @@ namespace Projeto_Novo
             int nHeightEllipse // width of ellipse
         );
 
-        Conexao con = new Conexao();
-        MySqlCommand cmd;
 
         public FrmLogin()
         {
@@ -52,45 +49,10 @@ namespace Projeto_Novo
 
         private void Login()
         {
-            // Informação de login do usuário
-            if (txtUsuario.Text.Length == 0)
-            {
-                MessageBox.Show("Usuário não informado, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtUsuario.Focus();
-                return;
-            }
-            else if (txtSenha.Text.Length == 0)
-            {
-                MessageBox.Show("Senha não informada, por favor verifique!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txtSenha.Focus();
-                return;
-            }
+            Login logar = new Login() { usuario = txtUsuario.Text, senha = txtSenha.Text };
 
-            // Validando login
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand("SELECT LOGIN, SENHA FROM FUNCIONARIO WHERE LOGIN = '" + txtUsuario.Text + "' AND SENHA = '" + txtSenha.Text + "';", con.query);
-                MySqlDataReader dr = cmd.ExecuteReader();
-
-                if (dr.Read())
-                {
-                    DialogResult = DialogResult.OK;
-                }
-                else
-                {
-                    txtUsuario.Focus();
-                    MessageBox.Show("Usuário ou senha inválida, por favor verifique!");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                con.CloseConn();
-            }
+            logar.efetuarLogin();
+            DialogResult = logar.DialogResult;
         }
 
         private void txtSenha_Validated(object sender, EventArgs e)
