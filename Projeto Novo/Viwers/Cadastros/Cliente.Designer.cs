@@ -62,17 +62,13 @@
             this.isPasswordExpiredDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mySqlConnectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tpDados = new System.Windows.Forms.TabPage();
-            this.lblIe = new System.Windows.Forms.Label();
-            this.lblCNPJ = new System.Windows.Forms.Label();
-            this.mtxIe = new System.Windows.Forms.MaskedTextBox();
-            this.mtxCnpj = new System.Windows.Forms.MaskedTextBox();
+            this.mtxRG = new System.Windows.Forms.MaskedTextBox();
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.grpTpCliente = new System.Windows.Forms.GroupBox();
             this.rdoJuridica = new System.Windows.Forms.RadioButton();
             this.rdoFisica = new System.Windows.Forms.RadioButton();
             this.mtxCpf = new System.Windows.Forms.MaskedTextBox();
             this.lblCPF = new System.Windows.Forms.Label();
-            this.mtxRG = new System.Windows.Forms.MaskedTextBox();
             this.lblRG = new System.Windows.Forms.Label();
             this.lnlNumEnd = new System.Windows.Forms.Label();
             this.txtIdCli = new System.Windows.Forms.TextBox();
@@ -398,15 +394,11 @@
             // 
             // tpDados
             // 
-            this.tpDados.Controls.Add(this.lblIe);
-            this.tpDados.Controls.Add(this.lblCNPJ);
-            this.tpDados.Controls.Add(this.mtxIe);
-            this.tpDados.Controls.Add(this.mtxCnpj);
+            this.tpDados.Controls.Add(this.mtxRG);
             this.tpDados.Controls.Add(this.chkAtivo);
             this.tpDados.Controls.Add(this.grpTpCliente);
             this.tpDados.Controls.Add(this.mtxCpf);
             this.tpDados.Controls.Add(this.lblCPF);
-            this.tpDados.Controls.Add(this.mtxRG);
             this.tpDados.Controls.Add(this.lblRG);
             this.tpDados.Controls.Add(this.lnlNumEnd);
             this.tpDados.Controls.Add(this.txtIdCli);
@@ -428,49 +420,15 @@
             this.tpDados.Text = "Dados";
             this.tpDados.UseVisualStyleBackColor = true;
             // 
-            // lblIe
+            // mtxRG
             // 
-            this.lblIe.AutoSize = true;
-            this.lblIe.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblIe.Location = new System.Drawing.Point(345, 19);
-            this.lblIe.Name = "lblIe";
-            this.lblIe.Size = new System.Drawing.Size(26, 18);
-            this.lblIe.TabIndex = 27;
-            this.lblIe.Text = "IE:";
-            this.lblIe.Visible = false;
-            // 
-            // lblCNPJ
-            // 
-            this.lblCNPJ.AutoSize = true;
-            this.lblCNPJ.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblCNPJ.Location = new System.Drawing.Point(454, 19);
-            this.lblCNPJ.Name = "lblCNPJ";
-            this.lblCNPJ.Size = new System.Drawing.Size(54, 18);
-            this.lblCNPJ.TabIndex = 26;
-            this.lblCNPJ.Text = "CNPJ:";
-            this.lblCNPJ.Visible = false;
-            // 
-            // mtxIe
-            // 
-            this.mtxIe.Enabled = false;
-            this.mtxIe.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxIe.HidePromptOnLeave = true;
-            this.mtxIe.Location = new System.Drawing.Point(348, 40);
-            this.mtxIe.Name = "mtxIe";
-            this.mtxIe.Size = new System.Drawing.Size(103, 26);
-            this.mtxIe.TabIndex = 2;
-            this.mtxIe.Visible = false;
-            // 
-            // mtxCnpj
-            // 
-            this.mtxCnpj.Enabled = false;
-            this.mtxCnpj.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxCnpj.Location = new System.Drawing.Point(457, 40);
-            this.mtxCnpj.Mask = "##,###,###/####-##";
-            this.mtxCnpj.Name = "mtxCnpj";
-            this.mtxCnpj.Size = new System.Drawing.Size(150, 26);
-            this.mtxCnpj.TabIndex = 3;
-            this.mtxCnpj.Visible = false;
+            this.mtxRG.Enabled = false;
+            this.mtxRG.Font = new System.Drawing.Font("Arial", 12F);
+            this.mtxRG.HidePromptOnLeave = true;
+            this.mtxRG.Location = new System.Drawing.Point(348, 91);
+            this.mtxRG.Name = "mtxRG";
+            this.mtxRG.Size = new System.Drawing.Size(103, 26);
+            this.mtxRG.TabIndex = 2;
             // 
             // chkAtivo
             // 
@@ -491,7 +449,7 @@
             this.grpTpCliente.Controls.Add(this.rdoJuridica);
             this.grpTpCliente.Controls.Add(this.rdoFisica);
             this.grpTpCliente.Enabled = false;
-            this.grpTpCliente.Location = new System.Drawing.Point(780, 13);
+            this.grpTpCliente.Location = new System.Drawing.Point(554, 7);
             this.grpTpCliente.Name = "grpTpCliente";
             this.grpTpCliente.Size = new System.Drawing.Size(150, 53);
             this.grpTpCliente.TabIndex = 21;
@@ -543,17 +501,6 @@
             this.lblCPF.Size = new System.Drawing.Size(45, 18);
             this.lblCPF.TabIndex = 16;
             this.lblCPF.Text = "CPF:";
-            // 
-            // mtxRG
-            // 
-            this.mtxRG.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
-            this.mtxRG.Enabled = false;
-            this.mtxRG.Font = new System.Drawing.Font("Arial", 12F);
-            this.mtxRG.Location = new System.Drawing.Point(348, 91);
-            this.mtxRG.Mask = "##,###,###-#";
-            this.mtxRG.Name = "mtxRG";
-            this.mtxRG.Size = new System.Drawing.Size(103, 26);
-            this.mtxRG.TabIndex = 2;
             // 
             // lblRG
             // 
@@ -847,7 +794,6 @@
         private System.Windows.Forms.Label lnlNumEnd;
         private System.Windows.Forms.MaskedTextBox mtxCpf;
         private System.Windows.Forms.Label lblCPF;
-        private System.Windows.Forms.MaskedTextBox mtxRG;
         private System.Windows.Forms.Label lblRG;
         private System.Windows.Forms.GroupBox grpTpCliente;
         private System.Windows.Forms.RadioButton rdoJuridica;
@@ -870,12 +816,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn isPasswordExpiredDataGridViewCheckBoxColumn;
         private System.Windows.Forms.CheckBox chkAtivo;
-        private System.Windows.Forms.RadioButton rdoInativo;
-        private System.Windows.Forms.RadioButton rdoAtivo;
-        private System.Windows.Forms.RadioButton rdoTodos;
-        private System.Windows.Forms.MaskedTextBox mtxCnpj;
-        private System.Windows.Forms.Label lblIe;
-        private System.Windows.Forms.Label lblCNPJ;
-        private System.Windows.Forms.MaskedTextBox mtxIe;
+        private System.Windows.Forms.MaskedTextBox mtxRG;
+        public System.Windows.Forms.RadioButton rdoInativo;
+        public System.Windows.Forms.RadioButton rdoAtivo;
+        public System.Windows.Forms.RadioButton rdoTodos;
     }
 }

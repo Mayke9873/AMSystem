@@ -32,7 +32,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
                     sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
-                    " FROM CLIENTE WHERE ativo = 'S' and ((Nome like '%" + txtPesquisa.Text + "%') or (Id = '" + txtPesquisa.Text + "'));";
+                    " FROM CLIENTE WHERE ativo = 'S' and ((Nome like '%" + txtPesquisa.Text + "%') or (Id like '%" + txtPesquisa.Text + "%'));";
 
                     cmd = new MySqlCommand(sql, con.query);
 
@@ -57,7 +57,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
                     sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
-                    " FROM CLIENTE WHERE ativo = 'N' and ((Nome like '%" + txtPesquisa.Text + "%') or (Id = '" + txtPesquisa.Text + "'));";
+                    " FROM CLIENTE WHERE ativo = 'N' and ((Nome like '%" + txtPesquisa.Text + "%') or (Id like '%" + txtPesquisa.Text + "%'));";
 
                     cmd = new MySqlCommand(sql, con.query);
 
@@ -82,7 +82,7 @@ namespace Projeto_Novo
                 {
                     con.OpenConn();
                     sql = "SELECT Id, Nome, RG, CpfCnpj, dtnasc, Endereco, numendereco, Bairro, dtregistro, Tipo, Ativo" +
-                    " FROM CLIENTE where Nome like '%" + txtPesquisa.Text + "%' OR Id = '" + txtPesquisa.Text + "';";
+                    " FROM CLIENTE where Nome like '%" + txtPesquisa.Text + "%' OR Id like '%" + txtPesquisa.Text + "%';";
 
                     cmd = new MySqlCommand(sql, con.query);
 
@@ -136,8 +136,7 @@ namespace Projeto_Novo
             txtBairroCli.Enabled = true;
             chkAtivo.Enabled = true;
             grpTpCliente.Enabled = true;
-            mtxCnpj.Enabled = true;
-            mtxIe.Enabled = true;
+            mtxRG.Enabled = true;
             dgvCliente.Enabled = false;
             dgvCliente.TabStop = false;
 
@@ -158,13 +157,6 @@ namespace Projeto_Novo
         {
             string ativo;
             string tipoCli;
-            DateTime dtRegistro;
-            string rg = mtxRG.Text;
-            string cpfCnpj = mtxCpf.Text;
-
-            //retira mascara das strings
-            rg = rg.Replace(".", "").Replace("-", "");
-            cpfCnpj = cpfCnpj.Replace(".", "").Replace("-", "");
 
             if (txtNomeCli.Text.Length == 0)
             {
@@ -176,92 +168,54 @@ namespace Projeto_Novo
             ativo = (chkAtivo.Checked == true ? "S" : "N");
             tipoCli = (rdoFisica.Checked == true ? "F" : "J");
 
-            /*if (chkAtivo.Checked == true)
+            Pessoas pessoas = new Pessoas()
             {
-                ativo = "S";
-            }
-            else
-            {
-                ativo = "N";
-            }*/
+                Nome = txtNomeCli.Text,
+                Rg = mtxRG.Text,
+                CpfCnpj = mtxCpf.Text.Replace(".", "").Replace("-", ""),
+                Endereco = txtEnderecoCli.Text,
+                NumEndereco = txtNumEndCli.Text,
+                Bairro = txtBairroCli.Text,
+                Tipo = tipoCli,
+                Ativo = ativo
+            };
 
-            /*if (rdoFisica.Checked == true)
+            if (mtxDtNasc.MaskFull)
             {
-                tipoCli = "F";
+                pessoas.DtNasc = DateTime.Parse(mtxDtNasc.Text);
             }
-            else
-            {
-                tipoCli = "J";
-            }*/
-
 
             if (txtIdCli.Text.Length == 0)
             {
-            sql = "INSERT INTO CLIENTE (NOME, RG, CPFCNPJ, DTNASC, ENDERECO, NUMENDERECO, BAIRRO, DTREGISTRO, " +
-                "TIPO, ATIVO) " +
-                "VALUES ('" + txtNomeCli.Text + "', @rg , @cpfCnpj , @dtNasc , '" + txtEnderecoCli.Text + "','" + txtNumEndCli.Text + "'," +
-                " '" + txtBairroCli.Text + "', @dtRegistro, '" + tipoCli + "', '" + ativo + "');";
+                pessoas.CadastraCliente();
             }
             else
             {
-                sql = "UPDATE CLIENTE SET NOME = '" + txtNomeCli.Text + "', RG = @rg, CPFCNPJ = @cpfCnpj, DTNASC = @dtNasc, ENDERECO = '" + txtEnderecoCli.Text + "', " +
-                    "NUMENDERECO = '" + txtNumEndCli.Text + "', BAIRRO = '" + txtBairroCli.Text + "', TIPO = '" + tipoCli + "', ATIVO = '" + ativo + "'" +
-                    "WHERE ID = '" + txtIdCli.Text + "'";
+                pessoas.Id = int.Parse(txtIdCli.Text);
+                pessoas.EditaCliente();
             }
 
-            try
-            {
-                con.OpenConn();
-                cmd = new MySqlCommand(sql, con.query);
+            this.Consulta();
 
-                //Adiciona os parametros a partir das variaveis.
-                cmd.Parameters.AddWithValue("@dtRegistro", dtRegistro = DateTime.Now);
-                cmd.Parameters.AddWithValue("@rg", rg);
-                cmd.Parameters.AddWithValue("@cpfCnpj", cpfCnpj);
+            tcClientes.SelectedTab = tpCliente;
 
-                if (mtxDtNasc.MaskCompleted)
-                {
-                    cmd.Parameters.AddWithValue("@dtNasc", DateTime.Parse(mtxDtNasc.Text));
-                }
-                else
-                {
-                    cmd.Parameters.AddWithValue("@dtNasc", null);
-                }
+            tsbtnAddCliente.Enabled = true;
+            tsbtnEditCliente.Enabled = true;
+            tsbtnSalvar.Enabled = false;
+            tsbtnCancelar.Enabled = false;
 
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-                MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.Consulta();
-
-                tcClientes.SelectedTab = tpCliente;
-
-                tsbtnAddCliente.Enabled = true;
-                tsbtnEditCliente.Enabled = true;
-                tsbtnSalvar.Enabled = false;
-                tsbtnCancelar.Enabled = false;
-
-                txtPesquisa.Enabled = true;
-                txtNomeCli.Enabled = false;
-                mtxRG.Enabled = false;
-                mtxCpf.Enabled = false;
-                mtxDtNasc.Enabled = false;
-                txtEnderecoCli.Enabled = false;
-                txtNumEndCli.Enabled = false;
-                txtBairroCli.Enabled = false;
-                chkAtivo.Enabled = false;
-                grpTpCliente.Enabled = false;
-                dgvCliente.Enabled = true;
-                dgvCliente.TabStop = true;
-            }
-            catch (Exception a)
-            {
-                MessageBox.Show(a.Message);
-            }
-            finally
-            {
-                con.CloseConn();
-            }
+            txtPesquisa.Enabled = true;
+            txtNomeCli.Enabled = false;
+            mtxRG.Enabled = false;
+            mtxCpf.Enabled = false;
+            mtxDtNasc.Enabled = false;
+            txtEnderecoCli.Enabled = false;
+            txtNumEndCli.Enabled = false;
+            txtBairroCli.Enabled = false;
+            chkAtivo.Enabled = false;
+            grpTpCliente.Enabled = false;
+            dgvCliente.Enabled = true;
+            dgvCliente.TabStop = true;
         }
 
 
@@ -348,7 +302,7 @@ namespace Projeto_Novo
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
-            this.Consulta();        
+            this.Consulta();
         }
 
         private void rdoTodos_CheckedChanged(object sender, EventArgs e)
@@ -368,33 +322,16 @@ namespace Projeto_Novo
 
         private void rdoFisica_CheckedChanged(object sender, EventArgs e)
         {
-            lblRG.Visible = true;
-            mtxRG.Visible = true;
-            lblCPF.Visible = true;
-            mtxCpf.Visible = true;
-            lblIe.Visible = false;
-            mtxIe.Visible = false;
-            lblCNPJ.Visible = false;
-            mtxCnpj.Visible = false;
+            lblRG.Text = "RG:";
+            lblCPF.Text = "CPF:";
+            mtxCpf.Mask = "###,###,###-##";
         }
 
         private void rdoJuridica_CheckedChanged(object sender, EventArgs e)
         {
-            lblRG.Visible = false;
-            mtxRG.Visible = false;
-            lblCPF.Visible = false;
-            mtxCpf.Visible = false;
-            lblIe.Visible = true;
-            mtxIe.Visible = true;
-            lblCNPJ.Visible = true;
-            mtxCnpj.Visible = true;
-
-            lblIe.Location = new Point(345, 70);
-            mtxIe.Location = new Point(348, 91);
-            lblCNPJ.Location = new Point(454, 70);
-            mtxCnpj.Location = new Point(457, 91);
-
-
+            lblRG.Text = "IE:";
+            lblCPF.Text = "CNPJ:";
+            mtxCpf.Mask = "##,###,###/####-##";
         }
     }
 }
