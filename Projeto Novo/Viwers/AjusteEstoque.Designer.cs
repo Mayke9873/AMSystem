@@ -59,7 +59,7 @@
             // 
             this.lblQtd.AutoSize = true;
             this.lblQtd.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblQtd.Location = new System.Drawing.Point(459, 70);
+            this.lblQtd.Location = new System.Drawing.Point(460, 70);
             this.lblQtd.Name = "lblQtd";
             this.lblQtd.Size = new System.Drawing.Size(37, 18);
             this.lblQtd.TabIndex = 35;
@@ -111,7 +111,7 @@
             // 
             this.rdoSaida.AutoSize = true;
             this.rdoSaida.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoSaida.Location = new System.Drawing.Point(313, 139);
+            this.rdoSaida.Location = new System.Drawing.Point(306, 139);
             this.rdoSaida.Name = "rdoSaida";
             this.rdoSaida.Size = new System.Drawing.Size(62, 21);
             this.rdoSaida.TabIndex = 5;
@@ -124,7 +124,7 @@
             this.rdoEntrada.AutoSize = true;
             this.rdoEntrada.Checked = true;
             this.rdoEntrada.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdoEntrada.Location = new System.Drawing.Point(193, 139);
+            this.rdoEntrada.Location = new System.Drawing.Point(186, 139);
             this.rdoEntrada.Name = "rdoEntrada";
             this.rdoEntrada.Size = new System.Drawing.Size(76, 21);
             this.rdoEntrada.TabIndex = 4;
@@ -136,7 +136,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 16F);
-            this.label1.Location = new System.Drawing.Point(188, 17);
+            this.label1.Location = new System.Drawing.Point(181, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 25);
             this.label1.TabIndex = 36;
@@ -148,7 +148,7 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnCancelar.Location = new System.Drawing.Point(286, 194);
+            this.btnCancelar.Location = new System.Drawing.Point(278, 194);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(96, 32);
             this.btnCancelar.TabIndex = 38;
@@ -162,7 +162,7 @@
             this.btnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnConfirmar.Location = new System.Drawing.Point(185, 194);
+            this.btnConfirmar.Location = new System.Drawing.Point(180, 194);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(96, 32);
             this.btnConfirmar.TabIndex = 37;
@@ -187,7 +187,7 @@
             this.connectionStringDataGridViewTextBoxColumn,
             this.isPasswordExpiredDataGridViewCheckBoxColumn});
             this.dgvProduto.DataSource = this.mySqlConnectionBindingSource;
-            this.dgvProduto.Location = new System.Drawing.Point(517, 212);
+            this.dgvProduto.Location = new System.Drawing.Point(488, 181);
             this.dgvProduto.MultiSelect = false;
             this.dgvProduto.Name = "dgvProduto";
             this.dgvProduto.ReadOnly = true;
@@ -270,7 +270,7 @@
             // 
             this.mtxQtd.Font = new System.Drawing.Font("Arial", 12F);
             this.mtxQtd.HidePromptOnLeave = true;
-            this.mtxQtd.Location = new System.Drawing.Point(462, 91);
+            this.mtxQtd.Location = new System.Drawing.Point(463, 91);
             this.mtxQtd.Name = "mtxQtd";
             this.mtxQtd.Size = new System.Drawing.Size(77, 26);
             this.mtxQtd.TabIndex = 3;
@@ -296,6 +296,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "FrmAjusteEstoque";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ajuste Estoque";

@@ -31,9 +31,9 @@ namespace Projeto_Novo
                     tsmiSair_Click(sender, e);
                     break;
 
-                case Keys.F2:
-                    tsbtnCReceber_Click(sender, e);
-                    break;
+                //case Keys.F2:
+                //    tsbtnCReceber_Click(sender, e);
+                //    break;
             }
         }
 

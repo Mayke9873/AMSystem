@@ -181,56 +181,40 @@ namespace Projeto_Novo.Cadastros
             ativo = (chkAtivo.Checked == true ? 'S' : 'N');
             banco = (chkBanco.Checked == true ? 'S' : 'N');
 
-            try
+            Conta conta = new Conta()
             {
-                con.OpenConn();
+                Descricao = txtDescricao.Text,
+                Ativo = ativo,
+                Banco = banco
+            };
 
-                if (txtIdConta.Text.Length == 0)
-                {
-                    cmd = new MySqlCommand("INSERT INTO CONTA (DESCRICAO, ATIVO, BANCO) " +
-                "VALUES ('" + txtDescricao.Text + "', '" + ativo + "', '" + banco + "')", con.query);
-
-                }
-                else if (txtIdConta.Text.Length != 0)
-                {
-                    cmd = new MySqlCommand("UPDATE CONTA SET DESCRICAO = '" + txtDescricao.Text + "', ATIVO = '" + ativo + "', " +
-                    "BANCO = '" + banco + "' WHERE ID = '" + txtIdConta.Text + "';", con.query);
-                }
-
-                cmd.ExecuteNonQuery();
-                cmd.Dispose();
-
-                MessageBox.Show("Cadastro salvo com sucesso!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                this.Consulta();
-
-                // Habilita e desabilita botoes e filtros.
-                tsbtnAddConta.Enabled = true;
-                tsbtnEditConta.Enabled = true;
-                tsbtnSalvar.Enabled = false;
-                tsbtnCancelar.Enabled = false;
-                txtPesquisa.Enabled = true;
-                dgvContas.Enabled = true;
-                rdoTodos.Enabled = true;
-                rdoAtivo.Enabled = true;
-                rdoInativo.Enabled = true;
-                txtDescricao.Enabled = false;
-                chkAtivo.Enabled = false;
-                chkBanco.Enabled = false;
-
-                if (tcContas.SelectedIndex != 0)
-                {
-                    tcContas.SelectedTab = tpConta;
-                }
-            }
-            catch (Exception ex)
+            if (txtIdConta.Text.Length == 0)
             {
-                MessageBox.Show(ex.Message);
+                conta.Inserir();
             }
-            finally
+            else if (txtIdConta.Text.Length != 0)
             {
-                con.CloseConn();
+                conta.Id = int.Parse(txtIdConta.Text);
+                conta.Editar();
             }
+
+            this.Consulta();
+
+            tcContas.SelectTab(tpConta);
+
+            // Habilita e desabilita botoes e filtros.
+            tsbtnAddConta.Enabled = true;
+            tsbtnEditConta.Enabled = true;
+            tsbtnSalvar.Enabled = false;
+            tsbtnCancelar.Enabled = false;
+            txtPesquisa.Enabled = true;
+            dgvContas.Enabled = true;
+            rdoTodos.Enabled = true;
+            rdoAtivo.Enabled = true;
+            rdoInativo.Enabled = true;
+            txtDescricao.Enabled = false;
+            chkAtivo.Enabled = false;
+            chkBanco.Enabled = false;
         }
 
         private void tsbtnCancelar_Click(object sender, EventArgs e)
@@ -292,24 +276,6 @@ namespace Projeto_Novo.Cadastros
                 //Operador ternário. Substitiu os IFs
                 chkAtivo.Checked = (ativo == "S" ? true : false);
                 chkBanco.Checked = (conta == "S" ? true : false);
-
-                /*if (ativo == "S")
-                {
-                    chkAtivo.Checked = true;
-                }
-                else if (ativo == "N")
-                {
-                    chkAtivo.Checked = false;
-                }
-
-                if (conta == "S")
-                {
-                    chkBanco.Checked = true;
-                }
-                else if (conta == "N")
-                {
-                    chkBanco.Checked = false;
-                }*/
             }
         }
     }

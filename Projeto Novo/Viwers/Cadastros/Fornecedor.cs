@@ -164,7 +164,6 @@ namespace Projeto_Novo
         private void tsbtnSalvar_Click(object sender, EventArgs e)
         {
             char ativo;
-            DateTime dtRegistro;
 
             if (txtNomeFornecedor.Text.Length == 0)
             {
@@ -202,6 +201,8 @@ namespace Projeto_Novo
 
                 this.Consulta();
 
+                tcFornecedores.SelectTab(tpFornecedor);
+
                 tsbtnAddFornecedor.Enabled = true;
                 tsbtnEditFornecedor.Enabled = true;
                 tsbtnSalvar.Enabled = false;
@@ -213,9 +214,7 @@ namespace Projeto_Novo
                 txtEndFornecedor.Enabled = false;
                 txtNumEndFornecedor.Enabled = false;
                 txtBairroFornecedor.Enabled = false;
-                chkAtivo.Enabled = false;
-
-                tcFornecedores.SelectTab(tpFornecedor);
+                chkAtivo.Enabled = false;   
             }
             catch (Exception ex)
             {

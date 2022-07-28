@@ -24,8 +24,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.0.1</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -39,6 +39,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -98,7 +100,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login.cs" />
+    <Compile Include="Classes\Conta.cs" />
+    <Compile Include="Classes\Login.cs" />
+    <Compile Include="Classes\Pessoas.cs" />
     <Compile Include="Viwers\AjusteEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +139,7 @@
     <Compile Include="Viwers\Compras\Compra.Designer.cs">
       <DependentUpon>Compra.cs</DependentUpon>
     </Compile>
+    <Compile Include="Viwers\Compras\Compras.cs" />
     <Compile Include="Viwers\Compras\ConsCompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,7 +147,7 @@
       <DependentUpon>ConsCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexao.cs" />
-    <Compile Include="JanelaPai.cs" />
+    <Compile Include="Classes\JanelaPai.cs" />
     <Compile Include="projeto_dbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
