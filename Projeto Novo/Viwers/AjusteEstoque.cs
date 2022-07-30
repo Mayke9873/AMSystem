@@ -30,6 +30,10 @@ namespace Projeto_Novo
                     this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
                     break;
 
+                case Keys.F3:
+                    btnConfirmar_Click(sender, e);
+                    break;
+
                 case Keys.Escape:
                     this.Close();
                     break;
@@ -66,13 +70,16 @@ namespace Projeto_Novo
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
+            MovEstoque estoque = new MovEstoque()
+            {
+                idProduto = int.Parse(txtIdProduto.Text),
+                quantidade = int.Parse(mtxQtd.Text),
+                idUsuario = int.Parse(mtxQtd.Text),
+                tipoMov = 'A'
+            };
+
             try
             {
                 con.OpenConn();
@@ -84,62 +91,25 @@ namespace Projeto_Novo
                     {
                         if (rdoEntrada.Checked)
                         {
-                            try
-                            {
-                                con.OpenConn();
+                            estoque.movEstoque();
+                            estoque.atualizaEstoque();
 
-                                cmd = new MySqlCommand("INSERT INTO MOVESTOQUE (idproduto, quantidade, dataMov, idUsuario, tipoMov) VALUES " +
-                                        "('" + txtIdProduto.Text + "', '" + mtxQtd.Text + "', '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '', 'A');", con.query);
-                                cmd.ExecuteNonQuery();
-                                cmd.Dispose();
-
-                                cmd = new MySqlCommand("UPDATE PRODUTO SET estoque = (select sum(quantidade) from movestoque where idproduto = '" + txtIdProduto.Text + "') WHERE ID = '" + txtIdProduto.Text + "';", con.query);
-                                cmd.ExecuteNonQuery();
-                                cmd.Dispose();
-
-                                MessageBox.Show("Ajuste de entrada registrado com sucesso!", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message, "AmSystem Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            finally
-                            {
-                                txtIdProduto.Clear();
-                                txtDescricao.Clear();
-                                mtxQtd.Clear();
-                                con.CloseConn();
-                            }
+                            txtIdProduto.Clear();
+                            txtDescricao.Clear();
+                            mtxQtd.Clear();
                         }
                         else if (rdoSaida.Checked)
                         {
-                            try
-                            {
-                                con.OpenConn();
+                            estoque.quantidade = int.Parse(mtxQtd.Text) * -1;
+                            estoque.movEstoque();
+                            estoque.atualizaEstoque();
 
-                                cmd = new MySqlCommand("INSERT INTO MOVESTOQUE (idproduto, quantidade, dataMov, idUsuario, tipoMov) VALUES " +
-                                        "('" + txtIdProduto.Text + "', '" + mtxQtd.Text + "' * -1, '" + DateTime.Now.ToString("yyyy-MM-dd") + "', '', 'A');", con.query);
-                                cmd.ExecuteNonQuery();
-                                cmd.Dispose();
-
-                                cmd = new MySqlCommand("UPDATE PRODUTO SET estoque = (select sum(quantidade) from movestoque where idproduto = '" + txtIdProduto.Text + "') WHERE ID = '" + txtIdProduto.Text + "';", con.query);
-                                cmd.ExecuteNonQuery();
-                                cmd.Dispose();
-
-                                MessageBox.Show("Ajuste de saida registrado com sucesso!", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message, "AmSystem Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            finally
-                            {
-                                txtIdProduto.Clear();
-                                txtDescricao.Clear();
-                                mtxQtd.Clear();
-                                con.CloseConn();
-                            }
+                            txtIdProduto.Clear();
+                            txtDescricao.Clear();
+                            mtxQtd.Clear();
                         }
+
+                        MessageBox.Show("Ajuste de estoque registrado com sucesso!", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -221,6 +191,11 @@ namespace Projeto_Novo
             {
                 con.CloseConn();
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

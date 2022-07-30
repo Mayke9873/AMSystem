@@ -103,6 +103,7 @@
     <Compile Include="Classes\Conta.cs" />
     <Compile Include="Classes\Login.cs" />
     <Compile Include="Classes\Pessoas.cs" />
+    <Compile Include="MovEstoque.cs" />
     <Compile Include="Viwers\AjusteEstoque.cs">
       <SubType>Form</SubType>
     </Compile>

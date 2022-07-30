@@ -38,7 +38,7 @@
             this.rdoSaida = new System.Windows.Forms.RadioButton();
             this.rdoEntrada = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnSair = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.dgvProduto = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -142,19 +142,19 @@
             this.label1.TabIndex = 36;
             this.label1.Text = "Ajuste de Estoque";
             // 
-            // btnCancelar
+            // btnSair
             // 
-            this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnCancelar.Location = new System.Drawing.Point(278, 194);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(96, 32);
-            this.btnCancelar.TabIndex = 38;
-            this.btnCancelar.Text = "F2 - Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnSair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnSair.Location = new System.Drawing.Point(278, 194);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(96, 32);
+            this.btnSair.TabIndex = 38;
+            this.btnSair.Text = "Esc - Sair";
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnConfirmar
             // 
@@ -166,7 +166,7 @@
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(96, 32);
             this.btnConfirmar.TabIndex = 37;
-            this.btnConfirmar.Text = "F1 - Confirmar";
+            this.btnConfirmar.Text = "F3 - Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
@@ -283,7 +283,7 @@
             this.ClientSize = new System.Drawing.Size(550, 238);
             this.Controls.Add(this.mtxQtd);
             this.Controls.Add(this.dgvProduto);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSair);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblQtd);
@@ -318,7 +318,7 @@
         private System.Windows.Forms.RadioButton rdoSaida;
         private System.Windows.Forms.RadioButton rdoEntrada;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnSair;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.DataGridView dgvProduto;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
