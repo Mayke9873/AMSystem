@@ -43,6 +43,10 @@ namespace Projeto_Novo
                 case Keys.F4:
                     this.btnCancelar_Click(sender, e);
                     break;
+
+                case Keys.F5:
+                    this.btnExcluirProd_Click(sender, e);
+                    break;
             }
         }
 
@@ -328,7 +332,7 @@ namespace Projeto_Novo
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
-                cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM WHERE IDVENDA = (SELECT MAX(IDVENDA) FROM VENDA_ITEM);", con.query);
+                cmd = new MySqlCommand("SELECT ID, IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM WHERE IDVENDA = (SELECT MAX(IDVENDA) FROM VENDA_ITEM) AND EX = 9;", con.query);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -386,7 +390,7 @@ namespace Projeto_Novo
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            //Verefica funcionario
+            // Verefica funcionario
             try
             {
                 con.OpenConn();
@@ -408,7 +412,7 @@ namespace Projeto_Novo
                 con.CloseConn();
             }
 
-            //Verifica vendedor (funcionário)
+            // Verifica cliente
             try
             {
                 con.OpenConn();
@@ -449,7 +453,9 @@ namespace Projeto_Novo
                     cmd.ExecuteNonQuery();
                     cmd.Dispose();
 
-                    cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM WHERE IDVENDA = (SELECT MAX(IDVENDA) FROM VENDA_ITEM);", con.query);
+                    // Carrega DataSet dos produtos da venda
+                    cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM VENDA_ITEM " +
+                        $"WHERE IDVENDA = '{ txtIdVenda.Text }' AND EX = 9;", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet dsProdVenda = new DataSet();
                     da.Fill(dsProdVenda);
@@ -466,8 +472,7 @@ namespace Projeto_Novo
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
 
-                        cmd = new MySqlCommand($"UPDATE PRODUTO SET estoque = (select sum(quantidade) from movestoque where idproduto = '{dr["idprod"]}') " +
-                            $"WHERE ID = '{dr["idprod"]}';", con.query);
+                        cmd = new MySqlCommand($"UPDATE PRODUTO SET estoque = (select sum(quantidade) from movestoque where idproduto = '{dr["idprod"]}') WHERE ID = '{dr["idprod"]}';", con.query);
                         cmd.ExecuteNonQuery();
                         cmd.Dispose();
                     }
@@ -557,6 +562,35 @@ namespace Projeto_Novo
                     return;
                 }
                 return;
+            }
+        }
+
+        private void btnExcluirProd_Click(object sender, EventArgs e)
+        {
+            if (dgvProVenda.CurrentRow != null)
+            {
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand($"UPDATE VENDA_ITEM SET EX = 1 WHERE ID = @ID and IDVENDA = @idVenda;", con.query);
+                    cmd.Parameters.AddWithValue("@ID", dgvProVenda.CurrentRow.Cells[6].Value.ToString());
+                    cmd.Parameters.AddWithValue("@idVenda", txtIdVenda.Text);
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+                decimal valProd = decimal.Parse(dgvProVenda.CurrentRow.Cells[5].Value.ToString());
+                ValorVenda = decimal.Parse(txtValorVenda.Text) - valProd;
+                txtValorVenda.Text = ValorVenda.ToString("F2");
+
+                dgvProVenda.Rows.RemoveAt(dgvProVenda.CurrentRow.Index);
             }
         }
 
