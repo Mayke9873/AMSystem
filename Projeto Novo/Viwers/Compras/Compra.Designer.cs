@@ -72,6 +72,7 @@
             this.vUnit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataSourceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.connectionTimeoutDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.databaseDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +81,7 @@
             this.txtDescontoCompra = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtValorCompra = new System.Windows.Forms.TextBox();
+            this.btnExcluirProd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mySqlConnectionBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNome)).BeginInit();
@@ -92,9 +94,9 @@
             this.btnSair.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSair.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnSair.Location = new System.Drawing.Point(214, 543);
+            this.btnSair.Location = new System.Drawing.Point(402, 543);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(96, 32);
+            this.btnSair.Size = new System.Drawing.Size(125, 32);
             this.btnSair.TabIndex = 45;
             this.btnSair.Text = "Esc - Sair";
             this.btnSair.UseVisualStyleBackColor = true;
@@ -106,9 +108,9 @@
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Arial", 9F);
-            this.btnCancelar.Location = new System.Drawing.Point(113, 543);
+            this.btnCancelar.Location = new System.Drawing.Point(142, 543);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(96, 32);
+            this.btnCancelar.Size = new System.Drawing.Size(125, 32);
             this.btnCancelar.TabIndex = 44;
             this.btnCancelar.Text = "F4 - Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -122,7 +124,7 @@
             this.btnConfirmar.Font = new System.Drawing.Font("Arial", 9F);
             this.btnConfirmar.Location = new System.Drawing.Point(12, 543);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(96, 32);
+            this.btnConfirmar.Size = new System.Drawing.Size(125, 32);
             this.btnConfirmar.TabIndex = 43;
             this.btnConfirmar.Text = "F3 - Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -466,6 +468,7 @@
             this.vUnit,
             this.vDesc,
             this.vTotal,
+            this.Column5,
             this.dataSourceDataGridViewTextBoxColumn1,
             this.connectionTimeoutDataGridViewTextBoxColumn1,
             this.databaseDataGridViewTextBoxColumn1,
@@ -515,6 +518,13 @@
             this.vTotal.HeaderText = "R$ Total";
             this.vTotal.Name = "vTotal";
             this.vTotal.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "id";
+            this.Column5.HeaderText = "id";
+            this.Column5.Name = "Column5";
+            this.Column5.Visible = false;
             // 
             // dataSourceDataGridViewTextBoxColumn1
             // 
@@ -593,10 +603,25 @@
             this.txtValorCompra.TabStop = false;
             this.txtValorCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // btnExcluirProd
+            // 
+            this.btnExcluirProd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExcluirProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExcluirProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluirProd.Font = new System.Drawing.Font("Arial", 9F);
+            this.btnExcluirProd.Location = new System.Drawing.Point(272, 543);
+            this.btnExcluirProd.Name = "btnExcluirProd";
+            this.btnExcluirProd.Size = new System.Drawing.Size(125, 32);
+            this.btnExcluirProd.TabIndex = 53;
+            this.btnExcluirProd.Text = "F5 - Excluir produto";
+            this.btnExcluirProd.UseVisualStyleBackColor = true;
+            this.btnExcluirProd.Click += new System.EventHandler(this.btnExcluirProd_Click);
+            // 
             // FrmCompra
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(983, 590);
+            this.Controls.Add(this.btnExcluirProd);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDescontoCompra);
             this.Controls.Add(this.label1);
@@ -655,10 +680,7 @@
         private System.Windows.Forms.TextBox txtProduto;
         private System.Windows.Forms.TextBox txtIdProduto;
         private System.Windows.Forms.Label lblProduto;
-        private System.Windows.Forms.TextBox txtFornecedor;
-        private System.Windows.Forms.TextBox txtIdFornecedor;
         private System.Windows.Forms.Label lblFornecedor;
-        private System.Windows.Forms.TextBox txtIdCompra;
         private System.Windows.Forms.Label lblIdCompra;
         private System.Windows.Forms.BindingSource mySqlConnectionBindingSource;
         private System.Windows.Forms.DataGridView dgvProdutos;
@@ -670,16 +692,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridView dgvProdCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qtd;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vUnit;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vDesc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn vTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -689,8 +701,23 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtDescontoCompra;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtValorCompra;
+        private System.Windows.Forms.Button btnExcluirProd;
+        public System.Windows.Forms.TextBox txtFornecedor;
+        public System.Windows.Forms.TextBox txtIdFornecedor;
+        public System.Windows.Forms.TextBox txtIdCompra;
+        public System.Windows.Forms.TextBox txtDescontoCompra;
+        public System.Windows.Forms.TextBox txtValorCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qtd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vDesc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn vTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataSourceDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionTimeoutDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn databaseDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn connectionStringDataGridViewTextBoxColumn1;
     }
 }

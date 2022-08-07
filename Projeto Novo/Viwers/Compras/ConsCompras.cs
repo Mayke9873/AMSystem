@@ -105,5 +105,18 @@ namespace Projeto_Novo
         {
             Consulta();
         }
+
+        private void tsbtnEditCompra_Click(object sender, EventArgs e)
+        {
+            FrmCompra compra = new FrmCompra();
+
+            compra.Show();
+
+            compra.txtIdCompra.Text = dgvCompras.CurrentRow.Cells[1].Value.ToString();
+            //compra.txtIdFornecedor.Text = dgvCompras.CurrentRow.Cells[2].Value.ToString();
+            compra.txtFornecedor.Text = dgvCompras.CurrentRow.Cells[2].Value.ToString();
+            compra.txtDescontoCompra.Text = dgvCompras.CurrentRow.Cells[4].Value.ToString();
+            compra.txtValorCompra.Text = dgvCompras.CurrentRow.Cells[5].Value.ToString();
+        }
     }
 }

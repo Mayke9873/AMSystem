@@ -29,6 +29,11 @@ namespace Projeto_Novo
         {
             switch (e.KeyCode)
             {
+                case Keys.Enter:
+                    e.SuppressKeyPress = true;
+                    this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
+                    break;
+
                 case Keys.Escape:
                     btnSair_Click(sender, e);
                     break;
@@ -41,9 +46,8 @@ namespace Projeto_Novo
                     btnCancelar_Click(sender, e);
                     break;
 
-                case Keys.Enter:
-                    e.SuppressKeyPress = true;
-                    this.SelectNextControl(ActiveControl, !e.Shift, true, true, true);
+                case Keys.F5:
+                    btnExcluirProd_Click(sender, e);
                     break;
             }
         }
@@ -293,7 +297,7 @@ namespace Projeto_Novo
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
 
-                cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM COMPRA_ITEM WHERE ID_COMPRA = (SELECT MAX(ID_COMPRA) FROM COMPRA_ITEM);", con.query);
+                cmd = new MySqlCommand("SELECT ID, IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM COMPRA_ITEM WHERE ID_COMPRA = (SELECT MAX(ID_COMPRA) FROM COMPRA_ITEM) AND EX = 9;", con.query);
                 MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
@@ -393,7 +397,7 @@ namespace Projeto_Novo
 
                     //Carrega DataSet dos produtos inseridos na compra.
                     cmd = new MySqlCommand("SELECT IDPROD, DESCRICAO, QUANTIDADE, VALOR, DESCONTO, TOTAL FROM COMPRA_ITEM " +
-                        "WHERE ID_COMPRA = (SELECT MAX(ID_COMPRA) FROM COMPRA_ITEM);", con.query);
+                        "WHERE ID_COMPRA = (SELECT MAX(ID_COMPRA) FROM COMPRA_ITEM) AND EX = 9;", con.query);
                     MySqlDataAdapter da = new MySqlDataAdapter(cmd);
                     DataSet dsProdCompra = new DataSet();
                     da.Fill(dsProdCompra);
@@ -497,6 +501,35 @@ namespace Projeto_Novo
                 txtValorCompra.Clear();
                 txtDescontoCompra.Clear();
                 txtIdFornecedor.Focus();
+            }
+        }
+
+        private void btnExcluirProd_Click(object sender, EventArgs e)
+        {
+            if (dgvProdCompra.CurrentRow != null)
+            {
+                try
+                {
+                    con.OpenConn();
+                    cmd = new MySqlCommand($"UPDATE COMPRA_ITEM SET EX = 1 WHERE ID = @ID AND ID_COMPRA = @IDCOMPRA;", con.query);
+                    cmd.Parameters.AddWithValue("@ID", dgvProdCompra.CurrentRow.Cells[6].Value.ToString());
+                    cmd.Parameters.AddWithValue("@IDCOMPRA", txtIdCompra.Text);
+                    cmd.ExecuteNonQuery();
+                    cmd.Dispose();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "AmSystem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    con.CloseConn();
+                }
+                decimal valProd = decimal.Parse(dgvProdCompra.CurrentRow.Cells[5].Value.ToString());
+                ValorCompra = decimal.Parse(txtValorCompra.Text) - valProd;
+                txtValorCompra.Text = ValorCompra.ToString("F2");
+
+                dgvProdCompra.Rows.RemoveAt(dgvProdCompra.CurrentRow.Index);
             }
         }
 

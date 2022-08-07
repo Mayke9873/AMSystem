@@ -86,7 +86,7 @@
             this.tsbtnAddCompra.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbtnAddCompra.Name = "tsbtnAddCompra";
             this.tsbtnAddCompra.Size = new System.Drawing.Size(26, 26);
-            this.tsbtnAddCompra.Text = "Novo";
+            this.tsbtnAddCompra.Text = "F3 - Novo";
             this.tsbtnAddCompra.Click += new System.EventHandler(this.tsbtnAddCompra_Click);
             // 
             // tsbtnEditCompra
@@ -97,6 +97,7 @@
             this.tsbtnEditCompra.Name = "tsbtnEditCompra";
             this.tsbtnEditCompra.Size = new System.Drawing.Size(26, 26);
             this.tsbtnEditCompra.Text = "Editar";
+            this.tsbtnEditCompra.Click += new System.EventHandler(this.tsbtnEditCompra_Click);
             // 
             // tsbtnCancelar
             // 
