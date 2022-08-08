@@ -7,14 +7,14 @@
     <ProjectGuid>{D16C4F40-B22D-4A6C-B97E-ED96FFD191C1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Projeto_Novo</RootNamespace>
-    <AssemblyName>Projeto Novo</AssemblyName>
+    <AssemblyName>Am System</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile />
-    <PublishUrl>publish\</PublishUrl>
+    <PublishUrl>C:\Users\Mayke\Desktop\Sistema\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -24,9 +24,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.2</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -38,6 +39,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -51,7 +54,37 @@
   <PropertyGroup>
     <ApplicationIcon>Icone_sistema.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9CAA8C2958018E90CBE37E600ABA198BB884A95D</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Projeto Novo_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1484.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.1016.290\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.28.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -67,182 +100,223 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cadastros\Contas.cs">
+    <Compile Include="Classes\Conta.cs" />
+    <Compile Include="Classes\Login.cs" />
+    <Compile Include="Classes\Pessoas.cs" />
+    <Compile Include="Classes\MovEstoque.cs" />
+    <Compile Include="Viwers\AjusteEstoque.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\Contas.Designer.cs">
+    <Compile Include="Viwers\AjusteEstoque.Designer.cs">
+      <DependentUpon>AjusteEstoque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Cadastros\Contas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viwers\Cadastros\Contas.Designer.cs">
       <DependentUpon>Contas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caixa\AberturaCaixa.cs">
+    <Compile Include="Viwers\Caixa\AberturaCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caixa\AberturaCaixa.Designer.cs">
+    <Compile Include="Viwers\Caixa\AberturaCaixa.Designer.cs">
       <DependentUpon>AberturaCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\Cliente.cs">
+    <Compile Include="Viwers\Cadastros\Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\Cliente.Designer.cs">
+    <Compile Include="Viwers\Cadastros\Cliente.Designer.cs">
       <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caixa\MovCaixa.cs">
+    <Compile Include="Viwers\Caixa\MovCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caixa\MovCaixa.Designer.cs">
+    <Compile Include="Viwers\Caixa\MovCaixa.Designer.cs">
       <DependentUpon>MovCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\Compra.cs">
+    <Compile Include="Viwers\Compras\Compra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compras\Compra.Designer.cs">
+    <Compile Include="Viwers\Compras\Compra.Designer.cs">
       <DependentUpon>Compra.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\ConsCompras.cs">
+    <Compile Include="Viwers\Compras\Compras.cs" />
+    <Compile Include="Viwers\Compras\ConsCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compras\ConsCompras.Designer.cs">
+    <Compile Include="Viwers\Compras\ConsCompras.Designer.cs">
       <DependentUpon>ConsCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="Conexao.cs" />
-    <Compile Include="JanelaPai.cs" />
-    <Compile Include="Vendas\ConsVendas.cs">
+    <Compile Include="Classes\JanelaPai.cs" />
+    <Compile Include="projeto_dbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>projeto_dbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Relatorios\frmRelCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vendas\ConsVendas.Designer.cs">
+    <Compile Include="Viwers\Relatorios\frmRelCompras.Designer.cs">
+      <DependentUpon>frmRelCompras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Viwers\Relatorios\frmRelVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viwers\Relatorios\frmRelVendas.Designer.cs">
+      <DependentUpon>frmRelVendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="Viwers\Vendas\ConsVendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Viwers\Vendas\ConsVendas.Designer.cs">
       <DependentUpon>ConsVendas.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContasReceber\ContaReceber.cs">
+    <Compile Include="Viwers\ContasReceber\ContaReceber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContasReceber\ContaReceber.Designer.cs">
+    <Compile Include="Viwers\ContasReceber\ContaReceber.Designer.cs">
       <DependentUpon>ContaReceber.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContasPagar\ContasPagar.cs">
+    <Compile Include="Viwers\ContasPagar\ContasPagar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContasPagar\ContasPagar.Designer.cs">
+    <Compile Include="Viwers\ContasPagar\ContasPagar.Designer.cs">
       <DependentUpon>ContasPagar.cs</DependentUpon>
     </Compile>
-    <Compile Include="ContasPagar\Pagar.cs">
+    <Compile Include="Viwers\ContasPagar\Pagar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContasPagar\Pagar.Designer.cs">
+    <Compile Include="Viwers\ContasPagar\Pagar.Designer.cs">
       <DependentUpon>Pagar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Caixa\FechamentoCaixa.cs">
+    <Compile Include="Viwers\Caixa\FechamentoCaixa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Caixa\FechamentoCaixa.Designer.cs">
+    <Compile Include="Viwers\Caixa\FechamentoCaixa.Designer.cs">
       <DependentUpon>FechamentoCaixa.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\Fornecedor.cs">
+    <Compile Include="Viwers\Cadastros\Fornecedor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\Fornecedor.Designer.cs">
+    <Compile Include="Viwers\Cadastros\Fornecedor.Designer.cs">
       <DependentUpon>Fornecedor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\Funcionario.cs">
+    <Compile Include="Viwers\Cadastros\Funcionario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\Funcionario.Designer.cs">
+    <Compile Include="Viwers\Cadastros\Funcionario.Designer.cs">
       <DependentUpon>Funcionario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\GrupoProdutos.cs">
+    <Compile Include="Viwers\Cadastros\GrupoProdutos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\GrupoProdutos.Designer.cs">
+    <Compile Include="Viwers\Cadastros\GrupoProdutos.Designer.cs">
       <DependentUpon>GrupoProdutos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\GrupoUsuario.cs">
+    <Compile Include="Viwers\Cadastros\GrupoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\GrupoUsuario.Designer.cs">
+    <Compile Include="Viwers\Cadastros\GrupoUsuario.Designer.cs">
       <DependentUpon>GrupoUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Viwers\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
+    <Compile Include="Viwers\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="Princiapl.cs">
+    <Compile Include="Viwers\Princiapl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Princiapl.Designer.cs">
+    <Compile Include="Viwers\Princiapl.Designer.cs">
       <DependentUpon>Princiapl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\Produto.cs">
+    <Compile Include="Viwers\Cadastros\Produto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cadastros\Produto.Designer.cs">
+    <Compile Include="Viwers\Cadastros\Produto.Designer.cs">
       <DependentUpon>Produto.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ContasReceber\Receber.cs">
+    <Compile Include="Viwers\ContasReceber\Receber.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ContasReceber\Receber.Designer.cs">
+    <Compile Include="Viwers\ContasReceber\Receber.Designer.cs">
       <DependentUpon>Receber.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vendas\Venda.cs">
+    <Compile Include="Viwers\Vendas\Venda.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vendas\Venda.Designer.cs">
+    <Compile Include="Viwers\Vendas\Venda.Designer.cs">
       <DependentUpon>Venda.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Cadastros\Contas.resx">
+    <EmbeddedResource Include="Viwers\AjusteEstoque.resx">
+      <DependentUpon>AjusteEstoque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viwers\Cadastros\Contas.resx">
       <DependentUpon>Contas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caixa\AberturaCaixa.resx">
+    <EmbeddedResource Include="Viwers\Caixa\AberturaCaixa.resx">
       <DependentUpon>AberturaCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\Cliente.resx">
+    <EmbeddedResource Include="Viwers\Cadastros\Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caixa\MovCaixa.resx">
+    <EmbeddedResource Include="Viwers\Caixa\MovCaixa.resx">
       <DependentUpon>MovCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\Compra.resx">
+    <EmbeddedResource Include="Viwers\Compras\Compra.resx">
       <DependentUpon>Compra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\ConsCompras.resx">
+    <EmbeddedResource Include="Viwers\Compras\ConsCompras.resx">
       <DependentUpon>ConsCompras.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vendas\ConsVendas.resx">
+    <EmbeddedResource Include="Viwers\Relatorios\Compras.rdlc" />
+    <EmbeddedResource Include="Viwers\Relatorios\frmRelCompras.resx">
+      <DependentUpon>frmRelCompras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viwers\Relatorios\frmRelVendas.resx">
+      <DependentUpon>frmRelVendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Viwers\Relatorios\Vendas.rdlc" />
+    <EmbeddedResource Include="Viwers\Vendas\ConsVendas.resx">
       <DependentUpon>ConsVendas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContasReceber\ContaReceber.resx">
+    <EmbeddedResource Include="Viwers\ContasReceber\ContaReceber.resx">
       <DependentUpon>ContaReceber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContasPagar\ContasPagar.resx">
+    <EmbeddedResource Include="Viwers\ContasPagar\ContasPagar.resx">
       <DependentUpon>ContasPagar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ContasPagar\Pagar.resx">
+    <EmbeddedResource Include="Viwers\ContasPagar\Pagar.resx">
       <DependentUpon>Pagar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Caixa\FechamentoCaixa.resx">
+    <EmbeddedResource Include="Viwers\Caixa\FechamentoCaixa.resx">
       <DependentUpon>FechamentoCaixa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\Fornecedor.resx">
+    <EmbeddedResource Include="Viwers\Cadastros\Fornecedor.resx">
       <DependentUpon>Fornecedor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\Funcionario.resx">
+    <EmbeddedResource Include="Viwers\Cadastros\Funcionario.resx">
       <DependentUpon>Funcionario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\GrupoProdutos.resx">
+    <EmbeddedResource Include="Viwers\Cadastros\GrupoProdutos.resx">
       <DependentUpon>GrupoProdutos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\GrupoUsuario.resx">
+    <EmbeddedResource Include="Viwers\Cadastros\GrupoUsuario.resx">
       <DependentUpon>GrupoUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Viwers\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Princiapl.resx">
+    <EmbeddedResource Include="Viwers\Princiapl.resx">
       <DependentUpon>Princiapl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cadastros\Produto.resx">
+    <EmbeddedResource Include="Viwers\Cadastros\Produto.resx">
       <DependentUpon>Produto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -255,12 +329,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ContasReceber\Receber.resx">
+    <EmbeddedResource Include="Viwers\ContasReceber\Receber.resx">
       <DependentUpon>Receber.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vendas\Venda.resx">
+    <EmbeddedResource Include="Viwers\Vendas\Venda.resx">
       <DependentUpon>Venda.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Projeto Novo_TemporaryKey.pfx" />
+    <None Include="projeto_dbDataSet.xsc">
+      <DependentUpon>projeto_dbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="projeto_dbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>projeto_dbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="projeto_dbDataSet.xss">
+      <DependentUpon>projeto_dbDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.MySqlAuthenticationPlugin.datasource" />
     <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.MySqlClearPasswordPlugin.datasource" />
     <None Include="Properties\DataSources\MySql.Data.MySqlClient.Authentication.MySqlNativePasswordPlugin.datasource" />
@@ -359,6 +446,8 @@
     <None Include="Properties\DataSources\MySqlX.XDevAPI.Relational.TableUpdateStatement.datasource" />
     <None Include="Properties\DataSources\MySqlX.XDevAPI.Schema.datasource" />
     <None Include="Properties\DataSources\MySqlX.XDevAPI.Session.datasource" />
+    <None Include="Properties\DataSources\Projeto_Novo.Caixa.FrmMovCaixa.datasource" />
+    <None Include="Properties\DataSources\Projeto_Novo.Relatorios.frmRelVendas.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -389,6 +478,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icone_sistema.ico" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
